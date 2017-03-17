@@ -1,0 +1,122 @@
+@import 'https://fonts.googleapis.com/css?family=Lato|Oswald|Raleway|Source+Sans+Pro';
+.lorm{padding: 25px;}
+.float_left{
+    float: left;
+}
+.float_right{
+    float: right;
+}
+.of_hidden{
+    overflow: hidden;
+}
+.of_visible{
+    overflow: visible;
+}
+.top_menu_left{
+    padding: 5px;
+    color: #ddd;
+}
+.top_menu_left i{
+    font-size: 18px;
+    padding-right: 5px;
+}
+.top_menu_left span{
+    margin-right: 10px;
+}
+.top_menu_right{
+
+}
+.top_menu_right ul{
+    list-style-type: none;
+}
+.top_menu_right ul li{
+    float:left;
+}
+.top_menu_right ul li:last-child{
+    margin-right: 0px;
+}
+.top_menu_right ul li a{
+    text-decoration: none;
+    padding: 5px;
+    display: block;
+    color: #ddd;
+}
+.top_menu_right ul li a:hover{
+    background-color: #EC008B;
+    color: #CFDBEA;
+}
+.top_menu_right ul li a i{
+    font-size: 18px;
+}
+.top_head_sec{
+    background-color: #37474F;
+    min-height: 30px;
+}
+.head_sec{
+    background-color: #fff;
+    box-shadow: 0 4px 20px rgba(0,0,0,.25);
+}
+.mainmenu_sec{}
+.body_sec{}
+.foot_sec{
+    min-height: 50px;
+    background-color: #1F292E;
+}
+.foot_sec p{
+    text-align: center;
+    padding: 1% 0%;
+    color: #ffffff;
+    font-size: 14px;
+    opacity: .8;
+}
+.logo{
+    margin-top: -10px;
+}
+.logo img{
+	width: 100px;
+    height: 70px;
+}
+.navbar-right{
+    margin-top: 10px;
+}
+.navbar-default {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    margin-bottom: 10px;
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: #e7e7e7;
+    margin-top: 5px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: 'Lato', sans-serif;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: #ddd;
+    margin-top: 30px;
+}
+.navbar-default .navbar-nav>li>a {
+   color:#2b1ab5;
+   border-radius: 5px;
+   display: block;
+}
+
+.navbar-default .navbar-nav>li>a:hover{
+    background: #F5F5F5;
+}
+.dropdown-menu>li>a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: bold;
+    line-height: 1.42857143;
+    color: #ce188c;
+    white-space: nowrap;
+}
+
+.foot_top{
+    min-height: 200px;
+    background-color: #263238;
+}

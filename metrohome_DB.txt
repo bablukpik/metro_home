@@ -1,0 +1,140 @@
+DB Name: metrohome
+Create table admin(
+    adm_id int auto_increment primary key,
+    adm_username varchar(30) unique key,
+    adm_pass varchar(100),
+    adm_name varchar(30),
+    adm_address text,
+    adm_phone varchar(30),
+    adm_email varchar(30),
+    adm_photo varchar(255)
+    );
+	
+	
+	
+	
+Create table landloard(
+    lnd_id int auto_increment primary key,
+	lnd_name varchar(30),
+	lnd_father_name varchar(30),
+	lnd_birth_date datetime,
+	lnd_maritial_status int(2),
+	lnd_permanent_add text,
+	lnd_profession_institute varchar(30),
+	lnd_religion varchar(30),
+	lnd_educational_status varchar(30),
+    lnd_phone varchar(30),
+    lnd_email varchar(30),
+    lnd_nid varchar(30) unique key,
+	lnd_passport varchar(30),
+	lnd_emergency_name varchar(30),
+	lnd_emergency_relation varchar(30),
+	lnd_emergency_address text,
+	lnd_emergency_phone varchar(30),
+	
+	lnd_homeworker_name varchar(30),
+	lnd_homeworker_nid varchar(30),
+	lnd_homeworker_phone varchar(30),
+	lnd_homeworker_permanent_add varchar(30),
+	
+	lnd_driver_name varchar(30),
+	lnd_driver_nid varchar(30),
+	lnd_driver_phone varchar(30),
+	lnd_driver_permanent_add varchar(30),
+	
+	lnd_previous_landlord_name varchar(30),
+	lnd_previous_landlord_phone varchar(30),
+	lnd_previous_landlord_permanent_add varchar(30),
+	
+	lnd_prvious_leave_reason text,
+	
+	lnd_present_landlord_name varchar(30),
+	lnd_present_landlord_phone varchar(30),
+	lnd_present_start_date datetime,
+	
+	lnd_division varchar(30),
+	lnd_police_station varchar(30),
+	lnd_flat_floor_no varchar(30),
+	lnd_holding_no varchar(30),
+	lnd_road_no varchar(30),
+	lnd_locality varchar(30),
+	lnd_postcode varchar(30),
+	
+    lnd_pass varchar(30),
+    lnd_photo varchar(255)
+    );
+	
+	
+CREATE TABLE lnd_familymember(
+	family_member_slno int(2) auto_increment primary key,
+	family_member_id int, /* foreifgn key*/
+	family_member_name varchar(30),
+	family_member_age varchar(10),
+	family_member_job varchar(30),
+	family_member_phone varchar(20),
+	foreign key(family_member_id) references landloard(lnd_id)
+	);
+	
+	
+	
+	
+Create table renter(
+    renter_id int auto_increment primary key,
+	renter_name varchar(30),
+	renter_father_name varchar(30),
+	renter_birth_date datetime,
+	renter_maritial_status int(2),
+	renter_permanent_add text,
+	renter_profession_institute varchar(30),
+	renter_religion varchar(30),
+	renter_educational_status varchar(30),
+    renter_phone varchar(30),
+    renter_email varchar(30),
+    renter_nid varchar(30) unique key,
+	renter_passport varchar(30),
+	renter_emergency_name varchar(30),
+	renter_emergency_relation varchar(30),
+	renter_emergency_address text,
+	renter_emergency_phone varchar(30),
+	
+	renter_homeworker_name varchar(30),
+	renter_homeworker_nid varchar(30),
+	renter_homeworker_phone varchar(30),
+	renter_homeworker_permanent_add varchar(30),
+	
+	renter_driver_name varchar(30),
+	renter_driver_nid varchar(30),
+	renter_driver_phone varchar(30),
+	renter_driver_permanent_add varchar(30),
+	
+	renter_previous_landlord_name varchar(30),
+	renter_previous_landlord_phone varchar(30),
+	renter_previous_landlord_permanent_add varchar(30),
+	
+	renter_prvious_leave_reason text,
+	
+	renter_present_landlord_name varchar(30),
+	renter_present_landlord_phone varchar(30),
+	renter_present_start_date datetime,
+	
+	renter_division varchar(30),
+	renter_police_station varchar(30),
+	renter_flat_floor_no varchar(30),
+	renter_holding_no varchar(30),
+	renter_road_no varchar(30),
+	renter_locality varchar(30),
+	renter_postcode varchar(30),
+	
+    renter_pass varchar(30),
+    renter_photo varchar(255)
+    );
+	
+CREATE TABLE renter_familymember(
+	family_member_slno int(2) auto_increment primary key,
+	family_member_id int, /* foreign key*/
+	family_member_name varchar(30),
+	family_member_age varchar(10),
+	family_member_job varchar(30),
+	family_member_phone varchar(20),
+	foreign key(family_member_id) references renter(renter_id)
+	);
