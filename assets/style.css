@@ -1,4 +1,7 @@
 @import 'https://fonts.googleapis.com/css?family=Lato|Oswald|Raleway|Source+Sans+Pro';
+.display_none{
+    display: none;
+}
 .lorm{padding: 25px;}
 .float_left{
     float: left;
@@ -73,8 +76,8 @@
     margin-top: -10px;
 }
 .logo img{
-	width: 100px;
-    height: 70px;
+    width: 90px;
+    height: 58px;
 }
 .navbar-right{
     margin-top: 10px;
@@ -98,14 +101,28 @@
     margin-top: 30px;
 }
 .navbar-default .navbar-nav>li>a {
-   color:#2b1ab5;
-   border-radius: 5px;
-   display: block;
+    color:#2b1ab5;
+    display: block;
+    padding-bottom:8px;
+    margin-top: 5px !important;
 }
 
-.navbar-default .navbar-nav>li>a:hover{
-    background: #F5F5F5;
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+    color: #555;
+    background-color: transparent;
+    border-bottom: 3px solid #EC008B;
 }
+
+.nav>li {
+    position: relative;
+    display: block;
+    margin-right: 15px !important;
+}
+
+.nav>li>a{
+    padding:0;
+}
+
 .dropdown-menu>li>a {
     display: block;
     padding: 3px 20px;
@@ -120,3 +137,93 @@
     min-height: 200px;
     background-color: #263238;
 }
+
+.modal-dialog {
+    width: 555px;
+    margin: 30px auto;
+}
+
+/*Login Pop up*/
+.login-form {
+    width: 360px;
+    background-color: #fff;
+    right: 0px;
+    border-top: 2px solid #2f64a3;
+    box-shadow: 0 1px 6px rgba(0,0,0,.35);
+    border-radius: 0 0 4px 4px;
+    z-index: 99999;
+    position: absolute;
+    padding: 20px;
+    top: 45px;
+}
+.login-form .tab .btn-group {
+    width: 100%;
+    margin: 0 0 10px;
+    padding: 25px 25px 0;
+}
+.login-form .btn-create {
+    float: right;
+    background-color: #fff;
+    color: #43A047;
+    border: 1px solid #43A047;
+    margin: 6px 0 0;
+}
+
+.login-form input.form-control {
+    padding-left: 25px;
+    border: none;
+    border-bottom: 1px solid #bdbdbd;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.inner-addon {
+    position: relative;
+    color: #616161;
+    float: left;
+    margin: 0 10px 0 0;
+}
+
+.login-form input.u-name {
+    margin: 0 0 15px;
+}
+
+.login-form input.form-control {
+    padding-left: 25px;
+    border: none;
+    border-bottom: 1px solid #bdbdbd;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.inner-addon {
+    position: relative;
+    color: #616161;
+    float: left;
+    margin: 0 10px 0 0;
+}
+
+.new-account p{
+    text-transform:initial;
+    font-size: 14px;
+    display: inline-block;
+    margin-top: 10px;
+}
+.login-form .btn-login {
+    padding: 8px 25px;
+    margin: 10px 0 5px;
+    width: 100%;
+    border: 1px solid #43A047;
+}
+.for-pass {
+    color: #212121;
+    text-align: center;
+    display: block;
+    margin: 8px 0 12px;
+    font-size: 14px;
+}
+.login-form label{
+    text-transform: initial;
+}
+
+/*-/Login Pop up*/

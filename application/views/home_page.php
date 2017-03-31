@@ -56,72 +56,17 @@
 				<li><a href="#">Press</a></li>
 				<li><a href="#">Home Rent</a></li>
 				<li>
-				  <a href="#myModal" data-toggle="modal" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <span class="caret"></span></a>
-				</li>
-					<!-- Modal -->
-				  <div class="modal fade" id="myModal" data-backdrop="static" data-keyboard="false" role="dialog">
-					<div class="modal-dialog modal-sm">
-					  <div class="modal-content">
-						<div class="modal-header">
-						  <button type="button" class="close" data-dismiss="modal">&times;</button>
-						  <h4 class="modal-title">Login</h4>
-						</div>
+                    <button type="button" id="loginBtn" style="color:#fff; text-transform: capitalize;" class="btn btn-success" data-toggle="modal"  data-placement="bottom" data-target="#login_dialog" data-title="Login">Sign in <span class="caret"></button>
 
-						<div class="modal-body">
-							<div id="login_tab">
-							  <!-- Nav tabs -->
-								<div class="tap">
-								  <ul class="nav nav-tabs" role="tablist">
-									<li role="presentation" class="active"><a href="#user_login" aria-controls="home" role="tab" data-toggle="tab">User Login</a></li>
-									<li role="presentation"><a href="#admin_login" aria-controls="profile" role="tab" data-toggle="tab">Admin Login</a></li>
-								  </ul>
-								</div> 
-
-							  <!-- Tab panes -->
-							  <div style="    margin-top: 30px;text-transform: capitalize;" class="tab-content">
-								<div role="tabpanel" class="tab-pane active" id="user_login">
-									<form>
-									  <div class="form-group">
-										<label for="user_username">User name</label>
-										<input type="email" class="form-control" id="user_username" placeholder="Holding No...">
-									  </div>
-									  <div class="form-group">
-										<label for="user_pass">Password</label>
-										<input type="password" class="form-control" id="user_pass" placeholder="Password">
-									  </div>
-									  <button type="submit" class="btn btn-primary">Submit</button>
-									</form>	
-								</div>
-								<div role="tabpanel" class="tab-pane" id="admin_login">
-									<form>
-									  <div class="form-group">
-										<label for="admin_username">Admin Id</label>
-										<input type="email" class="form-control" id="admin_username" placeholder="Username">
-									  </div>
-									  <div class="form-group">
-										<label for="admin_pass">Password</label>
-										<input type="password" class="form-control" id="admin_pass" placeholder="Password">
-									  </div>
-									  <button type="submit" class="btn btn-primary">Submit</button>
-									</form>
-								</div>
-							  </div>
-							</div>
-						</div>
-						<div class="modal-footer">
-							<span>Don't have an account?</span>
-							<a href="#" class="btn btn-success">Create an account</a>
-						</div>
-
-					  </div>
-					</div>
-				  </div> <!-- End Modal -->
+                    <?php $this->load->view('dialogs/login_dialog'); ?>
+                </li>
 			  </ul>
 			</div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
 		</nav>
 	</div>
 </header>
+
 <nav class="mainmenu_sec">
 	<div class="container"></div>
 </nav>
@@ -147,6 +92,8 @@
 
 <script src="assets/js/jquery.min.js" type="text/javascript"></script>
 <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="assets/js/main.js" type="text/javascript"></script>
+
 <script type="text/javascript">
 	$(document).on("click","#bs-example-navbar-collapse-1 > ul > li > a", function(){
 	   $("#bs-example-navbar-collapse-1 > ul > li").removeClass("active");
