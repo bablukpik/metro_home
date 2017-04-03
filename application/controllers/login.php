@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Admin_login extends CI_Controller
+class login extends CI_Controller
 {
     public static $model = 'MyModel';
 
@@ -31,30 +31,46 @@ class Admin_login extends CI_Controller
 
     }
 
-/*    public function index()
+    public function index()
     {
-        //$this->load->view('admin/login');
-    }*/
+        $this->load->view('home_page');
+    }
 
     public function check_login()
     {
 
-        if (!empty($_POST['admin_username']) && !empty($_POST['admin_pass'])) {
-            $admin_username = $this->input->post('admin_username');
-            $admin_pass = $this->input->post('admin_pass');
+        if (!empty($_POST['user_name']) && !empty($_POST['user_pass']) && !empty($_POST['user_type'])) {
+            $user_name = $this->input->post('user_name');
+            $user_pass = $this->input->post('user_pass');
             $user_type = $this->input->post('user_type');
-            $result = $this->MyModel->check_login_info($admin_username, $admin_pass, $user_type);
+
+
+
+            if( $user_type == 'admin'){
+                $result = $this->MyModel->check_admin_login_info($user_name, $user_pass, $user_type);
+            }elseif ($user_type == 'landloard'){
+                $result = $this->MyModel->check_landloard_login_info($user_name, $user_pass, $user_type);
+            }elseif ($user_type == 'renter'){
+                $result = $this->MyModel->check_renter_login_info($user_name, $user_pass, $user_type);
+            }elseif ($user_type == 'metro_police'){
+                $result = $this->MyModel->check_metro_police_login_info($user_name, $user_pass, $user_type);
+            }elseif ($user_type == 'general'){
+                $result = $this->MyModel->check_genUser_login_info($user_name, $user_pass, $user_type);
+            }
 
             if ($result) {
-                $sdata['admin_name'] = $result->admin_name;
-                $sdata['admin_email_address'] = $result->admin_email_address;
-                $sdata['admin_password'] = $result->admin_password;
+                $sdata['user_name'] = $result->user_name;
+                $sdata['user_pass'] = $result->user_pass;
+                $sdata['user_type'] = $result->user_type;
+                $sdata['message'] = 'Welcome ' . $result->user_name;
                 $this->session->set_userdata($sdata);
+                /*var_dump($sdata);
+                exit;*/
                 redirect('super_admin');
             }else{
-                $sdata['message'] = 'Username olocalhostr password invalid';
+                $sdata['message'] = 'Invalid Username or Password';
                 $this->session->set_userdata($sdata);
-                redirect('admin_login');
+                redirect('login');
             }
         }
     }

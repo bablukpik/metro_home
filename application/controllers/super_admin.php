@@ -6,9 +6,9 @@ class Super_admin extends CI_Controller {
 	public function __construct(){
 		parent:: __construct();
 
-        $admin_email_address = $this->session->userdata('admin_email_address');
-        if($admin_email_address == NULL){
-           redirect('admin_login');
+        $user_name = $this->session->userdata('user_name');
+        if($user_name == NULL){
+           redirect('login');
         }
 
 	}
@@ -20,12 +20,12 @@ class Super_admin extends CI_Controller {
 
 	public function logout()
 	{
-		$this->session->unset_userdata("admin_name");
-		$this->session->unset_userdata("admin_email_address");
-		$this->session->unset_userdata("admin_password");
+		$this->session->unset_userdata("user_name");
+		$this->session->unset_userdata("user_pass");
+		$this->session->unset_userdata("user_type");
 		$sdata["message"] = "You are successfully logout";
 		$this->session->set_userdata($sdata);
-		redirect("admin_login");
+		redirect("login");
 	}
 
 	public function add_category()
