@@ -58,14 +58,14 @@ class login extends CI_Controller
                 $result = $this->MyModel->check_genUser_login_info($user_name, $user_pass, $user_type);
             }
 
+
             if ($result) {
                 $sdata['user_name'] = $result->user_name;
                 $sdata['user_pass'] = $result->user_pass;
                 $sdata['user_type'] = $result->user_type;
-                $sdata['message'] = 'Welcome ' . $result->user_name;
+                $sdata['user_fullname'] = $result->user_fullname;
+                $sdata['message'] = 'Welcome ' . $result->user_fullname;
                 $this->session->set_userdata($sdata);
-                /*var_dump($sdata);
-                exit;*/
                 redirect('super_admin');
             }else{
                 $sdata['message'] = 'Invalid Username or Password';

@@ -3,7 +3,7 @@
 class MyModel extends CI_Model {
 
     const TABLE	= 'organization_user_details';
-    public static $admin	        = 'admin';
+    public static $admin	            = 'admin';
     public static $landloard	        = 'landloard';
     public static $metro_police	        = 'metro_police';
     public static $lnd_familymember	    = 'lnd_familymember';
@@ -26,31 +26,30 @@ class MyModel extends CI_Model {
         $this->db->where('user_pass', $user_pass);
         $this->db->where('user_type', $user_type);
         $query = $this->db->get();
-
         return $query->row();
     }
-    public function check_landloard_login_info($user_name, $user_pass, $user_type){
 
-        $this->db->select('*');
+    public function check_landloard_login_info($user_name, $user_pass, $user_type){
+       /* $this->db->select('*');
         $this->db->from(self::$table_admin);
         $this->db->where('adm_username', $adm_username);
-        $this->db->where('adm_pass', $adm_pass);
+        $this->db->where('adm_pass', $ad_pass);
         $this->db->where('user_type', $user_type);
         $query = $this->db->get();
-        return $query->row();
+        return $query->row();*/
     }
     public function check_renter_login_info($user_name, $user_pass, $user_type){
-
+/*
         $this->db->select('*');
         $this->db->from(self::$table_admin);
         $this->db->where('adm_username', $adm_username);
         $this->db->where('adm_pass', $adm_pass);
         $this->db->where('user_type', $user_type);
         $query = $this->db->get();
-        return $query->row();
+        return $query->row();*/
     }
     public function check_metro_police_login_info($user_name, $user_pass, $user_type){
-        var_dump($user_name);
+       /* var_dump($user_name);
         var_dump($user_pass);
         var_dump($user_type);
         exit;
@@ -60,17 +59,17 @@ class MyModel extends CI_Model {
         $this->db->where('adm_pass', $adm_pass);
         $this->db->where('user_type', $user_type);
         $query = $this->db->get();
-        return $query->row();
+        return $query->row();*/
     }
     public function check_genUser_login_info($user_name, $user_pass, $user_type){
 
-        $this->db->select('*');
+       /* $this->db->select('*');
         $this->db->from(self::$table_admin);
         $this->db->where('adm_username', $adm_username);
         $this->db->where('adm_pass', $adm_pass);
         $this->db->where('user_type', $user_type);
         $query = $this->db->get();
-        return $query->row();
+        return $query->row();*/
     }
 
    /* public function save($data)

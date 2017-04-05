@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Table structure for table `dashboard`
 --
 
 CREATE TABLE `admin` (
@@ -38,7 +38,7 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `admin`
+-- Dumping data for table `dashboard`
 --
 
 INSERT INTO `admin` (`adm_id`, `adm_username`, `adm_pass`, `adm_name`, `adm_address`, `adm_phone`, `adm_email`, `adm_photo`) VALUES
@@ -179,7 +179,7 @@ CREATE TABLE `renter_familymember` (
 --
 
 --
--- Indexes for table `admin`
+-- Indexes for table `dashboard`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`adm_id`),
@@ -218,7 +218,7 @@ ALTER TABLE `renter_familymember`
 --
 
 --
--- AUTO_INCREMENT for table `admin`
+-- AUTO_INCREMENT for table `dashboard`
 --
 ALTER TABLE `admin`
   MODIFY `adm_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bablu Space | Bablu Blog | Bablu Ahmed | Faruk Ahmed Bablu | Md.Bablu Mia</title>
+    <title>Metro Home</title>
     <!-- Core CSS - Include with every page -->
     <link href="<?php echo base_url(); ?>backend_assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
     <link href="<?php echo base_url(); ?>backend_assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
@@ -16,6 +16,28 @@
 <body>
     <!--  wrapper -->
     <div id="wrapper">
+
+        <!-- Start all messages -->
+        <div class="row">
+            <?php $message = $this->session->userdata("message");
+            if ($message) { ?>
+                <div style="position: absolute; z-index: 999999999999999;" class="col-lg-4 col-lg-offset-6">
+                    <div class="welcome_msg alert alert-success alert-dismissible fade in">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <i class="fa  fa-pencil"></i>
+                        <strong>
+                            <?php
+                            echo $message;
+                            $this->session->unset_userdata("message");
+
+                            ?>
+                        </strong>
+                    </div>
+                </div>
+            <?php } ?>
+        </div>
+        <!-- End all messages -->
+
         <!-- navbar top -->
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
             <!-- navbar-header -->
@@ -26,13 +48,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">
-                    <img src="<?php echo base_url(); ?>backend_assets/img/logo.png" alt="" />
+                <a class="navbar-brand" href="index.php">
+                    <img class="img-responsive" src="<?php echo base_url(); ?>backend_assets/img/logo.png" alt="logo" />
                 </a>
             </div>
             <!-- end navbar-header -->
             <!-- navbar-top-links -->
-            <ul class="nav navbar-top-links navbar-right">
+            <ul class="nav navbar-top-links navbar-right topRightMenu">
                 <!-- main dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -87,9 +109,6 @@
                 </li>
 
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <span class="top-label label label-success">4</span>  <i class="fa fa-tasks fa-3x"></i>
-                    </a>
                     <!-- dropdown tasks -->
                     <ul class="dropdown-menu dropdown-tasks">
                         <li>
@@ -263,13 +282,11 @@
                                 <img src="<?php echo base_url(); ?>backend_assets/img/user.jpg" alt="">
                             </div>
                             <div class="user-info">
-                                <div>
-                                    <?php $admin_name = $this->session->userdata("admin_name"); 
-                                    if($admin_name != NULL){
-                                        echo $admin_name;
+                                <div><?php $user_fullname = $this->session->userdata("user_fullname");
+                                    if($user_fullname != NULL){
+                                        echo $user_fullname;
                                     }
-                                    ?>
-                                </div>
+                                ?></div>
                                 <div id="result" class="user-text-online">
                                     
                                 </div>
@@ -277,6 +294,7 @@
                         </div>
                         <!--end user image section-->
                     </li>
+                    <div class="clearfix"></div>
                     <li class="sidebar-search">
                         <!-- search section-->
                         <div class="input-group custom-search-form">
@@ -293,14 +311,19 @@
                         <a href="<?php echo base_url(); ?>super_admin"><i class="fa fa-dashboard fa-fw"></i>Dashboard</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Blog<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> User Actions <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
+
+                            <?php
+                                $user_type = $this->session->userdata("user_type");
+                                if($user_type == 'admin') : ?>
                             <li>
-                                <a href="<?php echo base_url(); ?>super_admin/add_category">Add Category</a>
+                                <i class="fa fa-arrow-right" aria-hidden="true"></i><a href="#">Add a renter</a>
                             </li>
                             <li>
-                                <a href="#">Add Blog</a>
+                                <i class="fa fa-arrow-right" aria-hidden="true"></i><a href="<?php echo base_url(); ?>super_admin/registerRenter">Register a renter</a>
                             </li>
+                            <?php endif; ?>
                         </ul>
                         <!-- second-level-items -->
                     </li>
@@ -316,63 +339,34 @@
         <!--  page-wrapper -->
         <div id="page-wrapper">
 
-            <div class="row">
-                <!-- Page Header -->
-                <div class="col-lg-12">
-                    <h1 class="page-header">Dashboard</h1>
-                </div>
-                <!--End Page Header -->
-            </div>
-
-            <div class="row">
-                <!-- All save and unsave message with welcome msg -->
-            <?php $message = $this->session->userdata("message");
-                if ($message) { ?>
-                <div style="position: absolute; z-index: 999999999999999;" class="col-lg-12">
-                    <div class="welcome_msg alert alert-success alert-dismissible fade in">
-                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>        
-                        <i class="fa  fa-pencil"></i> 
-                        <strong>
-                        <?php 
-                            echo $message;
-                            $this->session->unset_userdata("message");
-                            
-                         ?>
-                        </strong>
-                    </div>
-                </div>
-                <?php }else{ ?>
-                <div style="position: absolute; z-index: 999999999999999;" class="col-lg-12">
-                    <div class="welcome_msg alert alert-success alert-dismissible fade in">
-                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>        
-                        <i class="fa  fa-pencil"></i> Welcome 
-                        <strong>
-                        <?php 
-                            $admin_name = $this->session->userdata("admin_name");
-                            echo $admin_name;
-                         ?>
-                        </strong>
-                    </div>
-                </div> 
-                <?php } ?>
-                <!--end  All save and unsave message with welcome msg -->
-            </div>
+            <!--Start Sidebar Menu-->
             <!-- Category Form -->
             <div class="row">
                 <div class="col-lg-12">
                     <?php
-                        if (isset($add_category_form)) {
-                             echo $add_category_form;
-                         } 
+                    if (isset($add_category_form)) {
+                        echo $add_category_form;
+                    }
                     ?>
                 </div>
             </div>
-            <!-- Category Form -->
+            <!-- -/Category Form -->
+            <!--End Sidebar Menu-->
+
+            <!--Start Document Body-->
+            <div class="row">
+
+                <?php
+                    echo isset($renterForm)?$renterForm:'';
+                ?>
+
+            </div>
+            <!--End Document Body-->
+
         </div>
         <!-- end page-wrapper -->
     </div>
     <!-- end wrapper -->
-
     <!-- Core Scripts - Include with every page -->
     <script src="<?php echo base_url(); ?>backend_assets/plugins/jquery-1.10.2.js"></script>
     <script src="<?php echo base_url(); ?>backend_assets/plugins/bootstrap/bootstrap.min.js"></script>

@@ -15,7 +15,8 @@ class Super_admin extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view("admin/admin_master");
+		$this->load->view("dashboard/dashboard_master");
+		//$this->load->view("dashboard/dashboardForm");
 	}
 
 	public function logout()
@@ -28,10 +29,10 @@ class Super_admin extends CI_Controller {
 		redirect("login");
 	}
 
-	public function add_category()
+	public function registerRenter()
 	{
-		$data["add_category_form"] = $this->load->view("admin/add_category_form", "", true);
-		$this->load->view("admin/admin_master", $data);
+		$data["renterForm"] = $this->load->view("dashboard/renterForm", "", true);
+		$this->load->view("dashboard/dashboard_master", $data);
 	}
 
 	public function save_category()
