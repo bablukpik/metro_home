@@ -321,7 +321,7 @@
                                 <i class="fa fa-arrow-right" aria-hidden="true"></i><a href="#">Add a renter</a>
                             </li>
                             <li>
-                                <i class="fa fa-arrow-right" aria-hidden="true"></i><a href="<?php echo base_url(); ?>super_admin/registerRenter">Register a renter</a>
+                                <i class="fa fa-arrow-right" aria-hidden="true"></i><a href="<?php echo base_url(); ?>super_admin/renterRegisterForm">Register a renter</a>
                             </li>
                             <?php endif; ?>
                         </ul>

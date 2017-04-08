@@ -2,9 +2,10 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Super_admin extends CI_Controller {
-    
+    public static $model = 'MyModel';
 	public function __construct(){
 		parent:: __construct();
+        $this->load->model(self::$model);
 
         $user_name = $this->session->userdata('user_name');
         if($user_name == NULL){
@@ -29,11 +30,88 @@ class Super_admin extends CI_Controller {
 		redirect("login");
 	}
 
-	public function registerRenter()
+	public function renterRegisterForm()
 	{
 		$data["renterForm"] = $this->load->view("dashboard/renterForm", "", true);
 		$this->load->view("dashboard/dashboard_master", $data);
 	}
+
+    public function registerRenter()
+    {
+        if (!empty($_POST['renter_name']) && !empty($_POST['renter_birth_date']) && !empty($_POST['renter_nid'])) {
+
+            //Renter Table (1)
+            //$renter_id = $this->input->post('renter_id');
+            $reterData['renter_name'] = $this->input->post('renter_name');
+            $reterData['renter_father_name'] = $this->input->post('renter_father_name');
+            $reterData['renter_birth_date'] = $this->input->post('renter_birth_date'); /* password*/
+            $reterData['renter_maritial_status'] = $this->input->post('renter_maritial_status');
+            $reterData['renter_permanent_add'] = $this->input->post('renter_permanent_add');
+            $reterData['renter_profession_institute'] = $this->input->post('renter_profession_institute');
+            $reterData['renter_religion'] = $this->input->post('renter_religion');
+            $reterData['renter_educational_status'] = $this->input->post('renter_educational_status');
+            $reterData['renter_phone'] = $this->input->post('renter_phone');
+            $reterData['renter_email'] = $this->input->post('renter_email');
+            $reterData['renter_nid'] = $this->input->post('renter_nid'); /* user_name*/
+            $reterData['renter_passport'] = $this->input->post('renter_passport');
+            $reterData['renter_emergency_name'] = $this->input->post('renter_emergency_name');
+            $reterData['renter_emergency_relation'] = $this->input->post('renter_emergency_relation');
+            $reterData['renter_emergency_address'] = $this->input->post('renter_emergency_address');
+            $reterData['renter_emergency_phone'] = $this->input->post('renter_emergency_phone');
+
+            $reterData['renter_previous_landlord_name'] = $this->input->post('renter_previous_landlord_name');
+            $reterData['renter_previous_landlord_phone'] = $this->input->post('renter_previous_landlord_phone');
+            $reterData['renter_previous_landlord_permanent_add'] = $this->input->post('renter_previous_landlord_permanent_add');
+
+            $reterData['renter_prvious_leave_reason'] = $this->input->post('renter_prvious_leave_reason');
+
+            $reterData['renter_present_landlord_name'] = $this->input->post('renter_present_landlord_name');
+            $reterData['renter_present_landlord_phone'] = $this->input->post('renter_present_landlord_phone');
+            $reterData['renter_present_start_date'] = $this->input->post('renter_present_start_date');
+
+            $reterData['renter_division'] = $this->input->post('renter_division');
+            $reterData['renter_district'] = $this->input->post('renter_district');
+            $reterData['renter_police_station'] = $this->input->post('renter_police_station');
+            $reterData['renter_flat_floor_no'] = $this->input->post('renter_flat_floor_no');
+            $reterData['renter_holding_no'] = $this->input->post('renter_holding_no');
+            $reterData['renter_road_no'] = $this->input->post('renter_road_no');
+            $reterData['renter_locality'] = $this->input->post('renter_locality');
+            $reterData['renter_postcode'] = $this->input->post('renter_postcode');
+            //renter_photo
+
+            $renterInsertId = $this->MyModel->check_renter_reg_info($reterData);
+
+            if ($renterInsertId){
+                //renter_familymember Table (02)
+                $renterFMData['renter_id'] = $renterInsertId; /* foreign key*/
+                $renterFMData['family_member_name'] = $this->input->post('family_member_name');
+                $renterFMData['family_member_age'] = $this->input->post('family_member_age');
+                $renterFMData['family_member_job'] = $this->input->post('family_member_job');
+                $renterFMData['family_member_phone'] = $this->input->post('family_member_phone');
+
+                $renterFMInsertId = $this->MyModel->check_renterFM_reg_info($renterFMData);
+                
+
+                //renter_homeworker Table (03)
+                //renter_id /* foreign key*/
+                $homeworker_name = $this->input->post('homeworker_name');
+                $homeworker_nid = $this->input->post('homeworker_nid');
+                $homeworker_phone = $this->input->post('homeworker_phone');
+                $homeworker_permanent_add = $this->input->post('homeworker_permanent_add');
+
+                //renter_driver Table (04)
+                //renter_id /* foreign key*/
+                $driver_name = $this->input->post('driver_name');
+                $driver_nid = $this->input->post('driver_nid');
+                $driver_phone = $this->input->post('driver_phone');
+                $driver_permanent_add = $this->input->post('driver_permanent_add');
+            }
+
+        }else{
+            $data["renterForm"] = $this->load->view("dashboard/renterForm", "", true);
+            $this->load->view("dashboard/dashboard_master", $data);
+        }
+    }
 
 	public function save_category()
 	{

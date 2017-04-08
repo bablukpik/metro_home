@@ -3,12 +3,9 @@
 class login extends CI_Controller
 {
     public static $model = 'MyModel';
-
-    const  Title = 'Next Admission';
-
     //public static $model 	 = array('myModel');
+    const  Title = 'Next Admission';
     const  TITLE = 'Metro Home';
-
 
     public function __construct()
     {
@@ -72,8 +69,14 @@ class login extends CI_Controller
                 $this->session->set_userdata($sdata);
                 redirect('login');
             }
+        }else{
+            redirect('login');
         }
-    }
-}
+
+    } //End check login
+
+
+
+} //End class
 ?>
 

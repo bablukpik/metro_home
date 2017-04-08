@@ -2,7 +2,7 @@
 
 class MyModel extends CI_Model {
 
-    const TABLE	= 'organization_user_details';
+    CONST TABLE	= 'organization_user_details';
     public static $admin	            = 'admin';
     public static $landloard	        = 'landloard';
     public static $metro_police	        = 'metro_police';
@@ -13,6 +13,7 @@ class MyModel extends CI_Model {
     public function __construct()
     {
         parent::__construct();
+
     }
 
     public function check_admin_login_info($user_name, $user_pass, $user_type){
@@ -71,6 +72,20 @@ class MyModel extends CI_Model {
         $query = $this->db->get();
         return $query->row();*/
     }
+
+    public function check_renter_reg_info($reterData){
+        $this->db->insert(self::$renter, $reterData);
+        return $this->db->insert_id();
+    }
+
+    public function check_renterFM_reg_info($renterFMData){
+        $this->db->insert(self::$renter_familymember, $renterFMData);
+        return $this->db->insert_id();
+    }
+
+
+
+
 
    /* public function save($data)
     {
