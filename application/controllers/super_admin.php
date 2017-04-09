@@ -22,11 +22,14 @@ class Super_admin extends CI_Controller {
 
 	public function logout()
 	{
-		$this->session->unset_userdata("user_name");
+
+
+        $this->session->sess_destroy();
+		/*$this->session->unset_userdata("user_name");
 		$this->session->unset_userdata("user_pass");
 		$this->session->unset_userdata("user_type");
 		$sdata["message"] = "You are successfully logout";
-		$this->session->set_userdata($sdata);
+		$this->session->set_userdata($sdata);*/
 		redirect("login");
 	}
 
@@ -36,8 +39,10 @@ class Super_admin extends CI_Controller {
 		$this->load->view("dashboard/dashboard_master", $data);
 	}
 
+
     public function registerRenter()
     {
+
         if (!empty($_POST['renter_name']) && !empty($_POST['renter_birth_date']) && !empty($_POST['renter_nid'])) {
 
             //Renter Table (1)
@@ -83,6 +88,7 @@ class Super_admin extends CI_Controller {
 
             if ($renterInsertId){
                 $sdata['message'] = 'Renter added successfully';
+                $sdata['RenterAddedSussess'] = 'Renter added successfully';
 
                 //renter_familymember Table (02)
                 $renterFMData['renter_id'] = $renterInsertId; /* foreign key*/
@@ -133,6 +139,7 @@ class Super_admin extends CI_Controller {
                 redirect('super_admin');
             }else{
                 $sdata['message'] = 'Try again! Renter added failure';
+                $sdata['renterAddedFailure'] = 'Try again! Renter added failure';
                 $this->session->set_userdata($sdata);
                 redirect('super_admin/renterRegisterForm');
             }

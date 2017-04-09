@@ -35,7 +35,6 @@ class login extends CI_Controller
 
     public function check_login()
     {
-
         if (!empty($_POST['user_name']) && !empty($_POST['user_pass']) && !empty($_POST['user_type'])) {
             $user_name = $this->input->post('user_name');
             $user_pass = $this->input->post('user_pass');
@@ -58,7 +57,6 @@ class login extends CI_Controller
 
             if ($result) {
                 $sdata['user_name'] = $result->user_name;
-                $sdata['user_pass'] = $result->user_pass;
                 $sdata['user_type'] = $result->user_type;
                 $sdata['user_fullname'] = $result->user_fullname;
                 $sdata['message'] = 'Welcome ' . $result->user_fullname;
