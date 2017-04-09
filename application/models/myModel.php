@@ -4,11 +4,20 @@ class MyModel extends CI_Model {
 
     CONST TABLE	= 'organization_user_details';
     public static $admin	            = 'admin';
-    public static $landloard	        = 'landloard';
     public static $metro_police	        = 'metro_police';
+
+    public static $landloard	        = 'landloard';
     public static $lnd_familymember	    = 'lnd_familymember';
+    public static $lnd_homeworker	    = 'lnd_homeworker';
+    public static $lnd_driver	        = 'lnd_driver';
+
     public static $renter	            = 'renter';
     public static $renter_familymember	= 'renter_familymember';
+    public static $renter_homeworker	= 'renter_homeworker';
+    public static $renter_driver	= 'renter_driver';
+
+
+
 
     public function __construct()
     {
@@ -73,13 +82,23 @@ class MyModel extends CI_Model {
         return $query->row();*/
     }
 
-    public function check_renter_reg_info($reterData){
+    public function save_renter_reg_data($reterData){
         $this->db->insert(self::$renter, $reterData);
         return $this->db->insert_id();
     }
 
-    public function check_renterFM_reg_info($renterFMData){
+    public function save_renterFM_data($renterFMData){
         $this->db->insert(self::$renter_familymember, $renterFMData);
+        return $this->db->insert_id();
+    }
+
+    public function save_renterHW_data($renterHWData){
+        $this->db->insert(self::$renter_homeworker, $renterHWData);
+        return $this->db->insert_id();
+    }
+
+    public function save_renterDriver_data($renter_driverData){
+        $this->db->insert(self::$renter_driver, $renter_driverData);
         return $this->db->insert_id();
     }
 

@@ -79,9 +79,11 @@ class Super_admin extends CI_Controller {
             $reterData['renter_postcode'] = $this->input->post('renter_postcode');
             //renter_photo
 
-            $renterInsertId = $this->MyModel->check_renter_reg_info($reterData);
+            $renterInsertId = $this->MyModel->save_renter_reg_data($reterData);
 
             if ($renterInsertId){
+                $sdata['message'] = 'Renter added successfully';
+
                 //renter_familymember Table (02)
                 $renterFMData['renter_id'] = $renterInsertId; /* foreign key*/
                 $renterFMData['family_member_name'] = $this->input->post('family_member_name');
@@ -89,27 +91,54 @@ class Super_admin extends CI_Controller {
                 $renterFMData['family_member_job'] = $this->input->post('family_member_job');
                 $renterFMData['family_member_phone'] = $this->input->post('family_member_phone');
 
-                $renterFMInsertId = $this->MyModel->check_renterFM_reg_info($renterFMData);
-                
+                $renterFMInsertId = $this->MyModel->save_renterFM_data($renterFMData);
+
+                if($renterFMInsertId){
+                    $sdata['renterFMSuccess'] = 'Renter family member added successfully';
+                }else{
+                    $sdata['renterFMFailure'] = 'Renter family member added failure';
+                }
 
                 //renter_homeworker Table (03)
-                //renter_id /* foreign key*/
-                $homeworker_name = $this->input->post('homeworker_name');
-                $homeworker_nid = $this->input->post('homeworker_nid');
-                $homeworker_phone = $this->input->post('homeworker_phone');
-                $homeworker_permanent_add = $this->input->post('homeworker_permanent_add');
+                $renterHWData['renter_id'] = $renterInsertId; /* foreign key*/
+                $renterHWData['homeworker_name'] = $this->input->post('homeworker_name');
+                $renterHWData['homeworker_nid'] = $this->input->post('homeworker_nid');
+                $renterHWData['homeworker_phone'] = $this->input->post('homeworker_phone');
+                $renterHWData['homeworker_permanent_add'] = $this->input->post('homeworker_permanent_add');
+
+                $renterHWInsertId = $this->MyModel->save_renterHW_data($renterHWData);
+
+                if($renterHWInsertId){
+                    $sdata['renterHWSuccess'] = 'Renter home worker added successfully';
+                }else{
+                    $sdata['renterHWFailure'] = 'Renter home worker added failure!';
+                }
 
                 //renter_driver Table (04)
-                //renter_id /* foreign key*/
-                $driver_name = $this->input->post('driver_name');
-                $driver_nid = $this->input->post('driver_nid');
-                $driver_phone = $this->input->post('driver_phone');
-                $driver_permanent_add = $this->input->post('driver_permanent_add');
+                $renter_driverData['renter_id'] = $renterInsertId; /* foreign key*/
+                $renter_driverData['driver_name'] = $this->input->post('driver_name');
+                $renter_driverData['driver_nid'] = $this->input->post('driver_nid');
+                $renter_driverData['driver_phone'] = $this->input->post('driver_phone');
+                $renter_driverData['driver_permanent_add'] = $this->input->post('driver_permanent_add');
+
+                $renterDriverInsertId = $this->MyModel->save_renterDriver_data($renter_driverData);
+
+                if($renterDriverInsertId){
+                    $sdata['renterDriverSuccess'] = 'Renter driver added successfully';
+                }else{
+                    $sdata['renterDriverFailure'] = 'Renter driver added failure!';
+                }
+
+                $this->session->set_userdata($sdata);
+                redirect('super_admin');
+            }else{
+                $sdata['message'] = 'Try again! Renter added failure';
+                $this->session->set_userdata($sdata);
+                redirect('super_admin/renterRegisterForm');
             }
 
         }else{
-            $data["renterForm"] = $this->load->view("dashboard/renterForm", "", true);
-            $this->load->view("dashboard/dashboard_master", $data);
+            redirect('super_admin/renterRegisterForm');
         }
     }
 
