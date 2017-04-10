@@ -13,9 +13,11 @@ Create table admin(
 	
 Create table landloard(
     lnd_id int auto_increment primary key,
+	user_pass varchar (40), /* password*/
+	user_type varchar (30), /*type default*/
 	lnd_name varchar(30),
 	lnd_father_name varchar(30),
-	lnd_birth_date datetime, /* password*/
+	lnd_birth_date datetime,
 	lnd_maritial_status int(2),
 	lnd_permanent_add text,
 	lnd_profession_institute varchar(30),
@@ -56,6 +58,7 @@ Create table landloard(
 Create table renter(
     renter_id int auto_increment primary key,
 	renter_name varchar(30),
+	user_type varchar(30), /*type*/
 	renter_father_name varchar(30),
 	renter_birth_date datetime, /* password*/
 	renter_maritial_status int(2),

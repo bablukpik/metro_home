@@ -59,6 +59,7 @@
                     <button type="button" id="loginBtn" style="color:#fff; text-transform: capitalize;" class="btn btn-success" data-toggle="modal"  data-placement="bottom" data-target="#login_dialog" data-title="Login">Sign in <span class="caret"></button>
 
                     <?php $this->load->view('dialogs/login_dialog'); ?>
+                    <?php $this->load->view('dialogs/registration_dialog'); ?>
                 </li>
 			  </ul>
 			</div><!-- /.navbar-collapse -->

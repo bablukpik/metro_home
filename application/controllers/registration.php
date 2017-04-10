@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Login extends CI_Controller
+class Registration extends CI_Controller
 {
     public static $model = 'MyModel';
     //public static $model 	 = array('myModel');
@@ -20,7 +20,7 @@ class Login extends CI_Controller
         //$this->load->library('session');
 
 
-       // $admin_email_address = $this->session->userdata('admin_email_address');
+        // $admin_email_address = $this->session->userdata('admin_email_address');
         /*if ($admin_email_address != NULL) {
             redirect('super_admin');
         }*/
@@ -29,7 +29,7 @@ class Login extends CI_Controller
 
     public function index()
     {
-        $this->load->view('home_page');
+        $this->load->view('');
     }
 
     public function check_login()
