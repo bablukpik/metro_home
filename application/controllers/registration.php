@@ -3,36 +3,21 @@
 class Registration extends CI_Controller
 {
     public static $model = 'MyModel';
-    //public static $model 	 = array('myModel');
     const  TITLE = 'Metro Home';
 
     public function __construct()
     {
-
         parent::__construct();
-
-        //$this->load->database();
         $this->load->model(self::$model);
-        //$this->load->helper(self::$helper);
-        //$this->load->library('form_validation');
-        //$this->load->library('upload');
-        //$this->load->library('image_lib');
-        //$this->load->library('session');
-
-
-        // $admin_email_address = $this->session->userdata('admin_email_address');
-        /*if ($admin_email_address != NULL) {
-            redirect('super_admin');
-        }*/
 
     }
 
     public function index()
     {
-        $this->load->view('');
+        redirect('home');
     }
 
-    public function check_login()
+    public function onlineRegistration()
     {
         if (!empty($_POST['user_name']) && !empty($_POST['user_pass']) && !empty($_POST['user_type'])) {
             $user_name = $this->input->post('user_name');

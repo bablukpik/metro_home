@@ -23,7 +23,7 @@
             <a class="for-pass" href="#" target="_blank">Forgot password?</a>
             <div class="new-account">
                 <p>Don't have an account?</p>
-                <button type="button" class="btn btn-default btn-create" data-toggle="modal" data-target="#registrationOnline">Create account</button>
+                <button type="button" id="onlineRegBtn" class="btn btn-default btn-create" data-toggle="modal" data-target="#registrationOnline">Create account</button>
             </div>
         </div>
 

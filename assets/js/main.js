@@ -1,6 +1,6 @@
 jQuery(function ($) {
 
-//Login Button Restricted area of dialog
+    //Login Button Restricted area of dialog
     $(document).on("click", function(event){
         console.log('Document click');
         if ($(event.target).parents("#loginForm").length > 0 || $(event.target).closest("#loginBtn").length > 0) {
@@ -13,10 +13,16 @@ jQuery(function ($) {
 
     });
 
-//Login Button
+    //Login Button
     $("#loginBtn").on('click', function(){
         console.log('Clicked button');
         $("#loginForm").toggleClass("display_none");
+    });
+
+    //Registration Button
+    $("#onlineRegBtn").on('click', function(){
+        console.log('Clicked button');
+        $("#loginForm").addClass("display_none");
     });
 
 }); //End Jquery Block

@@ -6,24 +6,25 @@
         </div>
         <!--end page header -->
     </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <img style="margin-right: 10px" src="<?php echo base_url();?>backend_assets/img/dmp-logo.png" alt="DMP" class="img-responsive pull-left" width="100"/>
+            <img src="<?php echo base_url();?>backend_assets/img/intro_title.png" alt="ঢাকা মেট্রোপলিটন পুলিশ" class="img-responsive pull-left" width="450"/>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-lg-12">
             <!-- Form Elements -->
             <div class="panel panel-default">
-                <div class="panel-heading">
+                <div class="panel-heading text-center" style="color:red;">
                     সঠিক তথ্য দিয়ে নিচের ফরমটি পূরণ করুন।
                 </div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
                             <form action="registerRenter" method="post" role="form">
-
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <img style="margin-right: 10px" src="<?php echo base_url();?>backend_assets/img/dmp-logo.png" alt="DMP" class="img-responsive pull-left" width="100"/>
-                                        <img src="<?php echo base_url();?>backend_assets/img/intro_title.png" alt="ঢাকা মেট্রোপলিটন পুলিশ" class="img-responsive pull-left" width="450"/>
-                                    </div>
-                                </div> <hr/>
 
                                 <div class="col-md-4">
                                     <div class="row">
