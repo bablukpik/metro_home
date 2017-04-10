@@ -6,7 +6,7 @@ class MyModel extends CI_Model {
     public static $admin	            = 'admin';
     public static $metro_police	        = 'metro_police';
 
-    public static $landloard	        = 'landloard';
+    public static $landlord	            = 'landloard';
     public static $lnd_familymember	    = 'lnd_familymember';
     public static $lnd_homeworker	    = 'lnd_homeworker';
     public static $lnd_driver	        = 'lnd_driver';
@@ -16,9 +16,6 @@ class MyModel extends CI_Model {
     public static $renter_homeworker	= 'renter_homeworker';
     public static $renter_driver	= 'renter_driver';
 
-
-
-
     public function __construct()
     {
         parent::__construct();
@@ -26,10 +23,6 @@ class MyModel extends CI_Model {
     }
 
     public function check_admin_login_info($user_name, $user_pass, $user_type){
-        /*var_dump($user_name);
-        var_dump($user_pass);
-        var_dump($user_type);
-        exit();*/
         $this->db->select('*');
         $this->db->from(self::$admin);
         $this->db->where('user_name', $user_name);
@@ -40,13 +33,13 @@ class MyModel extends CI_Model {
     }
 
     public function check_landloard_login_info($user_name, $user_pass, $user_type){
-       /* $this->db->select('*');
-        $this->db->from(self::$table_admin);
-        $this->db->where('adm_username', $adm_username);
-        $this->db->where('adm_pass', $ad_pass);
+        $this->db->select('*');
+        $this->db->from(self::$landlord);
+        $this->db->where('lnd_nid', $user_name);
+        $this->db->where('user_pass', $user_pass);
         $this->db->where('user_type', $user_type);
         $query = $this->db->get();
-        return $query->row();*/
+        return $query->row();
     }
     public function check_renter_login_info($user_name, $user_pass, $user_type){
 /*
@@ -82,6 +75,7 @@ class MyModel extends CI_Model {
         return $query->row();*/
     }
 
+    //Renter info store
     public function save_renter_reg_data($reterData){
         $this->db->insert(self::$renter, $reterData);
         return $this->db->insert_id();
@@ -101,8 +95,29 @@ class MyModel extends CI_Model {
         $this->db->insert(self::$renter_driver, $renter_driverData);
         return $this->db->insert_id();
     }
+    //End Renter info store
 
+    //Landlord info store
+    public function save_lnd_reg_data($lndData){
+        $this->db->insert(self::$landlord, $lndData);
+        return $this->db->insert_id();
+    }
 
+    public function save_lndFM_data($lndFMData){
+        $this->db->insert(self::$lnd_familymember, $lndFMData);
+        return $this->db->insert_id();
+    }
+
+    public function save_lndHW_data($lndHWData){
+        $this->db->insert(self::$lnd_homeworker, $lndHWData);
+        return $this->db->insert_id();
+    }
+
+    public function save_lndDriver_data($lnd_driverData){
+        $this->db->insert(self::$lnd_driver, $lnd_driverData);
+        return $this->db->insert_id();
+    }
+    //End Landlord info store
 
 
 

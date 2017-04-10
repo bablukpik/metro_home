@@ -3,12 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Super_admin extends CI_Controller {
     public static $model = 'MyModel';
+
 	public function __construct(){
 		parent:: __construct();
         $this->load->model(self::$model);
 
         $user_name = $this->session->userdata('user_name');
-        if($user_name == NULL){
+        $lnd_nid= $this->session->userdata('lnd_nid');
+        $user_type = $this->session->userdata('user_type');
+        if( ($user_name == NULL or $lnd_nid==NULL) and $user_type==NULL ){
            redirect('login');
         }
 
@@ -17,13 +20,10 @@ class Super_admin extends CI_Controller {
 	public function index()
 	{
 		$this->load->view("dashboard/dashboard_master");
-		//$this->load->view("dashboard/dashboardForm");
 	}
 
 	public function logout()
 	{
-
-
         $this->session->sess_destroy();
 		/*$this->session->unset_userdata("user_name");
 		$this->session->unset_userdata("user_pass");
@@ -42,7 +42,6 @@ class Super_admin extends CI_Controller {
 
     public function registerRenter()
     {
-
         if (!empty($_POST['renter_name']) && !empty($_POST['renter_birth_date']) && !empty($_POST['renter_nid'])) {
 
             //Renter Table (1)

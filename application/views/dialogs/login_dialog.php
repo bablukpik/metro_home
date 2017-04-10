@@ -7,7 +7,7 @@
                 <select name="user_type" class="form-control" id="usr">
                     <option selected value="DEFAULT" disabled="disabled">Please select an user</option>
                     <option value="general">General User</option>
-                    <option value="landloard">Landloard</option>
+                    <option value="landlord">Landlord</option>
                     <option value="metro_police">Metro Police</option>
                     <option value="admin">Admin</option>
                     <option value="renter">Renter</option>

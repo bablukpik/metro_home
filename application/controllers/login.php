@@ -39,11 +39,9 @@ class Login extends CI_Controller
             $user_pass = $this->input->post('user_pass');
             $user_type = $this->input->post('user_type');
 
-
-
             if( $user_type == 'admin'){
                 $result = $this->MyModel->check_admin_login_info($user_name, $user_pass, $user_type);
-            }elseif ($user_type == 'landloard'){
+            }elseif ($user_type == 'landlord'){
                 $result = $this->MyModel->check_landloard_login_info($user_name, $user_pass, $user_type);
             }elseif ($user_type == 'renter'){
                 $result = $this->MyModel->check_renter_login_info($user_name, $user_pass, $user_type);
