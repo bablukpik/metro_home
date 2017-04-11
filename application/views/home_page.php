@@ -74,7 +74,300 @@
 <nav class="mainmenu_sec">
 	<div class="container"></div>
 </nav>
+
+<section class="locationSearch" style="margin-top: 20px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-sm-12">
+                <!--<link rel="stylesheet" href="css/odometer-theme-default.css" />-->
+                <div class="search-panel">
+                    <h2>Find Homes For Rent</h2>
+                    <div class="search-form">
+
+
+                        <form action="#" method="post" target="_blank">
+
+                            <div class="inner-addon keyword-search">
+                                <i class="icon-tag"></i>
+                                <input type="text" name="txtsearch" id="txtKeyword" class="form-control" placeholder="Search by keyword">
+                            </div>
+
+                            <div class="inner-addon categoryCombo hidden-sm hidden-xs">
+                                <i class="icon-briefcase"></i>
+                                <select name="qOT" id="qOT" class="form-control active">
+                                    <option value="0" selected="">Please select your area </option>
+                                    <option value="0">Adabor</option>
+                                    <option value="0">Badda</option>
+                                    <option value="0">Bangsal</option>
+                                    <option value="0">Bimanbandar</option>
+                                    <option value="0">Mirpur</option>
+                                    <!--Adabor, Badda, Bangsal, Bimanbandar, Cantonment, Chak Bazar, Dakshinkhan, Darus Salam, Demra, Dhamrai Upazila, Dhanmondi, Dohar Upazila, Gendaria, Gulshan, Hazaribagh, Jatrabari, Kadamtali, Kafrul, Kalabagan, Kamrangirchar, Keraniganj Upazila, Khilgaon, khilkhet, Kotwali, Lalbagh, Mirpur, Mohammadpur, Motijheel, Nawabganj Upazila, Newmarket, Pallabi, Paltan, Ramna, Rampura, Sabujbagh, Savar Upazila, Shah Ali, Shahbag, Sher-e-Bangla Nagar, Shyampur, Sutrapur, Tejgaon, Mohakhali, Tejgaon Industrial Area, Turag, Uttara, Uttar Khan-->
+                                    <!--<option value="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Government</option>-->
+                                </select>
+                            </div>
+
+                            <!--<a href="http://www.bdjobs.com/"  class="btn btn-default">
+                              <i class="icon-search"></i>&nbsp;Search
+                            </a>-->
+                            <input type="hidden" id="hidJobSearch" name="hidJobSearch" value="jobsearch">
+                            <input type="submit" class="btn btn-default" value="Search" onclick="Generategglevent()">
+                        </form>
+                    </div>
+
+                </div>
+                <script type="text/javascript">
+
+                    window.odometerOptions = {
+                        //auto: false,
+                        format: '(dd,dd,dd,ddd)',
+                        selector: '#JopApply, #CompnayShow, #JobShow',
+                    };
+
+
+                    var HomeStatsURL = "http://bdjobs.com/getHomeStats.asp"
+                    var HomeStatsTiming = 310000
+
+                    var num = 0;
+                    ajaxObject_xmlhttp = new Array();
+                    countLoading = 0;
+                    function showHint(str)
+                    {
+
+                        if (str.length == 0)
+                        {
+                            return;
+                        }
+                        cid = "?bda=bdh";
+                        num = num+1;
+                        ajaxObject_xmlhttp[ num ] = GetXmlHttpObjectBdjStats() ;
+
+                        ajaxObject_xmlhttp[ num ].onreadystatechange = function()
+                        {
+
+
+                            if ( ajaxObject_xmlhttp[ num ].readyState == 4 && ajaxObject_xmlhttp[ num ].status == 200 )//.statusText == "OK"
+                            {
+                                HomeStatsResponseText = ajaxObject_xmlhttp[ num ].responseText;
+                                arrHomeStats = HomeStatsResponseText.split("#")
+                                //JopApply,JobShow,CompnayShow
+                                document.getElementById("JobShow").innerHTML=arrHomeStats[0]
+                                document.getElementById("CompnayShow").innerHTML=arrHomeStats[1]
+                                document.getElementById("JopApply").innerHTML=arrHomeStats[2]
+
+                            }
+                        }
+
+                        ajaxObject_xmlhttp[ num ].open("GET",""+str+"",true);
+                        ajaxObject_xmlhttp[ num ].send();
+
+                    }
+
+                    var ie8plus;
+                    function GetXmlHttpObjectBdjStats()
+                    {
+                        xmlHttp = null;
+                        if (window.XMLHttpRequest)
+                        {// code for IE7+, Firefox, Chrome, Opera, Safari
+                            xmlHttp=new XMLHttpRequest();
+                        }
+                        else
+                        {// code for IE6, IE5
+                            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                        }
+                        return xmlHttp;
+                    }
+
+                    var vcat;
+                    var ajaxCallJA = true;
+                    var ajaxCallJAds = true;
+                    var ajaxCallCB = true;
+
+                    var strNumArray;
+                    strNumArray = 0;
+
+                    function startLiveScore()
+                    {
+
+                        if(navigator.userAgent.toUpperCase().indexOf('MSIE') >= 0)
+                        {
+                            showVisitorNumber()
+                        }
+                        else
+                        {
+                            showHint(HomeStatsURL);
+                        }
+                    }
+
+                    var isActive;
+
+                    startLiveScore()
+
+                    window.onfocus = function () {
+                        isActive = true;
+                        startLiveScore()
+                    };
+
+                    window.onblur = function () {
+                        isActive = false;
+
+                    };
+                    if(navigator.userAgent.toUpperCase().indexOf('MSIE') >= 0)
+                    {
+                        setInterval("showVisitorNumber()", HomeStatsTiming);
+
+                        setInterval(function(){
+                            if (window.isActive)
+                            {
+                                showVisitorNumber();
+                            }
+                        },HomeStatsTiming);
+
+                    }
+                    else
+                    {
+                        setInterval(function(){
+                            if (window.isActive)
+                            {
+                                showHint(HomeStatsURL);
+                            }
+                            else
+                            {
+
+                            }
+                        },HomeStatsTiming);
+
+                    }
+
+                    function showVisitorNumber()
+                    {
+
+                        xmlhttp=GetXmlHttpObjectBdjStats()
+
+                        if (xmlhttp==null)
+                        {
+                            return;
+                        }
+                        url=HomeStatsURL;
+                        LoadType=ActType;
+                        if (ie8plus == true)
+                        {
+                            xmlhttp.open("get",url);
+                            xmlhttp.onload =stateChanged;
+
+                        }
+                        else
+                        {
+                            xmlhttp.onreadystatechange=stateChanged;
+                            xmlhttp.open("POST",url,true);
+                        }
+
+
+                        if (ie8plus == true)
+                        {
+                            xmlhttp.send();
+                        }
+                        else
+                        {
+                            xmlhttp.setRequestHeader("Content-length", url.length);
+                            xmlhttp.send(url);
+                        }
+
+                    }
+
+                    function stateChanged()
+                    {
+                        var strResponseText;
+                        if(ie8plus == true)
+                        {
+                            HomeStatsResponseText = xmlhttp.responseText;
+                            arrHomeStats = HomeStatsResponseText.split("#")
+                            //JopApply,JobShow,CompnayShow
+                            document.getElementById("JobShow").innerHTML=arrHomeStats[0]
+                            document.getElementById("CompnayShow").innerHTML=arrHomeStats[1]
+                            document.getElementById("JopApply").innerHTML=arrHomeStats[2]
+
+
+                        }
+                    }
+
+
+                    function Generategglevent()
+                    {
+                        if(document.getElementById("txtKeyword").value.trim()!="")
+                        {
+                            _gaq.push(['_trackEvent', 'SeachPanelKeyword' , document.getElementById("txtKeyword").value,'EN',1.00,true]);
+                        }
+
+                        var e = document.getElementById("qOT");
+                        var strorg = e.options[e.selectedIndex].value;
+                        var strorgText = e.options[e.selectedIndex].text.trim();
+                        if(strorg!="0")
+                        {
+                            _gaq.push(['_trackEvent', 'OrganizationDropdown' , strorgText,'EN',1.00,true]);
+
+                        }
+
+
+                        _gaq.push(['_trackEvent', 'SeachPanelButton' , 'Search','EN',1.00,true]);
+                    }
+                </script>
+                <script src="js/odometer.js"></script>
+            </div>
+
+            <div class="col-md-3 col-sm-12">
+
+
+                <div class="sliderSidebar">
+                    <div class="division">
+                        <h4>Available Homes</h4>
+                        <div class="all-division">
+                            <a href="#" class="btn btn-default" target="_blank">Adabor <span>(2122)</span></a>
+                            <a href="#" class="btn btn-default" target="_blank">Badda <span>(44)</span></a>
+                            <a href="#" class="btn btn-default" target="_blank">Bangsal <span>(60)</span></a>
+                            <a href="#" class="btn btn-default" target="_blank">Bimanbandar <span>(84)</span></a>
+                            <a href="#" class="btn btn-default" target="_blank">Cantonment <span>(358)</span></a>
+                            <a href="#" class="btn btn-default" target="_blank">Chak Bazar <span>(111)</span></a>
+                            <a href="#" class="btn btn-default" target="_blank">Dakshinkhan <span>(48)</span></a>
+                            <a href="#" class="btn btn-default" target="_blank">Darus Salam <span>(48)</span></a>
+                            <a href="#" class="btn btn-default" target="_blank">Demra <span>(48)</span></a>
+                            <!--<a href="#" class="btn btn-default" target="_blank">Dhamrai <span>(48)</span></a>
+                            <a href="#" class="btn btn-default" target="_blank">Dhanmondi <span>(48)</span></a>
+                            <a href="#" class="btn btn-default" target="_blank">Dohar Upazila <span>(48)</span></a>
+                            <a href="#" class="btn btn-default" target="_blank">Gendaria <span>(48)</span></a>
+                            <a href="#" class="btn btn-default" target="_blank">Gulshan <span>(48)</span></a>
+                            <a href="#" class="btn btn-default" target="_blank">Hazaribagh <span>(48)</span></a>
+                            <a href="#" class="btn btn-default" target="_blank">Jatrabari <span>(48)</span></a>
+                            <a href="#" class="btn btn-default" target="_blank">Kadamtali <span>(48)</span></a>
+                            <a href="#" class="btn btn-default" target="_blank">Kafrul <span>(48)</span></a>
+                            <a href="#" class="btn btn-default" target="_blank">Kalabagan <span>(48)</span></a>
+                            <a href="#" class="btn btn-default" target="_blank">Kamrangirchar <span>(48)</span></a>
+                            <a href="#" class="btn btn-default" target="_blank">Keraniganj <span>(48)</span></a>
+                            <a href="#" class="btn btn-default" target="_blank">Khilgaon <span>(48)</span></a>
+                            <a href="#" class="btn btn-default" target="_blank">khilkhet <span>(48)</span></a>
+                            <a href="#" class="btn btn-default" target="_blank">Kotwali <span>(48)</span></a>
+                            <a href="#" class="btn btn-default" target="_blank">Lalbagh <span>(48)</span></a>
+                            <a href="#" class="btn btn-default" target="_blank">Mirpur <span>(48)</span></a>-->
+                            <!--Mohammadpur, Motijheel, Nawabganj Upazila, Newmarket, Pallabi, Paltan, Ramna, Rampura, Sabujbagh, Savar Upazila, Shah Ali, Shahbag, Sher-e-Bangla Nagar, Shyampur, Sutrapur, Tejgaon, Mohakhali, Tejgaon Industrial Area, Turag, Uttara, Uttar Khan-->
+                            <!--<a href="http://www.bdjobs.com/"  class="btn btn-default">Mymensingh <span>()</span></a>-->
+                            <a href="#" class="btn btn-default" target="_blank">Mymensingh <span>(20)</span></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <script type="application/javascript">
+                function init() {}
+            </script>
+
+            <!--eid background ends-->
+        </div>
+    </div>
+</section>
+
 <section class="body_sec">
+
 	<div class="container">
 		<div class="lorm">
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos consequatur architecto incidunt, cumque qui laborum repellat praesentium, numquam fugit id, nihil sapiente reiciendis illo error deleniti doloremque quisquam recusandae optio!</p>
