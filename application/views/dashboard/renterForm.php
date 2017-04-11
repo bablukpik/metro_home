@@ -82,7 +82,7 @@
                                     <input type="text" name="renter_father_name" class="form-control" placeholder="পিতার নামঃ">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="renter_birth_date" class="form-control" placeholder="জন্ম তারিখঃ">
+                                    <input type="text" name="renter_birth_date" class="form-control popupDatepickerBackEnd" placeholder="জন্ম তারিখঃ">
                                 </div>
                                 <div class="form-group">
                                     <input type="text" name="renter_maritial_status" class="form-control" placeholder="বৈবাহিক অবস্থাঃ">

@@ -2,6 +2,9 @@
 .display_none{
     display: none;
 }
+.datepick-popup {
+    z-index: 9999999999999 !important;
+}
 .lorm{padding: 25px;}
 .float_left{
     float: left;

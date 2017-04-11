@@ -12,6 +12,9 @@
     <link href="<?php echo base_url(); ?>backend_assets/css/main-style.css" rel="stylesheet" />
     <!-- Page-Level CSS -->
     <link href="<?php echo base_url(); ?>backend_assets/plugins/morris/morris-0.4.3.min.css" rel="stylesheet" />
+    <!--Datepicker-->
+    <link href="<?php echo base_url(); ?>assets/datepicker/css/jquery.datepick.css" rel="stylesheet">
+    <!--/Datepicker-->
    </head>
 <body>
     <!--  wrapper -->
@@ -224,7 +227,7 @@
     <!-- end wrapper -->
     <!-- Core Scripts - Include with every page -->
     <script src="<?php echo base_url(); ?>backend_assets/plugins/jquery-1.10.2.js"></script>
-    <script src="<?php echo base_url(); ?>backend_assets/plugins/bootstrap/bootstrap.min.js"></script>
+    <!--<script src="<?php /*echo base_url(); */?>backend_assets/plugins/bootstrap/bootstrap.min.js"></script>-->
     <script src="<?php echo base_url(); ?>backend_assets/plugins/metisMenu/jquery.metisMenu.js"></script>
     <script src="<?php echo base_url(); ?>backend_assets/plugins/pace/pace.js"></script>
     <script src="<?php echo base_url(); ?>backend_assets/scripts/siminta.js"></script>
@@ -233,25 +236,32 @@
     <script src="<?php echo base_url(); ?>backend_assets/plugins/morris/morris.js"></script>
     <script src="<?php echo base_url(); ?>backend_assets/scripts/dashboard-demo.js"></script>
 
-</body>
+    <script>
+        $(".welcome_msg").fadeOut(3000);
+    </script>
 
-<script>
-    $(".welcome_msg").fadeOut(3000);
-</script>
+    <script>
+        function autoRefresh_div(){
+            if (navigator.onLine) {
+                //alert('online');
+                $("#result").html("<span class='user-circle-online btn btn-success btn-circle'></span> Online");
+            }else{
+                $("#result").html("<span class='user-circle-online btn btn-danger btn-circle'></span> Offline");
+            }
 
-<script>
-    
-    function autoRefresh_div(){
-        if (navigator.onLine) {
-            //alert('online');
-            $("#result").html("<span class='user-circle-online btn btn-success btn-circle'></span> Online");
-        }else{
-           $("#result").html("<span class='user-circle-online btn btn-danger btn-circle'></span> Offline");
+            //$("#result").load("load.html");// a function which will load data from other file after x seconds
         }
 
-          //$("#result").load("load.html");// a function which will load data from other file after x seconds
-    }
-    
-    setInterval('autoRefresh_div()', 2000); // refresh div after 2 secs
-</script>
+        setInterval('autoRefresh_div()', 2000); // refresh div after 2 secs
+    </script>
+
+    <!--Datepicker-->
+    <script src="<?php echo base_url(); ?>assets/datepicker/js/jquery.plugin.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/datepicker/js/jquery.datepick.js"></script>
+    <script>
+        $('.popupDatepickerBackEnd').datepick();
+    </script>
+    <!--/Datepicker-->
+
+</body>
 </html>

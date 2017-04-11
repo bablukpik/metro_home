@@ -6,6 +6,9 @@
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
 	<link rel="stylesheet" href="assets/style.css" />
+    <!--Datepicker-->
+    <link href="<?php echo base_url(); ?>assets/datepicker/css/jquery.datepick.css" rel="stylesheet">
+    <!--/Datepicker-->
 </head>
 <body>
 <section class="top_head_sec">
@@ -91,9 +94,12 @@
 	</div>
 </footer>
 
-<script src="assets/js/jquery.min.js" type="text/javascript"></script>
-<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="assets/js/main.js" type="text/javascript"></script>
+<!--<script src="<?php /*echo base_url(); */?>assets/js/jquery.min.js" type="text/javascript"></script>-->
+<script src="<?php echo base_url(); ?>backend_assets/plugins/jquery-1.10.2.js"></script>
+<script src="<?php echo base_url(); ?>assets/datepicker/js/jquery.plugin.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/datepicker/js/jquery.datepick.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/js/main.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 	$(document).on("click","#bs-example-navbar-collapse-1 > ul > li > a", function(){
@@ -101,7 +107,16 @@
 	   $(this).parent().addClass("active");
 	   //alert("Test");
 	});
-
 </script>
+
+<!--Datepicker-->
+<script>
+    $(function () {
+        $('#popupDatepickerFrontEnd').datepick();
+        console.log('colling');
+    });
+</script>
+<!--/Datepicker-->
+
 </body>
 </html>
