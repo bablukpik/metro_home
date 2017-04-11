@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 10, 2017 at 10:09 PM
+-- Generation Time: Apr 11, 2017 at 11:50 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -57,9 +57,9 @@ CREATE TABLE `landloard` (
   `lnd_id` int(11) NOT NULL,
   `user_pass` varchar(40) NOT NULL,
   `user_type` varchar(30) NOT NULL DEFAULT 'landlord',
-  `lnd_name` varchar(30) DEFAULT NULL,
+  `user_fullname` varchar(30) DEFAULT NULL,
   `lnd_father_name` varchar(30) DEFAULT NULL,
-  `lnd_birth_date` datetime DEFAULT NULL,
+  `lnd_birth_date` date DEFAULT NULL,
   `lnd_maritial_status` int(2) DEFAULT NULL,
   `lnd_permanent_add` text,
   `lnd_profession_institute` varchar(30) DEFAULT NULL,
@@ -95,8 +95,9 @@ CREATE TABLE `landloard` (
 -- Dumping data for table `landloard`
 --
 
-INSERT INTO `landloard` (`lnd_id`, `user_pass`, `user_type`, `lnd_name`, `lnd_father_name`, `lnd_birth_date`, `lnd_maritial_status`, `lnd_permanent_add`, `lnd_profession_institute`, `lnd_religion`, `lnd_educational_status`, `lnd_phone`, `lnd_email`, `lnd_nid`, `lnd_passport`, `lnd_emergency_name`, `lnd_emergency_relation`, `lnd_emergency_address`, `lnd_emergency_phone`, `lnd_previous_landlord_name`, `lnd_previous_landlord_phone`, `lnd_previous_landlord_permanent_add`, `lnd_prvious_leave_reason`, `lnd_present_landlord_name`, `lnd_present_landlord_phone`, `lnd_present_start_date`, `lnd_division`, `lnd_district`, `lnd_police_station`, `lnd_flat_floor_no`, `lnd_holding_no`, `lnd_road_no`, `lnd_locality`, `lnd_postcode`, `lnd_photo`) VALUES
-(1, 'admin', 'landlord', 'asdf', 'asdf', '0000-00-00 00:00:00', 0, 'asdf', 'asdf', 'Islam', 'asdf', 'asdf', 'bablukpik@gmail.com', '123', 'asdf', 'asdf', 'asdfasdf', 'asdf', 'asd', 'asdf', 'asdf', 'asdf', 'asdf', 'asdf', 'asdf', '0000-00-00 00:00:00', 'Dhaka', 'asdf', 'asdf', 'asdfa', 'dfasdfasd', 'asdf', 'asd', 'asdf', NULL);
+INSERT INTO `landloard` (`lnd_id`, `user_pass`, `user_type`, `user_fullname`, `lnd_father_name`, `lnd_birth_date`, `lnd_maritial_status`, `lnd_permanent_add`, `lnd_profession_institute`, `lnd_religion`, `lnd_educational_status`, `lnd_phone`, `lnd_email`, `lnd_nid`, `lnd_passport`, `lnd_emergency_name`, `lnd_emergency_relation`, `lnd_emergency_address`, `lnd_emergency_phone`, `lnd_previous_landlord_name`, `lnd_previous_landlord_phone`, `lnd_previous_landlord_permanent_add`, `lnd_prvious_leave_reason`, `lnd_present_landlord_name`, `lnd_present_landlord_phone`, `lnd_present_start_date`, `lnd_division`, `lnd_district`, `lnd_police_station`, `lnd_flat_floor_no`, `lnd_holding_no`, `lnd_road_no`, `lnd_locality`, `lnd_postcode`, `lnd_photo`) VALUES
+(1, 'admin', 'landlord', 'asdf', 'asdf', '0000-00-00', 0, 'asdf', 'asdf', 'Islam', 'asdf', 'asdf', 'bablukpik@gmail.com', '123', 'asdf', 'asdf', 'asdfasdf', 'asdf', 'asd', 'asdf', 'asdf', 'asdf', 'asdf', 'asdf', 'asdf', '0000-00-00 00:00:00', 'Dhaka', 'asdf', 'asdf', 'asdfa', 'dfasdfasd', 'asdf', 'asd', 'asdf', NULL),
+(2, 'sdf', 'landlord', 'Mr. Kato', 'asdf', '0000-00-00', 0, 'asdf', 'asdf', NULL, 'dsf', 'asdf', 'asdfasdfff@gmail.com', '12345', 'asdf', 'asdf', 'asdf', 'asdf', 'asdf', 'asdf', 'asd', 'asdf', 'asfd', 'asdf', 'asdf', '0000-00-00 00:00:00', 'Dhaka', 'asdf', 'asdf', 'asdf', 'asd', 'asd', 'asdf', 'asdf', NULL);
 
 -- --------------------------------------------------------
 
@@ -118,7 +119,8 @@ CREATE TABLE `lnd_driver` (
 --
 
 INSERT INTO `lnd_driver` (`driver_id`, `lnd_id`, `driver_name`, `driver_nid`, `driver_phone`, `driver_permanent_add`) VALUES
-(1, 1, 'asdf', 'asdf', 'adsf', 'asdf');
+(1, 1, 'asdf', 'asdf', 'adsf', 'asdf'),
+(2, 2, 'asdf', 'sadf', 'asf', 'asdf');
 
 -- --------------------------------------------------------
 
@@ -140,7 +142,8 @@ CREATE TABLE `lnd_familymember` (
 --
 
 INSERT INTO `lnd_familymember` (`family_member_id`, `lnd_id`, `family_member_name`, `family_member_age`, `family_member_job`, `family_member_phone`) VALUES
-(1, 1, 'asdf', 'asdf', 'asdf', 'adsfa');
+(1, 1, 'asdf', 'asdf', 'asdf', 'adsfa'),
+(2, 2, 'sad', 'sadf', 'sdfas', 'asdf');
 
 -- --------------------------------------------------------
 
@@ -162,7 +165,8 @@ CREATE TABLE `lnd_homeworker` (
 --
 
 INSERT INTO `lnd_homeworker` (`homeworker_id`, `lnd_id`, `homeworker_name`, `homeworker_nid`, `homeworker_phone`, `homeworker_permanent_add`) VALUES
-(1, 1, 'asdf', 'asdf', 'asdf', 'dsf');
+(1, 1, 'asdf', 'asdf', 'asdf', 'dsf'),
+(2, 2, 'sdf', 'asdf', 'sadf', 'sdf');
 
 -- --------------------------------------------------------
 
@@ -172,9 +176,10 @@ INSERT INTO `lnd_homeworker` (`homeworker_id`, `lnd_id`, `homeworker_name`, `hom
 
 CREATE TABLE `renter` (
   `renter_id` int(11) NOT NULL,
-  `renter_name` varchar(30) DEFAULT NULL,
+  `user_type` varchar(30) NOT NULL DEFAULT 'renter',
+  `user_fullname` varchar(30) DEFAULT NULL,
   `renter_father_name` varchar(30) DEFAULT NULL,
-  `renter_birth_date` datetime DEFAULT NULL,
+  `renter_birth_date` date DEFAULT NULL,
   `renter_maritial_status` int(2) DEFAULT NULL,
   `renter_permanent_add` text,
   `renter_profession_institute` varchar(30) DEFAULT NULL,
@@ -210,10 +215,13 @@ CREATE TABLE `renter` (
 -- Dumping data for table `renter`
 --
 
-INSERT INTO `renter` (`renter_id`, `renter_name`, `renter_father_name`, `renter_birth_date`, `renter_maritial_status`, `renter_permanent_add`, `renter_profession_institute`, `renter_religion`, `renter_educational_status`, `renter_phone`, `renter_email`, `renter_nid`, `renter_passport`, `renter_emergency_name`, `renter_emergency_relation`, `renter_emergency_address`, `renter_emergency_phone`, `renter_previous_landlord_name`, `renter_previous_landlord_phone`, `renter_previous_landlord_permanent_add`, `renter_prvious_leave_reason`, `renter_present_landlord_name`, `renter_present_landlord_phone`, `renter_present_start_date`, `renter_division`, `renter_district`, `renter_police_station`, `renter_flat_floor_no`, `renter_holding_no`, `renter_road_no`, `renter_locality`, `renter_postcode`, `renter_photo`) VALUES
-(1, 'asdf', 'asdf', '0000-00-00 00:00:00', 0, 'asdf', 'asdf', 'Islam', 'asdf', 'adsf', 'asdf@gmail.com', 'asdf', 'adf', 'asd', 'asdf', 'asdf', 'asd', 'asdf', 'asdf', 'asdf', 'asdf', 'sadf', 'sadf', '0000-00-00 00:00:00', 'Dhaka', 'asdf', 'asdf', 'asdf', 'asdf', 'asdf', 'asdf', 'asdf', NULL),
-(3, 'abc', 'asd', '0000-00-00 00:00:00', 0, 'asd', 'ads', 'Islam', '', '', 'asdf@gmail.com', 'ads', 'asdf', 'asd', 'sad', 'asd', 'asd', '', '', '', '', '', '', '0000-00-00 00:00:00', 'Dhaka', 'asdf', 'asdf', 'asd', 'sdf', '', '', '', NULL),
-(4, 'Md. Masudul Islam', 'Janina', '0000-00-00 00:00:00', 0, 'asdf', 'asdf', 'Islam', 'asdf', 'aasdf', 'bablukpik@gmail.com', 'asdfasdf', 'asdfasd', 'asfasd', 'asdfasd', 'asdfasd', 'sadfsd', 'asdf', 'asdf', 'asdf', 'asdf', 'asdf', 'asdf', '0000-00-00 00:00:00', 'Rangpur', 'Kurigram', 'Kurigram', '5', '272', '30', 'Shenpara', '1216', NULL);
+INSERT INTO `renter` (`renter_id`, `user_type`, `user_fullname`, `renter_father_name`, `renter_birth_date`, `renter_maritial_status`, `renter_permanent_add`, `renter_profession_institute`, `renter_religion`, `renter_educational_status`, `renter_phone`, `renter_email`, `renter_nid`, `renter_passport`, `renter_emergency_name`, `renter_emergency_relation`, `renter_emergency_address`, `renter_emergency_phone`, `renter_previous_landlord_name`, `renter_previous_landlord_phone`, `renter_previous_landlord_permanent_add`, `renter_prvious_leave_reason`, `renter_present_landlord_name`, `renter_present_landlord_phone`, `renter_present_start_date`, `renter_division`, `renter_district`, `renter_police_station`, `renter_flat_floor_no`, `renter_holding_no`, `renter_road_no`, `renter_locality`, `renter_postcode`, `renter_photo`) VALUES
+(1, 'renter', 'Mr. Karim', 'asdf', '1987-11-10', 0, 'asdf', 'asdf', 'Islam', 'asdf', 'adsf', 'asdf@gmail.com', '123', 'adf', 'asd', 'asdf', 'asdf', 'asd', 'asdf', 'asdf', 'asdf', 'asdf', 'sadf', 'sadf', '0000-00-00 00:00:00', 'Dhaka', 'asdf', 'asdf', 'asdf', 'asdf', 'asdf', 'asdf', 'asdf', NULL),
+(3, 'renter', 'abc', 'asd', '0000-00-00', 0, 'asd', 'ads', 'Islam', '', '', 'asdf@gmail.com', 'ads', 'asdf', 'asd', 'sad', 'asd', 'asd', '', '', '', '', '', '', '0000-00-00 00:00:00', 'Dhaka', 'asdf', 'asdf', 'asd', 'sdf', '', '', '', NULL),
+(4, 'renter', 'Md. Masudul Islam', 'Janina', '0000-00-00', 0, 'asdf', 'asdf', 'Islam', 'asdf', 'aasdf', 'bablukpik@gmail.com', 'asdfasdf', 'asdfasd', 'asfasd', 'asdfasd', 'asdfasd', 'sadfsd', 'asdf', 'asdf', 'asdf', 'asdf', 'asdf', 'asdf', '0000-00-00 00:00:00', 'Rangpur', 'Kurigram', 'Kurigram', '5', '272', '30', 'Shenpara', '1216', NULL),
+(5, 'renter', 'Rhmmmmm', 'adfa', '0000-00-00', 0, 'asdf', 'asdf', 'Islam', 'asdf', '', 'asdfasdfasd@gmail.com', '123456', 'asdf', 'asdf', 'asdf', 'asdf', 'asdf', 'adsf', 'asd', 'sadf', 'sdf', 'sad', 'asd', '0000-00-00 00:00:00', 'Rangpur', 'adsf', 'asdfasdf', 'asdf', 'asdf', 'asd', 'sdf', 'asd', NULL),
+(6, 'renter', 'abc', 'asdf', '2017-04-11', 0, 'asdf', 'asdf', 'Islam', 'adsf', 'asdf', 'sadfasdfasdf@gmail.com', '1234567', 'asdf', 'asdf', 'asdf', 'asdf', 'asdf', 'ads', 'asdf', 'sadf', 'asdf', 'asdf', 'sadf', '0000-00-00 00:00:00', NULL, 'asdf', 'adsfasd', 'asdf', 'asdf', 'asdf', 'asdf', 'adfs', NULL),
+(7, 'renter', 'asdfasdf', '', '2017-11-04', 0, 'asdf', 'adf', NULL, '', '', 'afasdfasdf', '123123', 'ads', '', '', '', '', '', '', '', '', '', '', '0000-00-00 00:00:00', 'Dhaka', '', '', '', '', '', '', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -235,7 +243,10 @@ CREATE TABLE `renter_driver` (
 --
 
 INSERT INTO `renter_driver` (`driver_id`, `renter_id`, `driver_name`, `driver_nid`, `driver_phone`, `driver_permanent_add`) VALUES
-(1, 4, 'sadf', 'asdf', 'asdf', 'asdf');
+(1, 4, 'sadf', 'asdf', 'asdf', 'asdf'),
+(2, 5, 'asfd', 'asd', 'asdf', 'asd'),
+(3, 6, 'sadf', 'sadf', 'asdf', 'asdf'),
+(4, 7, '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -258,7 +269,10 @@ CREATE TABLE `renter_familymember` (
 
 INSERT INTO `renter_familymember` (`family_member_id`, `renter_id`, `family_member_name`, `family_member_age`, `family_member_job`, `family_member_phone`) VALUES
 (1, 3, 'asd', '', '', ''),
-(2, 4, 'asdfasd', 'asdfasd', 'sadfasd', 'asdfas');
+(2, 4, 'asdfasd', 'asdfasd', 'sadfasd', 'asdfas'),
+(3, 5, 'asdf', 'asd', 'asdf', 'sadf'),
+(4, 6, 'asdf', 'ads', 'asdf', 'asdf'),
+(5, 7, '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -280,7 +294,10 @@ CREATE TABLE `renter_homeworker` (
 --
 
 INSERT INTO `renter_homeworker` (`homeworker_id`, `renter_id`, `homeworker_name`, `homeworker_nid`, `homeworker_phone`, `homeworker_permanent_add`) VALUES
-(1, 4, 'asdfasd', 'asdf', 'asdf', 'asdf');
+(1, 4, 'asdfasd', 'asdf', 'asdf', 'asdf'),
+(2, 5, 'sasdf', 'asdf', 'adf', 'ads'),
+(3, 6, 'asd', 'asdf', 'adsf', 'asdf'),
+(4, 7, '', '', '', '');
 
 --
 -- Indexes for dumped tables
@@ -362,42 +379,42 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `landloard`
 --
 ALTER TABLE `landloard`
-  MODIFY `lnd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `lnd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `lnd_driver`
 --
 ALTER TABLE `lnd_driver`
-  MODIFY `driver_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `driver_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `lnd_familymember`
 --
 ALTER TABLE `lnd_familymember`
-  MODIFY `family_member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `family_member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `lnd_homeworker`
 --
 ALTER TABLE `lnd_homeworker`
-  MODIFY `homeworker_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `homeworker_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `renter`
 --
 ALTER TABLE `renter`
-  MODIFY `renter_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `renter_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `renter_driver`
 --
 ALTER TABLE `renter_driver`
-  MODIFY `driver_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `driver_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `renter_familymember`
 --
 ALTER TABLE `renter_familymember`
-  MODIFY `family_member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `family_member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `renter_homeworker`
 --
 ALTER TABLE `renter_homeworker`
-  MODIFY `homeworker_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `homeworker_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- Constraints for dumped tables
 --

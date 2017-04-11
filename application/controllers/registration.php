@@ -27,7 +27,11 @@ class Registration extends CI_Controller
             $lndData['user_type'] = $this->input->post('user_type');
             $lndData['user_fullname'] = $this->input->post('lnd_name');
             $lndData['lnd_father_name'] = $this->input->post('lnd_father_name');
-            $lndData['lnd_birth_date'] = $this->input->post('lnd_birth_date'); /* password*/
+
+            $lnd_birth_date = strtotime($_POST['lnd_birth_date']);
+            $lndData['lnd_birth_date']=date("Y-m-d",$lnd_birth_date); /* password*/
+            /*$lndData['lnd_birth_date'] = $this->input->post('lnd_birth_date'); /* password*/
+
             $lndData['lnd_maritial_status'] = $this->input->post('lnd_maritial_status');
             $lndData['lnd_permanent_add'] = $this->input->post('lnd_permanent_add');
             $lndData['lnd_profession_institute'] = $this->input->post('lnd_profession_institute');

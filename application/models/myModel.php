@@ -46,6 +46,9 @@ class MyModel extends CI_Model {
 
     //Renter login info
     public function check_renter_login_info($user_name, $user_pass, $user_type){
+        $renter_birth_date = strtotime($user_pass);
+        $user_pass = date("Y-m-d",$renter_birth_date); /* password*/
+
         $this->db->select('*');
         $this->db->from(self::$renter);
         $this->db->where('renter_nid', $user_name);

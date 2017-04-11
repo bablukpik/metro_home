@@ -227,7 +227,7 @@
     <!-- end wrapper -->
     <!-- Core Scripts - Include with every page -->
     <script src="<?php echo base_url(); ?>backend_assets/plugins/jquery-1.10.2.js"></script>
-    <!--<script src="<?php /*echo base_url(); */?>backend_assets/plugins/bootstrap/bootstrap.min.js"></script>-->
+    <script src="<?php /*echo base_url(); */?>backend_assets/plugins/bootstrap/bootstrap.min.js"></script>
     <script src="<?php echo base_url(); ?>backend_assets/plugins/metisMenu/jquery.metisMenu.js"></script>
     <script src="<?php echo base_url(); ?>backend_assets/plugins/pace/pace.js"></script>
     <script src="<?php echo base_url(); ?>backend_assets/scripts/siminta.js"></script>
@@ -259,7 +259,7 @@
     <script src="<?php echo base_url(); ?>assets/datepicker/js/jquery.plugin.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/datepicker/js/jquery.datepick.js"></script>
     <script>
-        $('.popupDatepickerBackEnd').datepick();
+        $('.popupDatepickerBackEnd').datepick({dateFormat: 'dd/mm/yyyy'});
     </script>
     <!--/Datepicker-->
 

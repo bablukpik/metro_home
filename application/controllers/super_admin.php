@@ -46,9 +46,12 @@ class Super_admin extends CI_Controller {
 
             //Renter Table (1)
             //$renter_id = $this->input->post('renter_id');
-            $reterData['renter_name'] = $this->input->post('renter_name');
+            $reterData['user_fullname'] = $this->input->post('renter_name');
             $reterData['renter_father_name'] = $this->input->post('renter_father_name');
-            $reterData['renter_birth_date'] = $this->input->post('renter_birth_date'); /* password*/
+
+            $renter_birth_date = strtotime($_POST['renter_birth_date']);
+            $reterData['renter_birth_date']=date("Y-m-d",$renter_birth_date); /* password*/
+
             $reterData['renter_maritial_status'] = $this->input->post('renter_maritial_status');
             $reterData['renter_permanent_add'] = $this->input->post('renter_permanent_add');
             $reterData['renter_profession_institute'] = $this->input->post('renter_profession_institute');

@@ -112,7 +112,7 @@
 <!--Datepicker-->
 <script>
     $(function () {
-        $('#popupDatepickerFrontEnd').datepick();
+        $('#popupDatepickerFrontEnd').datepick({dateFormat: 'dd/mm/yyyy'});
         console.log('colling');
     });
 </script>
