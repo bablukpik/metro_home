@@ -22,6 +22,7 @@ class MyModel extends CI_Model {
 
     }
 
+    //Admin login info
     public function check_admin_login_info($user_name, $user_pass, $user_type){
         $this->db->select('*');
         $this->db->from(self::$admin);
@@ -32,6 +33,7 @@ class MyModel extends CI_Model {
         return $query->row();
     }
 
+    //Landlord login info
     public function check_landloard_login_info($user_name, $user_pass, $user_type){
         $this->db->select('*');
         $this->db->from(self::$landlord);
@@ -41,16 +43,18 @@ class MyModel extends CI_Model {
         $query = $this->db->get();
         return $query->row();
     }
+
+    //Renter login info
     public function check_renter_login_info($user_name, $user_pass, $user_type){
-/*
         $this->db->select('*');
-        $this->db->from(self::$table_admin);
-        $this->db->where('adm_username', $adm_username);
-        $this->db->where('adm_pass', $adm_pass);
+        $this->db->from(self::$renter);
+        $this->db->where('renter_nid', $user_name);
+        $this->db->where('renter_birth_date', $user_pass);
         $this->db->where('user_type', $user_type);
         $query = $this->db->get();
-        return $query->row();*/
+        return $query->row();
     }
+
     public function check_metro_police_login_info($user_name, $user_pass, $user_type){
        /* var_dump($user_name);
         var_dump($user_pass);
@@ -64,6 +68,7 @@ class MyModel extends CI_Model {
         $query = $this->db->get();
         return $query->row();*/
     }
+
     public function check_genUser_login_info($user_name, $user_pass, $user_type){
 
        /* $this->db->select('*');
