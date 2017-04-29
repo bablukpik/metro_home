@@ -1,7 +1,7 @@
 $(function () {
     //Renter Info Validation
     //Check Email
-    $("#renter_email").on('keyup', function(){
+    $("#renter_email").on('keyup change', function(){
         var renter_email = $(this).val();
         var url = "checkDuplicateDataRenter";
 
@@ -26,7 +26,7 @@ $(function () {
     });
 
     //Check National ID
-    $("#renter_nid").on('keyup', function(){
+    $("#renter_nid").on('keyup change', function(){
         var renter_nid = $(this).val();
         var url = "checkDuplicateDataRenter";
         console.log("Key pressed");
@@ -51,7 +51,7 @@ $(function () {
     });
 
     //Check passport
-    $("#renter_passport").on('keyup', function(){
+    $("#renter_passport").on('keyup change', function(){
         var renter_passport = $(this).val();
         var url = "checkDuplicateDataRenter";
 
@@ -78,7 +78,7 @@ $(function () {
 
     //Landlord Info Validation
     //Check Email
-    $("#lnd_email").on('keyup', function(){
+    $("#lnd_email").on('keyup change', function(){
         var lnd_email = $(this).val();
         var url = "super_admin/checkDuplicateDataLandlord";
 
@@ -103,7 +103,7 @@ $(function () {
     });
 
     //Check National ID
-    $("#lnd_nid").on('keyup', function(){
+    $("#lnd_nid").on('keyup change', function(){
         var lnd_nid = $(this).val();
         var url = "super_admin/checkDuplicateDataLandlord";
         console.log("Key pressed");
@@ -128,7 +128,7 @@ $(function () {
     });
 
     //Check passport
-    $("#lnd_passport").on('keyup', function(){
+    $("#lnd_passport").on('keyup change', function(){
         var lnd_passport = $(this).val();
         var url = "super_admin/checkDuplicateDataLandlord";
 
