@@ -85,7 +85,7 @@
 
                                                 <div class="form-group">
                                                     <input type="text" name="lnd_name" class="form-control" placeholder="বাড়িওয়ালা নামঃ">
-                                                    <p class="help-block">i.e Md. Masudul Islam</p>
+                                                    <p style="text-transform: initial" class="help-block">i.e Md. Masudul Islam</p>
                                                 </div>
                                                 <div class="form-group">
                                                     <input type="text" name="lnd_father_name" class="form-control" placeholder="পিতার নামঃ">
@@ -121,13 +121,16 @@
                                                     <input type="text" name="lnd_phone" class="form-control" placeholder="মোবাইল নম্বরঃ">
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="text" name="lnd_email" class="form-control" placeholder="ই-মেইল আইডিঃ">
+                                                    <p id="lnd_emailMsg" style="text-transform: initial" class="help-block"></p>
+                                                    <input type="text" id="lnd_email" name="lnd_email" class="form-control" placeholder="ই-মেইল আইডিঃ">
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="text" name="lnd_nid" class="form-control" placeholder="জাতীয় পরিচয়পত্র নম্বরঃ ">
+                                                    <p id="lnd_nidMsg" style="text-transform: initial" class="help-block"></p>
+                                                    <input type="text" id="lnd_nid" name="lnd_nid" class="form-control" placeholder="জাতীয় পরিচয়পত্র নম্বরঃ ">
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="text" name="lnd_passport" class="form-control" placeholder="পাসপোর্ট নম্বর (যদি থাকে)">
+                                                    <p id="lnd_passportMsg" style="text-transform: initial" class="help-block"></p>
+                                                    <input type="text" id="lnd_passport" name="lnd_passport" class="form-control" placeholder="পাসপোর্ট নম্বর (যদি থাকে)">
                                                 </div>
 
                                                 <div class="form-group">
@@ -269,7 +272,7 @@
                                                 <div class="form-group">
                                                     <input type="text" name="lnd_present_start_date" class="form-control" placeholder="বর্তমান বাড়িতে কোন তারিখ থেকে বসবাসরতঃ" />
                                                 </div>
-                                                <button type="submit" class="btn btn-success">Submit</button>
+                                                <button type="submit" class="btn btn-success submit">Submit</button>
                                             </form>
                                         </div>
                                     </div>

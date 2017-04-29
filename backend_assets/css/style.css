@@ -1,3 +1,12 @@
+@import 'https://fonts.googleapis.com/css?family=Lato|Oswald|Raleway|Source+Sans+Pro';
+@font-face {
+    font-family: 'solaimanlipi';
+    src: url('../fonts/SolaimanLipi_22-02-2012.eot');
+    src: local('☺'), url('../fonts/SolaimanLipi_22-02-2012.woff') format('woff'), url('../fonts/SolaimanLipi_22-02-2012.ttf') format('truetype'), url('../fonts/SolaimanLipi_22-02-2012.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 nav.navbar-default.navbar-static-side {
     position: fixed;
 }
@@ -6,6 +15,16 @@ nav.navbar-default.navbar-static-side {
 }
 
 /* Global Styles */
+.display_none{
+    display: none;
+}
+.float_left{
+    float:left;
+}
+.float_right{
+    float:right;
+}
+
 
 /* ------------------------------- */
 

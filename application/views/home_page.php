@@ -10,7 +10,7 @@
     <link href="<?php echo base_url(); ?>assets/datepicker/css/jquery.datepick.css" rel="stylesheet">
     <!--/Datepicker-->
 </head>
-<body>
+<body style="font-family: solaimanlipi">
 <section class="top_head_sec">
 	<div class="container">
 		<div class="top_menu_left float_left">
@@ -115,203 +115,7 @@
                     </div>
 
                 </div>
-                <script type="text/javascript">
 
-                    window.odometerOptions = {
-                        //auto: false,
-                        format: '(dd,dd,dd,ddd)',
-                        selector: '#JopApply, #CompnayShow, #JobShow',
-                    };
-
-
-                    var HomeStatsURL = "http://bdjobs.com/getHomeStats.asp"
-                    var HomeStatsTiming = 310000
-
-                    var num = 0;
-                    ajaxObject_xmlhttp = new Array();
-                    countLoading = 0;
-                    function showHint(str)
-                    {
-
-                        if (str.length == 0)
-                        {
-                            return;
-                        }
-                        cid = "?bda=bdh";
-                        num = num+1;
-                        ajaxObject_xmlhttp[ num ] = GetXmlHttpObjectBdjStats() ;
-
-                        ajaxObject_xmlhttp[ num ].onreadystatechange = function()
-                        {
-
-
-                            if ( ajaxObject_xmlhttp[ num ].readyState == 4 && ajaxObject_xmlhttp[ num ].status == 200 )//.statusText == "OK"
-                            {
-                                HomeStatsResponseText = ajaxObject_xmlhttp[ num ].responseText;
-                                arrHomeStats = HomeStatsResponseText.split("#")
-                                //JopApply,JobShow,CompnayShow
-                                document.getElementById("JobShow").innerHTML=arrHomeStats[0]
-                                document.getElementById("CompnayShow").innerHTML=arrHomeStats[1]
-                                document.getElementById("JopApply").innerHTML=arrHomeStats[2]
-
-                            }
-                        }
-
-                        ajaxObject_xmlhttp[ num ].open("GET",""+str+"",true);
-                        ajaxObject_xmlhttp[ num ].send();
-
-                    }
-
-                    var ie8plus;
-                    function GetXmlHttpObjectBdjStats()
-                    {
-                        xmlHttp = null;
-                        if (window.XMLHttpRequest)
-                        {// code for IE7+, Firefox, Chrome, Opera, Safari
-                            xmlHttp=new XMLHttpRequest();
-                        }
-                        else
-                        {// code for IE6, IE5
-                            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-                        }
-                        return xmlHttp;
-                    }
-
-                    var vcat;
-                    var ajaxCallJA = true;
-                    var ajaxCallJAds = true;
-                    var ajaxCallCB = true;
-
-                    var strNumArray;
-                    strNumArray = 0;
-
-                    function startLiveScore()
-                    {
-
-                        if(navigator.userAgent.toUpperCase().indexOf('MSIE') >= 0)
-                        {
-                            showVisitorNumber()
-                        }
-                        else
-                        {
-                            showHint(HomeStatsURL);
-                        }
-                    }
-
-                    var isActive;
-
-                    startLiveScore()
-
-                    window.onfocus = function () {
-                        isActive = true;
-                        startLiveScore()
-                    };
-
-                    window.onblur = function () {
-                        isActive = false;
-
-                    };
-                    if(navigator.userAgent.toUpperCase().indexOf('MSIE') >= 0)
-                    {
-                        setInterval("showVisitorNumber()", HomeStatsTiming);
-
-                        setInterval(function(){
-                            if (window.isActive)
-                            {
-                                showVisitorNumber();
-                            }
-                        },HomeStatsTiming);
-
-                    }
-                    else
-                    {
-                        setInterval(function(){
-                            if (window.isActive)
-                            {
-                                showHint(HomeStatsURL);
-                            }
-                            else
-                            {
-
-                            }
-                        },HomeStatsTiming);
-
-                    }
-
-                    function showVisitorNumber()
-                    {
-
-                        xmlhttp=GetXmlHttpObjectBdjStats()
-
-                        if (xmlhttp==null)
-                        {
-                            return;
-                        }
-                        url=HomeStatsURL;
-                        LoadType=ActType;
-                        if (ie8plus == true)
-                        {
-                            xmlhttp.open("get",url);
-                            xmlhttp.onload =stateChanged;
-
-                        }
-                        else
-                        {
-                            xmlhttp.onreadystatechange=stateChanged;
-                            xmlhttp.open("POST",url,true);
-                        }
-
-
-                        if (ie8plus == true)
-                        {
-                            xmlhttp.send();
-                        }
-                        else
-                        {
-                            xmlhttp.setRequestHeader("Content-length", url.length);
-                            xmlhttp.send(url);
-                        }
-
-                    }
-
-                    function stateChanged()
-                    {
-                        var strResponseText;
-                        if(ie8plus == true)
-                        {
-                            HomeStatsResponseText = xmlhttp.responseText;
-                            arrHomeStats = HomeStatsResponseText.split("#")
-                            //JopApply,JobShow,CompnayShow
-                            document.getElementById("JobShow").innerHTML=arrHomeStats[0]
-                            document.getElementById("CompnayShow").innerHTML=arrHomeStats[1]
-                            document.getElementById("JopApply").innerHTML=arrHomeStats[2]
-
-
-                        }
-                    }
-
-
-                    function Generategglevent()
-                    {
-                        if(document.getElementById("txtKeyword").value.trim()!="")
-                        {
-                            _gaq.push(['_trackEvent', 'SeachPanelKeyword' , document.getElementById("txtKeyword").value,'EN',1.00,true]);
-                        }
-
-                        var e = document.getElementById("qOT");
-                        var strorg = e.options[e.selectedIndex].value;
-                        var strorgText = e.options[e.selectedIndex].text.trim();
-                        if(strorg!="0")
-                        {
-                            _gaq.push(['_trackEvent', 'OrganizationDropdown' , strorgText,'EN',1.00,true]);
-
-                        }
-
-
-                        _gaq.push(['_trackEvent', 'SeachPanelButton' , 'Search','EN',1.00,true]);
-                    }
-                </script>
-                <script src="js/odometer.js"></script>
             </div>
 
             <div class="col-md-3 col-sm-12">
@@ -410,6 +214,9 @@
     });
 </script>
 <!--/Datepicker-->
+
+<script src="<?php echo base_url('backend_assets/scripts/FormValidation.js');?>"></script>
+
 
 </body>
 </html>

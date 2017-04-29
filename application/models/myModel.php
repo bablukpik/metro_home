@@ -2,7 +2,7 @@
 
 class MyModel extends CI_Model {
 
-    CONST TABLE	= 'organization_user_details';
+    //CONST TABLE	                    = 'organization_user_details';
     public static $admin	            = 'admin';
     public static $metro_police	        = 'metro_police';
 
@@ -126,6 +126,29 @@ class MyModel extends CI_Model {
         return $this->db->insert_id();
     }
     //End Landlord info store
+
+    //Form validation of Renter
+    public function checkDuplicateDataRenterM($table, $where){
+        $this->db->select("*");
+        $this->db->from($table);
+        $this->db->where($where);
+        $query = $this->db->get();
+        $result = $query->row();
+        return $result;
+    }
+    // End Form validation of Renter
+
+    //Form validation of Renter
+    public function checkDuplicateDataLandlordM($table, $where){
+        $this->db->select("*");
+        $this->db->from($table);
+        $this->db->where($where);
+        $query = $this->db->get();
+        $result = $query->row();
+        return $result;
+    }
+    // End Form validation of Renter
+
 
 
 

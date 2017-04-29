@@ -112,13 +112,16 @@
                                     <input type="text" name="renter_phone" class="form-control" placeholder="মোবাইল নম্বরঃ">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="renter_email" class="form-control" placeholder="ই-মেইল আইডিঃ">
+                                    <p id="renter_emailMsg" class="help-block"></p>
+                                    <input type="text" id="renter_email" name="renter_email" class="form-control" placeholder="ই-মেইল আইডিঃ">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="renter_nid" class="form-control" placeholder="জাতীয় পরিচয়পত্র নম্বরঃ ">
+                                    <p id="renter_nidMsg" class="help-block"></p>
+                                    <input type="text" id="renter_nid" name="renter_nid" class="form-control" placeholder="জাতীয় পরিচয়পত্র নম্বরঃ ">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="renter_passport" class="form-control" placeholder="পাসপোর্ট নম্বর (যদি থাকে)">
+                                    <p id="renter_passportMsg" class="help-block"></p>
+                                    <input type="text" id="renter_passport" name="renter_passport" class="form-control" placeholder="পাসপোর্ট নম্বর (যদি থাকে)">
                                 </div>
 
                                 <div class="form-group">
@@ -260,7 +263,7 @@
                                 <div class="form-group">
                                     <input type="text" name="renter_present_start_date" class="form-control" placeholder="বর্তমান বাড়িতে কোন তারিখ থেকে বসবাসরতঃ" />
                                 </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary submit">Submit</button>
                             </form>
                         </div>
                     </div>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Metro Home</title>
     <!-- Core CSS - Include with every page -->
-    <link href="<?php echo base_url(); ?>backend_assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="<?php echo base_url(); ?>backend_assets/plugins/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <link href="<?php echo base_url(); ?>backend_assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="<?php echo base_url(); ?>backend_assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
     <link href="<?php echo base_url(); ?>backend_assets/css/style.css" rel="stylesheet" />
@@ -16,7 +16,7 @@
     <link href="<?php echo base_url(); ?>assets/datepicker/css/jquery.datepick.css" rel="stylesheet">
     <!--/Datepicker-->
    </head>
-<body>
+<body style="font-family: solaimanlipi">
     <!--  wrapper -->
     <div id="wrapper">
 
@@ -226,15 +226,16 @@
     </div>
     <!-- end wrapper -->
     <!-- Core Scripts - Include with every page -->
-    <script src="<?php echo base_url(); ?>backend_assets/plugins/jquery-1.10.2.js"></script>
-    <script src="<?php /*echo base_url(); */?>backend_assets/plugins/bootstrap/bootstrap.min.js"></script>
+    <!--<script src="<?php /*echo base_url(); */?>backend_assets/plugins/jquery-1.10.2.js"></script>-->
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <script src="<?php echo base_url(); ?>backend_assets/plugins/bootstrap/bootstrap.min.js"></script>
     <script src="<?php echo base_url(); ?>backend_assets/plugins/metisMenu/jquery.metisMenu.js"></script>
     <script src="<?php echo base_url(); ?>backend_assets/plugins/pace/pace.js"></script>
-    <script src="<?php echo base_url(); ?>backend_assets/scripts/siminta.js"></script>
+    <!--<script src="<?php /*echo base_url(); */?>backend_assets/scripts/siminta.js"></script>-->
     <!-- Page-Level Plugin Scripts-->
     <script src="<?php echo base_url(); ?>backend_assets/plugins/morris/raphael-2.1.0.min.js"></script>
-    <script src="<?php echo base_url(); ?>backend_assets/plugins/morris/morris.js"></script>
-    <script src="<?php echo base_url(); ?>backend_assets/scripts/dashboard-demo.js"></script>
+    <!--<script src="<?php /*echo base_url(); */?>backend_assets/plugins/morris/morris.js"></script>-->
+    <!--<script src="<?php /*echo base_url(); */?>backend_assets/scripts/dashboard-demo.js"></script>-->
 
     <script>
         $(".welcome_msg").fadeOut(3000);
@@ -262,6 +263,7 @@
         $('.popupDatepickerBackEnd').datepick({dateFormat: 'dd/mm/yyyy'});
     </script>
     <!--/Datepicker-->
+    <script src="<?php echo base_url('backend_assets/scripts/FormValidation.js');?>"></script>
 
 </body>
 </html>
