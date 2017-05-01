@@ -8,6 +8,8 @@ Create table admin(
     adm_address text,
     adm_phone varchar(30),
     adm_email varchar(30),
+    adm_created_date datetime,
+    adm_modified_date datetime,
     adm_photo varchar(255)
     );
 	
@@ -40,7 +42,8 @@ Create table landloard(
 	
 	lnd_present_landlord_name varchar(30),
 	lnd_present_landlord_phone varchar(30),
-	lnd_present_start_date datetime,
+	lnd_created_date datetime,
+	lnd_modified_date datetime,
 	
 	lnd_division varchar(30),
 	lnd_district varchar(30),
@@ -83,7 +86,8 @@ Create table renter(
 	
 	renter_present_landlord_name varchar(30),
 	renter_present_landlord_phone varchar(30),
-	renter_present_start_date datetime,
+	renter_created_date datetime,
+	renter_modified_date datetime,
 	
 	renter_division varchar(30),
 	renter_district varchar(30),
@@ -104,6 +108,8 @@ CREATE TABLE lnd_familymember(
 	family_member_age varchar(10),
 	family_member_job varchar(30),
 	family_member_phone varchar(20),
+	family_created_date datetime,
+	family_modified_date datetime,
 	foreign key(lnd_id) references landloard(lnd_id)
 	);
 
@@ -114,6 +120,8 @@ CREATE TABLE renter_familymember(
 	family_member_age varchar(10),
 	family_member_job varchar(30),
 	family_member_phone varchar(20),
+	family_member_created_date datetime,
+	family_member_modified_date datetime,
 	foreign key(renter_id) references renter(renter_id)
 	);	
 	
@@ -125,6 +133,8 @@ CREATE TABLE lnd_homeworker(
 	homeworker_nid varchar(30),
 	homeworker_phone varchar(15),
 	homeworker_permanent_add varchar(30),
+	homeworker_created_date datetime,
+	homeworker_modified_date datetime,
 	foreign key(lnd_id) references landloard(lnd_id)
 	);
 	
@@ -135,6 +145,8 @@ CREATE TABLE renter_homeworker(
 	homeworker_nid varchar(30),
 	homeworker_phone varchar(15),
 	homeworker_permanent_add varchar(30),
+	homeworker_created_date datetime,
+	homeworker_modified_date datetime,
 	foreign key(renter_id) references renter(renter_id)
 	);
 	
@@ -145,6 +157,8 @@ CREATE TABLE lnd_driver(
 	driver_nid varchar(30),
 	driver_phone varchar(15),
 	driver_permanent_add varchar(30),
+	driver_created_date datetime,
+	driver_modified_date datetime,
 	foreign key(lnd_id) references landloard(lnd_id)
 	);
 	
@@ -155,6 +169,32 @@ CREATE TABLE renter_driver(
 	driver_nid varchar(30),
 	driver_phone varchar(15),
 	driver_permanent_add varchar(30),
+	driver_created_date datetime,
+	driver_modified_date datetime,
 	foreign key(renter_id) references renter(renter_id)
+	);
+	
+CREATE TABLE renter_tracking_tbl(
+	tracking_id int auto_increment primary key,
+	
+	lnd_id int,
+	lnd_fullname varchar(30),
+	lnd_phone varchar(15),
+	lnd_nid varchar(30),
+	lnd_police_station varchar(50),
+	lnd_holding_no varchar(30),
+	lnd_road_no varchar(255),
+	lnd_locality varchar(30),
+	lnd_postcode varchar(15),
+	lnd_photo varchar(255),
+	
+	renter_id int,
+	renter_fullname varchar(30),
+	renter_phone varchar(30),
+	renter_nid varchar(30),
+	renter_photo varchar(255),
+	
+	renter_started_date datetime,
+	renter_ending_date datetime
 	);
 	

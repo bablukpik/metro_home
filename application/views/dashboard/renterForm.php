@@ -24,14 +24,14 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
-                            <form action="registerRenter" method="post" role="form">
+                            <form action="registerRenter" method="post" role="form" enctype="multipart/form-data">
 
                                 <div class="col-md-4">
                                     <div class="row">
                                         <img src="<?php echo base_url();?>backend_assets/img/UserAltPhoto.png" alt="আপনার ছবি দিন" class="img-thumbnail" width="150">
                                         <div class="form-group"><br>
                                             <label>আপনার ছবি দিন</label>
-                                            <input type="file" name="renter_photo" type="file">
+                                            <input type="file" id="renter_photo" name="renter_photo" >
                                         </div>
                                     </div>
                                 </div>
