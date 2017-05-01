@@ -2,8 +2,9 @@ DB Name: metrohome
 
 Create table admin(
     adm_id int auto_increment primary key,
-    user_username varchar(30) unique key,
+    user_name varchar(30) unique key,
     user_pass varchar(100),
+    user_type varchar(50),
     user_fullname varchar(30),
     adm_address text,
     adm_phone varchar(30),
@@ -42,6 +43,7 @@ Create table landloard(
 	
 	lnd_present_landlord_name varchar(30),
 	lnd_present_landlord_phone varchar(30),
+	lnd_present_start_date datetime,
 	lnd_created_date datetime,
 	lnd_modified_date datetime,
 	
@@ -86,6 +88,7 @@ Create table renter(
 	
 	renter_present_landlord_name varchar(30),
 	renter_present_landlord_phone varchar(30),
+	renter_present_start_date datetime,
 	renter_created_date datetime,
 	renter_modified_date datetime,
 	

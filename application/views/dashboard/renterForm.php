@@ -28,7 +28,11 @@
 
                                 <div class="col-md-4">
                                     <div class="row">
+                                    <?php if(isset($renter_photo)) : ?>
+                                        <img src="<?php echo base_url(). 'uploads/' . $renter_photo; ?>" alt="আপনার ছবি দিন" class="img-thumbnail" width="150">
+                                    <?php else: ?>
                                         <img src="<?php echo base_url();?>backend_assets/img/UserAltPhoto.png" alt="আপনার ছবি দিন" class="img-thumbnail" width="150">
+                                        <?php endif; ?>
                                         <div class="form-group"><br>
                                             <label>আপনার ছবি দিন</label>
                                             <input type="file" id="renter_photo" name="renter_photo" >

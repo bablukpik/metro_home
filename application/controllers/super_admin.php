@@ -42,11 +42,42 @@ class Super_admin extends CI_Controller {
 
     public function registerRenter()
     {
+        $reterData = array();
+
+        //Start upload picture
+        if(!empty($_FILES['renter_photo']['name'])){ //if($_FILES['image']['error'] == 0){
+            $config['upload_path'] = 'uploads/';
+            $config['allowed_types'] = 'jpg|jpeg|png|gif';
+            $config['file_name'] = date("Y-m-d-H-i-s")."_".str_replace(' ', '-', $_FILES['renter_photo']['name']);
+
+            //Load upload library and initialize configuration
+            $this->load->library('upload',$config);
+            $this->upload->initialize($config);
+
+            if($this->upload->do_upload('renter_photo')){
+                $finfo=$this->upload->data();
+                $this->_createThumbnail($finfo['file_name']);
+                $renter_photo = $finfo['raw_name'].'_thumb'.$finfo['file_ext'];
+                //$renter_photo = $finfo['file_name'];
+            }else{
+                $renter_photo = '';
+            }
+        }else{
+            $renter_photo = '';
+        }
+
+        //Error msg for picture
+        if($renter_photo == ''){
+            $this->session->set_flashdata('error_msg_photo', 'Error!!, Photo has not been uploaded');
+        }
+        //End upload picture
+
+        //Data check
         if (!empty($_POST['renter_name']) && !empty($_POST['renter_birth_date']) && !empty($_POST['renter_nid'])) {
 
             //Renter Table (1)
-            //$renter_id = $this->input->post('renter_id');
             $reterData['user_fullname'] = $this->input->post('renter_name');
+            $reterData['user_type'] = "renter";
             $reterData['renter_father_name'] = $this->input->post('renter_father_name');
 
             $renter_birth_date = strtotime($_POST['renter_birth_date']);
@@ -84,7 +115,7 @@ class Super_admin extends CI_Controller {
             $reterData['renter_road_no'] = $this->input->post('renter_road_no');
             $reterData['renter_locality'] = $this->input->post('renter_locality');
             $reterData['renter_postcode'] = $this->input->post('renter_postcode');
-            //renter_photo
+            $reterData['renter_photo'] = $renter_photo;
 
             $renterInsertId = $this->MyModel->save_renter_reg_data($reterData);
 
@@ -148,6 +179,24 @@ class Super_admin extends CI_Controller {
 
         }else{
             redirect('super_admin/renterRegisterForm');
+        }
+    }
+    //End Renter Registration
+
+    function _createThumbnail($filename)
+    {
+        $config['image_library']    = "gd2";
+        $config['source_image']     = "uploads/" .$filename;
+        $config['create_thumb']     = TRUE;
+        $config['maintain_ratio']   = TRUE;
+        $config['width']            = "160";
+        $config['height']           = "200";
+
+        $this->load->library('image_lib',$config);
+
+        if(!$this->image_lib->resize())
+        {
+            echo $this->image_lib->display_errors();
         }
     }
 
