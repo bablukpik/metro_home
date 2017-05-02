@@ -20,27 +20,6 @@
     <!--  wrapper -->
     <div id="wrapper">
 
-        <!-- Start all messages -->
-        <div class="row">
-            <?php $message = $this->session->userdata("message");
-            if ($message) { ?>
-                <div style="position: absolute; z-index: 999999999999999;" class="col-lg-4 col-lg-offset-6">
-                    <div class="welcome_msg alert alert-success alert-dismissible fade in">
-                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                        <i class="fa  fa-pencil"></i>
-                        <strong>
-                            <?php
-                            echo $message;
-                            $this->session->unset_userdata("message");
-
-                            ?>
-                        </strong>
-                    </div>
-                </div>
-            <?php } ?>
-        </div>
-        <!-- End all messages -->
-
         <!-- navbar top -->
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
             <!-- navbar-header -->
@@ -196,17 +175,32 @@
         <!-- end navbar side -->
 
         <!--Renter creation error message of Photo-->
-            <!--For image-->
-        <?php if($this->session->userdata('error_msg_photo_renter')): ?>
+        <?php if($this->session->userdata('error_msg_photo_renter') || $this->session->userdata("message")): ?>
             <div style="max-width: 400px; margin: 0 auto; position: relative; z-index:999999;">
-                <div class="alert alert-danger alert-dismissable" style="">
+
+                <!-- Data added success -->
+                <?php if($message = $this->session->userdata("message")): ?>
+                <div class="welcome_msg alert alert-success alert-dismissible">
                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                     <?php
-                    $error_msg_photo_renter =  $this->session->userdata('error_msg_photo_renter');
-                    echo "<h2>".(isset($error_msg_photo_renter)?$error_msg_photo_renter:'')."</h2>";
+                    echo "<h4>".$message."</h4>";
+                    $this->session->unset_userdata("message");
+                    ?>
+                </div>
+                <?php endif; ?>
+                <!-- End Data added success -->
+
+                <!--For image-->
+                <?php if($error_msg_photo_renter =  $this->session->userdata('error_msg_photo_renter')): ?>
+                <div class="welcome_msg alert alert-danger alert-dismissable" style="">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <?php
+                    echo "<h4>".(isset($error_msg_photo_renter)?$error_msg_photo_renter:'')."</h4>";
                     $this->session->unset_userdata('error_msg_photo_renter');
                     ?>
                 </div>
+                <?php endif;?>
+
             </div>
         <?php endif;?>
         <!--End Renter creation error message of Photo-->
@@ -255,7 +249,7 @@
     <!--<script src="<?php /*echo base_url(); */?>backend_assets/scripts/dashboard-demo.js"></script>-->
 
     <script>
-        $(".welcome_msg").fadeOut(3000);
+        $(".welcome_msg").fadeOut(9000);
     </script>
 
     <script>

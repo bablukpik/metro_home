@@ -166,7 +166,7 @@ class Super_admin extends CI_Controller {
                 $this->session->set_userdata($sdata);
                 //Error msg for picture upload
                 if($renter_photo == ''){
-                    $this->session->set_flashdata('error_msg_photo_renter', 'Error!!, Photo has not been uploaded');
+                    $this->session->set_flashdata('error_msg_photo_renter', 'Photo has not been uploaded');
                 }
                 redirect('super_admin');
             }else{
