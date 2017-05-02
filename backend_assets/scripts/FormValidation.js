@@ -15,10 +15,12 @@ $(function () {
                     $("#renter_emailMsg").css({"color": "red"});
                     $("#renter_email").css({"border": "1px solid red"});
                     $("#renter_emailMsg").fadeIn(1000);
+                    $(".accExistLnd").removeClass('display_none');
                     $(".submit").attr("disabled", "disabled");
                 }else{
                     $("#renter_emailMsg").fadeOut(2000);
                     $("#renter_email").css({"border":"1px solid #ccc"});
+                    $(".accExistLnd").addClass('display_none');
                     $(".submit").removeAttr("disabled", "disabled");
                 }
             }
@@ -40,10 +42,12 @@ $(function () {
                     $("#renter_nidMsg").css({"color": "red"});
                     $("#renter_nid").css({"border": "1px solid red"});
                     $("#renter_nidMsg").fadeIn(1000);
+                    $(".accExistLnd").removeClass('display_none');
                     $(".submit").attr("disabled", "disabled");
                 }else{
                     $("#renter_nidMsg").fadeOut(2000);
                     $("#renter_nid").css({"border":"1px solid #ccc"});
+                    $(".accExistLnd").addClass('display_none');
                     $(".submit").removeAttr("disabled", "disabled");
                 }
             }
@@ -65,10 +69,12 @@ $(function () {
                     $("#renter_passportMsg").css({"color": "red"});
                     $("#renter_passport").css({"border": "1px solid red"});
                     $("#renter_passportMsg").fadeIn(1000);
+                    $(".accExistLnd").removeClass('display_none');
                     $(".submit").attr("disabled", "disabled");
                 }else{
                     $("#renter_passportMsg").fadeOut(2000);
                     $("#renter_passport").css({"border":"1px solid #ccc"});
+                    $(".accExistLnd").addClass('display_none');
                     $(".submit").removeAttr("disabled", "disabled");
                 }
             }
@@ -92,10 +98,12 @@ $(function () {
                     $("#lnd_emailMsg").css({"color": "red"});
                     $("#lnd_email").css({"border": "1px solid red"});
                     $("#lnd_emailMsg").fadeIn(1000);
+                    $(".accExistLnd").removeClass('display_none');
                     $(".submit").attr("disabled", "disabled");
                 }else{
                     $("#lnd_emailMsg").fadeOut(2000);
                     $("#lnd_email").css({"border":"1px solid #ccc"});
+                    $(".accExistLnd").addClass('display_none');
                     $(".submit").removeAttr("disabled", "disabled");
                 }
             }
@@ -117,10 +125,12 @@ $(function () {
                     $("#lnd_nidMsg").css({"color": "red"});
                     $("#lnd_nid").css({"border": "1px solid red"});
                     $("#lnd_nidMsg").fadeIn(1000);
+                    $(".accExistLnd").removeClass('display_none');
                     $(".submit").attr("disabled", "disabled");
                 }else{
                     $("#lnd_nidMsg").fadeOut(2000);
                     $("#lnd_nid").css({"border":"1px solid #ccc"});
+                    $(".accExistLnd").addClass('display_none');
                     $(".submit").removeAttr("disabled", "disabled");
                 }
             }

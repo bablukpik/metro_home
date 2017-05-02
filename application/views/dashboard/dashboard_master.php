@@ -17,6 +17,9 @@
     <!--/Datepicker-->
    </head>
 <body style="font-family: solaimanlipi">
+    <!--Renter already registered dialog-->
+    <?php $this->load->view("dialogs/landLoardAlreadyRegistered_dialog");?>
+    <!--End Renter already registered dialog-->
     <!--  wrapper -->
     <div id="wrapper">
 
