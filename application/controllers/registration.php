@@ -185,5 +185,49 @@ class Registration extends CI_Controller
     } //End Thumbnail image creation for landloard
 
 
+    //Form validation for Landlord
+    public function checkDuplicateDataLandlord()
+    {
+        //check email
+        if(!empty($_POST['lnd_email'])){
+            $lnd_email = $this->input->post('lnd_email');
+            $where = array("lnd_email" => $lnd_email);
+            $result = $this->MyModel->checkDuplicateDataLandlordM("landloard", $where);
+            if($result){
+                echo TRUE; //echo for ajax because ajax will just load this file
+            }
+            else {
+                echo FALSE;
+            }
+        }
+        //check nid
+        if(!empty($_POST['lnd_nid'])){
+            $lnd_nid = $this->input->post('lnd_nid');
+            $where = array("lnd_nid" => $lnd_nid);
+            $result = $this->MyModel->checkDuplicateDataLandlordM("landloard", $where);
+            if($result){
+                echo TRUE; //echo for ajax because ajax will just load this file
+            }
+            else {
+                echo FALSE;
+            }
+        }
+
+        //check passport
+        if(!empty($_POST['lnd_passport'])){
+            $lnd_passport = $this->input->post('lnd_passport');
+            $where = array("lnd_passport" => $lnd_passport);
+            $result = $this->MyModel->checkDuplicateDataLandlordM("landloard", $where);
+            if($result){
+                echo TRUE; //echo for ajax because ajax will just load this file
+            }
+            else {
+                echo FALSE;
+            }
+        }
+
+    }
+    //End Form validation for Landlord
+
 } //End class
 ?>

@@ -11,6 +11,9 @@
     <!--/Datepicker-->
 </head>
 <body style="font-family: solaimanlipi">
+<!--Dialog for Landlord already registered-->
+<?php $this->load->view('dialogs/landLoardAlreadyRegistered_dialog'); ?>
+<!--End Dialog for Landlord already registered-->
 <section class="top_head_sec">
 	<div class="container">
 		<div class="top_menu_left float_left">

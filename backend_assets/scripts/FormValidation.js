@@ -80,7 +80,7 @@ $(function () {
     //Check Email
     $("#lnd_email").on('keyup change', function(){
         var lnd_email = $(this).val();
-        var url = "super_admin/checkDuplicateDataLandlord";
+        var url = "registration/checkDuplicateDataLandlord";
 
         $.ajax({
             url: url,
@@ -105,7 +105,7 @@ $(function () {
     //Check National ID
     $("#lnd_nid").on('keyup change', function(){
         var lnd_nid = $(this).val();
-        var url = "super_admin/checkDuplicateDataLandlord";
+        var url = "registration/checkDuplicateDataLandlord";
         console.log("Key pressed");
         $.ajax({
             url: url,
@@ -130,7 +130,8 @@ $(function () {
     //Check passport
     $("#lnd_passport").on('keyup change', function(){
         var lnd_passport = $(this).val();
-        var url = "super_admin/checkDuplicateDataLandlord";
+        var url = "registration/checkDuplicateDataLandlord";
+        console.log("Key pressed");
 
         $.ajax({
             url: url,
@@ -138,14 +139,18 @@ $(function () {
             data: {lnd_passport:lnd_passport},
             success: function(data){
                 if(data==1){
+                    console.log("Ok");
                     $("#lnd_passportMsg").text("Passport Already Exists!");
                     $("#lnd_passportMsg").css({"color": "red"});
                     $("#lnd_passport").css({"border": "1px solid red"});
                     $("#lnd_passportMsg").fadeIn(1000);
+                    $(".accExistLnd").removeClass('display_none');
                     $(".submit").attr("disabled", "disabled");
                 }else{
+                    console.log("Not Ok");
                     $("#lnd_passportMsg").fadeOut(2000);
                     $("#lnd_passport").css({"border":"1px solid #ccc"});
+                    $(".accExistLnd").addClass('display_none');
                     $(".submit").removeAttr("disabled", "disabled");
                 }
             }
