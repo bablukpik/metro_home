@@ -17,8 +17,37 @@ class Registration extends CI_Controller
         redirect('home');
     }
 
+    /*
+    ***Landloard Registraion
+    */
     public function onlineRegistration()
     {
+        $reterData = array();
+
+        //Start upload picture
+        if(!empty($_FILES['lnd_photo']['name'])){ //if($_FILES['image']['error'] == 0){
+            $config['upload_path'] = 'uploads/';
+            $config['allowed_types'] = 'jpg|jpeg|png|gif';
+            $config['file_name'] = date("Y-m-d-H-i-s")."_".str_replace(' ', '-', $_FILES['lnd_photo']['name']);
+
+            //Load upload library and initialize configuration
+            $this->load->library('upload',$config);
+            $this->upload->initialize($config);
+
+            if($this->upload->do_upload('lnd_photo')){
+                $finfo=$this->upload->data();
+                $this->_createThumbnail($finfo['file_name']);
+                $lnd_photo = $finfo['raw_name'].'_thumb'.$finfo['file_ext'];
+                //$lnd_photo = $finfo['file_name'];
+            }else{
+                $lnd_photo = '';
+            }
+        }else{
+            $lnd_photo = '';
+        }
+        //End upload picture
+
+        //Data Check
         if ( !empty($_POST['user_pass']) && !empty($_POST['lnd_name']) && !empty($_POST['lnd_birth_date']) && !empty($_POST['lnd_nid']) ) {
 
             //lnd Table (1)
@@ -64,7 +93,7 @@ class Registration extends CI_Controller
             $lndData['lnd_road_no'] = $this->input->post('lnd_road_no');
             $lndData['lnd_locality'] = $this->input->post('lnd_locality');
             $lndData['lnd_postcode'] = $this->input->post('lnd_postcode');
-            //lnd_photo
+            $lndData['lnd_photo'] = $lnd_photo;
 
             $lndInsertId = $this->MyModel->save_lnd_reg_data($lndData);
 
@@ -116,8 +145,12 @@ class Registration extends CI_Controller
                 }else{
                     $sdata['lndDriverFailure'] = 'Landlord driver added failure!';
                 }
-
+                //Error msg for picture upload
+                if($lnd_photo == ''){
+                    $sdata['error_msg_photo_lnd'] = 'Photo has not been uploaded!!';
+                }
                 $this->session->set_userdata($sdata);
+
                 redirect('home');
             }else{
                 $sdata['message'] = 'Try again! Landlord added failure';
@@ -129,8 +162,27 @@ class Registration extends CI_Controller
         }else{
             redirect('home');
         }
-    } //End check login
+    } //End Landloard Registraion
 
+    /*
+     * Thumbnail image creation for landloard
+     */
+    function _createThumbnail($filename)
+    {
+        $config['image_library']    = "gd2";
+        $config['source_image']     = "uploads/" .$filename;
+        $config['create_thumb']     = TRUE;
+        $config['maintain_ratio']   = TRUE;
+        $config['width']            = "160";
+        $config['height']           = "200";
+
+        $this->load->library('image_lib',$config);
+
+        if(!$this->image_lib->resize())
+        {
+            echo $this->image_lib->display_errors();
+        }
+    } //End Thumbnail image creation for landloard
 
 
 } //End class

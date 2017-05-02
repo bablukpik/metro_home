@@ -65,11 +65,6 @@ class Super_admin extends CI_Controller {
         }else{
             $renter_photo = '';
         }
-
-        //Error msg for picture
-        if($renter_photo == ''){
-            $this->session->set_flashdata('error_msg_photo', 'Error!!, Photo has not been uploaded');
-        }
         //End upload picture
 
         //Data check
@@ -169,6 +164,10 @@ class Super_admin extends CI_Controller {
                 }
 
                 $this->session->set_userdata($sdata);
+                //Error msg for picture upload
+                if($renter_photo == ''){
+                    $this->session->set_flashdata('error_msg_photo_renter', 'Error!!, Photo has not been uploaded');
+                }
                 redirect('super_admin');
             }else{
                 $sdata['message'] = 'Try again! Renter added failure';

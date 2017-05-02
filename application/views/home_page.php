@@ -68,6 +68,33 @@
 			</div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
 		</nav>
+        <!--Landlord creation message-->
+            <!--For image-->
+        <?php if($this->session->userdata('error_msg_photo_lnd') || $this->session->userdata('message')): ?>
+        <div style="max-width: 350px; margin: 0 auto; position: relative; z-index:999999;">
+            <?php if ($error_msg_photo_lnd =  $this->session->userdata('error_msg_photo_lnd')):?>
+            <div class="alert alert-danger alert-dismissable" style="">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <?php
+                    echo "<h4>".(isset($error_msg_photo_lnd)?$error_msg_photo_lnd:'')."</h4>";
+                    $this->session->unset_userdata('error_msg_photo_lnd');
+                ?>
+            </div>
+            <?php endif; ?>
+                <!--For Data-->
+            <?php if($message =  $this->session->userdata('message')):?>
+            <div class="alert alert-success alert-dismissable" style="">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <?php
+                    echo "<h4>".(isset($message)?$message:'')."</h4>";
+                    $this->session->unset_userdata('message');
+                ?>
+            </div>
+            <?php endif;?>
+        </div>
+        <?php endif;?>
+        <!--End Landlord creation message-->
+
 	</div>
 </header>
 

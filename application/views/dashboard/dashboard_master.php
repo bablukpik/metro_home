@@ -194,6 +194,23 @@
             <!-- end sidebar-collapse -->
         </nav>
         <!-- end navbar side -->
+
+        <!--Renter creation error message of Photo-->
+            <!--For image-->
+        <?php if($this->session->userdata('error_msg_photo_renter')): ?>
+            <div style="max-width: 400px; margin: 0 auto; position: relative; z-index:999999;">
+                <div class="alert alert-danger alert-dismissable" style="">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <?php
+                    $error_msg_photo_renter =  $this->session->userdata('error_msg_photo_renter');
+                    echo "<h2>".(isset($error_msg_photo_renter)?$error_msg_photo_renter:'')."</h2>";
+                    $this->session->unset_userdata('error_msg_photo_renter');
+                    ?>
+                </div>
+            </div>
+        <?php endif;?>
+        <!--End Renter creation error message of Photo-->
+
         <!--  page-wrapper -->
         <div id="page-wrapper">
 

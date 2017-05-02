@@ -28,7 +28,7 @@
                                     <div class="row">
                                         <div class="col-lg-12">
 
-                                            <form action="registration/onlineRegistration" method="post" role="form">
+                                            <form action="registration/onlineRegistration" method="post" role="form" enctype="multipart/form-data">
 
                                                 <div class="col-md-4">
                                                     <div class="row">
