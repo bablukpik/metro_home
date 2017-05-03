@@ -28,13 +28,13 @@
                                     <div class="row">
                                         <div class="col-lg-12">
 
-                                            <form action="registration/onlineRegistration" method="post" role="form" enctype="multipart/form-data">
+                                            <form action="<?php echo base_url('registration/onlineRegistration');?>" method="post" role="form" enctype="multipart/form-data">
 
                                                 <div class="col-md-4">
                                                     <div class="row">
                                                         <img src="<?php echo base_url();?>backend_assets/img/UserAltPhoto.png" alt="আপনার ছবি দিন" class="img-thumbnail" width="150">
                                                         <div class="form-group"><br>
-                                                            <label>আপনার ছবি দিন</label>
+                                                            <label>আপনার ছবি দিন</label> <?php echo form_error('lnd_photo', '<span class="error">', '</span>'); ?>
                                                             <input type="file" name="lnd_photo" type="file">
                                                         </div>
                                                     </div>
@@ -58,21 +58,26 @@
                                                             <input type="text" name="lnd_district" class="form-control" placeholder="জেলা">
                                                         </div>
                                                         <div class="form-group">
+                                                            <?php echo form_error('lnd_police_station'); ?>
                                                             <input type="text" name="lnd_police_station" class="form-control" placeholder="থানাঃ">
                                                         </div>
                                                         <div class="form-group">
                                                             <input type="text" name="lnd_flat_floor_no" class="form-control" placeholder="ফ্ল্যাট / তলাঃ">
                                                         </div>
                                                         <div class="form-group">
+                                                            <?php echo form_error('lnd_holding_no'); ?>
                                                             <input type="text" name="lnd_holding_no" class="form-control" placeholder="বাড়ী / হোল্ডিং নম্বরঃ">
                                                         </div>
                                                         <div class="form-group">
+                                                            <?php echo form_error('lnd_road_no'); ?>
                                                             <input type="text" name="lnd_road_no" class="form-control" placeholder="রাস্তাঃ">
                                                         </div>
                                                         <div class="form-group">
+                                                            <?php echo form_error('lnd_locality'); ?>
                                                             <input type="text" name="lnd_locality" class="form-control" placeholder="এলাকাঃ">
                                                         </div>
                                                         <div class="form-group">
+                                                            <?php echo form_error('lnd_postcode'); ?>
                                                             <input type="text" name="lnd_postcode" class="form-control" placeholder="পোস্ট কোডঃ">
                                                         </div>
                                                     </div>
@@ -84,6 +89,7 @@
                                                 </div>
 
                                                 <div class="form-group">
+                                                    <?php echo form_error('lnd_name'); ?>
                                                     <input type="text" name="lnd_name" class="form-control" placeholder="বাড়িওয়ালা নামঃ">
                                                     <p style="text-transform: initial" class="help-block">i.e Md. Masudul Islam</p>
                                                 </div>
@@ -118,6 +124,7 @@
                                                     <input type="text" name="lnd_educational_status" class="form-control" placeholder="বর্তমান শিক্ষাগত যোগ্যতাঃ">
                                                 </div>
                                                 <div class="form-group">
+                                                    <?php echo form_error('lnd_phone'); ?>
                                                     <input type="text" name="lnd_phone" class="form-control" placeholder="মোবাইল নম্বরঃ">
                                                 </div>
                                                 <div class="form-group">
@@ -126,6 +133,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <p id="lnd_nidMsg" style="text-transform: initial" class="help-block"></p>
+                                                    <?php echo form_error('lnd_nid'); ?>
                                                     <input type="text" id="lnd_nid" name="lnd_nid" class="form-control" placeholder="জাতীয় পরিচয়পত্র নম্বরঃ ">
                                                 </div>
                                                 <div class="form-group">

@@ -3,9 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Metro Home</title>
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
-	<link rel="stylesheet" href="assets/style.css" />
+	<link rel="stylesheet" href="<?php echo base_url();?>assets/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="<?php echo base_url();?>assets/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="<?php echo base_url();?>assets/style.css" />
     <!--Datepicker-->
     <link href="<?php echo base_url(); ?>assets/datepicker/css/jquery.datepick.css" rel="stylesheet">
     <!--/Datepicker-->
@@ -46,7 +46,7 @@
 			  </button>
 			  <a class="navbar-brand" href="#">
 				<div class="logo">
-					<img src="assets/images/logo.png" alt="logo" />
+					<img src="<?php echo base_url();?>assets/images/logo.png" alt="logo" />
 				</div>
 			  </a>
 			</div>

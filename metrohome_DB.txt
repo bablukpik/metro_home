@@ -16,9 +16,9 @@ Create table admin(
 	
 Create table landloard(
     lnd_id int auto_increment primary key,
-	user_pass varchar (40), /* password*/
+	user_pass varchar (40), /* password /*required*/ 
 	user_type varchar (30), /*type default*/
-	user_fullname varchar(30),
+	user_fullname varchar(30), /*required*/
 	lnd_father_name varchar(30),
 	lnd_birth_date date,
 	lnd_maritial_status int(2),
@@ -26,7 +26,7 @@ Create table landloard(
 	lnd_profession_institute varchar(30),
 	lnd_religion varchar(30),
 	lnd_educational_status varchar(30),
-    lnd_phone varchar(30),
+    lnd_phone varchar(30), /*required*/ 
     lnd_email varchar(30),
     lnd_nid varchar(30) unique key, /* user_name*/
 	lnd_passport varchar(30),
@@ -49,12 +49,12 @@ Create table landloard(
 	
 	lnd_division varchar(30),
 	lnd_district varchar(30),
-	lnd_police_station varchar(30),
+	lnd_police_station varchar(30), /*required*/ 
 	lnd_flat_floor_no varchar(30),
-	lnd_holding_no varchar(30),
-	lnd_road_no varchar(30),
-	lnd_locality varchar(30),
-	lnd_postcode varchar(30),
+	lnd_holding_no varchar(30), /*required*/ 
+	lnd_road_no varchar(30), /*required*/ 
+	lnd_locality varchar(30), /*required*/ 
+	lnd_postcode varchar(30), /*required*/ 
 	
     lnd_photo varchar(255)
     );
@@ -62,16 +62,16 @@ Create table landloard(
 	
 Create table renter(
     renter_id int auto_increment primary key,
-	user_fullname varchar(30),
+	user_fullname varchar(30), /*required*/
 	user_type varchar(30), /*type*/
 	renter_father_name varchar(30),
 	renter_birth_date date, /* password*/
 	renter_maritial_status int(2),
-	renter_permanent_add text,
+	renter_permanent_add text, /*required*/
 	renter_profession_institute varchar(30),
 	renter_religion varchar(30),
 	renter_educational_status varchar(30),
-    renter_phone varchar(30),
+    renter_phone varchar(30), /*required*/
     renter_email varchar(30),
     renter_nid varchar(30) unique key, /* user_name*/
 	renter_passport varchar(30),
@@ -195,9 +195,9 @@ CREATE TABLE renter_tracking_tbl(
 	renter_fullname varchar(30),
 	renter_phone varchar(30),
 	renter_nid varchar(30),
+	renter_permanent_add text,
 	renter_photo varchar(255),
 	
 	renter_started_date datetime,
 	renter_ending_date datetime
 	);
-	

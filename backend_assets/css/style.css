@@ -7,6 +7,12 @@
     font-style: normal;
 }
 
+.error{
+    color: red;
+    margin-left: 5px;
+    text-transform: initial;
+}
+
 nav.navbar-default.navbar-static-side {
     position: fixed;
 }

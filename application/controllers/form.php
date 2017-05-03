@@ -2,7 +2,18 @@
 
 class Form extends CI_Controller {
 
-    public function index()
+     public static $model = 'MyModel';
+
+    public function __construct()
+    {
+        parent::__construct();
+
+        
+
+    }
+
+
+    public function inlllldexm()
     {
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
@@ -62,6 +73,40 @@ class Form extends CI_Controller {
         {
             return TRUE;
         }
+    }
+
+    ////////////////////////////////////////////// Test
+
+    public function index(){
+        $this->load->view('testRegForm');
+    }
+
+    public function testForm(){
+        $this->load->database();
+        $this->load->model(self::$model);
+        $this->load->helper(array('form', 'url'));
+        $this->load->library('form_validation');
+             
+        $this->form_validation->set_error_delimiters('<span class="error">', '</span>');
+
+        $this->form_validation->set_rules('userName', 'Username', 'trim|required|min_length[4]|max_length[40]|is_unique[users.user_name]'); 
+
+     
+
+        if ($this->form_validation->run() == FALSE)
+            {
+                //$username = $this->input->post('userName');
+                ///die(var_dump($username));
+                $this->load->view('testRegForm');            
+               
+            }
+            else
+            {
+                $username = $this->input->post('userName');
+                //die(var_dump($username));
+                $this->MyModel->testt($username);
+            }
+
     }
 
 }

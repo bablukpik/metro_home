@@ -20,4 +20,12 @@ jQuery(function ($) {
         $("#loginForm").addClass("display_none");
     });
 
+    //If form validation error for landlord
+    if ($(".error").size()) {
+        $('#registrationOnline').removeClass('display_none');
+        var button = $('<button type="button" id="onlineRegBtn" class="btn btn-default btn-create" data-toggle="modal" data-target="#registrationOnline">Create account</button>').appendTo('body');
+        button.trigger('click');
+         
+    }
+
 }); //End Jquery Block

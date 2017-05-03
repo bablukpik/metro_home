@@ -34,7 +34,7 @@
                                         <img src="<?php echo base_url();?>backend_assets/img/UserAltPhoto.png" alt="আপনার ছবি দিন" class="img-thumbnail" width="150">
                                         <?php endif; ?>
                                         <div class="form-group"><br>
-                                            <label>আপনার ছবি দিন</label>
+                                            <label>আপনার ছবি দিন</label> <?php echo form_error('renter_photo', '<span class="error">', '</span>'); ?>
                                             <input type="file" id="renter_photo" name="renter_photo" >
                                         </div>
                                     </div>

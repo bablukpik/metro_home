@@ -149,6 +149,10 @@ class MyModel extends CI_Model {
     }
     // End Form validation of Renter
 
+    public function testt($username){
+        $this->db->insert('users', ['user_name'=>$username]);
+        return $this->db->insert_id();
+    }
 
 
 
