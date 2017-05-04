@@ -7,7 +7,7 @@ $(function () {
     //Check Email
     $("#renter_email").on('keyup change', function(){
         var renter_email = $(this).val();
-        var url = baseUrl+"/checkDuplicateDataRenter";
+        var url = baseUrl+"/super_admin/checkDuplicateDataRenter";
 
         $.ajax({
             url: url,
@@ -34,7 +34,7 @@ $(function () {
     //Check National ID
     $("#renter_nid").on('keyup change', function(){
         var renter_nid = $(this).val();
-        var url = baseUrl+"/checkDuplicateDataRenter";
+        var url = baseUrl+"/super_admin/checkDuplicateDataRenter";
         console.log("Key pressed");
         $.ajax({
             url: url,
@@ -61,7 +61,7 @@ $(function () {
     //Check passport
     $("#renter_passport").on('keyup change', function(){
         var renter_passport = $(this).val();
-        var url = baseUrl+"/checkDuplicateDataRenter";
+        var url = baseUrl+"/super_admin/checkDuplicateDataRenter";
 
         $.ajax({
             url: url,
