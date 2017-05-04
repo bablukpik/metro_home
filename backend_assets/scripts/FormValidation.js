@@ -1,9 +1,13 @@
+//Base URL
+var getUrl = window.location;
+var baseUrl = getUrl.origin + "/" + getUrl.pathname.split('/')[1];
+
 $(function () {
     //Renter Info Validation
     //Check Email
     $("#renter_email").on('keyup change', function(){
         var renter_email = $(this).val();
-        var url = "checkDuplicateDataRenter";
+        var url = baseUrl+"/checkDuplicateDataRenter";
 
         $.ajax({
             url: url,
@@ -30,7 +34,7 @@ $(function () {
     //Check National ID
     $("#renter_nid").on('keyup change', function(){
         var renter_nid = $(this).val();
-        var url = "checkDuplicateDataRenter";
+        var url = baseUrl+"/checkDuplicateDataRenter";
         console.log("Key pressed");
         $.ajax({
             url: url,
@@ -57,7 +61,7 @@ $(function () {
     //Check passport
     $("#renter_passport").on('keyup change', function(){
         var renter_passport = $(this).val();
-        var url = "checkDuplicateDataRenter";
+        var url = baseUrl+"/checkDuplicateDataRenter";
 
         $.ajax({
             url: url,
@@ -86,7 +90,7 @@ $(function () {
     //Check Email
     $("#lnd_email").on('keyup change', function(){
         var lnd_email = $(this).val();
-        var url = "registration/checkDuplicateDataLandlord";
+        var url = baseUrl+"/registration/checkDuplicateDataLandlord";
 
         $.ajax({
             url: url,
@@ -113,7 +117,7 @@ $(function () {
     //Check National ID
     $("#lnd_nid").on('keyup change', function(){
         var lnd_nid = $(this).val();
-        var url = "registration/checkDuplicateDataLandlord";
+        var url = baseUrl+"/registration/checkDuplicateDataLandlord";
         console.log("Key pressed");
         $.ajax({
             url: url,
@@ -140,7 +144,7 @@ $(function () {
     //Check passport
     $("#lnd_passport").on('keyup change', function(){
         var lnd_passport = $(this).val();
-        var url = "registration/checkDuplicateDataLandlord";
+        var url = baseUrl+"/registration/checkDuplicateDataLandlord";
         console.log("Key pressed");
 
         $.ajax({
