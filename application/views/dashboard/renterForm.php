@@ -24,7 +24,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
-                            <form action="registerRenter" method="post" role="form" enctype="multipart/form-data">
+                            <form action="<?php echo base_url('registerRenter');?>" method="post" role="form" enctype="multipart/form-data">
 
                                 <div class="col-md-4">
                                     <div class="row">
@@ -79,7 +79,7 @@
                                 </div> <hr/>
 
                                 <div class="form-group">
-                                    <input type="text" name="renter_name" class="form-control" placeholder="ভাড়াটিয়া নামঃ">
+                                    <input type="text" name="renter_name" class="form-control" placeholder="ভাড়াটিয়া নামঃ" required="required">
                                     <p class="help-block">i.e Md. Masudul Islam</p>
                                 </div>
                                 <div class="form-group">
@@ -92,7 +92,7 @@
                                     <input type="text" name="renter_maritial_status" class="form-control" placeholder="বৈবাহিক অবস্থাঃ">
                                 </div>
                                 <div class="form-group">
-                                    <textarea name="renter_permanent_add" class="form-control" placeholder="স্থায়ী ঠিকানাঃ" rows="1"></textarea>
+                                    <textarea name="renter_permanent_add" class="form-control" placeholder="স্থায়ী ঠিকানাঃ" rows="1" required="required"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <textarea name="renter_profession_institute" class="form-control" placeholder="পেশা ও প্রতিষ্ঠান / কর্মস্থলের ঠিকানাঃ" rows="1"></textarea>
@@ -113,7 +113,7 @@
                                     <input type="text" name="renter_educational_status" class="form-control" placeholder="বর্তমান শিক্ষাগত যোগ্যতাঃ">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="renter_phone" class="form-control" placeholder="মোবাইল নম্বরঃ">
+                                    <input type="text" name="renter_phone" class="form-control" placeholder="মোবাইল নম্বরঃ" required="required">
                                 </div>
                                 <div class="form-group">
                                     <p id="renter_emailMsg" class="help-block"></p>
@@ -121,7 +121,7 @@
                                 </div>
                                 <div class="form-group">
                                     <p id="renter_nidMsg" class="help-block"></p>
-                                    <input type="text" id="renter_nid" name="renter_nid" class="form-control" placeholder="জাতীয় পরিচয়পত্র নম্বরঃ ">
+                                    <input type="text" id="renter_nid" name="renter_nid" class="form-control" placeholder="জাতীয় পরিচয়পত্র নম্বরঃ " required="required">
                                 </div>
                                 <div class="form-group">
                                     <p id="renter_passportMsg" class="help-block"></p>

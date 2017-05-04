@@ -1,5 +1,5 @@
 <div id="loginForm" class="login-form display_none">
-    <form action="login/check_login" method="post" id="login_Form" target="_blank">
+    <form action="<?php echo base_url('login/check_login');?>" method="post" id="login_Form" target="_blank">
         <div class="login_interface">
             
             <div class="form-group">
