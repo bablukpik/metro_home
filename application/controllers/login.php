@@ -56,6 +56,7 @@ class Login extends CI_Controller
                 $sdata['user_name'] = $result->user_name;
                 $sdata['user_type'] = $result->user_type;
                 $sdata['user_fullname'] = $result->user_fullname;
+                $sdata['adm_photo'] = $result->adm_photo;
                 $sdata['message'] = 'Welcome ' . $result->user_fullname;
                 $this->session->set_userdata($sdata);
                 redirect('super_admin');

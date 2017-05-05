@@ -58,18 +58,12 @@
                         <li>
                             <a href="#">
                                 <div>
-                                    <!--<i class="fa fa-comment fa-fw"></i>-->
-
                                     <?php
-                                       /* if($singleMsg == $user_name || $singleMsg == $user_type){
-                                            continue;
-                                        }else{*/
-                                            echo $singleMsg;
-                                        /*}*/
+                                        echo $singleMsg;
                                     ?>
-                                    <span class="pull-right text-muted small">
+                                    <!-- <span class="pull-right text-muted small">
                                         <?php $dt = new DateTime("now", new DateTimeZone('Asia/Dhaka'));
-                                        echo $dt->format('m/d/Y, h:i:s'); ?> ago</span>
+                                        echo $dt->format('m/d/Y, h:i:s'); ?> ago</span> -->
                                 </div>
                             </a>
                         </li>
@@ -118,7 +112,11 @@
                         <!-- user image section-->
                         <div class="user-section">
                             <div class="user-section-inner">
-                                <img src="<?php echo base_url(); ?>backend_assets/img/user.jpg" alt="">
+                                <?php if($adm_photo = $this->session->userdata('adm_photo')) :?>
+                                <img src="<?php echo base_url('uploads/').(isset($adm_photo)?$adm_photo:''); ?>" alt="Admin Photo">
+                                <?php else:?>
+                                <img src="<?php echo base_url(); ?>backend_assets/img/user.jpg" alt="Admin Photo">
+                                 <?php endif;?>
                             </div>
                             <div class="user-info">
                                 <div><?php $user_fullname = $this->session->userdata("user_fullname");
