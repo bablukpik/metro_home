@@ -32,10 +32,10 @@
 
                                                 <div class="col-md-4">
                                                     <div class="row">
-                                                        <img src="<?php echo base_url();?>backend_assets/img/UserAltPhoto.png" alt="আপনার ছবি দিন" class="img-thumbnail" width="150">
+                                                        <img id='lnd_photo_preview' src="<?php echo base_url();?>backend_assets/img/UserAltPhoto.png" alt="আপনার ছবি দিন" class="img-thumbnail" width="150">
                                                         <div class="form-group"><br>
                                                             <label>আপনার ছবি দিন</label> <?php echo form_error('lnd_photo', '<span class="error">', '</span>'); ?>
-                                                            <input type="file" name="lnd_photo" type="file">
+                                                            <input id="lnd_photo" type="file" name="lnd_photo" >
                                                         </div>
                                                     </div>
                                                 </div>

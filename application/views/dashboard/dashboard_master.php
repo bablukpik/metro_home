@@ -240,8 +240,8 @@
     </div>
     <!-- end wrapper -->
     <!-- Core Scripts - Include with every page -->
-    <!--<script src="<?php /*echo base_url(); */?>backend_assets/plugins/jquery-1.10.2.js"></script>-->
     <script src="https://code.jquery.com/jquery.min.js"></script>
+    <script src="<?php echo base_url(); ?>backend_assets/plugins/jquery-1.10.2.js"></script>
     <script src="<?php echo base_url(); ?>backend_assets/plugins/bootstrap/bootstrap.min.js"></script>
     <script src="<?php echo base_url(); ?>backend_assets/plugins/metisMenu/jquery.metisMenu.js"></script>
     <script src="<?php echo base_url(); ?>backend_assets/plugins/pace/pace.js"></script>
@@ -278,6 +278,7 @@
     </script>
     <!--/Datepicker-->
     <script src="<?php echo base_url('backend_assets/scripts/FormValidation.js');?>"></script>
-
+    <!--Main Js For backend-->
+    <script src="<?php echo base_url('backend_assets/scripts/main.js');?>"></script>
 </body>
 </html>

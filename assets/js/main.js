@@ -28,4 +28,24 @@ jQuery(function ($) {
          
     }
 
+    //Image preview for landlord
+    function readImgURLlnd(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#lnd_photo_preview').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#lnd_photo").change(function(){
+        readImgURLlnd(this);
+        console.log('File selected');
+    });
+
+
+
 }); //End Jquery Block

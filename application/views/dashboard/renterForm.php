@@ -24,14 +24,14 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
-                            <form action="<?php echo base_url('registerRenter');?>" method="post" role="form" enctype="multipart/form-data">
+                            <form action="<?php echo base_url('super_admin/registerRenter');?>" method="post" role="form" enctype="multipart/form-data">
 
                                 <div class="col-md-4">
                                     <div class="row">
                                     <?php if(isset($renter_photo)) : ?>
                                         <img src="<?php echo base_url(). 'uploads/' . $renter_photo; ?>" alt="আপনার ছবি দিন" class="img-thumbnail" width="150">
                                     <?php else: ?>
-                                        <img src="<?php echo base_url();?>backend_assets/img/UserAltPhoto.png" alt="আপনার ছবি দিন" class="img-thumbnail" width="150">
+                                        <img id="renter_photo_preview" src="<?php echo base_url();?>backend_assets/img/UserAltPhoto.png" alt="আপনার ছবি দিন" class="img-thumbnail" width="150">
                                         <?php endif; ?>
                                         <div class="form-group"><br>
                                             <label>আপনার ছবি দিন</label> <?php echo form_error('renter_photo', '<span class="error">', '</span>'); ?>

@@ -240,7 +240,7 @@
 <script>
     $(function () {
         $('#popupDatepickerFrontEnd').datepick({dateFormat: 'dd/mm/yyyy'});
-        console.log('colling');
+        console.log('calling Datepicker');
     });
 </script>
 <!--/Datepicker-->
