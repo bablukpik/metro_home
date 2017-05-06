@@ -1,3 +1,8 @@
+var getUrl = window.location;
+var baseUrl = getUrl.origin + "/" + getUrl.pathname.split('/')[1];
+var loginUrl;
+var loginUrl2;
+
 jQuery(function ($) {
 
     //Login Button Restricted area of dialog
@@ -46,6 +51,12 @@ jQuery(function ($) {
         console.log('File selected');
     });
 
-
+    //login dialog when login failed
+    if ( document.location.href.indexOf('login') > -1 ) {
+        console.log('Ok');
+        $("#loginBtn").trigger('click');
+    }else{
+        console.log('Not Ok');
+    }
 
 }); //End Jquery Block
