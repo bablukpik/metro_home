@@ -4,7 +4,7 @@ Create table admin(
     adm_id int auto_increment primary key,
     user_name varchar(30) unique key,
     user_pass varchar(100),
-    user_type varchar(50),
+    user_type varchar(50) default 'admin',
     user_fullname varchar(30),
     adm_address text,
     adm_phone varchar(30),
@@ -13,12 +13,26 @@ Create table admin(
     adm_modified_date datetime,
     adm_photo varchar(255)
     );
+
+Create table metro_police(
+    metro_police_id int auto_increment primary key,
+    metro_police_username varchar(30) unique key,
+    metro_police_userpass varchar(100),
+    user_type varchar(50) default 'metro_police',
+    user_fullname varchar(30),
+    metro_police_address text,
+    metro_police_phone varchar(30),
+    metro_police_email varchar(30),
+    metro_police_created_date datetime,
+    metro_police_modified_date datetime,
+    metro_police_photo varchar(255)
+    );
 	
 Create table landloard(
     lnd_id int auto_increment primary key,
-	user_pass varchar (40), /* password /*required*/ 
-	user_type varchar (30), /*type default*/
-	user_fullname varchar(30), /*required*/
+	lnd_pass varchar (40), /* password /*required*/ 
+	user_type varchar (30) default 'landlord', /*type default*/
+	lnd_fullname varchar(30), /*required*/
 	lnd_father_name varchar(30),
 	lnd_birth_date date,
 	lnd_maritial_status int(2),
@@ -62,8 +76,8 @@ Create table landloard(
 	
 Create table renter(
     renter_id int auto_increment primary key,
-	user_fullname varchar(30), /*required*/
-	user_type varchar(30), /*type*/
+	renter_fullname varchar(30), /*required*/
+	user_type varchar(30) default 'renter', /*type*/
 	renter_father_name varchar(30),
 	renter_birth_date date, /* password*/
 	renter_maritial_status int(2),

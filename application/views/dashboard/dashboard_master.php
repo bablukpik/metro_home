@@ -112,8 +112,8 @@
                         <!-- user image section-->
                         <div class="user-section">
                             <div class="user-section-inner">
-                                <?php if($adm_photo = $this->session->userdata('adm_photo')) :?>
-                                <img src="<?php echo base_url('uploads/').(isset($adm_photo)?$adm_photo:''); ?>" alt="Admin Photo">
+                                <?php if($photo = $this->session->userdata('photo')) :?>
+                                <img src="<?php echo base_url('uploads/').(isset($photo)?$photo:''); ?>" alt="Admin Photo">
                                 <?php else:?>
                                 <img src="<?php echo base_url(); ?>backend_assets/img/user.jpg" alt="Admin Photo">
                                  <?php endif;?>
@@ -156,7 +156,7 @@
                                 $user_type = $this->session->userdata("user_type");
                                 if($user_type == 'admin') : ?>
                             <li>
-                                <i class="fa fa-arrow-right" aria-hidden="true"></i><a href="#">Add a renter</a>
+                                <i class="fa fa-arrow-right" aria-hidden="true"></i><a href="<?php echo base_url('super_admin/addNewRenterToLet'); ?>">Add new renter to let </a>
                             </li>
                             <li>
                                 <i class="fa fa-arrow-right" aria-hidden="true"></i><a href="<?php echo base_url(); ?>super_admin/renterRegisterForm">Register a renter</a>
@@ -176,20 +176,20 @@
         <!-- end navbar side -->
 
         <!--Renter creation error message of Photo-->
-        <?php if($this->session->userdata('error_msg_photo_renter') || $this->session->userdata("message")): ?>
+        <?php if($this->session->userdata('error_msg_photo_renter') || $this->session->userdata("successMsg")): ?>
             <div style="max-width: 400px; margin: 0 auto; position: relative; z-index:999999;">
 
-                <!-- Data added success -->
-                <?php if($message = $this->session->userdata("message")): ?>
+                <!-- Welcome and Data added success -->
+                <?php if($successMsg = $this->session->userdata("successMsg")): ?>
                 <div class="welcome_msg alert alert-success alert-dismissible">
                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                     <?php
-                    echo "<h4>".$message."</h4>";
-                    $this->session->unset_userdata("message");
+                    echo "<h4>".$successMsg."</h4>";
+                    $this->session->unset_userdata("successMsg");
                     ?>
                 </div>
                 <?php endif; ?>
-                <!-- End Data added success -->
+                <!-- End Welcome and Data added success -->
 
                 <!--For image-->
                 <?php if($error_msg_photo_renter =  $this->session->userdata('error_msg_photo_renter')): ?>

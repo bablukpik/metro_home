@@ -35,37 +35,97 @@ class Login extends CI_Controller
     public function check_login()
     {
         if (!empty($_POST['user_name']) && !empty($_POST['user_pass']) && !empty($_POST['user_type'])) {
+            $user_type = $this->input->post('user_type');
             $user_name = $this->input->post('user_name');
             $user_pass = $this->input->post('user_pass');
-            $user_type = $this->input->post('user_type');
+            
 
             if( $user_type == 'admin'){
-                $result = $this->MyModel->check_admin_login_info($user_name, $user_pass, $user_type);
+                $resultAdmin = $this->MyModel->check_admin_login_info($user_name, $user_pass, $user_type);
+
+                if ($resultAdmin) {
+                    $sdata['user_name']         = $resultAdmin->adm_username;
+                    $sdata['user_type']         = $resultAdmin->user_type;
+                    $sdata['user_fullname']     = $resultAdmin->adm_fullname;
+                    $sdata['photo']             = $resultAdmin->adm_photo;
+                    $sdata['successMsg']        = 'Welcome ' . $resultAdmin->adm_fullname;
+                    $this->session->set_userdata($sdata);
+                    redirect('super_admin');
+                }else{
+                    $sdata['failureMsg'] = 'Invalid Username or Password';
+                    $this->session->set_userdata($sdata);
+                    redirect('login');
+                }
             }elseif ($user_type == 'landlord'){
-                $result = $this->MyModel->check_landloard_login_info($user_name, $user_pass, $user_type);
+                $resultLandlord = $this->MyModel->check_landloard_login_info($user_name, $user_pass, $user_type);
+
+                if ($resultLandlord) {
+                    $sdata['user_name']     = $resultLandlord->lnd_nid;
+                    $sdata['user_type']     = $resultLandlord->user_type;
+                    $sdata['user_fullname'] = $resultLandlord->lnd_fullname;
+                    $sdata['photo']         = $resultLandlord->lnd_photo;
+                    $sdata['successMsg']    = 'Welcome ' . $resultLandlord->lnd_fullname;
+
+                    $this->session->set_userdata($sdata);
+                    redirect('super_admin');
+                }else{
+                    $sdata['failureMsg'] = 'Invalid Username or Password';
+                    $this->session->set_userdata($sdata);
+                    redirect('login');
+                }
             }elseif ($user_type == 'renter'){
-                $result = $this->MyModel->check_renter_login_info($user_name, $user_pass, $user_type);
+                $resultRenter = $this->MyModel->check_renter_login_info($user_name, $user_pass, $user_type);
+
+                if ($resultRenter) {
+                    $sdata['user_name'] = $resultRenter->renter_nid;
+                    $sdata['user_type'] = $resultRenter->user_type;
+                    $sdata['user_fullname'] = $resultRenter->renter_fullname;
+                    $sdata['photo'] = $resultRenter->renter_photo;
+                    $sdata['successMsg'] = 'Welcome ' . $resultRenter->renter_fullname;
+                    $this->session->set_userdata($sdata);
+                    redirect('super_admin');
+                }else{
+                    $sdata['failureMsg'] = 'Invalid Username or Password';
+                    $this->session->set_userdata($sdata);
+                    redirect('login');
+                }
             }elseif ($user_type == 'metro_police'){
-                $result = $this->MyModel->check_metro_police_login_info($user_name, $user_pass, $user_type);
+                $resultMetroPolice = $this->MyModel->check_metro_police_login_info($user_name, $user_pass, $user_type);
+
+                if ($resultMetroPolice) {
+                    $sdata['user_name']     = $resultMetroPolice->metro_police_username;
+                    $sdata['user_type']     = $resultMetroPolice->user_type;
+                    $sdata['user_fullname'] = $resultMetroPolice->resultMetroPolice_fullname;
+                    $sdata['photo']         = $resultMetroPolice->resultMetroPolice_photo;
+                    $sdata['successMsg']       = 'Welcome ' . $resultMetroPolice->resultMetroPolice_fullname;
+                    $this->session->set_userdata($sdata);
+                    redirect('super_admin');
+                }else{
+                    $sdata['failureMsg'] = 'Invalid Username or Password';
+                    $this->session->set_userdata($sdata);
+                    redirect('login');
+                }
             }elseif ($user_type == 'general'){
-                $result = $this->MyModel->check_genUser_login_info($user_name, $user_pass, $user_type);
+                $resultGeneral = $this->MyModel->check_genUser_login_info($user_name, $user_pass, $user_type);
+
+                if ($resultGeneral) {
+                    $sdata['user_name']     = $resultGeneral->user_name;
+                    $sdata['user_type']     = $resultGeneral->user_type;
+                    $sdata['user_fullname'] = $resultGeneral->user_fullname;
+                    $sdata['photo']         = $resultGeneral->adm_photo;
+                    $sdata['successMsg']    = 'Welcome ' . $resultGeneral->user_fullname;
+                    $this->session->set_userdata($sdata);
+                    redirect('super_admin');
+                }else{
+                    $sdata['failureMsg'] = 'Invalid Username or Password';
+                    $this->session->set_userdata($sdata);
+                    redirect('login');
+                }
             }
 
-
-            if ($result) {
-                $sdata['user_name'] = $result->user_name;
-                $sdata['user_type'] = $result->user_type;
-                $sdata['user_fullname'] = $result->user_fullname;
-                $sdata['adm_photo'] = $result->adm_photo;
-                $sdata['message'] = 'Welcome ' . $result->user_fullname;
-                $this->session->set_userdata($sdata);
-                redirect('super_admin');
-            }else{
-                $sdata['message'] = 'Invalid Username or Password';
-                $this->session->set_userdata($sdata);
-                redirect('login');
-            }
         }else{
+            $sdata['failureMsg'] = 'Try again';
+            $this->session->set_userdata($sdata);
             redirect('login');
         }
 

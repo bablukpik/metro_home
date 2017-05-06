@@ -84,7 +84,7 @@
                                                 </div> <hr/>
 
                                                 <div class="form-group">
-                                                    <input type="text" name="user_pass" class="form-control" placeholder="Password">
+                                                    <input type="text" name="user_pass" class="form-control" required="required" placeholder="Password">
                                                     <input type="hidden" name="user_type" value="landlord" class="form-control" placeholder="landlord">
                                                 </div>
 

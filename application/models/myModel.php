@@ -26,8 +26,8 @@ class MyModel extends CI_Model {
     public function check_admin_login_info($user_name, $user_pass, $user_type){
         $this->db->select('*');
         $this->db->from(self::$admin);
-        $this->db->where('user_name', $user_name);
-        $this->db->where('user_pass', $user_pass);
+        $this->db->where('adm_username', $user_name);
+        $this->db->where('adm_userpass', $user_pass);
         $this->db->where('user_type', $user_type);
         $query = $this->db->get();
         return $query->row();
@@ -38,7 +38,7 @@ class MyModel extends CI_Model {
         $this->db->select('*');
         $this->db->from(self::$landlord);
         $this->db->where('lnd_nid', $user_name);
-        $this->db->where('user_pass', $user_pass);
+        $this->db->where('lnd_pass', $user_pass);
         $this->db->where('user_type', $user_type);
         $query = $this->db->get();
         return $query->row();
@@ -154,7 +154,36 @@ class MyModel extends CI_Model {
         return $this->db->insert_id();
     }
 
+    //Check renter info addNewRenterToLet
+    public function renter_check($table, $where){
+        $this->db->select("*");
+        $this->db->from($table);
+        $this->db->where($where);
+        $query = $this->db->get();
+        $result = $query->row();
+        return $result;
+    }
+    // End Check renter info addNewRenterToLet
 
+    //Check landlord info addNewRenterToLet
+    public function landlord_check($table, $where){
+        $this->db->select("*");
+        $this->db->from($table);
+        $this->db->where($where);
+        $query = $this->db->get();
+        $result = $query->row();
+        return $result;
+    }
+    // End Check landlord info addNewRenterToLet
+
+    //Renter Tracking Data save
+    public function addNewRenterToLetM($table, $trackingData){
+        $this->db->insert($table, $trackingData);
+        return $this->db->insert_id();
+    }
+
+
+    //Temp
 
    /* public function save($data)
     {

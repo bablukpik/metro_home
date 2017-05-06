@@ -30,7 +30,7 @@ class Super_admin extends CI_Controller {
 		$this->session->unset_userdata("user_type");
 		$sdata["message"] = "You are successfully logout";
 		$this->session->set_userdata($sdata);*/
-		redirect("login");
+		redirect("home");
 	}
 
 	public function renterRegisterForm()
@@ -244,7 +244,60 @@ class Super_admin extends CI_Controller {
     }
     //End Form validation for Renter
 
+    //Add New Renter To Let
+    public function addNewRenterToLet(){
+        $data["renter_nid"]   = $_POST['renter_nid'];
+        
+        $where = $data;
+        $renter_check_r = $this->MyModel->renter_check('renter', $where);
+        
+        $where2['user_name'] = $this->session->userdata('user_name');
+        $where2['user_type'] = "landlord";
+        $lnd_check_r = $this->MyModel->landlord_check('landloard', $where2);
 
+        if ($renter_check_r and $lnd_check_r) {
+            //Renter info
+            $trackingData["renter_id"]          = $renter_check_r->renter_id;
+            $trackingData["renter_fullname"]    = $renter_check_r->renter_fullname;
+            $trackingData["renter_phone"]       = $renter_check_r->renter_phone;
+            $trackingData["renter_nid"]         = $renter_check_r->renter_nid;
+            $trackingData["renter_permanent_add"] = $renter_check_r->renter_permanent_add;
+            $trackingData["renter_photo"]       = $renter_check_r->renter_photo;
+
+            //Landlord info
+            $trackingData["lnd_id"]          = $lnd_check_r->renter_id;
+            $trackingData["lnd_fullname"]    = $lnd_check_r->renter_fullname;
+            $trackingData["lnd_phone"]       = $lnd_check_r->renter_phone;
+            $trackingData["lnd_nid"]         = $lnd_check_r->renter_nid;
+            $trackingData["lnd_police_station"] = $lnd_check_r->renter_permanent_add;
+            $trackingData["lnd_holding_no"]       = $lnd_check_r->renter_photo;
+            $trackingData["lnd_road_no"]       = $lnd_check_r->renter_photo;
+            $trackingData["lnd_locality"]       = $lnd_check_r->renter_photo;
+            $trackingData["lnd_postcode"]       = $lnd_check_r->renter_photo;
+            $trackingData["lnd_photo"]       = $lnd_check_r->renter_photo;
+
+            //Date
+            $dt = new DateTime("now", new DateTimeZone('Asia/Dhaka'));
+            $todayDate = $dt->format('Y-m-d h:i:s'); 
+
+            $trackingData["renter_started_date"] = $todayDate;
+            $trackingData["enter_ending_date"]   = $todayDate;
+        
+            $result = $this->MyModel->addNewRenterToLetM('renter_tracking_tbl', $trackingData);
+
+            if($result){
+                echo "Renter inserted Successfull!!";
+            }
+            else{
+                echo "Failure!! Ranter has not inserted";
+            }
+        }else{
+            echo "Failure!! The Renter has not registered yet";
+        }
+    }
+
+
+    //Temp
     public function save_category()
     {
         if (!empty($this->input->post("categategory_name"))) {

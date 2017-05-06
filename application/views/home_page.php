@@ -73,7 +73,7 @@
 		</nav>
         <!--Landlord creation message-->
             <!--For image-->
-        <?php if($this->session->userdata('error_msg_photo_lnd') || $this->session->userdata('message')): ?>
+        <?php if($this->session->userdata('error_msg_photo_lnd') || $this->session->userdata('successMsg') ||  $this->session->userdata('failureMsg')): ?>
         <div style="max-width: 350px; margin: 0 auto; position: relative; z-index:999999;">
             <?php if ($error_msg_photo_lnd =  $this->session->userdata('error_msg_photo_lnd')):?>
             <div class="welcome_msg alert alert-danger alert-dismissable" style="">
@@ -84,16 +84,29 @@
                 ?>
             </div>
             <?php endif; ?>
+
                 <!--For Data-->
-            <?php if($message =  $this->session->userdata('message')):?>
+            <?php if($successMsg =  $this->session->userdata('successMsg')):?>
             <div class="welcome_msg alert alert-success alert-dismissable" style="">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                 <?php
-                    echo "<h4>".(isset($message)?$message:'')."</h4>";
-                    $this->session->unset_userdata('message');
+                    echo "<h4>".(isset($successMsg)?$successMsg:'')."</h4>";
+                    $this->session->unset_userdata('successMsg');
                 ?>
             </div>
             <?php endif;?>
+
+             <!--For Failure-->
+            <?php if($failureMsg =  $this->session->userdata('failureMsg')):?>
+            <div class="welcome_msg alert alert-danger alert-dismissable" style="">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <?php
+                    echo "<h4>".(isset($failureMsg)?$failureMsg:'')."</h4>";
+                    $this->session->unset_userdata('failureMsg');
+                ?>
+            </div>
+            <?php endif;?>
+
         </div>
         <?php endif;?>
         <!--End Landlord creation message-->

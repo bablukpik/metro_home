@@ -1,8 +1,3 @@
-var getUrl = window.location;
-var baseUrl = getUrl.origin + "/" + getUrl.pathname.split('/')[1];
-var loginUrl;
-var loginUrl2;
-
 jQuery(function ($) {
 
     //Login Button Restricted area of dialog
