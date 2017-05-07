@@ -244,55 +244,70 @@ class Super_admin extends CI_Controller {
     }
     //End Form validation for Renter
 
+    //Add New Renter page
+    public function addNewRenter(){
+
+        $data["addNewRenterPage"] = $this->load->view('dashboard/addNewRenterToLet', "", true);
+        $this->load->view("dashboard/dashboard_master", $data);
+        
+    }
+
     //Add New Renter To Let
     public function addNewRenterToLet(){
-        $data["renter_nid"]   = $_POST['renter_nid'];
+
+        if (!empty($_POST['renter_nid'])) {
+           $data["renter_nid"]   = $_POST['renter_nid'];
         
-        $where = $data;
-        $renter_check_r = $this->MyModel->renter_check('renter', $where);
-        
-        $where2['user_name'] = $this->session->userdata('user_name');
-        $where2['user_type'] = "landlord";
-        $lnd_check_r = $this->MyModel->landlord_check('landloard', $where2);
+            $where = $data;
+            $renter_check_r = $this->MyModel->renter_check('renter', $where);
+            
+            $where2['lnd_nid'] = $this->session->userdata('user_name');
+            $where2['user_type'] = "landlord";
 
-        if ($renter_check_r and $lnd_check_r) {
-            //Renter info
-            $trackingData["renter_id"]          = $renter_check_r->renter_id;
-            $trackingData["renter_fullname"]    = $renter_check_r->renter_fullname;
-            $trackingData["renter_phone"]       = $renter_check_r->renter_phone;
-            $trackingData["renter_nid"]         = $renter_check_r->renter_nid;
-            $trackingData["renter_permanent_add"] = $renter_check_r->renter_permanent_add;
-            $trackingData["renter_photo"]       = $renter_check_r->renter_photo;
+            $lnd_check_r = $this->MyModel->landlord_check('landloard', $where2);
 
-            //Landlord info
-            $trackingData["lnd_id"]          = $lnd_check_r->renter_id;
-            $trackingData["lnd_fullname"]    = $lnd_check_r->renter_fullname;
-            $trackingData["lnd_phone"]       = $lnd_check_r->renter_phone;
-            $trackingData["lnd_nid"]         = $lnd_check_r->renter_nid;
-            $trackingData["lnd_police_station"] = $lnd_check_r->renter_permanent_add;
-            $trackingData["lnd_holding_no"]       = $lnd_check_r->renter_photo;
-            $trackingData["lnd_road_no"]       = $lnd_check_r->renter_photo;
-            $trackingData["lnd_locality"]       = $lnd_check_r->renter_photo;
-            $trackingData["lnd_postcode"]       = $lnd_check_r->renter_photo;
-            $trackingData["lnd_photo"]       = $lnd_check_r->renter_photo;
+            if ($renter_check_r and $lnd_check_r) {
+                //Renter info
+                $trackingData["renter_id"]          = $renter_check_r->renter_id;
+                $trackingData["renter_fullname"]    = $renter_check_r->renter_fullname;
+                $trackingData["renter_phone"]       = $renter_check_r->renter_phone;
+                $trackingData["renter_nid"]         = $renter_check_r->renter_nid;
+                $trackingData["renter_permanent_add"] = $renter_check_r->renter_permanent_add;
+                $trackingData["renter_photo"]       = $renter_check_r->renter_photo;
 
-            //Date
-            $dt = new DateTime("now", new DateTimeZone('Asia/Dhaka'));
-            $todayDate = $dt->format('Y-m-d h:i:s'); 
+                //Landlord info
+                $trackingData["lnd_id"]             = $lnd_check_r->lnd_id;
+                $trackingData["lnd_fullname"]       = $lnd_check_r->lnd_fullname;
+                $trackingData["lnd_phone"]          = $lnd_check_r->lnd_phone;
+                $trackingData["lnd_nid"]            = $lnd_check_r->lnd_nid;
+                $trackingData["lnd_police_station"] = $lnd_check_r->lnd_police_station;
+                $trackingData["lnd_holding_no"]     = $lnd_check_r->lnd_holding_no;
+                $trackingData["lnd_road_no"]        = $lnd_check_r->lnd_road_no;
+                $trackingData["lnd_locality"]       = $lnd_check_r->lnd_locality;
+                $trackingData["lnd_postcode"]       = $lnd_check_r->lnd_postcode;
+                $trackingData["lnd_photo"]          = $lnd_check_r->lnd_photo;
 
-            $trackingData["renter_started_date"] = $todayDate;
-            $trackingData["enter_ending_date"]   = $todayDate;
-        
-            $result = $this->MyModel->addNewRenterToLetM('renter_tracking_tbl', $trackingData);
+                //Date
+                $dt = new DateTime("now", new DateTimeZone('Asia/Dhaka'));
+                $todayDate = $dt->format('Y-m-d h:i:s'); 
 
-            if($result){
-                echo "Renter inserted Successfull!!";
-            }
-            else{
-                echo "Failure!! Ranter has not inserted";
-            }
+                $trackingData["renter_started_date"] = $todayDate;
+                $trackingData["renter_ending_date"]   = $todayDate;
+            
+                $result = $this->MyModel->addNewRenterToLetM('renter_tracking_tbl', $trackingData);
+
+                if($result){
+                    echo "<p style='color:green'>Renter inserted Successfull!!</p>";
+                }
+                else{
+                    echo "<p style='color:red'>Try again!! Ranter has not been inserted</p>";
+                }
+            }else{
+                echo "<p style='color:red'>Failure!! The Renter hasn't been registered yet. Please register first</p>";
+            } 
         }else{
-            echo "Failure!! The Renter has not registered yet";
+            echo "<p style='color:red;'>Please enter Renter National ID</p>";
+            redirect('super_admin/addNewRenter');
         }
     }
 

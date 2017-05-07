@@ -15,6 +15,7 @@
     <!--Datepicker-->
     <link href="<?php echo base_url(); ?>assets/datepicker/css/jquery.datepick.css" rel="stylesheet">
     <!--/Datepicker-->
+    
    </head>
 <body style="font-family: solaimanlipi">
     <!--Renter already registered dialog-->
@@ -155,13 +156,23 @@
                             <?php
                                 $user_type = $this->session->userdata("user_type");
                                 if($user_type == 'admin') : ?>
+  
                             <li>
-                                <i class="fa fa-arrow-right" aria-hidden="true"></i><a href="<?php echo base_url('super_admin/addNewRenterToLet'); ?>">Add new renter to let </a>
+                                <i class="fa fa-arrow-right" aria-hidden="true"></i><a href="<?php echo base_url(); ?>super_admin/renterRegisterForm">Register a renter</a>
+                            </li>
+                            <?php endif; ?>
+
+                            <?php
+                                $user_type = $this->session->userdata("user_type");
+                                if($user_type == 'landlord') : ?>
+                            <li>
+                                <i class="fa fa-arrow-right" aria-hidden="true"></i><a href="<?php echo base_url('super_admin/addNewRenter'); ?>">Add new renter to let </a>
                             </li>
                             <li>
                                 <i class="fa fa-arrow-right" aria-hidden="true"></i><a href="<?php echo base_url(); ?>super_admin/renterRegisterForm">Register a renter</a>
                             </li>
                             <?php endif; ?>
+
                         </ul>
                         <!-- second-level-items -->
                     </li>
@@ -224,6 +235,8 @@
             <!--End Sidebar Menu-->
 
             <!--Start Document Body-->
+
+            <!-- renterForm -->
             <div class="row">
 
                 <?php
@@ -231,6 +244,18 @@
                 ?>
 
             </div>
+            <!-- renterForm -->
+
+            <!-- Add new renter page -->
+            <div class="row">
+
+                <?php
+                    echo isset($addNewRenterPage)?$addNewRenterPage:'';
+                ?>
+
+            </div>
+            <!-- End Add new renter page -->
+
             <!--End Document Body-->
 
         </div>
@@ -238,11 +263,11 @@
     </div>
     <!-- end wrapper -->
     <!-- Core Scripts - Include with every page -->
-    <script src="https://code.jquery.com/jquery.min.js"></script>
     <script src="<?php echo base_url(); ?>backend_assets/plugins/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/jquery.min.js"></script>
     <script src="<?php echo base_url(); ?>backend_assets/plugins/bootstrap/bootstrap.min.js"></script>
     <script src="<?php echo base_url(); ?>backend_assets/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="<?php echo base_url(); ?>backend_assets/plugins/pace/pace.js"></script>
+    <!-- <script src="<?php echo base_url(); ?>backend_assets/plugins/pace/pace.js"></script> -->
     <!--<script src="<?php /*echo base_url(); */?>backend_assets/scripts/siminta.js"></script>-->
     <!-- Page-Level Plugin Scripts-->
     <script src="<?php echo base_url(); ?>backend_assets/plugins/morris/raphael-2.1.0.min.js"></script>
@@ -278,5 +303,6 @@
     <script src="<?php echo base_url('backend_assets/scripts/FormValidation.js');?>"></script>
     <!--Main Js For backend-->
     <script src="<?php echo base_url('backend_assets/scripts/main.js');?>"></script>
+    
 </body>
 </html>

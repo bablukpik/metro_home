@@ -20,15 +20,32 @@ jQuery(function ($) {
 
     //addNewRenterTolet ajax
     $('#submit').click(function(){
-        x=$("#rform").serializeArray();
-        $.post($("#rform").attr("action"),x,function(data){
-            $("#success").html(data);
-            //$("#success").fadeIn(); 
-            //$("#success").fadeOut(2800); 
-            $("input").val('');
-        });
-                
-        $("#rform").submit(function(){
+       var data = $("#nid_renter").val(); //$("#newRenterAddform").serializeArray();
+       var url  = $("#newRenterAddform").attr("action");
+      
+       if (data) {
+            $.ajax({
+                url:url,
+                data:{renter_nid:data},
+                type:"post",
+                success: function(result){
+
+                    $("#newRenterAddedHomeMsg").html(result);
+                    $("#nid_renter").val('');
+                },
+
+                error: function(error){
+                    $("#newRenterAddedHomeMsg").html("<p style='color:red'>"+error+"</p>")
+                }
+
+            });
+               
+        }else{
+            $("#newRenterAddedHomeMsg").html('<p style="color:red">Please Enter Renter NID</p>');
+            return false;
+        }
+         
+        $("#newRenterAddform").submit(function(){
             return false;
         });
     });
