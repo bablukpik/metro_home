@@ -14,7 +14,7 @@ class MyModel extends CI_Model {
     public static $renter	            = 'renter';
     public static $renter_familymember	= 'renter_familymember';
     public static $renter_homeworker	= 'renter_homeworker';
-    public static $renter_driver	= 'renter_driver';
+    public static $renter_driver	    = 'renter_driver';
 
     public function __construct()
     {
@@ -59,17 +59,15 @@ class MyModel extends CI_Model {
     }
 
     public function check_metro_police_login_info($user_name, $user_pass, $user_type){
-       /* var_dump($user_name);
-        var_dump($user_pass);
-        var_dump($user_type);
-        exit;
+
         $this->db->select('*');
-        $this->db->from(self::$table_admin);
-        $this->db->where('adm_username', $adm_username);
-        $this->db->where('adm_pass', $adm_pass);
+        $this->db->from(self::$metro_police);
+        $this->db->where('metro_police_username', $user_name);
+        $this->db->where('metro_police_userpass', $user_pass);
         $this->db->where('user_type', $user_type);
         $query = $this->db->get();
-        return $query->row();*/
+        return $query->row();
+
     }
 
     public function check_genUser_login_info($user_name, $user_pass, $user_type){

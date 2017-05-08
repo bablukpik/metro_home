@@ -95,9 +95,9 @@ class Login extends CI_Controller
                 if ($resultMetroPolice) {
                     $sdata['user_name']     = $resultMetroPolice->metro_police_username;
                     $sdata['user_type']     = $resultMetroPolice->user_type;
-                    $sdata['user_fullname'] = $resultMetroPolice->resultMetroPolice_fullname;
-                    $sdata['photo']         = $resultMetroPolice->resultMetroPolice_photo;
-                    $sdata['successMsg']       = 'Welcome ' . $resultMetroPolice->resultMetroPolice_fullname;
+                    $sdata['user_fullname'] = $resultMetroPolice->metro_police_fullname;
+                    $sdata['photo']         = $resultMetroPolice->metro_police_photo;
+                    $sdata['successMsg']    = 'Welcome ' . $resultMetroPolice->metro_police_fullname;
                     $this->session->set_userdata($sdata);
                     redirect('super_admin');
                 }else{
