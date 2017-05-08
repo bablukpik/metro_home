@@ -336,6 +336,33 @@ class Super_admin extends CI_Controller {
         }
     }
 
+    //View Find Renter location by Metro police
+    public function findRenterLocation(){
+        $data["findRenterLocation"] = $this->load->view('dashboard/findRenterLocation', "", true);
+        $this->load->view("dashboard/dashboard_master", $data);
+    }
+
+    //Find Renter location by Metro police
+    public function findRenterLocationFromDB(){
+        /*echo 'Test';
+        if (!empty($_POST["search"])) {
+
+            $search =   $_POST["search"];
+            $sql = "select * from user where name like '$search%' or email like '$search%'";
+            $result = $conn->query($sql);
+            $count = $result->num_rows;
+            if($result){
+                echo "Result Found:".$count;
+            ?>
+            
+            <?php
+            }else{
+                echo "Result not found";
+            }
+        }else{
+            echo "Please type something";
+        }*/
+    }
 
     //Temp
     public function save_category()

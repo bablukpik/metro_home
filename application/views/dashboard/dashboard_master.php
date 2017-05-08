@@ -128,7 +128,7 @@
                                  <?php endif;?>
                             </div>
                             <div class="user-info">
-                                <div><?php $user_fullname = $this->session->userdata("user_fullname");
+                                <div style="font-size: 16px;"><?php $user_fullname = $this->session->userdata("user_fullname");
                                     if($user_fullname != NULL){
                                         echo $user_fullname;
                                     }
@@ -158,9 +158,9 @@
                         <a href="<?php echo base_url(); ?>super_admin"><i class="fa fa-dashboard fa-fw"></i>Dashboard</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> User Actions <span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> User Actions</span></a>
                         <ul class="nav nav-second-level">
-
+                             <!-- For Admin Menu -->               
                             <?php
                                 $user_type = $this->session->userdata("user_type");
                                 if($user_type == 'admin') : ?>
@@ -170,6 +170,7 @@
                             </li>
                             <?php endif; ?>
 
+                            <!-- For Landlord Menu -->   
                             <?php
                                 $user_type = $this->session->userdata("user_type");
                                 if($user_type == 'landlord') : ?>
@@ -181,12 +182,24 @@
                             </li>
                             <?php endif; ?>
 
+                            <!-- For Landlord Menu -->   
+                            <?php
+                                $user_type = $this->session->userdata("user_type");
+                                if($user_type == 'metro_police') : ?>
+                            <li>
+                                <i class="fa fa-arrow-right" aria-hidden="true"></i><a href="<?php echo base_url('super_admin/findRenterLocation'); ?>">Find Renter Location</a>
+                            </li>
+                            
+                            <?php endif; ?>
+
                         </ul>
                         <!-- second-level-items -->
                     </li>
-                     <li>
-                        <a href="#"><i class="fa fa-flask fa-fw"></i>Sample1</a>
-                    </li>
+
+                    <!--  <li>
+                       <a href="#"><i class="fa fa-flask fa-fw"></i>Sample1</a>
+                     </li> -->
+
                 </ul>
                 <!-- end side-menu -->
             </div>
@@ -263,6 +276,16 @@
 
             </div>
             <!-- End Add new renter page -->
+
+            <!-- Find renter location page -->
+            <div class="row">
+
+                <?php
+                    echo isset($findRenterLocation)?$findRenterLocation:'';
+                ?>
+
+            </div>
+           <!-- End Find renter location page -->
 
             <!--End Document Body-->
 

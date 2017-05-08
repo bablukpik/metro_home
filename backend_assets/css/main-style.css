@@ -70,9 +70,14 @@ padding: 20px 15px;
     display: inline-block;
      padding: 15px 5px;
 }
-        .selected {
-            background-color:rgb(83, 163, 163);
-        }
+
+#side-menu a:hover {
+    text-decoration: underline;
+}
+
+.selected {
+    background-color:rgb(83, 163, 163);
+}
 /* back colors */
         .blue {
             background-color:rgb(113, 159, 241);
