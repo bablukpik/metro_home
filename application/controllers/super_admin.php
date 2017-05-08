@@ -8,6 +8,7 @@ class Super_admin extends CI_Controller {
 		parent:: __construct();
         $this->load->model(self::$model);
 
+        //Check loged in or not
         $user_name = $this->session->userdata('user_name');
         $lnd_nid= $this->session->userdata('lnd_nid');
         $user_type = $this->session->userdata('user_type');
@@ -15,12 +16,36 @@ class Super_admin extends CI_Controller {
            redirect('login');
         }
 
+        //Notification data after login
+        $notification_data = array();
+
+        $user_type      = $this->session->userdata('user_type');
+        $user_fullname  = $this->session->userdata('user_fullname');
+
+        $renterDriverSuccess  = $this->session->userdata('renterDriverSuccess');
+        $renterDriverFailure  = $this->session->userdata('renterDriverFailure');
+        $error_msg_photo_renter  = $this->session->userdata('error_msg_photo_renter');
+        $message  = $this->session->userdata('message');
+        $renterAddedFailure  = $this->session->userdata('renterAddedFailure');
+
+        $notification_data[] = isset($user_type)?$user_type:'';
+        $notification_data[] = isset($user_fullname)?$user_fullname:'';
+        $notification_data[] = isset($renterDriverSuccess)?$renterDriverSuccess:'';
+        $notification_data[] = isset($renterDriverFailure)?$renterDriverFailure:'';
+        $notification_data[] = isset($error_msg_photo_renter)?$error_msg_photo_renter:'';
+        $notification_data[] = isset($message)?$message:'';
+        $notification_data[] = isset($renterAddedFailure)?$renterAddedFailure:'';
+
+        $this->session->set_userdata('notification_data',$notification_data);
+
 	}
 
 	public function index()
 	{
+        
 		$this->load->view("dashboard/dashboard_master");
 	}
+
 
 	public function logout()
 	{

@@ -44,32 +44,40 @@
 
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <span class="top-label label label-warning"><?php $allMessage = $this->session->all_userdata(); echo count($allMessage); ?></php></span>  <i class="fa fa-bell fa-3x"></i>
+                        <span class="top-label label label-warning"><?php $allNotification = $this->session->userdata('notification_data'); echo count(array_filter($allNotification));?></php></span>  <i class="fa fa-bell fa-3x"></i>
                     </a>
                     <!-- dropdown alerts-->
                     <ul class="dropdown-menu dropdown-alerts">
                         <?php
-                        //$allMessage = $this->session->all_userdata();
-                        $user_name = $this->session->userdata('user_name');
-                        $user_type = $this->session->userdata('user_type');
-                        if ($allMessage) {
-                            foreach ($allMessage as $singleMsg){
-                            ?>
+                        //$allNotification = $this->session->all_userdata();
+                        
+                        if ($allNotification) {
+                            $i=0;
+                            foreach (array_filter($allNotification) as $singleMsg){ ?>
 
                         <li>
                             <a href="#">
-                                <div>
-                                    <?php
-                                        echo $singleMsg;
-                                    ?>
-                                    <!-- <span class="pull-right text-muted small">
-                                        <?php $dt = new DateTime("now", new DateTimeZone('Asia/Dhaka'));
-                                        echo $dt->format('m/d/Y, h:i:s'); ?> ago</span> -->
-                                </div>
+                            <?php
+                                if ($singleMsg=='metro_police') {
+                                    echo "Hi, Metro Police";
+                                }else if ($singleMsg=='admin') {
+                                    echo "Hi, Admin";
+                                }else if ($singleMsg=='landlord') {
+                                    echo "Hi, Landlord";
+                                }else if ($singleMsg=='renter') {
+                                    echo "Hi, Renter";
+                                }else{
+
+                                    echo $singleMsg;    
+                                }
+                            ?>
                             </a>
                         </li>
+
                         <li class="divider"></li>
+                       
                         <?php } } ?>
+
                         <!--<li>
                             <a class="text-center" href="#">
                                 <strong>See All Alerts</strong>

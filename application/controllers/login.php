@@ -131,7 +131,6 @@ class Login extends CI_Controller
 
     } //End check login
 
-
-
+    
 } //End class
 ?>
