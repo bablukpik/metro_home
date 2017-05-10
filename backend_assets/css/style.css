@@ -7,6 +7,10 @@
     font-style: normal;
 }
 
+.table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+    border-bottom-width: 1px !important;
+}
+
 .error{
     color: red;
     margin-left: 5px;

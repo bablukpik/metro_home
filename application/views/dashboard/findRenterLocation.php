@@ -1,24 +1,18 @@
+    <!-- Search Box -->
+    <div class="container well" style="max-width: 600px; margin-top:10%; margin-left:auto; margin-right: auto; box-shadow: 0 5px 15px rgba(0,0,0,.5);">
 
-<div class="container" style="max-width: 800px; margin-top:5%;">
-    <h2>Bordered Table</h2>
-    <p>The .table-bordered class adds borders to a table:</p>            
-    <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>Firstname</th>
-            <th>Lastname</th>
-            <th>Email</th>
-          </tr>
-        </thead>
-        <tbody>
-            <?php
-                /*while ($row = $result->fetch_array()) {
-                    echo "<tr>";
-                        echo "<td>".$row["name"]."</td>";
-                        echo "<td>".$row["email"]."</td>";
-                    echo "</tr>";
-                } */
-            ?>
-        </tbody>
-    </table>
-</div>
+        <div style="padding: 30px;">    
+            <form id="search_renter_form" action="<?php echo base_url('super_admin/findRenterLocationFromDB');?>" method="post" autocomplete="off">
+              <div class="form-group">
+                <label for="search_renter">Enter Renter <span style="font-style: italic; color:red;">National ID</span></label>
+                <div class="input-group">
+                  <input id="search_renter" name="search_renter" type="text" class="form-control" placeholder="Search Renter">
+                  <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+                </div>
+              </div>
+            </form>
+        </div>
+
+    </div>
+
+    <div id="search_renter_msg"></div>

@@ -50,6 +50,39 @@ jQuery(function ($) {
         });
     });
 
+    //Find Renter Location with details
+    $("#search_renter").on("change", function(){
+
+        var data = $(this).val(); //$("#newRenterAddform").serializeArray();
+        var url  = $("#search_renter_form").attr("action");
+      
+        if (data) {
+            $.ajax({
+                url:url,
+                data:{search_renter:data},
+                type:"post",
+                success: function(result){
+                    console.log('Ok');
+                    $("#search_renter_msg").html(result);
+                    $("#search_renter").val('');
+                },
+
+                error: function(error){
+                    $("#search_renter_msg").html("<p style='color:red'>"+error+"</p>")
+                }
+
+            });
+               
+        }else{
+            $("#search_renter_msg").html('<p style="color:red">Please Enter Renter NID</p>');
+            return false;
+        }
+         
+        $("#search_renter_form").submit(function(){
+            return false;
+        });
+
+    });
 
 
 

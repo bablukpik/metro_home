@@ -180,6 +180,19 @@ class MyModel extends CI_Model {
         return $this->db->insert_id();
     }
 
+    //Find renter location in details
+    public function findRenterLocationFromDBM($search_renter){
+
+        //$this->db->like('renter_nid',$search_renter);
+        $this->db->select('*');
+        $this->db->from('renter_tracking_tbl');
+        $this->db->where(['renter_nid'=>$search_renter]);
+        $query = $this->db->get();
+        return $query->result();
+
+    }
+
+
 
     //Temp
 
