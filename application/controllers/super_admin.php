@@ -343,24 +343,111 @@ class Super_admin extends CI_Controller {
     }
 
     //Find Renter location by Metro police
-    public function findRenterLocationFromDB(){
+    public function findRenterLocationFromDB($download = ''){
 
-        if (!empty($_POST["search_renter"])) {
-
-            $search_renter = $_POST["search_renter"];
-            $result        = $this->MyModel->findRenterLocationFromDBM($search_renter);
+        if (!empty($_POST["search_renter"]) || !empty($download)) {
+            if (!empty($download)) {
+                $search_renter = $download;
+            }else{
+                $search_renter = $_POST["search_renter"];
+            }
+            
+            $result  = $this->MyModel->findRenterLocationFromDBM($search_renter);
             
             //$count = $result->num_rows;
             if($result){
                 $results = json_encode($result);
                 $data['results'] = json_decode($results, true);
-                $this->load->view('dashboard/findRenterLocationResult', $data);
+
+                if (!empty($download)) {
+
+                    $html = $this->load->view('dashboard/findRenterLocationResult', $data, true);
+
+                    //Start New mpdf
+                    $mpdf = new mPDF( '',  // mode (default '')
+                    'A4', 0, '', // format ('A4', '' or...), font size(default 0), font family
+                    15, 15, 16, 16, 9, 9, //(margins) left, right, top, bottom, HEADER, FOOTER
+                    'L');
+
+                   // Write some HTML code:
+                   $mpdf->WriteHTML($html);
+
+                   // Output a PDF file directly to the browser
+                   $pdfFileName = 'report_'.date('Y-m-d-H-i-s');
+                   $mpdf->Output($pdfFileName.'.pdf', "D");
+                   //End New mpdf
+
+                }else{
+                    $this->load->view('dashboard/findRenterLocationResult', $data);
+                }
+
+
+
+
+                //Deprecated for constructor issue
+                //Start Mpdf
+
+                /*$data = [];
+                $html=$this->load->view('welcome_message', $data, true);
+         
+                //this the the PDF filename that user will get to download
+                $pdfFilePath = "output_pdf_name.pdf";
+         
+                //load mPDF library
+                $this->load->library('m_pdf');
+         
+               //generate the PDF from the given html
+                $this->m_pdf->pdf->WriteHTML($html);
+         
+                //download it.
+                $this->m_pdf->pdf->Output($pdfFilePath, "I");*/     
+
+                //End Mpdf
+
             }else{
-                echo "Result not found";
+                echo "<p style='color:red; border:1px solid red; padding:10px;'>Result not found</p>";
             }
         }else{
-            echo "Please type something";
+            echo "<p style='color:red; border:1px solid red; padding:10px;'>Please type something</p>";
         }
+
+    }
+
+    //Find Renter location by Metro police
+    public function findRenterLocationDetailsDownload(){
+
+        $this->load->library('Pdf');
+        $pdf = new Pdf('P', 'mm', 'A4', true, 'UTF-8', false);
+        $pdf->SetTitle('Find renter details');
+        $pdf->SetHeaderMargin(30);
+        $pdf->SetTopMargin(20);
+        $pdf->setFooterMargin(20);
+        $pdf->SetAutoPageBreak(true);
+        $pdf->SetAuthor('Md. Bablu Mia');
+        $pdf->SetDisplayMode('real', 'default');
+
+        //remove header and footer border
+        $pdf->SetPrintHeader(false);
+        $pdf->SetPrintFooter(false);
+        
+        // add a page 
+        $pdf->AddPage();
+
+        // reset pointer to the last page
+        //$pdf->lastPage();
+
+        $html = "<h1>Test PDF</h1>";
+        $pdf->writeHTML($html, true, false, true, false, '');
+        
+        ob_clean();
+
+        //Direct Download
+        $pdf->Output("filenametodownload.pdf", 'D');
+
+        //Preview Download
+        //$pdf->Output('pdfexample.pdf', 'I');
+       
+        end_ob_clean();
 
     }
 

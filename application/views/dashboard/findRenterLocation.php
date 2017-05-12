@@ -15,4 +15,16 @@
 
     </div>
 
-    <div id="search_renter_msg"></div>
+    <div id="print_download_area">
+            <div style="clear:both;"></div>
+
+            <!-- Download and print ptn -->
+            <div id="download__print_search_result" style="float:right;"></div>
+
+            <div style="clear:both;"></div>
+            
+            <!-- Search Result table -->
+            <div id="search_renter_msg"></div>
+
+    </div>
+        

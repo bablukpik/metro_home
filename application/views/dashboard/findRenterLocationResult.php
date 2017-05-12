@@ -1,13 +1,14 @@
 <style>
    table {border-collapse:collapse; table-layout:fixed; width:310px;}
-   table td {border:solid 1px #fab; width:100px; word-wrap:break-word;}
-   table thead tr th {vertical-align: top !important;}
+   table td {border:solid 1px #000; width:100px; word-wrap:break-word;}
+   table thead tr th {vertical-align: top !important; border:solid 1px #000;}
 </style>
+
 	<!-- Result Table -->
     <div class="container well" style="max-width: 1060px; ">
-         <a href="#" style="float: right; margin-right: 5px;">Download</a>
+        
         <div style="font-size: 12px;">
-            <h3 class="text-center" style="text-decoration: underline;">Renter Location with Details</h3>
+            <h3 style="text-decoration: underline; text-align:center;">Renter Location with Details</h3>
             <table class="table table-responsive table-striped table-bordered text-center">
                 <thead>
 	                <tr>
@@ -66,4 +67,5 @@
                 </tbody>
             </table>
         </div>
+
     </div>
