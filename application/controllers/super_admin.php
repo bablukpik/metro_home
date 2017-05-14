@@ -314,7 +314,10 @@ class Super_admin extends CI_Controller {
 
                 //Date
                 $dt = new DateTime("now", new DateTimeZone('Asia/Dhaka'));
-                $todayDate = $dt->format('Y-m-d h:i:s'); 
+                $todayDate = $dt->format('Y-m-d h:i:s');
+
+                //update today's date to previous landloard last date field
+                //$this->MyModel->updatePreviousLastDate($todayDate);
 
                 $trackingData["renter_started_date"] = $todayDate;
                 $trackingData["renter_ending_date"]   = $todayDate;
@@ -474,6 +477,20 @@ class Super_admin extends CI_Controller {
             $this->session->set_userdata($sdata);
             redirect("super_admin/add_category");
         }
+    }
+
+    //Update
+    public function interestJobUpdate()
+    {
+        $id                                     = $this->input->post('id');
+        $data['education_provider_type']        = $this->input->post('education_provider_type');
+        $data['interested_program']             = $this->input->post('interested_program');
+        $data['location']                       = $this->input->post('location');
+        $data['other']                          = $this->input->post('other');
+
+        $this->M_interested_job_post_manage->update($data, $id);        
+        redirect('generalUserHome/interestedJobPost');
+        
     }
 
 }

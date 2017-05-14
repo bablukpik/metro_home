@@ -25,7 +25,7 @@
 			<i class="fa fa-phone-square" aria-hidden="true"></i>
 			<span>01730910539</span>
 			<i class="fa fa-envelope" aria-hidden="true"></i>
-			<span>bablukpik@gmail.com</span>
+			<span>metrohomebd@gmail.com</span>
 		</div>
 		<div class="top_menu_right float_right">
 			<ul>
@@ -319,12 +319,6 @@ Datepicker
 <script>
     $(".welcome_msg").fadeOut(9000);
 </script>
-<!--Bd Map-->
-    <script src="https://code.highcharts.com/maps/highmaps.js"></script>
-    <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/mapdata/countries/bd/bd-all.js"></script>
-    <script src="<?php echo base_url(); ?>assets/js/bdmap.js" type="application/javascript"></script>
-<!--End Bd Map-->
 
 <!--Select Option-->
     <!-- Latest compiled and minified JavaScript -->
