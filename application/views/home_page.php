@@ -197,7 +197,7 @@
                                 </select>
                             </div>
 
-                            <button type="submit" class="btn btn-default">
+                            <button type="submit" class="btn btn-default" style="width: 99px;">
                               <i class="icon-search"></i>Search
                             </button>
 

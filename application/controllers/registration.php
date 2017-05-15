@@ -50,7 +50,7 @@ class Registration extends CI_Controller
         //Data Check
         //if ( !empty($_POST['user_pass']) && !empty($_POST['lnd_name']) && !empty($_POST['lnd_birth_date']) && !empty($_POST['lnd_nid']) ) {
 
-        if ( !empty($_POST['lnd_nid']) ) {
+//        if ( !empty($_POST['lnd_nid']) ) {
             
             //form validation
             $this->load->helper(array('form', 'url'));
@@ -193,12 +193,12 @@ class Registration extends CI_Controller
                 }
             }
             //End form validation lnd data
-        }else{
+        /*}else{
             $sdata['message'] = 'Try again! Landlord added failure';
             $sdata['lndAddedFailure'] = 'Try again! Landlord added failure';
             $this->session->set_userdata($sdata);
             redirect('home');
-        } //Data
+        } //Data*/
 
     } //End Landloard Registraion
 

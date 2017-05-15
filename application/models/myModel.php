@@ -193,11 +193,12 @@ class MyModel extends CI_Model {
     }
 
     public function updatePreviousLastDate($data, $renter_nid){
-       // die(var_dump($renter_nid));
+       
         $this->db->order_by("tracking_id", "desc");
         $this->db->limit(1);
         $this->db->where('renter_nid', $renter_nid);
         $this->db->update('renter_tracking_tbl', $data);
+        
     }
 
 

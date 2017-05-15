@@ -1,4 +1,4 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed');
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Form extends CI_Controller {
 
@@ -54,7 +54,7 @@ class Form extends CI_Controller {
 
         if ($this->form_validation->run() == FALSE)
         {
-            $this->load->view('myForm');
+            $this->load->view('test_form');
         }
         else
         {
