@@ -317,7 +317,8 @@ class Super_admin extends CI_Controller {
                 $todayDate = $dt->format('Y-m-d h:i:s');
 
                 //update today's date to previous landloard last date field
-                //$this->MyModel->updatePreviousLastDate($todayDate);
+                $renter_ending_date_previousL['renter_ending_date'] = $todayDate;
+                $this->MyModel->updatePreviousLastDate($renter_ending_date_previousL, $renter_check_r->renter_nid);
 
                 $trackingData["renter_started_date"] = $todayDate;
                 $trackingData["renter_ending_date"]   = $todayDate;
