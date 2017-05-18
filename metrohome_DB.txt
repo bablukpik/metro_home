@@ -215,3 +215,18 @@ CREATE TABLE renter_tracking_tbl(
 	renter_started_date datetime,
 	renter_ending_date datetime
 	);
+	
+	
+CREATE TABLE renter_ads_manage(
+	ad_id int auto_increment primary key,
+	lnd_fullname varchar(30),
+	lnd_police_station varchar(50),
+	lnd_holding_no varchar(30),
+	lnd_road_no varchar(255),
+	lnd_locality varchar(30),
+	lnd_postcode varchar(15),
+	ad_photo varchar(255),
+	
+	ad_created_date datetime,
+	ad_modified_date datetime
+	);

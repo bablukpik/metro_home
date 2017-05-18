@@ -60,22 +60,29 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			 
 			  <ul class="nav navbar-nav navbar-right">
-				<li class="active"><a href="#">Home</a></li>
+				<li class="active"><a href="<?php echo base_url();?>">Home</a></li>
 				<li><a href="#">Info</a></li>
 				<li><a href="#">Contact</a></li>
 				<li><a href="#">About</a></li>
 				<li><a href="#">Press</a></li>
-				<li><a href="#">Home Rent</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Rent Services <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#" data-toggle="modal" data-target="#adsLogiOrSignup_dialog">Create Ads for Rent</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Find House for Rent</a></li>
+                    <li role="separator" class="divider"></li>
+                  </ul>
+                </li>
+
 				<li>
                     <button type="button" id="loginBtn" style="color:#fff; text-transform: capitalize;" class="btn btn-success" data-toggle="modal"  data-placement="bottom" data-target="#login_dialog" data-title="Login">Sign in <span class="caret"></button>
-
-                    <?php $this->load->view('dialogs/login_dialog'); ?>
-                    <?php $this->load->view('dialogs/registration_dialog'); ?>
                 </li>
 			  </ul>
 			</div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
 		</nav>
+
         <!--Landlord creation message-->
             <!--For image-->
         <?php if($this->session->userdata('error_msg_photo_lnd') || $this->session->userdata('successMsg') ||  $this->session->userdata('failureMsg')): ?>
@@ -119,9 +126,13 @@
 	</div>
 </header>
 
-<nav class="mainmenu_sec">
-	<div class="container"></div>
-</nav>
+<section class="dilogs_area">
+    <div class="container">
+        <?php $this->load->view('dialogs/adsLogiOrSignup_dialog');?>
+        <?php $this->load->view('dialogs/login_dialog'); ?>
+        <?php $this->load->view('dialogs/registration_dialog'); ?>
+    </div>
+</section>
 
 <section class="locationSearch">
     <div class="container">
