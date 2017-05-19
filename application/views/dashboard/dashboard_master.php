@@ -96,8 +96,7 @@
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-user fa-fw"></i>User Profile</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i>Settings</a>
-                        </li>
+
                         <li class="divider"></li>
                         <li><a href="<?php echo base_url(); ?>super_admin/logout"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
                         </li>
@@ -121,11 +120,21 @@
                         <!-- user image section-->
                         <div class="user-section">
                             <div class="user-section-inner">
+
                                 <?php if($photo = $this->session->userdata('photo')) :?>
-                                <img src="<?php echo base_url('uploads/').(isset($photo)?$photo:''); ?>" alt="Admin Photo">
+                                    
+                                    <?php 
+                                    $user_type = $this->session->userdata('user_type');
+                                    if($user_type=='general'):?>
+                                    <img src="<?php echo base_url('uploads/ads/'.$photo); ?>" alt="General User" />
+                                   <?php else:?>
+                                    <img src="<?php echo base_url('uploads/'.$photo); ?>" alt="Admin" />
+                                    <?php endif;?>
+
                                 <?php else:?>
-                                <img src="<?php echo base_url(); ?>backend_assets/img/user.jpg" alt="Admin Photo">
-                                 <?php endif;?>
+                                <img src="<?php echo base_url(); ?>backend_assets/img/user.jpg" alt="User Photo">
+                                <?php endif;?>
+
                             </div>
                             <div class="user-info">
                                 <div style="font-size: 16px;"><?php $user_fullname = $this->session->userdata("user_fullname");

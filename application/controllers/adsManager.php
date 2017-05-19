@@ -117,10 +117,10 @@ class AdsManager extends CI_Controller {
         if(!$this->image_lib->resize())
         {
             echo $this->image_lib->display_errors();
+        }else{
+            return TRUE;
         }
 
-        // Do your manipulation
-        $this->image_lib->clear();
     }
     //End Ads Account Registration
 

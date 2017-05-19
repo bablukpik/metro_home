@@ -109,11 +109,11 @@ class Login extends CI_Controller
                 $resultGeneral = $this->MyModel->check_genUser_login_info($user_name, $user_pass, $user_type);
 
                 if ($resultGeneral) {
-                    $sdata['user_name']     = $resultGeneral->user_name;
-                    $sdata['user_type']     = $resultGeneral->user_type;
-                    $sdata['user_fullname'] = $resultGeneral->user_fullname;
-                    $sdata['photo']         = $resultGeneral->adm_photo;
-                    $sdata['successMsg']    = 'Welcome ' . $resultGeneral->user_fullname;
+                    $sdata['user_name']     = $resultGeneral->ad_lnd_username;
+                    $sdata['user_type']     = $resultGeneral->ad_lnd_user_type;
+                    $sdata['user_fullname'] = $resultGeneral->ad_lnd_first_name;
+                    $sdata['photo']         = $resultGeneral->ad_user_photo;
+                    $sdata['successMsg']    = 'Welcome ' . $resultGeneral->ad_lnd_first_name;
                     $this->session->set_userdata($sdata);
                     redirect('super_admin');
                 }else{

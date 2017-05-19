@@ -72,13 +72,13 @@ class MyModel extends CI_Model {
 
     public function check_genUser_login_info($user_name, $user_pass, $user_type){
 
-       /* $this->db->select('*');
-        $this->db->from(self::$table_admin);
-        $this->db->where('adm_username', $adm_username);
-        $this->db->where('adm_pass', $adm_pass);
-        $this->db->where('user_type', $user_type);
+        $this->db->select('*');
+        $this->db->from('ads_account_general');
+        $this->db->where('ad_lnd_username', $user_name);
+        $this->db->where('ad_lnd_password', $user_pass);
+        $this->db->where('ad_lnd_user_type', $user_type);
         $query = $this->db->get();
-        return $query->row();*/
+        return $query->row();
     }
 
     //Renter info store

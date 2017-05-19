@@ -282,25 +282,27 @@
 
               <!-- Login -->
               <div id="login">   
-                <form action="#" method="post">
+                <form action="<?php echo base_url('login/check_login');?>" method="post">
 
                   <div class="field-wrap">
                     <label>
                       Username<span class="req">*</span>
                     </label>
-                    <input type="email"required autocomplete="off"/>
+                    <input type="text" name="user_name" required autocomplete="off"/>
                   </div>
                   
                   <div class="field-wrap">
                     <label>
                       Password<span class="req">*</span>
                     </label>
-                    <input type="password"required autocomplete="off"/>
+                    <input type="password" name="user_pass" required autocomplete="off"/>
                   </div>
 
+                  <input type="hidden" name="user_type" value="general">
+  
                   <p class="forgot"><a href="#">Forgot Password?</a></p>
                     
-                  <button class="button button-block"/>Log In</button>
+                  <button type="submit" class="button button-block"/>Log In</button>
                   
                 </form>
               </div>

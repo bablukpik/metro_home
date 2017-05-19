@@ -223,7 +223,7 @@ CREATE TABLE ads_account_general(
 	ad_lnd_last_name varchar(30),
 	ad_lnd_username varchar(30) unique key,
 	ad_lnd_password varchar(30),
-	ad_lnd_user_type varchar(30),
+	ad_lnd_user_type varchar(30) default 'general',
 	ad_lnd_police_station varchar(50),
 	ad_lnd_holding_no varchar(30),
 	ad_lnd_road_no varchar(255),
