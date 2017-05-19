@@ -178,7 +178,7 @@
 </style>
 
 <!-- Modal -->
-<div id="adsLogiOrSignup_dialog" class="modal fade" role="dialog">
+<div id="adsLogiOrSignup_dialog" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -186,7 +186,6 @@
       <div class="modal-body">
 
         <div class="adsLoginRegForm">
-
           <div class="form" id="ads_signupORlogin_form">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
             <ul class="tab-group">
@@ -195,73 +194,117 @@
             </ul>
             
             <div class="tab-content">
+              
               <div id="signup">   
-                <h1>Sign Up for Free</h1>
+                <!-- Registration -->
+                <form action="<?php echo base_url('adsManager/adsRegistration');?>" method="post" enctype="multipart/form-data">
+                  
+                  <div class="top-row">
+                    <div class="field-wrap">
+                      <label>
+                        First Name<span class="req">*</span>
+                      </label>
+                      <input type="text" name="ad_lnd_first_name" required autocomplete="off" />
+                    </div>
                 
-                <form action="/" method="post">
+                    <div class="field-wrap">
+                      <label>
+                        Last Name<span class="req">*</span>
+                      </label>
+                      <input type="text" name="ad_lnd_last_name" required autocomplete="off"/>
+                    </div>
+                  </div>
                 
-                <div class="top-row">
                   <div class="field-wrap">
                     <label>
-                      First Name<span class="req">*</span>
+                      Username<span class="req">*</span>
                     </label>
-                    <input type="text" required autocomplete="off" />
+                    <input type="text" name="ad_lnd_username" required autocomplete="off"/>
                   </div>
-              
-                  <div class="field-wrap">
-                    <label>
-                      Last Name<span class="req">*</span>
-                    </label>
-                    <input type="text"required autocomplete="off"/>
-                  </div>
-                </div>
 
-                <div class="field-wrap">
-                  <label>
-                    Email Address<span class="req">*</span>
-                  </label>
-                  <input type="email"required autocomplete="off"/>
-                </div>
-                
-                <div class="field-wrap">
-                  <label>
-                    Set A Password<span class="req">*</span>
-                  </label>
-                  <input type="password"required autocomplete="off"/>
-                </div>
-                
-                <button type="submit" class="button button-block"/>Get Started</button>
-                
+                  <div class="field-wrap">
+                    <label>
+                      Password<span class="req">*</span>
+                    </label>
+                    <input type="password" name="ad_lnd_password" required autocomplete="off"/>
+                  </div>
+
+                  <div class="field-wrap">
+                    <label>
+                      Thana<span class="req">*</span>
+                    </label>
+                    <input type="text" name="ad_lnd_police_station" required autocomplete="off"/>
+                  </div>
+
+                  <div class="field-wrap">
+                    <label>
+                      House No.<span class="req">*</span>
+                    </label>
+                    <input type="text" name="ad_lnd_holding_no" required autocomplete="off"/>
+                  </div>
+
+                  <div class="field-wrap">
+                    <label>
+                      Road No.<span class="req">*</span>
+                    </label>
+                    <input type="text" name="ad_lnd_road_no" required autocomplete="off"/>
+                  </div>
+
+                  <div class="field-wrap">
+                    <label>
+                      Locality<span class="req">*</span>
+                    </label>
+                    <input type="text" name="ad_lnd_locality" required autocomplete="off"/>
+                  </div>
+
+                  <div class="field-wrap">
+                    <label>
+                      Post Code<span class="req">*</span>
+                    </label>
+                    <input type="text" name="ad_lnd_postcode" required autocomplete="off"/>
+                  </div>
+
+                  <div class="field-wrap">
+                    <label>
+                      Cell No.<span class="req">*</span>
+                    </label>
+                    <input type="text" name="ad_lnd_mobile" required autocomplete="off"/>
+                  </div>
+
+                  <div class="field-wrap">
+                    <input type="file" name="ad_user_photo" />
+                  </div>
+                                  
+                  <button type="submit" class="button button-block"/>Get Started</button>
+                  
                 </form>
-
               </div>
-              
+
+              <!-- Login -->
               <div id="login">   
-                <h1>Welcome Back!</h1>
-                
-                <form action="/" method="post">
-                
-                  <div class="field-wrap">
-                  <label>
-                    Email Address<span class="req">*</span>
-                  </label>
-                  <input type="email"required autocomplete="off"/>
-                </div>
-                
-                <div class="field-wrap">
-                  <label>
-                    Password<span class="req">*</span>
-                  </label>
-                  <input type="password"required autocomplete="off"/>
-                </div>
-                
-                <p class="forgot"><a href="#">Forgot Password?</a></p>
-                
-                <button class="button button-block"/>Log In</button>
-                
-                </form>
+                <form action="#" method="post">
 
+                  <div class="field-wrap">
+                    <label>
+                      Username<span class="req">*</span>
+                    </label>
+                    <input type="email"required autocomplete="off"/>
+                  </div>
+                  
+                  <div class="field-wrap">
+                    <label>
+                      Password<span class="req">*</span>
+                    </label>
+                    <input type="password"required autocomplete="off"/>
+                  </div>
+
+                  <p class="forgot"><a href="#">Forgot Password?</a></p>
+                    
+                  <button class="button button-block"/>Log In</button>
+                  
+                </form>
               </div>
+
             </div><!-- tab-content -->
           </div> <!-- /form -->
 

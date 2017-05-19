@@ -201,6 +201,15 @@ class MyModel extends CI_Model {
         
     }
 
+    //Ads Account
+    public function adsRegistration($tbl_name, $data){
+       
+        $this->db->insert($tbl_name, $data);
+        return $this->db->insert_id();
+        
+    }
+
+
 
     //Temp
 

@@ -317,15 +317,14 @@
 	});
 </script>
 
-Datepicker
+<!-- Datepicker -->
 <script>
     $(function () {
         $('#popupDatepickerFrontEnd').datepick({dateFormat: 'dd/mm/yyyy'});
         console.log('calling Datepicker');
     });
 </script>
-/Datepicker
-
+<!-- /Datepicker-->
 <script src="<?php echo base_url('backend_assets/scripts/FormValidation.js');?>"></script>
 <script>
     $(".welcome_msg").fadeOut(9000);

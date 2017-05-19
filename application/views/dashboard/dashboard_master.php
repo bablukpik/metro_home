@@ -330,7 +330,7 @@
     <script>
         $('.popupDatepickerBackEnd').datepick({dateFormat: 'dd/mm/yyyy'});
     </script>
-    <!--/Datepicker-->
+    <!--Datepicker-->
     <script src="<?php echo base_url('backend_assets/scripts/FormValidation.js');?>"></script>
     <!--Main Js For backend-->
     <script src="<?php echo base_url('backend_assets/scripts/main.js');?>"></script>
