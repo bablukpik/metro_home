@@ -70,7 +70,7 @@
                   <ul class="dropdown-menu">
                     <li><a href="#" data-toggle="modal" data-target="#adsLogiOrSignup_dialog">Create Ads for Rent</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="#">Find House for Rent</a></li>
+                    <li><a href="<?php echo base_url('publicity');?>">Find House for Rent</a></li>
                     <li role="separator" class="divider"></li>
                   </ul>
                 </li>

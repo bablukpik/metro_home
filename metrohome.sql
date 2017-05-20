@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 15, 2017 at 05:58 AM
+-- Generation Time: May 20, 2017 at 07:45 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -46,6 +46,38 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`adm_id`, `adm_username`, `adm_userpass`, `user_type`, `adm_fullname`, `adm_address`, `adm_phone`, `adm_email`, `adm_created_date`, `adm_modified_date`, `adm_photo`) VALUES
 (1, 'admin', 'admin', 'admin', 'Md. Bablu Mia', 'Mirpur 10, Dhaka', '01730910539', 'bablukpik@gmail.com', '2017-05-02 00:00:00', '2017-05-02 00:00:00', '2017-05-02-13-01-07_BabluBR_thumb.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ads_account_general`
+--
+
+CREATE TABLE `ads_account_general` (
+  `ad_id` int(11) NOT NULL,
+  `ad_lnd_first_name` varchar(30) DEFAULT NULL,
+  `ad_lnd_last_name` varchar(30) DEFAULT NULL,
+  `ad_lnd_username` varchar(30) DEFAULT NULL,
+  `ad_lnd_password` varchar(30) DEFAULT NULL,
+  `ad_lnd_user_type` varchar(30) DEFAULT 'general',
+  `ad_lnd_police_station` varchar(50) DEFAULT NULL,
+  `ad_lnd_holding_no` varchar(30) DEFAULT NULL,
+  `ad_lnd_road_no` varchar(255) DEFAULT NULL,
+  `ad_lnd_locality` varchar(30) DEFAULT NULL,
+  `ad_lnd_postcode` varchar(15) DEFAULT NULL,
+  `ad_lnd_mobile` varchar(15) DEFAULT NULL,
+  `ad_user_photo` varchar(255) DEFAULT NULL,
+  `ad_created_date` datetime DEFAULT NULL,
+  `ad_modified_date` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ads_account_general`
+--
+
+INSERT INTO `ads_account_general` (`ad_id`, `ad_lnd_first_name`, `ad_lnd_last_name`, `ad_lnd_username`, `ad_lnd_password`, `ad_lnd_user_type`, `ad_lnd_police_station`, `ad_lnd_holding_no`, `ad_lnd_road_no`, `ad_lnd_locality`, `ad_lnd_postcode`, `ad_lnd_mobile`, `ad_user_photo`, `ad_created_date`, `ad_modified_date`) VALUES
+(1, 'Md. Bablu', 'Mia', 'admin', 'admin', 'general', 'Kafrul', '272', '72', 'Senpara Parbata', '1216', '01730910539', '2017-05-19-22-29-01_BabluBR-copy_thumb.png', '2017-05-20 02:00:39', '2017-05-20 02:00:39'),
+(4, 'asd', 'fasdf', 'asd', 'adsf', 'general', 'asdf', 'adf', 'ads', 'ads', 'ads', 'asd', '2017-05-19-22-29-01_BabluBR-copy_thumb.png', '2017-05-20 02:29:01', '2017-05-20 02:29:01');
 
 -- --------------------------------------------------------
 
@@ -452,15 +484,11 @@ CREATE TABLE `renter_tracking_tbl` (
 --
 
 INSERT INTO `renter_tracking_tbl` (`tracking_id`, `lnd_id`, `lnd_fullname`, `lnd_phone`, `lnd_nid`, `lnd_police_station`, `lnd_holding_no`, `lnd_road_no`, `lnd_locality`, `lnd_postcode`, `lnd_photo`, `renter_id`, `renter_fullname`, `renter_phone`, `renter_nid`, `renter_permanent_add`, `renter_photo`, `renter_started_date`, `renter_ending_date`) VALUES
-(1, 13, 'Mr. Rahim', 'asd', '13141203051', 'a', 'asd', 'a', 'dsf', 'adsf', '2017-05-02-13-01-07_BabluBR_thumb.png', 16, 'Mr. Karim', 'asdf', '13141203051', 'asdf', '2017-05-02-13-01-07_BabluBR_thumb.png', '2017-05-08 12:52:54', '2017-05-08 12:52:54'),
-(2, 13, 'Mr. Rahim', 'asd', '13141203051', 'a', 'asd', 'a', 'dsf', 'adsf', '2017-05-02-13-01-07_BabluBR_thumb.png', 16, 'Mr. Karim', 'asdf', '13141203051', 'asdf', '2017-05-02-13-01-07_BabluBR_thumb.png', '2017-05-08 12:52:55', '2017-05-08 12:52:55'),
-(3, 13, 'Mr. Rahim', 'asd', '13141203051', 'a', 'asd', 'a', 'dsf', 'adsf', '2017-05-02-13-01-07_BabluBR_thumb.png', 16, 'Mr. Karim', 'asdf', '13141203051', 'asdf', '2017-05-02-13-01-07_BabluBR_thumb.png', '2017-05-08 12:54:46', '2017-05-08 12:54:46'),
-(4, 13, 'Mr. Rahim', 'asd', '13141203051', 'a', 'asd', 'a', 'dsf', 'adsf', '2017-05-02-13-01-07_BabluBR_thumb.png', 16, 'Mr. Karim', 'asdf', '13141203051', 'asdf', '2017-05-02-13-01-07_BabluBR_thumb.png', '2017-05-08 12:54:47', '2017-05-08 12:54:47'),
-(5, 13, 'Mr. Rahim', 'asd', '13141203051', 'a', 'asd', 'a', 'dsf', 'adsf', '2017-05-02-13-01-07_BabluBR_thumb.png', 16, 'Mr. Karim', 'asdf', '13141203051', 'asdf', '2017-05-02-13-01-07_BabluBR_thumb.png', '2017-05-08 12:55:10', '2017-05-08 12:55:10'),
-(6, 13, 'Mr. Rahim', 'asd', '13141203051', 'a', 'asd', 'a', 'dsf', 'adsf', '2017-05-02-13-01-07_BabluBR_thumb.png', 16, 'Mr. Karim', 'asdf', '13141203051', 'asdf', '2017-05-02-13-01-07_BabluBR_thumb.png', '2017-05-08 01:13:57', '2017-05-08 01:13:57'),
-(7, 13, 'Mr. Rahim', 'asd', '13141203051', 'a', 'asd', 'a', 'dsf', 'adsf', '2017-05-02-13-01-07_BabluBR_thumb.png', 16, 'Mr. Karim', 'asdf', '13141203051', 'asdf', '2017-05-02-13-01-07_BabluBR_thumb.png', '2017-05-08 01:47:25', '2017-05-08 01:47:25'),
-(8, 13, 'Mr. Rahim', 'asd', '13141203051', 'a', 'asd', 'a', 'dsf', 'adsf', '2017-05-02-13-01-07_BabluBR_thumb.png', 16, 'Mr. Karim', 'asdf', '13141203051', 'asdf', '2017-05-02-13-01-07_BabluBR_thumb.png', '2017-05-08 02:24:05', '2017-05-08 02:24:05'),
-(9, 13, 'Mr. Rahim', 'asd', '13141203051', 'a', 'asd', 'a', 'dsf', 'adsf', '2017-05-02-13-01-07_BabluBR_thumb.png', 16, 'Mr. Karim', 'asdf', '13141203051', 'asdf', '2017-05-02-13-01-07_BabluBR_thumb.png', '2017-05-08 03:49:27', '2017-05-08 03:49:27');
+(9, 13, 'Mr. Rahim', 'asd', '13141203051', 'a', 'asd', 'a', 'dsf', 'adsf', '2017-05-02-13-01-07_BabluBR_thumb.png', 16, 'Mr. Karim', 'asdf', '13141203052', 'asdf', '2017-05-02-13-01-07_BabluBR_thumb.png', '2017-05-08 03:49:27', '2017-05-16 01:31:28'),
+(13, 13, 'Mr. Rahim', 'asd', '13141203051', 'a', 'asd', 'a', 'dsf', 'adsf', '2017-05-02-13-01-07_BabluBR_thumb.png', 16, 'Mr. Karim', 'asdf', '13141203051', 'asdf', '2017-05-02-13-01-07_BabluBR_thumb.png', '2017-05-15 12:39:54', '2017-05-16 01:31:28'),
+(14, 13, 'Mr. Rahim', 'asd', '13141203051', 'a', 'asd', 'a', 'dsf', 'adsf', '2017-05-02-13-01-07_BabluBR_thumb.png', 16, 'Mr. Karim', 'asdf', '13141203051', 'asdf', '2017-05-02-13-01-07_BabluBR_thumb.png', '2017-05-16 12:40:37', '2017-05-16 01:31:28'),
+(15, 13, 'Mr. Rahim', 'asd', '13141203051', 'a', 'asd', 'a', 'dsf', 'adsf', '2017-05-02-13-01-07_BabluBR_thumb.png', 16, 'Mr. Karim', 'asdf', '13141203051', 'asdf', '2017-05-02-13-01-07_BabluBR_thumb.png', '2017-05-16 01:31:28', '2017-05-16 01:32:16'),
+(16, 13, 'Mr. Rahim', 'asd', '13141203051', 'a', 'asd', 'a', 'dsf', 'adsf', '2017-05-02-13-01-07_BabluBR_thumb.png', 16, 'Mr. Karim', 'asdf', '13141203051', 'asdf', '2017-05-02-13-01-07_BabluBR_thumb.png', '2017-05-16 01:32:16', '2017-05-16 01:32:16');
 
 --
 -- Indexes for dumped tables
@@ -472,6 +500,13 @@ INSERT INTO `renter_tracking_tbl` (`tracking_id`, `lnd_id`, `lnd_fullname`, `lnd
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`adm_id`),
   ADD UNIQUE KEY `user_username` (`adm_username`);
+
+--
+-- Indexes for table `ads_account_general`
+--
+ALTER TABLE `ads_account_general`
+  ADD PRIMARY KEY (`ad_id`),
+  ADD UNIQUE KEY `ad_lnd_username` (`ad_lnd_username`);
 
 --
 -- Indexes for table `landloard`
@@ -552,6 +587,11 @@ ALTER TABLE `renter_tracking_tbl`
 ALTER TABLE `admin`
   MODIFY `adm_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
+-- AUTO_INCREMENT for table `ads_account_general`
+--
+ALTER TABLE `ads_account_general`
+  MODIFY `ad_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
 -- AUTO_INCREMENT for table `landloard`
 --
 ALTER TABLE `landloard`
@@ -600,7 +640,7 @@ ALTER TABLE `renter_homeworker`
 -- AUTO_INCREMENT for table `renter_tracking_tbl`
 --
 ALTER TABLE `renter_tracking_tbl`
-  MODIFY `tracking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `tracking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- Constraints for dumped tables
 --
