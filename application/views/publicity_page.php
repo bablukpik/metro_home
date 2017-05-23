@@ -37,15 +37,36 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div id="example_length" class="dataTables_length">
-                                    <label><select size="1" name="example_length" aria-controls="example"><option value="10" selected="selected">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option>
-                                    </select> records per page</label>
+                                    <!-- <label>
+                                    <select size="1" name="example_length" aria-controls="example">
+                                        <option value="10" selected="selected">10</option>
+                                        <option value="25">25</option><option value="50">50</option>
+                                        <option value="100">100</option>
+                                    </select> records per page</label> -->
+
+                                    <?php 
+                                        echo form_open('publicity/index');
+                                        $options = array(
+                                                         '10' => '10',
+                                                         '20' => '20',
+                                                         '30' => '30',
+                                                         '40' => '40');
+                                        echo form_dropdown('sel',$options,'');
+                                        echo form_submit('submit','submit',"class='btn btn-default'");
+                                    ?>
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="dataTables_filter" id="example_filter">
-                                    <label>
-                                        Search: <input type="text" aria-controls="example">
-                                    </label>
+                                <div class="dataTables_filter" id="example_filter" style="float:right; margin-bottom: 5px;">
+                                    <form class="form-inline" action="<?php echo base_url('publicity/search_publicity') ?>" method="post">
+                                      <div class="form-group">
+                                        <input type="text" name="search_publicity" class="form-control" id="search_publicity" placeholder="Search">
+                                      </div>
+                                      <button type="submit" class="btn btn-info">Search</button>
+                                    </form>
+                                    <div class="search_result">
+                                        <?php echo $publicity_search_msg; ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -62,40 +83,11 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        
-                                        <tr class="gradeC">
-                                            <td>FAQ Private Limited
-Senior Android App Developer
-International software company with Head Office in Sydney, Australia
-Fast-growing. development team based in Shyamoli Square, Dhaka
-Working on App projects for the Australian Government
-Education:
-B.Sc. in Computer Science & Engineering from any reputable university
-Experience:
-At least 4 year(s)</td>
+                                        <?php foreach ($result as $key => $value):?>
+                                        <tr>
+                                            <td><?php echo $value->lnd_email; ?></td>
                                         </tr>
-                                        <tr class="gradeC">
-                                            <td>FAQ Private Limited
-Senior Android App Developer
-International software company with Head Office in Sydney, Australia
-Fast-growing. development team based in Shyamoli Square, Dhaka
-Working on App projects for the Australian Government
-Education:
-B.Sc. in Computer Science & Engineering from any reputable university
-Experience:
-At least 4 year(s)</td>
-                                        </tr>
-                                        <tr class="gradeU">
-                                            <td>FAQ Private Limited
-Senior Android App Developer
-International software company with Head Office in Sydney, Australia
-Fast-growing. development team based in Shyamoli Square, Dhaka
-Working on App projects for the Australian Government
-Education:
-B.Sc. in Computer Science & Engineering from any reputable university
-Experience:
-At least 4 year(s)</td>
-                                        </tr>
+                                        <?php endforeach; ?>
                                     </tbody>
                                 </table>
                     
@@ -105,19 +97,11 @@ At least 4 year(s)</td>
                         <!--pagination-->
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="dataTables_info" id="example_info">Showing 1 to 10 of 57 entries</div>
+                                <div class="dataTables_info" id="example_info"><?php echo "Displaying $result_start to $result_end of $total"; ?> entries</div>
                             </div>
                             <div class="col-md-6">
                                 <div class="dataTables_paginate paging_bootstrap">
-                                    <ul class="pagination">
-                                        <li class="prev disabled"><a href="#">← Previous</a></li>
-                                        <li class="active"><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
-                                        <li class="next"><a href="#">Next → </a></li>
-                                    </ul>
+                                    <?php echo $pagination;?>
                                 </div>
                             </div>
                         </div>

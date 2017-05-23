@@ -126,6 +126,9 @@ class AdsManager extends CI_Controller {
 
 
 
+
+
+
     //Temp
     public function save_category()
     {

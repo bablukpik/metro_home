@@ -209,6 +209,36 @@ class MyModel extends CI_Model {
         
     }
 
+    //Pagination
+    public function get_all($limit, $page)
+    {       
+        $offset = ($page - 1) * $limit;
+        $query  = $this->db->limit($limit, $offset)->get(self::$landlord);
+        return $query->result();
+    }
+
+    public function get_total()
+    {
+        return $this->db->count_all(self::$landlord);
+    }
+    //End pagination
+
+    //Search pagination data
+    public function search_publicityM($search_publicity)
+    {
+        $this->db->select('*');
+        $this->db->from('landloard');
+        $this->db->like('lnd_email', $search_publicity);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+
+
+
+
+
+
 
 
     //Temp
@@ -238,25 +268,11 @@ class MyModel extends CI_Model {
         return $query->row();
     }
 
-
-    public function findByUser($userId)
-    {
-        $this->db->select('*');
-        $this->db->from(self::TABLE);
-        $this->db->where('user_id', $userId);
-        $query = $this->db->get();
-        return $query->row();
-    }
-
-    public function update($data, $id)
-    {
-        $this->db->update(self::TABLE, $data, array('id' => $id));
-    }
-
     public function updateOrg1($data, $id)
     {
         $this->db->update(self::TABLE, $data, array('id' => $id));
     }
+
     public function destroy($id)
     {
         $this->db->delete(self::TABLE, array('id' => $id));
