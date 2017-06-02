@@ -103,9 +103,37 @@ class Publicity extends CI_Controller{
             $sdata['search_result_msg'] = "Please enter something for search";
             redirect('publicity');
         }
-
             
     }
 
+    public function create_publicity($value='')
+    {
+        $data['publicity_create_page'] = $this->load->view('publicity_create_page', '', TRUE);
+        $this->load->view('dashboard/dashboard_master', $data);
+    }
+
+    public function publish_publicity()
+    {   
+        $data = $this->input->post();
+        $dt = new DateTime("now", new DateTimeZone('Asia/Dhaka'));
+        $todayDate = $dt->format('Y-m-d h:i:s');
+
+        $data['publicity_userid']           = $this->session->userdata('user_name');
+        $data['publicity_usertype']         = $this->session->userdata('user_type');
+        $data['publicity_created_date']     = $todayDate;
+        $data['publicity_modified_date']    = $todayDate;
+
+        $response = $this->MyModel->publish_publicity($data);
+
+        if ($response) {
+            $sdata['successMsg'] = "Data inserted successfully";
+        }else{
+            $sdata['failure'] = "Failed!! Data has not been inserted successfully";
+        }
+
+        $this->session->set_userdata( $sdata );
+
+        redirect('publicity/create_publicity');
+    }
 
 }

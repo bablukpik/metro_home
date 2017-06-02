@@ -233,7 +233,11 @@ class MyModel extends CI_Model {
         return $query->result();
     }
 
-
+    public function publish_publicity($data)
+    {
+        $this->db->insert('publicity', $data);
+        return $this->db->insert_id();
+    }
 
 
 

@@ -59,16 +59,16 @@ color: #FFFFFF;
 .nav > li > a {
 padding: 20px 15px;
 }
+
 #side-menu {
     background-color:#04B173;
 }
 
  #side-menu a {
     color: #fff;
-    border-bottom: 1px solid #84B899 !important;
     height: 55px;
     display: inline-block;
-     padding: 15px 5px;
+    padding: 15px 5px;
 }
 
 #side-menu a:hover {

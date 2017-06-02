@@ -6,8 +6,10 @@
 	<title>Metro Home</title>
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/css/font-awesome.min.css" />
+    
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+    
     <!--Datepicker-->
     <link href="<?php echo base_url(); ?>assets/datepicker/css/jquery.datepick.css" rel="stylesheet">
     <!--/Datepicker-->

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 20, 2017 at 07:45 AM
+-- Generation Time: Jun 02, 2017 at 08:44 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -45,7 +45,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`adm_id`, `adm_username`, `adm_userpass`, `user_type`, `adm_fullname`, `adm_address`, `adm_phone`, `adm_email`, `adm_created_date`, `adm_modified_date`, `adm_photo`) VALUES
-(1, 'admin', 'admin', 'admin', 'Md. Bablu Mia', 'Mirpur 10, Dhaka', '01730910539', 'bablukpik@gmail.com', '2017-05-02 00:00:00', '2017-05-02 00:00:00', '2017-05-02-13-01-07_BabluBR_thumb.jpg');
+(1, 'admin', 'admin', 'admin', 'Md. Bablu Mia', 'Mirpur 10, Dhaka', '01730910539', 'bablukpik@gmail.com', '2017-05-02 00:00:00', '2017-05-02 00:00:00', '2017-05-02-13-01-07_BabluBR_thumb.jpg'),
+(2, 'sagorsur', 'sagorsks4', 'admin', 'Sagor Sur', 'Savar, Dhaka', '+8801712612589', 'sagorsur@gmail.com', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -77,7 +78,8 @@ CREATE TABLE `ads_account_general` (
 
 INSERT INTO `ads_account_general` (`ad_id`, `ad_lnd_first_name`, `ad_lnd_last_name`, `ad_lnd_username`, `ad_lnd_password`, `ad_lnd_user_type`, `ad_lnd_police_station`, `ad_lnd_holding_no`, `ad_lnd_road_no`, `ad_lnd_locality`, `ad_lnd_postcode`, `ad_lnd_mobile`, `ad_user_photo`, `ad_created_date`, `ad_modified_date`) VALUES
 (1, 'Md. Bablu', 'Mia', 'admin', 'admin', 'general', 'Kafrul', '272', '72', 'Senpara Parbata', '1216', '01730910539', '2017-05-19-22-29-01_BabluBR-copy_thumb.png', '2017-05-20 02:00:39', '2017-05-20 02:00:39'),
-(4, 'asd', 'fasdf', 'asd', 'adsf', 'general', 'asdf', 'adf', 'ads', 'ads', 'ads', 'asd', '2017-05-19-22-29-01_BabluBR-copy_thumb.png', '2017-05-20 02:29:01', '2017-05-20 02:29:01');
+(4, 'asd', 'fasdf', 'asd', 'adsf', 'general', 'asdf', 'adf', 'ads', 'ads', 'ads', 'asd', '2017-05-19-22-29-01_BabluBR-copy_thumb.png', '2017-05-20 02:29:01', '2017-05-20 02:29:01'),
+(5, 'Masudul', 'Islam', 'masudul', 'admin', 'general', 'Kafrul', '272', '72', 'Senpara', '1216', '66666666666', '2017-05-20-14-27-22_20170314_192547_thumb.jpg', '2017-05-20 06:27:22', '2017-05-20 06:27:22');
 
 -- --------------------------------------------------------
 
@@ -278,6 +280,34 @@ CREATE TABLE `metro_police` (
 
 INSERT INTO `metro_police` (`metro_police_id`, `metro_police_username`, `metro_police_userpass`, `user_type`, `metro_police_fullname`, `metro_police_address`, `metro_police_phone`, `metro_police_email`, `metro_police_created_date`, `metro_police_modified_date`, `metro_police_photo`) VALUES
 (1, 'police', 'police', 'metro_police', 'Shumon', 'Kafrul Thana, Mirpur, Dhaka', '01730910530', 'metropolice@gmail.com', '2017-05-08 00:00:00', '2017-05-08 00:00:00', 'bdpolice.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `publicity`
+--
+
+CREATE TABLE `publicity` (
+  `publicity_id` int(11) NOT NULL,
+  `publicity_userid` varchar(50) NOT NULL,
+  `publicity_usertype` varchar(20) NOT NULL,
+  `publicity_title` varchar(100) DEFAULT NULL,
+  `publicity_description` varchar(250) DEFAULT NULL,
+  `publicity_address` varchar(100) DEFAULT NULL,
+  `publicity_charge_permonth` varchar(30) DEFAULT NULL,
+  `publicity_city` varchar(50) DEFAULT NULL,
+  `publicity_mobile` varchar(15) DEFAULT NULL,
+  `publicity_photo` varchar(255) DEFAULT NULL,
+  `publicity_created_date` datetime DEFAULT NULL,
+  `publicity_modified_date` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `publicity`
+--
+
+INSERT INTO `publicity` (`publicity_id`, `publicity_userid`, `publicity_usertype`, `publicity_title`, `publicity_description`, `publicity_address`, `publicity_charge_permonth`, `publicity_city`, `publicity_mobile`, `publicity_photo`, `publicity_created_date`, `publicity_modified_date`) VALUES
+(1, '123', 'landlord', 'A Flat for Rent at Mirpur 10', 'A Falat is available for Rent at Mirpur 10...', 'Senpara Parbata, Mirpur 10, Dhaka', '14000', 'Mirpur', '01730910539', NULL, '2017-06-02 00:00:00', '2017-06-02 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -488,7 +518,9 @@ INSERT INTO `renter_tracking_tbl` (`tracking_id`, `lnd_id`, `lnd_fullname`, `lnd
 (13, 13, 'Mr. Rahim', 'asd', '13141203051', 'a', 'asd', 'a', 'dsf', 'adsf', '2017-05-02-13-01-07_BabluBR_thumb.png', 16, 'Mr. Karim', 'asdf', '13141203051', 'asdf', '2017-05-02-13-01-07_BabluBR_thumb.png', '2017-05-15 12:39:54', '2017-05-16 01:31:28'),
 (14, 13, 'Mr. Rahim', 'asd', '13141203051', 'a', 'asd', 'a', 'dsf', 'adsf', '2017-05-02-13-01-07_BabluBR_thumb.png', 16, 'Mr. Karim', 'asdf', '13141203051', 'asdf', '2017-05-02-13-01-07_BabluBR_thumb.png', '2017-05-16 12:40:37', '2017-05-16 01:31:28'),
 (15, 13, 'Mr. Rahim', 'asd', '13141203051', 'a', 'asd', 'a', 'dsf', 'adsf', '2017-05-02-13-01-07_BabluBR_thumb.png', 16, 'Mr. Karim', 'asdf', '13141203051', 'asdf', '2017-05-02-13-01-07_BabluBR_thumb.png', '2017-05-16 01:31:28', '2017-05-16 01:32:16'),
-(16, 13, 'Mr. Rahim', 'asd', '13141203051', 'a', 'asd', 'a', 'dsf', 'adsf', '2017-05-02-13-01-07_BabluBR_thumb.png', 16, 'Mr. Karim', 'asdf', '13141203051', 'asdf', '2017-05-02-13-01-07_BabluBR_thumb.png', '2017-05-16 01:32:16', '2017-05-16 01:32:16');
+(16, 13, 'Mr. Rahim', 'asd', '13141203051', 'a', 'asd', 'a', 'dsf', 'adsf', '2017-05-02-13-01-07_BabluBR_thumb.png', 16, 'Mr. Karim', 'asdf', '13141203051', 'asdf', '2017-05-02-13-01-07_BabluBR_thumb.png', '2017-05-16 01:32:16', '2017-05-20 05:57:53'),
+(17, 13, 'Mr. Rahim', 'asd', '13141203051', 'a', 'asd', 'a', 'dsf', 'adsf', '2017-05-02-13-01-07_BabluBR_thumb.png', 16, 'Mr. Karim', 'asdf', '13141203051', 'asdf', '2017-05-02-13-01-07_BabluBR_thumb.png', '2017-05-20 05:57:53', '2017-05-20 06:08:51'),
+(18, 13, 'Mr. Rahim', 'asd', '13141203051', 'a', 'asd', 'a', 'dsf', 'adsf', '2017-05-02-13-01-07_BabluBR_thumb.png', 16, 'Mr. Karim', 'asdf', '13141203051', 'asdf', '2017-05-02-13-01-07_BabluBR_thumb.png', '2017-05-20 06:08:51', '2017-05-20 06:08:51');
 
 --
 -- Indexes for dumped tables
@@ -544,6 +576,12 @@ ALTER TABLE `metro_police`
   ADD UNIQUE KEY `metro_police_username` (`metro_police_username`);
 
 --
+-- Indexes for table `publicity`
+--
+ALTER TABLE `publicity`
+  ADD PRIMARY KEY (`publicity_id`);
+
+--
 -- Indexes for table `renter`
 --
 ALTER TABLE `renter`
@@ -585,12 +623,12 @@ ALTER TABLE `renter_tracking_tbl`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `adm_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `adm_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `ads_account_general`
 --
 ALTER TABLE `ads_account_general`
-  MODIFY `ad_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ad_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `landloard`
 --
@@ -617,6 +655,11 @@ ALTER TABLE `lnd_homeworker`
 ALTER TABLE `metro_police`
   MODIFY `metro_police_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
+-- AUTO_INCREMENT for table `publicity`
+--
+ALTER TABLE `publicity`
+  MODIFY `publicity_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT for table `renter`
 --
 ALTER TABLE `renter`
@@ -640,7 +683,7 @@ ALTER TABLE `renter_homeworker`
 -- AUTO_INCREMENT for table `renter_tracking_tbl`
 --
 ALTER TABLE `renter_tracking_tbl`
-  MODIFY `tracking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `tracking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- Constraints for dumped tables
 --

@@ -16,6 +16,9 @@
     <link href="<?php echo base_url(); ?>assets/datepicker/css/jquery.datepick.css" rel="stylesheet">
     <!--/Datepicker-->
     
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+   
    </head>
 <body style="font-family: solaimanlipi">
     <!--Renter already registered dialog-->
@@ -167,12 +170,9 @@
                         <a href="<?php echo base_url(); ?>super_admin"><i class="fa fa-dashboard fa-fw"></i>Dashboard</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> User Actions</span></a>
                         <ul class="nav nav-second-level">
                              <!-- For Admin Menu -->               
-                            <?php
-                                $user_type = $this->session->userdata("user_type");
-                                if($user_type == 'admin') : ?>
+                            <?php if($this->session->userdata("user_type") == 'admin') : ?>
   
                             <li>
                                 <i class="fa fa-arrow-right" aria-hidden="true"></i><a href="<?php echo base_url(); ?>super_admin/renterRegisterForm">Register a renter</a>
@@ -180,11 +180,9 @@
                             <?php endif; ?>
 
                             <!-- For Landlord Menu -->   
-                            <?php
-                                $user_type = $this->session->userdata("user_type");
-                                if($user_type == 'landlord') : ?>
+                            <?php if($this->session->userdata("user_type") == 'landlord') : ?>
                             <li>
-                                <i class="fa fa-arrow-right" aria-hidden="true"></i><a href="<?php echo base_url('super_admin/addNewRenter'); ?>">Add new renter to let </a>
+                                <i class="fa fa-arrow-right" aria-hidden="true"></i><a href="<?php echo base_url('super_admin/addNewRenter'); ?>">Add a Renter to Your House </a>
                             </li>
                             <li>
                                 <i class="fa fa-arrow-right" aria-hidden="true"></i><a href="<?php echo base_url(); ?>super_admin/renterRegisterForm">Register a renter</a>
@@ -192,13 +190,17 @@
                             <?php endif; ?>
 
                             <!-- For Landlord Menu -->   
-                            <?php
-                                $user_type = $this->session->userdata("user_type");
-                                if($user_type == 'metro_police') : ?>
+                            <?php if($this->session->userdata("user_type") == 'metro_police') : ?>
                             <li>
                                 <i class="fa fa-arrow-right" aria-hidden="true"></i><a href="<?php echo base_url('super_admin/findRenterLocation'); ?>">Find Renter Location</a>
                             </li>
-                            
+                            <?php endif; ?>
+
+                            <!-- For Creating Publicity Menu item -->   
+                            <?php if($this->session->userdata("user_type")) : ?>
+                            <li>
+                                <i class="fa fa-arrow-right" aria-hidden="true"></i><a href="<?php echo base_url('publicity/create_publicity'); ?>">Publish an Ad for Rent</a>
+                            </li>
                             <?php endif; ?>
 
                         </ul>
@@ -217,8 +219,32 @@
         <!-- end navbar side -->
 
         <!--Renter creation error message of Photo-->
-        <?php if($this->session->userdata('error_msg_photo_renter') || $this->session->userdata("successMsg")): ?>
+        <?php if($this->session->userdata('error_msg_photo_renter') || $this->session->userdata("successMsg") || $this->session->userdata("success") || $this->session->userdata("failure")): ?>
             <div style="max-width: 400px; margin: 0 auto; position: relative; z-index:999999;">
+                
+                <!-- success Message-->
+                <?php if($success = $this->session->userdata("success")): ?>
+                <div class="welcome_msg alert alert-success alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <?php
+                    echo "<h4>".$success."</h4>";
+                    $this->session->unset_userdata("success");
+                    ?>
+                </div>
+                <?php endif; ?>
+                <!-- End success Message -->
+
+                <!-- Failure Message-->
+                <?php if($failure = $this->session->userdata("failure")): ?>
+                <div class="welcome_msg alert alert-success alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <?php
+                    echo "<h4>".$failure."</h4>";
+                    $this->session->unset_userdata("failure");
+                    ?>
+                </div>
+                <?php endif; ?>
+                <!-- End Failure Message -->
 
                 <!-- Welcome and Data added success -->
                 <?php if($successMsg = $this->session->userdata("successMsg")): ?>
@@ -268,33 +294,27 @@
 
             <!-- renterForm -->
             <div class="row">
-
-                <?php
-                    echo isset($renterForm)?$renterForm:'';
-                ?>
-
+                <?php echo isset($renterForm)?$renterForm:''; ?>
             </div>
             <!-- renterForm -->
 
             <!-- Add new renter page -->
             <div class="row">
-
-                <?php
-                    echo isset($addNewRenterPage)?$addNewRenterPage:'';
-                ?>
-
+                <?php echo isset($addNewRenterPage)?$addNewRenterPage:''; ?>
             </div>
             <!-- End Add new renter page -->
 
             <!-- Find renter location page -->
             <div class="row">
-
-                <?php
-                    echo isset($findRenterLocation)?$findRenterLocation:'';
-                ?>
-
+                <?php echo isset($findRenterLocation)?$findRenterLocation:''; ?>
             </div>
            <!-- End Find renter location page -->
+
+           <!-- Publicity create page -->
+            <div class="row">
+                <?php echo isset($publicity_create_page)?$publicity_create_page:''; ?>
+            </div>
+           <!-- End Publicity create page -->
 
             <!--End Document Body-->
 
@@ -343,6 +363,16 @@
     <script src="<?php echo base_url('backend_assets/scripts/FormValidation.js');?>"></script>
     <!--Main Js For backend-->
     <script src="<?php echo base_url('backend_assets/scripts/main.js');?>"></script>
+    <!--Select Option-->
     
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+    <script>
+        $('.selectpicker').selectpicker({
+          //style: 'btn-info',
+          size: 4
+        });
+    </script>
+<!--End Select Option-->
 </body>
 </html>
