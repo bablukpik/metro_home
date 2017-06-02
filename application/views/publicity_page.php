@@ -28,7 +28,7 @@
 
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <div class="text-muted bootstrap-admin-box-title">Houses For Rent</div>
+                    <div class="text-muted bootstrap-admin-box-title">Rent a House Online</div>
                 </div>
                 <div class="bootstrap-admin-panel-content">
                     <div id="example_wrapper" class="dataTables_wrapper form-inline" role="grid">
@@ -37,13 +37,6 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div id="example_length" class="dataTables_length">
-                                    <!-- <label>
-                                    <select size="1" name="example_length" aria-controls="example">
-                                        <option value="10" selected="selected">10</option>
-                                        <option value="25">25</option><option value="50">50</option>
-                                        <option value="100">100</option>
-                                    </select> records per page</label> -->
-
                                     <?php 
                                         echo form_open('publicity/index');
                                         $options = array(
@@ -53,6 +46,7 @@
                                                          '40' => '40');
                                         echo form_dropdown('sel',$options,'');
                                         echo form_submit('submit','submit',"class='btn btn-default'");
+                                        echo form_close();
                                     ?>
                                 </div>
                             </div>
@@ -79,7 +73,6 @@
                                     <thead>
                                         <tr>
                                             <th>House Details</th>
-                                            
                                         </tr>
                                     </thead>
                                     <tbody>
