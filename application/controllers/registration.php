@@ -220,7 +220,8 @@ class Registration extends CI_Controller
         {
             echo $this->image_lib->display_errors();
         }
-    } //End Thumbnail image creation for landloard
+    } 
+    //End Thumbnail image creation for landloard
 
 
     //Form validation for Landlord

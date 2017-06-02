@@ -1,11 +1,11 @@
-<form action="<?php echo base_url('publicity/publish_publicity'); ?>" method="post" class="form-horizontal" style="margin-top:50px;">
+<form action="<?php echo base_url('publicity/publish_publicity'); ?>" method="post" enctype="multipart/form-data" class="form-horizontal" style="margin-top:50px;">
   <fieldset>
     <legend>Create an Ad</legend>
 
     <div class="form-group">
       <label for="publicity_title" class="col-lg-2 control-label">Title</label>
       <div class="col-lg-6">
-        <input type="text" name="publicity_title" class="form-control" id="publicity_title" placeholder="Title">
+        <input type="text" name="publicity_title" required="required" class="form-control" id="publicity_title" placeholder="Title">
       </div>
       <div class="col-lg-4"></div>
     </div>
@@ -13,7 +13,7 @@
     <div class="form-group">
       <label for="publicity_description" class="col-lg-2 control-label">Description</label>
       <div class="col-lg-6">
-        <textarea name="publicity_description" class="form-control" rows="3" id="publicity_description"></textarea>
+        <textarea name="publicity_description" required="required" class="form-control" rows="3" id="publicity_description"></textarea>
       </div>
       <div class="col-lg-4"></div>
     </div>
@@ -21,7 +21,7 @@
     <div class="form-group">
       <label for="publicity_address" class="col-lg-2 control-label">Address</label>
       <div class="col-lg-6">
-        <textarea name="publicity_address" class="form-control" rows="3" id="publicity_address"></textarea>
+        <textarea name="publicity_address" required="required" class="form-control" rows="3" id="publicity_address"></textarea>
       </div>
       <div class="col-lg-4"></div>
     </div>
@@ -29,7 +29,7 @@
     <div class="form-group">
     	<label for="publicity_charge_permonth" class="control-label col-lg-2">Per Month Rent</label>
 		<div class="col-lg-6">
-			<input type="text" name="publicity_charge_permonth" id="publicity_charge_permonth" class="form-control" placeholder="Per Month Rent">
+			<input type="text" name="publicity_charge_permonth" required="required" id="publicity_charge_permonth" class="form-control" placeholder="Per Month Rent">
 		</div>
 		<div class="col-lg-4"></div>
     </div>
@@ -38,7 +38,7 @@
     <div class="form-group">
       	<label for="publicity_city" class="col-lg-2 control-label">Select your City</label>
       	<div class="col-lg-6">
-			<select name="publicity_city" class="form-control selectpicker" id="publicity_city" data-live-search="true">
+			<select name="publicity_city" required="required" class="form-control selectpicker" id="publicity_city" data-live-search="true">
 
 	            <option disabled selected>Please select your City</option>
 	            <option data-tokens="Adabor">Adabor</option>
@@ -97,7 +97,7 @@
     <div class="form-group">
     	<label for="publicity_mobile" class="control-label col-lg-2">Mobile No.</label>
 		<div class="col-lg-6">
-			<input type="text" name="publicity_mobile" id="publicity_mobile" class="form-control" placeholder="Mobile No.">
+			<input type="text" name="publicity_mobile" required="required" id="publicity_mobile" class="form-control" placeholder="Mobile No.">
 		</div>
 		<div class="col-lg-4"></div>
     </div>
@@ -105,6 +105,7 @@
     <div class="form-group">
     	<label for="publicity_photo" class="control-label col-lg-2">Upload Image</label>
 		<div class="col-lg-6">
+			<?php echo form_error('publicity_photo'); ?>
 			<input type="file" name="publicity_photo" id="publicity_photo" class="form-control">
 		</div>
 		<div class="col-lg-4"></div>

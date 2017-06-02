@@ -213,6 +213,7 @@ class MyModel extends CI_Model {
     public function get_all($limit, $page)
     {       
         $offset = ($page - 1) * $limit;
+        $this->db->order_by('publicity_created_date','desc');
         $query  = $this->db->limit($limit, $offset)->get('publicity');
         return $query->result();
     }

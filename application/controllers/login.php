@@ -38,7 +38,6 @@ class Login extends CI_Controller
             $user_type = $this->input->post('user_type');
             $user_name = $this->input->post('user_name');
             $user_pass = $this->input->post('user_pass');
-            
 
             if( $user_type == 'admin'){
                 $resultAdmin = $this->MyModel->check_admin_login_info($user_name, $user_pass, $user_type);
@@ -107,7 +106,7 @@ class Login extends CI_Controller
                 }
             }elseif ($user_type == 'general'){
                 $resultGeneral = $this->MyModel->check_genUser_login_info($user_name, $user_pass, $user_type);
-
+                
                 if ($resultGeneral) {
                     $sdata['user_name']     = $resultGeneral->ad_lnd_username;
                     $sdata['user_type']     = $resultGeneral->ad_lnd_user_type;

@@ -65,7 +65,7 @@
                             </div>
                         </div>
                         <!--End Search and Nubmer of records-->
-                        
+                        <hr>
                         <div class="row">
                                 
                             <div class="col-md-12">
@@ -86,12 +86,12 @@
                                     </div>
                                     
                                     <div class="col-md-5">
-                                        <div class="publicity_image clearfix">
+                                        <div class="publicity_image clearfix" style="padding-bottom: 20px;">
                                             <?php if($value->publicity_photo): ?>
                                             <img src="<?php echo base_url(); ?>publicity/images/publicity_img/<?php echo $value->publicity_photo; ?>" alt="Publicity Image">
                                             <?php endif; ?>
                                         </div>
-                                        <p style="float: right;">Published Date: <?php echo date('d/m/Y',strtotime($value->publicity_created_date)); ?></p>
+                                        <p style="float: right; margin-top: 20px;"><strong>Published Date:</strong> <?php echo date('d/m/Y',strtotime($value->publicity_created_date)); ?></p>
   
                                     </div>
 

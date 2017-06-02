@@ -90,7 +90,7 @@ class Publicity extends CI_Controller{
             $data['pagination'] = '';
             $data['result_start'] = '';
             $data['result_end'] = '';
-            $data['publicity_search_msg'] = 'Click the search button again to refresh ';
+            $data['publicity_search_msg'] = 'Click the search button again to refresh the page';
             $data['result'] = $this->MyModel->search_publicityM($search_publicity);
 
             if ($data['result']) {
@@ -114,6 +114,29 @@ class Publicity extends CI_Controller{
 
     public function publish_publicity()
     {   
+        //Start upload picture
+        if(!empty($_FILES['publicity_photo']['name'])){ //if($_FILES['image']['error'] == 0){
+            $config['upload_path'] = 'publicity/images/publicity_img/';
+            $config['allowed_types'] = 'jpg|jpeg|png|gif';
+            $config['file_name'] = date("Y-m-d-H-i-s")."_".str_replace(' ', '-', $_FILES['publicity_photo']['name']);
+
+            //Load upload library and initialize configuration
+            $this->load->library('upload',$config);
+            $this->upload->initialize($config);
+
+            if($this->upload->do_upload('publicity_photo')){
+                $finfo=$this->upload->data();
+                $this->_createThumbnail($finfo['file_name']);
+                $publicity_photo = $finfo['raw_name'].'_thumb'.$finfo['file_ext'];
+                //$publicity_photo = $finfo['file_name'];
+            }else{
+                $publicity_photo = '';
+            }
+        }else{
+            $publicity_photo = '';
+        }
+        //End upload picture
+
         $data = $this->input->post();
         $dt = new DateTime("now", new DateTimeZone('Asia/Dhaka'));
         $todayDate = $dt->format('Y-m-d h:i:s');
@@ -122,6 +145,7 @@ class Publicity extends CI_Controller{
         $data['publicity_usertype']         = $this->session->userdata('user_type');
         $data['publicity_created_date']     = $todayDate;
         $data['publicity_modified_date']    = $todayDate;
+        $data['publicity_photo']    = $publicity_photo;
 
         $response = $this->MyModel->publish_publicity($data);
 
@@ -135,5 +159,26 @@ class Publicity extends CI_Controller{
 
         redirect('publicity/create_publicity');
     }
+
+    /*
+     * Thumbnail image creation for landloard
+     */
+    function _createThumbnail($filename)
+    {
+        $config['image_library']    = "gd2";
+        $config['source_image']     = "publicity/images/publicity_img/" .$filename;
+        $config['create_thumb']     = TRUE;
+        $config['maintain_ratio']   = TRUE;
+        $config['width']            = "400";
+        $config['height']           = "200";
+
+        $this->load->library('image_lib',$config);
+
+        if(!$this->image_lib->resize())
+        {
+            echo $this->image_lib->display_errors();
+        }
+    } 
+    //End Thumbnail image creation for landloard
 
 }
