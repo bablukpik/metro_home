@@ -37,7 +37,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">
+                <a class="navbar-brand" href="<?php echo base_url(); ?>">
                     <img class="img-responsive" src="<?php echo base_url(); ?>backend_assets/img/logo.png" alt="logo" />
                 </a>
             </div>

@@ -16,14 +16,130 @@
         <!-- Datatables -->
         <link rel="stylesheet" media="screen" href="<?php echo base_url(); ?>publicity/css/DT_bootstrap.css">
 
+        <link rel="stylesheet" href="<?php echo base_url();?>assets/style.css" />
+
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
            <script type="text/javascript" src="js/html5shiv.js"></script>
            <script type="text/javascript" src="js/respond.min.js"></script>
         <![endif]-->
     </head>
-<body>
-    <section class="publicity_area">
+<body style="padding-top: 0px;">
+    <section class="top_head_sec">
+        <div class="container">
+            <div class="top_menu_left float_left">
+            
+            </div>
+            <div class="top_menu_right float_right">
+                <ul>
+                    <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-youtube-square" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                    <li><a href="#">Bangla/English</a></li>
+                </ul>
+            </div> 
+        </div>
+    </section>
+    <header class="head_sec">
+        <div class="container">
+            <nav class="navbar navbar-default" style="background: transparent; border: none; box-shadow: none;">
+              <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="#">
+                    <div class="logo">
+                        <img src="<?php echo base_url();?>assets/images/logo.png" alt="logo" />
+                    </div>
+                  </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                 
+                  <ul class="nav navbar-nav navbar-right">
+                    <li><a href="<?php echo base_url();?>">Home</a></li>
+                    <li><a href="#">Info</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Rent Services <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#" data-toggle="modal" data-target="#adsLogiOrSignup_dialog">Create Ads for Rent</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="<?php echo base_url('publicity');?>">Find House for Rent</a></li>
+                        <li role="separator" class="divider"></li>
+                      </ul>
+                    </li>
+
+                    <li>
+                        <button type="button" id="loginBtn" style="color:#fff; text-transform: capitalize;" class="btn btn-success" data-toggle="modal"  data-placement="bottom" data-target="#login_dialog" data-title="Login">Sign in <span class="caret"></button>
+                    </li>
+                  </ul>
+                </div><!-- /.navbar-collapse -->
+              </div><!-- /.container-fluid -->
+            </nav>
+
+            <!--Landlord creation message-->
+                <!--For image-->
+            <?php if($this->session->userdata('error_msg_photo_lnd') || $this->session->userdata('successMsg') ||  $this->session->userdata('failureMsg')): ?>
+            <div style="max-width: 350px; margin: 0 auto; position: relative; z-index:999999;">
+                <?php if ($error_msg_photo_lnd =  $this->session->userdata('error_msg_photo_lnd')):?>
+                <div class="welcome_msg alert alert-danger alert-dismissable" style="">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <?php
+                        echo "<h4>".(isset($error_msg_photo_lnd)?$error_msg_photo_lnd:'')."</h4>";
+                        $this->session->unset_userdata('error_msg_photo_lnd');
+                    ?>
+                </div>
+                <?php endif; ?>
+
+                    <!--For Data-->
+                <?php if($successMsg =  $this->session->userdata('successMsg')):?>
+                <div class="welcome_msg alert alert-success alert-dismissable" style="">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <?php
+                        echo "<h4>".(isset($successMsg)?$successMsg:'')."</h4>";
+                        $this->session->unset_userdata('successMsg');
+                    ?>
+                </div>
+                <?php endif;?>
+
+                 <!--For Failure-->
+                <?php if($failureMsg =  $this->session->userdata('failureMsg')):?>
+                <div class="welcome_msg alert alert-danger alert-dismissable" style="">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <?php
+                        echo "<h4>".(isset($failureMsg)?$failureMsg:'')."</h4>";
+                        $this->session->unset_userdata('failureMsg');
+                    ?>
+                </div>
+                <?php endif;?>
+
+            </div>
+            <?php endif;?>
+            <!--End Landlord creation message-->
+
+        </div>
+    </header>
+    <!--End Header Nav Menu-->
+    
+    <section class="dilogs_area">
+        <div class="container">
+            <?php $this->load->view('dialogs/adsLogiOrSignup_dialog');?>
+            <?php $this->load->view('dialogs/login_dialog'); ?>
+            <?php $this->load->view('dialogs/registration_dialog'); ?>
+        </div>
+    </section>
+
+    <!--Publicity Start-->
+    <section class="publicity_area" style="margin-top: 40px">
         <div class="container">
 
             <div class="panel panel-default">
@@ -119,12 +235,24 @@
             </div>
         </div>
     </section>
-
-     <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <!-- End Publicity Start-->
+    
+    <!-- Footer-->
+    <section class="foot_top">
+    
+    </section>
+    <footer class="foot_sec">
+        <div class="container">
+            <p>Copyright &copy; 2017, Metro Home. All rights reserved</p>
+        </div>
+    </footer>
+    <!-- End Footer-->
+    
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>publicity/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>publicity/js/twitter-bootstrap-hover-dropdown.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>publicity/js/bootstrap-admin-theme-change-size.js"></script>
-
+    <script src="<?php echo base_url(); ?>assets/js/main.js" type="text/javascript"></script>
 
 
 </body>
