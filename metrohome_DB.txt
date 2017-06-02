@@ -243,7 +243,7 @@ CREATE TABLE publicity(
 	publicity_title varchar(100),
 	publicity_description varchar(250),
 	publicity_address varchar(100),
-	publicity_charge_permonth varchar(30),
+	publicity_charge_permonth int default "0",
 	publicity_city varchar(50),
 	publicity_mobile varchar(15),
 	publicity_photo varchar(255),

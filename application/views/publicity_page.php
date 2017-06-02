@@ -31,7 +31,7 @@
                     <div class="text-muted bootstrap-admin-box-title">Rent a House Online</div>
                 </div>
                 <div class="bootstrap-admin-panel-content">
-                    <div id="example_wrapper" class="dataTables_wrapper form-inline" role="grid">
+                    <div id="example_wrapper" class="form-inline" role="grid">
                     
                         <!--Search and Nubmer of records-->
                         <div class="row">
@@ -45,7 +45,7 @@
                                                          '30' => '30',
                                                          '40' => '40');
                                         echo form_dropdown('sel',$options,'');
-                                        echo form_submit('submit','submit',"class='btn btn-default'");
+                                        echo form_submit('submit','submit',"class='btn btn-default' style='padding: 0 5px;'");
                                         echo form_close();
                                     ?>
                                 </div>
@@ -59,7 +59,7 @@
                                       <button type="submit" class="btn btn-info">Search</button>
                                     </form>
                                     <div class="search_result">
-                                        <?php echo $publicity_search_msg; ?>
+                                        <p style="color:red"><?php echo $publicity_search_msg; ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -67,24 +67,39 @@
                         <!--End Search and Nubmer of records-->
                         
                         <div class="row">
-                            <div class="col-md-12">
                                 
-                                <table class="table table-striped table-bordered" id="example">
-                                    <thead>
-                                        <tr>
-                                            <th>House Details</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php foreach ($result as $key => $value):?>
-                                        <tr>
-                                            <td><?php echo $value->lnd_email; ?></td>
-                                        </tr>
-                                        <?php endforeach; ?>
-                                    </tbody>
-                                </table>
-                    
+                            <div class="col-md-12">
+                                <?php foreach ($result as $key => $value):?>
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <h3><?php echo $value->publicity_title; ?></h3>
+                                        <p><?php echo $value->publicity_description; ?></p>
+                                        <br>
+                                        <address>
+                                            <strong>Area: </strong><?php echo $value->publicity_city; ?><br>
+                                            <strong>Per Month Rent: </strong><?php echo $value->publicity_charge_permonth; ?>/-
+                                        </address>
+                                        <address>
+                                            <strong>Address: </strong><?php echo $value->publicity_address; ?><br>
+                                            <strong>Mobile: </strong><?php echo $value->publicity_mobile; ?>
+                                        </address>
+                                    </div>
+                                    
+                                    <div class="col-md-5">
+                                        <div class="publicity_image clearfix">
+                                            <?php if($value->publicity_photo): ?>
+                                            <img src="<?php echo base_url(); ?>publicity/images/publicity_img/<?php echo $value->publicity_photo; ?>" alt="Publicity Image">
+                                            <?php endif; ?>
+                                        </div>
+                                        <p style="float: right;">Published Date: <?php echo date('d/m/Y',strtotime($value->publicity_created_date)); ?></p>
+  
+                                    </div>
+
+                                </div>
+                                <hr>
+                                <?php endforeach; ?>
                             </div>
+                           
                         </div>
                         
                         <!--pagination-->

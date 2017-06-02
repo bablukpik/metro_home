@@ -213,13 +213,13 @@ class MyModel extends CI_Model {
     public function get_all($limit, $page)
     {       
         $offset = ($page - 1) * $limit;
-        $query  = $this->db->limit($limit, $offset)->get(self::$landlord);
+        $query  = $this->db->limit($limit, $offset)->get('publicity');
         return $query->result();
     }
 
     public function get_total()
     {
-        return $this->db->count_all(self::$landlord);
+        return $this->db->count_all('publicity');
     }
     //End pagination
 
@@ -227,8 +227,8 @@ class MyModel extends CI_Model {
     public function search_publicityM($search_publicity)
     {
         $this->db->select('*');
-        $this->db->from('landloard');
-        $this->db->like('lnd_email', $search_publicity);
+        $this->db->from('publicity');
+        $this->db->like('publicity_city', $search_publicity);
         $query = $this->db->get();
         return $query->result();
     }
