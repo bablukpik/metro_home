@@ -175,7 +175,18 @@
                                       <button type="submit" class="btn btn-info">Search</button>
                                     </form>
                                     <div class="search_result">
+
+                                        
+                                        <?php if ($result_found = $this->session->userdata('result_found')): ?>
                                         <p style="color:red"><?php echo $publicity_search_msg; ?></p>
+                                        <p>Result Found: <?php echo $result_found; $this->session->unset_userdata('result_found'); ?></p>
+                                        <?php endif; ?>
+
+                                        <?php if($result_not_found = $this->session->userdata('result_not_found')): ?>
+                                        <p style="color:red;">Click the Search Button again to refresh the page</p>
+                                        <p><?php echo $result_not_found; $this->session->unset_userdata('result_not_found'); ?></p>
+                                        <?php endif; ?>
+
                                     </div>
                                 </div>
                             </div>

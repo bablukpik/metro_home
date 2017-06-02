@@ -16,7 +16,6 @@ class Publicity extends CI_Controller{
 
     public function index($page=1)
     {
-
         //Select options like 10, 20, 30, 40
         if(!empty($_POST['sel'])){
             $limit = $this->input->post('sel');
@@ -80,23 +79,33 @@ class Publicity extends CI_Controller{
         
     }
 
-    public function search_publicity()
+    public function search_publicity($find='')
     {
         $search_publicity = $this->input->post('search_publicity');
-        if (!empty($search_publicity)) {
+        if (!empty($search_publicity) || !empty($find)) {
 
             $data['result']     = '';
             $data['total']     = '';
             $data['pagination'] = '';
             $data['result_start'] = '';
             $data['result_end'] = '';
+            if ($find) {
+                $search = $find;
+            }else{
+                $search = $search_publicity;
+            }
+
             $data['publicity_search_msg'] = 'Click the search button again to refresh the page';
-            $data['result'] = $this->MyModel->search_publicityM($search_publicity);
+            $data['result'] = $this->MyModel->search_publicityM($search);
 
             if ($data['result']) {
+                $sdata['result_found'] = count($data['result']);
+                $this->session->set_userdata($sdata);
+
                 $this->load->view('publicity_page', $data);
             }else{
-                $sdata['search_result_msg'] = "Result not found";
+                $sdata['result_not_found'] = "No Result Found";
+                $this->session->set_userdata($sdata);
                 redirect('publicity');
             }
         }else{
