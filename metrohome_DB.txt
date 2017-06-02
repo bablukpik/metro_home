@@ -235,3 +235,19 @@ CREATE TABLE ads_account_general(
 	ad_created_date datetime,
 	ad_modified_date datetime
 	);
+	
+CREATE TABLE publicity(
+	publicity_id int auto_increment primary key,
+	publicity_userid varchar(50);
+	publicity_usertype varchar(20);
+	publicity_title varchar(100),
+	publicity_description varchar(250),
+	publicity_address varchar(100),
+	publicity_charge_permonth varchar(30),
+	publicity_city varchar(50),
+	publicity_mobile varchar(15),
+	publicity_photo varchar(255),
+	
+	publicity_created_date datetime,
+	publicity_modified_date datetime
+);
