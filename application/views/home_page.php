@@ -256,7 +256,7 @@
                             <a class="btn btn-default" href="#" target="_blank">Khilgaon</a>
                             <a class="btn btn-default" href="#" target="_blank">khilkhet</a>
                             <a class="btn btn-default" href="#" target="_blank">Kotwali</a>
-                            <a class="btn btn-default" href="#" target="_blank">Mirpur</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/mirpur'); ?>" target="_blank">Mirpur</a>
                             <a class="btn btn-default" href="#" target="_blank">Mohammadpur</a>
                             <a class="btn btn-default" href="#" target="_blank">Motijheel</a>
                             <a class="btn btn-default" href="#" target="_blank">Nawabganj</a>
