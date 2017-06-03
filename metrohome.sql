@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 02, 2017 at 08:44 AM
+-- Generation Time: Jun 03, 2017 at 09:54 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -294,7 +294,7 @@ CREATE TABLE `publicity` (
   `publicity_title` varchar(100) DEFAULT NULL,
   `publicity_description` varchar(250) DEFAULT NULL,
   `publicity_address` varchar(100) DEFAULT NULL,
-  `publicity_charge_permonth` varchar(30) DEFAULT NULL,
+  `publicity_charge_permonth` int(11) DEFAULT '0',
   `publicity_city` varchar(50) DEFAULT NULL,
   `publicity_mobile` varchar(15) DEFAULT NULL,
   `publicity_photo` varchar(255) DEFAULT NULL,
@@ -307,7 +307,19 @@ CREATE TABLE `publicity` (
 --
 
 INSERT INTO `publicity` (`publicity_id`, `publicity_userid`, `publicity_usertype`, `publicity_title`, `publicity_description`, `publicity_address`, `publicity_charge_permonth`, `publicity_city`, `publicity_mobile`, `publicity_photo`, `publicity_created_date`, `publicity_modified_date`) VALUES
-(1, '123', 'landlord', 'A Flat for Rent at Mirpur 10', 'A Falat is available for Rent at Mirpur 10...', 'Senpara Parbata, Mirpur 10, Dhaka', '14000', 'Mirpur', '01730910539', NULL, '2017-06-02 00:00:00', '2017-06-02 00:00:00');
+(11, 'admin', 'general', 'A Flat for Rent at Mirpur 10', 'We are offering for Rent. There are 3 rooms, 2 washrooms and 1 kitchen room on the 6th floor of the house. Water is available 24 hours and Gas and Electricity are also available to the flat.', 'Rose Vila, 272, Senpara Parbata, Mirpur 10, Dhaka', 1400, 'Mirpur', '01730910539', '2017-06-02-18-06-59_images_thumb.jpg', '2017-06-02 10:06:59', '2017-06-02 10:06:59'),
+(12, 'admin', 'general', 'A Flat for Rent at Mirpur 10', 'We are offering for Rent. There are 3 rooms, 2 washrooms and 1 kitchen room on the 6th floor of the house. Water is available 24 hours and Gas and Electricity are also available to the flat.', 'Rose Vila, 272, Senpara Parbata, Mirpur 10, Dhaka', 1400, 'Mirpur', '01730910539', '2017-06-02-18-12-25_kerala-model-house-_thumb.jpg', '2017-06-02 10:12:25', '2017-06-02 10:12:25'),
+(13, 'admin', 'general', 'A Flat for Rent at Mirpur 10', 'We are offering for Rent. There are 3 rooms, 2 washrooms and 1 kitchen room on the 6th floor of the house. Water is available 24 hours and Gas and Electricity are also available to the flat.', 'Rose Vila, 272, Senpara Parbata, Mirpur 10, Dhaka', 1400, 'Mirpur', '01730910539', '2017-06-02-18-17-10_rental-house-big_82249357_thumb.jpg', '2017-06-02 10:17:10', '2017-06-02 10:17:10'),
+(14, 'admin', 'general', 'A Flat for Rent at Mirpur 10', 'We are offering for Rent. There are 3 rooms, 2 washrooms and 1 kitchen room on the 6th floor of the house. Water is available 24 hours and Gas and Electricity are also available to the flat.', 'Rose Vila, 272, Senpara Parbata, Mirpur 10, Dhaka', 1400, 'Mirpur', '01730910539', '2017-06-02-18-18-23_house-with-for-rent-sign-posted-in-yard_thumb.jpg', '2017-06-02 10:18:23', '2017-06-02 10:18:23'),
+(15, 'admin', 'general', 'A Flat for Rent at Mirpur 10', 'We are offering for Rent. There are 3 rooms, 2 washrooms and 1 kitchen room on the 6th floor of the house. Water is available 24 hours and Gas and Electricity are also available to the flat.', 'Rose Vila, 272, Senpara Parbata, Mirpur 10, Dhaka', 1400, 'Mirpur', '01730910539', '2017-06-02-18-22-05_images-(1)_thumb.jpg', '2017-06-02 10:22:05', '2017-06-02 10:22:05'),
+(16, 'admin', 'general', 'A Flat for Rent at Mirpur 10', 'We are offering for Rent. There are 3 rooms, 2 washrooms and 1 kitchen room on the 6th floor of the house. Water is available 24 hours and Gas and Electricity are also available to the flat.', 'Rose Vila, 272, Senpara Parbata, Mirpur 10, Dhaka', 1400, 'Mirpur', '01730910539', '2017-06-02-18-23-25_house-with-for-rent-sign-posted-in-yard_thumb.jpg', '2017-06-02 10:23:25', '2017-06-02 10:23:25'),
+(17, 'admin', 'general', 'A Flat for Rent at Mirpur 10', 'We are offering for Rent. There are 3 rooms, 2 washrooms and 1 kitchen room on the 6th floor of the house. Water is available 24 hours and Gas and Electricity are also available to the flat.', 'Rose Vila, 272, Senpara Parbata, Mirpur 10, Dhaka', 1400, 'Mirpur', '01730910539', '2017-06-02-18-23-51_images-(2)_thumb.jpg', '2017-06-02 10:23:52', '2017-06-02 10:23:52'),
+(18, 'admin', 'general', 'A Flat for Rent at Mirpur 10', 'We are offering for Rent. There are 3 rooms, 2 washrooms and 1 kitchen room on the 6th floor of the house. Water is available 24 hours and Gas and Electricity are also available to the flat.', 'Rose Vila, 272, Senpara Parbata, Mirpur 10, Dhaka', 1400, 'Mirpur', '01730910539', '2017-06-02-18-23-59_house-with-for-rent-sign-posted-in-yard_thumb.jpg', '2017-06-02 10:23:59', '2017-06-02 10:23:59'),
+(19, 'admin', 'general', 'A Flat for Rent at Mirpur 10', 'We are offering for Rent. There are 3 rooms, 2 washrooms and 1 kitchen room on the 6th floor of the house. Water is available 24 hours and Gas and Electricity are also available to the flat.', 'Rose Vila, 272, Senpara Parbata, Mirpur 10, Dhaka', 1400, 'Mirpur', '01730910539', '2017-06-02-18-24-17_kerala-model-house-_thumb.jpg', '2017-06-02 10:24:17', '2017-06-02 10:24:17'),
+(20, 'admin', 'general', 'A Flat for Rent at Mirpur 10', 'We are offering for Rent. There are 3 rooms, 2 washrooms and 1 kitchen room on the 6th floor of the house. Water is available 24 hours and Gas and Electricity are also available to the flat.', 'Rose Vila, 272, Senpara Parbata, Mirpur 10, Dhaka', 1400, 'Mirpur', '01730910539', '2017-06-02-18-24-40_house-with-for-rent-sign-posted-in-yard_thumb.jpg', '2017-06-02 10:24:40', '2017-06-02 10:24:40'),
+(21, 'admin', 'general', 'A Flat for Rent at Mirpur 10', 'We are offering for Rent. There are 3 rooms, 2 washrooms and 1 kitchen room on the 6th floor of the house. Water is available 24 hours and Gas and Electricity are also available to the flat.', 'Rose Vila, 272, Senpara Parbata, Mirpur 10, Dhaka', 1400, 'Mirpur', '01730910539', '2017-06-02-18-25-48_images-(1)_thumb.jpg', '2017-06-02 10:25:48', '2017-06-02 10:25:48'),
+(22, 'admin', 'general', 'A Flat for Rent at Mirpur 10', 'We are offering for Rent. There are 3 rooms, 2 washrooms and 1 kitchen room on the 6th floor of the house. Water is available 24 hours and Gas and Electricity are also available to the flat.', 'Rose Vila, 272, Senpara Parbata, Mirpur 10, Dhaka', 1400, 'Mirpur', '01730910539', '2017-06-02-18-26-42_images-(1)_thumb.jpg', '2017-06-02 10:26:42', '2017-06-02 10:26:42'),
+(23, 'admin', 'general', 'A Flat for Rent at Mirpur 10', 'We are offering for Rent. There are 3 rooms, 2 washrooms and 1 kitchen room on the 6th floor of the house. Water is available 24 hours and Gas and Electricity are also available to the flat.', 'Rose Vila, 272, Senpara Parbata, Mirpur 10, Dhaka', 1400, 'Mirpur', '01730910539', '2017-06-02-18-27-41_kerala-model-house-_thumb.jpg', '2017-06-02 10:27:41', '2017-06-02 10:27:41');
 
 -- --------------------------------------------------------
 
@@ -658,7 +670,7 @@ ALTER TABLE `metro_police`
 -- AUTO_INCREMENT for table `publicity`
 --
 ALTER TABLE `publicity`
-  MODIFY `publicity_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `publicity_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `renter`
 --

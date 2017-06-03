@@ -225,13 +225,22 @@ class MyModel extends CI_Model {
     //End pagination
 
     //Search pagination data
-    public function search_publicityM($search_publicity)
+    public function search_publicityM($search_publicity, $home_search)
     {
-        $this->db->select('*');
-        $this->db->from('publicity');
-        $this->db->like('publicity_city', $search_publicity);
-        $query = $this->db->get();
-        return $query->result();
+        if (!empty($home_search)) {
+            $this->db->select('*');
+            $this->db->from('publicity');
+            $array = array('publicity_address' => $home_search, 'publicity_city' => $search_publicity);
+            $this->db->like($array);
+            $query = $this->db->get();
+            return $query->result();
+        }else{
+            $this->db->select('*');
+            $this->db->from('publicity');
+            $this->db->like('publicity_city', $search_publicity);
+            $query = $this->db->get();
+            return $query->result();
+        }
     }
 
     public function publish_publicity($data)

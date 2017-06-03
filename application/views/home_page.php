@@ -147,19 +147,19 @@
                     <h2 style="font-weight: bold;">Find Homes For Rent</h2>
                     <div class="search-form">
 
-                        <form action="#" method="post" target="_blank">
+                        <form action="<?php echo base_url('publicity/search_publicity'); ?>" method="post" target="_blank">
 
                             <div class="inner-addon keyword-search">
                                 <i class="icon-tag"></i>
-                                <input type="text" name="txtsearch" id="txtKeyword" class="form-control" placeholder="Search">
+                                <input type="text" name="home_search_publicity_loca" id="txtKeyword" class="form-control" required="required" placeholder="Enter your locality">
                                 
                             </div>
 
                             <div class="inner-addon categoryCombo hidden-sm hidden-xs">
                                 <i class="icon-briefcase"></i>
-                                <select name="" class="form-control selectpicker" data-live-search="true">
+                                <select name="home_search_publicity_city" required="required" class="form-control selectpicker" data-live-search="true">
 
-                                    <option disabled selected>Please select your area </option>
+                                    <option disabled selected value="">Please select your area </option>
                                     <option data-tokens="Adabor">Adabor</option>
                                     <option data-tokens="Badda">Badda</option>
                                     <option data-tokens="Bangsal">Bangsal</option>
@@ -232,52 +232,52 @@
                     <div class="city">
                         <h4>All City of Dhaka</h4>
                         <div class="all-city">
-                            <a class="btn btn-default" href="#" target="_blank">Adabor</a>
-                            <a class="btn btn-default" href="#" target="_blank">Badda</a>
-                            <a class="btn btn-default" href="#" target="_blank">Bangsal</a>
-                            <a class="btn btn-default" href="#" target="_blank">Bimanbandar</a>
-                            <a class="btn btn-default" href="#" target="_blank">Cantonment</a>
-                            <a class="btn btn-default" href="#" target="_blank">Chak Bazar</a>
-                            <a class="btn btn-default" href="#" target="_blank">Dakshinkhan</a>
-                            <a class="btn btn-default" href="#" target="_blank">Darus Salam</a>
-                            <a class="btn btn-default" href="#" target="_blank">Demra</a>
-                            <a class="btn btn-default" href="#" target="_blank">Dhamrai</a>
-                            <a class="btn btn-default" href="#" target="_blank">Dhanmondi</a>
-                            <a class="btn btn-default" href="#" target="_blank">Dohar</a>
-                            <a class="btn btn-default" href="#" target="_blank">Gendaria</a>
-                            <a class="btn btn-default" href="#" target="_blank">Gulshan</a>
-                            <a class="btn btn-default" href="#" target="_blank">Hazaribagh</a>
-                            <a class="btn btn-default" href="#" target="_blank">Jatrabari</a>
-                            <a class="btn btn-default" href="#" target="_blank">Kadamtali</a>
-                            <a class="btn btn-default" href="#" target="_blank">Kafrul</a>
-                            <a class="btn btn-default" href="#" target="_blank">Kalabagan</a>
-                            <a class="btn btn-default" href="#" target="_blank">Kamrangirchar</a>
-                            <a class="btn btn-default" href="#" target="_blank">Keraniganj</a>
-                            <a class="btn btn-default" href="#" target="_blank">Khilgaon</a>
-                            <a class="btn btn-default" href="#" target="_blank">khilkhet</a>
-                            <a class="btn btn-default" href="#" target="_blank">Kotwali</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Adabor'); ?>" target="_blank">Adabor</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Badda'); ?>" target="_blank">Badda</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Bangsal'); ?>" target="_blank">Bangsal</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Bimanbandar'); ?>" target="_blank">Bimanbandar</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Cantonment'); ?>" target="_blank">Cantonment</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/ChakBazar'); ?>" target="_blank">Chak Bazar</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Dakshinkhan'); ?>" target="_blank">Dakshinkhan</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/DarusSalam'); ?>" target="_blank">Darus Salam</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Demra'); ?>" target="_blank">Demra</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Dhamrai'); ?>" target="_blank">Dhamrai</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Dhanmondi'); ?>" target="_blank">Dhanmondi</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Dohar'); ?>" target="_blank">Dohar</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Gendaria'); ?>" target="_blank">Gendaria</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Gulshan'); ?>" target="_blank">Gulshan</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Hazaribagh'); ?>" target="_blank">Hazaribagh</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Jatrabari'); ?>" target="_blank">Jatrabari</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Kadamtali'); ?>" target="_blank">Kadamtali</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Kafrul'); ?>" target="_blank">Kafrul</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Kalabagan'); ?>" target="_blank">Kalabagan</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Kamrangirchar'); ?>" target="_blank">Kamrangirchar</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Keraniganj'); ?>" target="_blank">Keraniganj</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Khilgaon'); ?>" target="_blank">Khilgaon</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/khilkhet'); ?>" target="_blank">khilkhet</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Kotwali'); ?>" target="_blank">Kotwali</a>
                             <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/mirpur'); ?>" target="_blank">Mirpur</a>
-                            <a class="btn btn-default" href="#" target="_blank">Mohammadpur</a>
-                            <a class="btn btn-default" href="#" target="_blank">Motijheel</a>
-                            <a class="btn btn-default" href="#" target="_blank">Nawabganj</a>
-                            <a class="btn btn-default" href="#" target="_blank">Newmarket</a>
-                            <a class="btn btn-default" href="#" target="_blank">Pallabi</a>
-                            <a class="btn btn-default" href="#" target="_blank">Paltan</a>
-                            <a class="btn btn-default" href="#" target="_blank">Ramna</a>
-                            <a class="btn btn-default" href="#" target="_blank">Rampura</a>
-                            <a class="btn btn-default" href="#" target="_blank">Sabujbagh</a>
-                            <a class="btn btn-default" href="#" target="_blank">Savar</a>
-                            <a class="btn btn-default" href="#" target="_blank">Shah Ali</a>
-                            <a class="btn btn-default" href="#" target="_blank">Shahbag</a>
-                            <a class="btn btn-default" href="#" target="_blank">Sher-e-Bangla Nagar</a>
-                            <a class="btn btn-default" href="#" target="_blank">Shyampur</a>
-                            <a class="btn btn-default" href="#" target="_blank">Sutrapur</a>
-                            <a class="btn btn-default" href="#" target="_blank">Tejgaon</a>
-                            <a class="btn btn-default" href="#" target="_blank">Mohakhali</a>
-                            <a class="btn btn-default" href="#" target="_blank">Tejgaon Industrial Area</a>
-                            <a class="btn btn-default" href="#" target="_blank">Turag</a>
-                            <a class="btn btn-default" href="#" target="_blank">Uttara</a>
-                            <a class="btn btn-default" href="#" target="_blank">Uttar Khan</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Mohammadpur'); ?>" target="_blank">Mohammadpur</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Motijheel'); ?>" target="_blank">Motijheel</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Nawabganj'); ?>" target="_blank">Nawabganj</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Newmarket'); ?>" target="_blank">Newmarket</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Pallabi'); ?>" target="_blank">Pallabi</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Paltan'); ?>" target="_blank">Paltan</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Ramna'); ?>" target="_blank">Ramna</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Rampura'); ?>" target="_blank">Rampura</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Sabujbagh'); ?>" target="_blank">Sabujbagh</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Savar'); ?>" target="_blank">Savar</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/ShahAli'); ?>" target="_blank">Shah Ali</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Shahbag'); ?>" target="_blank">Shahbag</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Sher-e-BanglaNagar'); ?>" target="_blank">Sher-e-Bangla Nagar</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Shyampur'); ?>" target="_blank">Shyampur</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Sutrapur'); ?>" target="_blank">Sutrapur</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Tejgaon'); ?>" target="_blank">Tejgaon</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Mohakhali'); ?>" target="_blank">Mohakhali</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/TejgaonIndustrialArea'); ?>" target="_blank">Tejgaon Industrial Area</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Turag'); ?>" target="_blank">Turag</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/Uttara'); ?>" target="_blank">Uttara</a>
+                            <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/UttarKhan'); ?>" target="_blank">Uttar Khan</a>
                         </div>
                     </div>
 

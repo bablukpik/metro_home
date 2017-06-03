@@ -82,7 +82,11 @@ class Publicity extends CI_Controller{
     public function search_publicity($find='')
     {
         $search_publicity = $this->input->post('search_publicity');
-        if (!empty($search_publicity) || !empty($find)) {
+        //Homepage search data
+        $home_search_publicity_loca = $this->input->post('home_search_publicity_loca');
+        $home_search_publicity_city = $this->input->post('home_search_publicity_city');
+        //End Homepage search data
+        if (!empty($search_publicity) || !empty($find) || ($home_search_publicity_loca and $home_search_publicity_city)) {
 
             $data['result']     = '';
             $data['total']     = '';
@@ -95,9 +99,16 @@ class Publicity extends CI_Controller{
                 $search = $search_publicity;
             }
 
-            $data['publicity_search_msg'] = 'Click the search button again to refresh the page';
-            $data['result'] = $this->MyModel->search_publicityM($search);
+            if (!empty($home_search_publicity_city) and !empty($home_search_publicity_loca)) {
+                $search = $home_search_publicity_city;
+                $home_search = $home_search_publicity_loca;
+                $data['result'] = $this->MyModel->search_publicityM($search, $home_search);
+            }else{
+                $data['result'] = $this->MyModel->search_publicityM($search, $home_search='');
+            }
 
+            $data['publicity_search_msg'] = 'Click the search button again to refresh the page';
+            
             if ($data['result']) {
                 $sdata['result_found'] = count($data['result']);
                 $this->session->set_userdata($sdata);
