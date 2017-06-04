@@ -356,7 +356,7 @@ class Super_admin extends CI_Controller {
             }
             
             $result  = $this->MyModel->findRenterLocationFromDBM($search_renter);
-            
+
             //$count = $result->num_rows;
             if($result){
                 $results = json_encode($result);

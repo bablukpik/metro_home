@@ -2,21 +2,35 @@
    table {border-collapse:collapse; table-layout:fixed; width:310px;}
    table td {border:solid 1px #000; width:100px; word-wrap:break-word;}
    table thead tr th {vertical-align: top !important; border:solid 1px #000;}
+   h2,h3,h4{margin-bottom: 20px;}
+   span{
+        font-weight: bold;
+   }
 </style>
 
 	<!-- Result Table -->
     <div class="container well" style="max-width: 1060px; ">
         
         <div style="font-size: 12px;">
-            <h3 style="text-decoration: underline; text-align:center;">Renter Location with Details</h3>
+            <h3 style="text-decoration: underline; text-align:center;">Renter Information</h3>
+            <div class="renter_info_area clearfix" style="margin-bottom: 40px;">
+                <div class="renter_info pull-left" style="font-size: 16px; line-height: 18px;">
+                    <?php 
+                        echo "<p><span>Renter Name : </span>".$results[0]['renter_fullname']."</p>";
+                        echo "<p><span>Mobile      : </span>".$results[0]['renter_phone']."</p>";
+                        echo "<p><span>National ID : </span>".$results[0]['renter_nid']."</p>";
+                        echo "<address><span>Permanent Address : </span>".$results[0]['renter_permanent_add']."</address>"; 
+                    ?>
+                </div>
+                <div class="renter_pic" style="float: right;"><img width="130" src="<?php echo base_url('uploads/'); echo isset($results[0]['renter_photo'])?($results[0]['renter_photo']):''; ?>" alt=""></div>
+            </div>
+
+            <h4>Renter Tracking Info:</h4>
             <table class="table table-responsive table-striped table-bordered text-center">
                 <thead>
 	                <tr>
-	                    <th>Renter Name</th>
-	                    <th>Renter Cell No.</th>
-	                    <th>Renter NID</th>
-	                    <th>Renter Permanent Addr.</th>
-	                    <th>Renter Start Date</th>
+	                    
+                        <th>Renter Start Date</th>
 	                    <th>Renter End Date</th>
 
 	                    <th>Landlord Name</th>
@@ -37,10 +51,6 @@
                         foreach ($results as $key => $obj) {
                             echo "<tr>";
 
-                            echo "<td>".$obj['renter_fullname']."</td>";
-                            echo "<td>".$obj['renter_phone']."</td>";
-                            echo "<td>".$obj['renter_nid']."</td>";
-                            echo "<td>".$obj['renter_permanent_add']."</td>";
                             echo "<td>".date('d/m/y',strtotime($obj['renter_started_date']))."</td>";
 
                             if (date('d/m/y',strtotime($obj['renter_started_date'])) == date('d/m/y',strtotime($obj['renter_ending_date'])) ) {

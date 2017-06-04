@@ -201,4 +201,9 @@ class Publicity extends CI_Controller{
     } 
     //End Thumbnail image creation for landloard
 
+    public function update_publicity($value='')
+    {
+        echo "It works!!";
+    }
+
 }

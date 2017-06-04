@@ -201,6 +201,9 @@
                             <li>
                                 <i class="fa fa-arrow-right" aria-hidden="true"></i><a href="<?php echo base_url('publicity/create_publicity'); ?>">Publish an Ad for Rent</a>
                             </li>
+                            <li>
+                                <i class="fa fa-arrow-right" aria-hidden="true"></i><a href="<?php echo base_url('publicity/update_publicity'); ?>">Update your Ads</a>
+                            </li>
                             <?php endif; ?>
 
                         </ul>
