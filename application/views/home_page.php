@@ -143,87 +143,82 @@
         <div class="row">
 
             <div class="col-md-9 col-sm-12">
-                <div class="search-panel">
-                    <h2 style="font-weight: bold;">Find Homes For Rent</h2>
-                    <div class="search-form">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="search-panel clearfix">
+                            <h2 style="font-weight: bold;">Find Homes For Rent</h2>
+                            <div class="search-form">
+                                <form action="<?php echo base_url('publicity/search_publicity'); ?>" class="form-inline" method="post" target="_blank">
+                                    <div class="form-group clearfix">
+                                        <input type="text" name="home_search_publicity_loca" id="txtKeyword" class="form-control" required="required" placeholder="Enter your locality" style="width: 470px;">
+                                    </div>
+                                    <div class="form-group categoryCombo clearfix">
+                                        <select name="home_search_publicity_city" required="required" class="form-control selectpicker" data-live-search="true">
 
-                        <form action="<?php echo base_url('publicity/search_publicity'); ?>" method="post" target="_blank">
-
-                            <div class="inner-addon keyword-search">
-                                <i class="icon-tag"></i>
-                                <input type="text" name="home_search_publicity_loca" id="txtKeyword" class="form-control" required="required" placeholder="Enter your locality">
-                                
+                                                <option disabled selected value="">Please select your area </option>
+                                                <option data-tokens="Adabor">Adabor</option>
+                                                <option data-tokens="Badda">Badda</option>
+                                                <option data-tokens="Bangsal">Bangsal</option>
+                                                <option data-tokens="Bimanbandar">Bimanbandar</option>
+                                                <option data-tokens="Cantonment">Cantonment</option>
+                                                <option data-tokens="Chak Bazar">Chak Bazar</option>
+                                                <option data-tokens="Dakshinkhan">Dakshinkhan</option>
+                                                <option data-tokens="Darus Salam">Darus Salam</option>
+                                                <option data-tokens="Demra">Demra</option>
+                                                <option data-tokens="Dhamrai">Dhamrai</option>
+                                                <option data-tokens="Dhanmondi">Dhanmondi</option>
+                                                <option data-tokens="Dohar">Dohar</option>
+                                                <option data-tokens="Gendaria">Gendaria</option>
+                                                <option data-tokens="Gulshan">Gulshan</option>
+                                                <option data-tokens="Hazaribagh">Hazaribagh</option>
+                                                <option data-tokens="Jatrabari">Jatrabari</option>
+                                                <option data-tokens="Kadamtali">Kadamtali</option>
+                                                <option data-tokens="Kafrul">Kafrul</option>
+                                                <option data-tokens="Kalabagan">Kalabagan</option>
+                                                <option data-tokens="Kamrangirchar">Kamrangirchar</option>
+                                                <option data-tokens="Keraniganj">Keraniganj</option>
+                                                <option data-tokens="Khilgaon">Khilgaon</option>
+                                                <option data-tokens="khilkhet">khilkhet</option>
+                                                <option data-tokens="Kotwali">Kotwali</option>
+                                                <option data-tokens="Lalbagh">Lalbagh</option>
+                                                <option data-tokens="Mirpur">Mirpur</option>
+                                                <option data-tokens="Mohammadpur">Mohammadpur</option>
+                                                <option data-tokens="Motijheel">Motijheel</option>
+                                                <option data-tokens="Nawabganj">Nawabganj</option>
+                                                <option data-tokens="Newmarket">Newmarket</option>
+                                                <option data-tokens="Pallabi">Pallabi</option>
+                                                <option data-tokens="Paltan">Paltan</option>
+                                                <option data-tokens="Ramna">Ramna</option>
+                                                <option data-tokens="Rampura">Rampura</option>
+                                                <option data-tokens="Sabujbagh">Sabujbagh</option>
+                                                <option data-tokens="Savar">Savar</option>
+                                                <option data-tokens="Shah Ali">Shah Ali</option>
+                                                <option data-tokens="Shahbag">Shahbag</option>
+                                                <option data-tokens="Sher-e-Bangla Nagar">Sher-e-Bangla Nagar</option>
+                                                <option data-tokens="Shyampur">Shyampur</option>
+                                                <option data-tokens="Sutrapur">Sutrapur</option>
+                                                <option data-tokens="Tejgaon">Tejgaon</option>
+                                                <option data-tokens="Mohakhali">Mohakhali</option>
+                                                <option data-tokens="Tejgaon Industrial Area">Tejgaon Industrial Area</option>
+                                                <option data-tokens="Turag">Turag</option>
+                                                <option data-tokens="Uttara">Uttara</option>
+                                                <option data-tokens="Uttar Khan">Uttar Khan</option>
+                                         
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                         <button type="submit" class="btn btn-default" style="">Search</button>
+                                    </div>
+                                </form>
                             </div>
-
-                            <div class="inner-addon categoryCombo hidden-sm hidden-xs">
-                                <i class="icon-briefcase"></i>
-                                <select name="home_search_publicity_city" required="required" class="form-control selectpicker" data-live-search="true">
-
-                                    <option disabled selected value="">Please select your area </option>
-                                    <option data-tokens="Adabor">Adabor</option>
-                                    <option data-tokens="Badda">Badda</option>
-                                    <option data-tokens="Bangsal">Bangsal</option>
-                                    <option data-tokens="Bimanbandar">Bimanbandar</option>
-                                    <option data-tokens="Cantonment">Cantonment</option>
-                                    <option data-tokens="Chak Bazar">Chak Bazar</option>
-                                    <option data-tokens="Dakshinkhan">Dakshinkhan</option>
-                                    <option data-tokens="Darus Salam">Darus Salam</option>
-                                    <option data-tokens="Demra">Demra</option>
-                                    <option data-tokens="Dhamrai">Dhamrai</option>
-                                    <option data-tokens="Dhanmondi">Dhanmondi</option>
-                                    <option data-tokens="Dohar">Dohar</option>
-                                    <option data-tokens="Gendaria">Gendaria</option>
-                                    <option data-tokens="Gulshan">Gulshan</option>
-                                    <option data-tokens="Hazaribagh">Hazaribagh</option>
-                                    <option data-tokens="Jatrabari">Jatrabari</option>
-                                    <option data-tokens="Kadamtali">Kadamtali</option>
-                                    <option data-tokens="Kafrul">Kafrul</option>
-                                    <option data-tokens="Kalabagan">Kalabagan</option>
-                                    <option data-tokens="Kamrangirchar">Kamrangirchar</option>
-                                    <option data-tokens="Keraniganj">Keraniganj</option>
-                                    <option data-tokens="Khilgaon">Khilgaon</option>
-                                    <option data-tokens="khilkhet">khilkhet</option>
-                                    <option data-tokens="Kotwali">Kotwali</option>
-                                    <option data-tokens="Lalbagh">Lalbagh</option>
-                                    <option data-tokens="Mirpur">Mirpur</option>
-                                    <option data-tokens="Mohammadpur">Mohammadpur</option>
-                                    <option data-tokens="Motijheel">Motijheel</option>
-                                    <option data-tokens="Nawabganj">Nawabganj</option>
-                                    <option data-tokens="Newmarket">Newmarket</option>
-                                    <option data-tokens="Pallabi">Pallabi</option>
-                                    <option data-tokens="Paltan">Paltan</option>
-                                    <option data-tokens="Ramna">Ramna</option>
-                                    <option data-tokens="Rampura">Rampura</option>
-                                    <option data-tokens="Sabujbagh">Sabujbagh</option>
-                                    <option data-tokens="Savar">Savar</option>
-                                    <option data-tokens="Shah Ali">Shah Ali</option>
-                                    <option data-tokens="Shahbag">Shahbag</option>
-                                    <option data-tokens="Sher-e-Bangla Nagar">Sher-e-Bangla Nagar</option>
-                                    <option data-tokens="Shyampur">Shyampur</option>
-                                    <option data-tokens="Sutrapur">Sutrapur</option>
-                                    <option data-tokens="Tejgaon">Tejgaon</option>
-                                    <option data-tokens="Mohakhali">Mohakhali</option>
-                                    <option data-tokens="Tejgaon Industrial Area">Tejgaon Industrial Area</option>
-                                    <option data-tokens="Turag">Turag</option>
-                                    <option data-tokens="Uttara">Uttara</option>
-                                    <option data-tokens="Uttar Khan">Uttar Khan</option>
-                             
-                                </select>
-                            </div>
-
-                            <button type="submit" class="btn btn-default" style="width: 99px;">
-                              <i class="icon-search"></i>Search
-                            </button>
-
-                        </form>
+                        </div>
                     </div>
-
+                    <div class="col-md-12 col-sm-12">
+                        <div class="home_guide">
+                            <p>Metrohomebd.com-এ স্বাগতম - ঢাকা-এর সবচেয়ে বড় হোম রেন্ট প্লাটফর্ম ! আপনার পছন্দের বাসাটা খুঁজে নিন আর বাসা ভাড়া খোঁজার ঝামেলা থেকে বেঁচে যান!! এবং Metrohomebd.com আপনার সমস্ত তথ্য সংরক্ষণ করে এবং এটি সরাসরি Metro Police কর্তৃক নিয়ন্ত্রিত। প্রত্যেকেই নিরাপদ থাকুন এবং সন্ত্রাসবাদ-জঙ্গিবাদ মোকাবেলায় Police -কে সহযোগীতা করুন।</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="home_guide">
-                    <p>Metrohomebd.com-এ স্বাগতম - ঢাকা-এর সবচেয়ে বড় হোম রেন্ট প্লাটফর্ম ! আপনার পছন্দের বাসাটা খুঁজে নিন আর বাসা ভাড়া খোঁজার ঝামেলা থেকে বেঁচে যান!! এবং Metrohomebd.com আপনার সমস্ত তথ্য সংরক্ষণ করে এবং এটি সরাসরি Metro Police কর্তৃক নিয়ন্ত্রিত। প্রত্যেকেই নিরাপদ থাকুন এবং সন্ত্রাসবাদ-জঙ্গিবাদ মোকাবেলায় Police -কে সহযোগীতা করুন।</p>
-
-                </div>
-
             </div>
 
             <div class="col-md-3 col-sm-12">
