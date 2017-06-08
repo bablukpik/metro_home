@@ -303,7 +303,9 @@
     z-index: 99999;
     position: absolute;
     padding: 20px;
+    margin-right: 105px;
 }
+
 .login-form .tab .btn-group {
     width: 100%;
     margin: 0 0 10px;

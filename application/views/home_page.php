@@ -19,7 +19,11 @@
 </head>
 <body style="font-family: solaimanlipi">
 <!--Dialog for Landlord already registered-->
-<?php $this->load->view('dialogs/landLoardAlreadyRegistered_dialog'); ?>
+<section class="landlordExistDialog">
+    <div class="container">
+        <?php $this->load->view('dialogs/landLoardAlreadyRegistered_dialog'); ?>
+    </div>
+</section>
 <!--End Dialog for Landlord already registered-->
 
 <section class="top_head_sec">
@@ -141,10 +145,9 @@
     <div class="container">
         <!--start row-->
         <div class="row">
-
-            <div class="col-md-9 col-sm-12">
+            <div class="col-md-9">
                 <div class="row">
-                    <div class="col-md-12 col-sm-12">
+                    <div class="col-md-12">
                         <div class="search-panel clearfix">
                             <h2 style="font-weight: bold;">Find Homes For Rent</h2>
                             <div class="search-form">
@@ -212,17 +215,16 @@
                                 </form>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-12 col-sm-12">
+                        
                         <div class="home_guide">
                             <p>Metrohomebd.com-এ স্বাগতম - ঢাকা-এর সবচেয়ে বড় হোম রেন্ট প্লাটফর্ম ! আপনার পছন্দের বাসাটা খুঁজে নিন আর বাসা ভাড়া খোঁজার ঝামেলা থেকে বেঁচে যান!! এবং Metrohomebd.com আপনার সমস্ত তথ্য সংরক্ষণ করে এবং এটি সরাসরি Metro Police কর্তৃক নিয়ন্ত্রিত। প্রত্যেকেই নিরাপদ থাকুন এবং সন্ত্রাসবাদ-জঙ্গিবাদ মোকাবেলায় Police -কে সহযোগীতা করুন।</p>
                         </div>
-                    </div>
+
+                    </div> <!--End Full col-->
                 </div>
             </div>
 
-            <div class="col-md-3 col-sm-12">
-
+            <div class="col-md-3">
                 <div class="homeRightSidebar">
                     <div class="city">
                         <h4>All City of Dhaka</h4>
@@ -275,11 +277,8 @@
                             <a class="btn btn-default" href="<?php echo base_url('publicity/search_publicity/UttarKhan'); ?>" target="_blank">Uttar Khan</a>
                         </div>
                     </div>
-
                 </div>
-
             </div>
-
         </div>
         <!--End row-->
     </div>
