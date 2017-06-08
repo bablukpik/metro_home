@@ -34,6 +34,20 @@ class Login extends CI_Controller
 
     public function check_login()
     {
+        if ($this->session->userdata('user_name') and $this->session->userdata('user_type')) {
+            //$this->session->sess_destroy();
+            if(session_destroy()){
+                $this->login();
+            }
+        }else{
+            $this->login();
+        }
+       
+    } //End check login
+
+    //Login after calling Login()
+    public function login()
+    {
         if (!empty($_POST['user_name']) && !empty($_POST['user_pass']) && !empty($_POST['user_type'])) {
             $user_type = $this->input->post('user_type');
             $user_name = $this->input->post('user_name');
@@ -128,7 +142,7 @@ class Login extends CI_Controller
             redirect('login');
         }
 
-    } //End check login
+    }
 
     
 } //End class
