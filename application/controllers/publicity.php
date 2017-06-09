@@ -75,7 +75,7 @@ class Publicity extends CI_Controller{
             $data['result_end'] = $config['total_rows'];
 
         //load view
-        $this->load->view('publicity_page', $data);
+        $this->load->view('publicity/publicity_page', $data);
         
     }
 
@@ -113,7 +113,7 @@ class Publicity extends CI_Controller{
                 $sdata['result_found'] = count($data['result']);
                 $this->session->set_userdata($sdata);
 
-                $this->load->view('publicity_page', $data);
+                $this->load->view('publicity/publicity_page', $data);
             }else{
                 $sdata['result_not_found'] = "No Result Found";
                 $this->session->set_userdata($sdata);
@@ -203,7 +203,7 @@ class Publicity extends CI_Controller{
 
     public function update_publicity($value='')
     {
-        echo "It works!!";
+        $data['publicity_actions_page'] = $this->load->view('publicity/publicity_actions_page', '', TRUE);
     }
 
 }

@@ -116,12 +116,9 @@
 
                 <!--For Data-->
             <?php if($successMsg =  $this->session->userdata('successMsg')):?>
-            <div class="welcome_msg alert alert-success alert-dismissable" style="">
+            <div class="welcome_msg alert alert-success alert-dismissable">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                <?php
-                    echo "<h4>".(isset($successMsg)?$successMsg:'')."</h4>";
-                    $this->session->unset_userdata('successMsg');
-                ?>
+                <strong>Success!</strong> <?php echo isset($successMsg)?$successMsg:''; $this->session->unset_userdata('successMsg'); ?>
             </div>
             <?php endif;?>
 

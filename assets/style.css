@@ -26,30 +26,6 @@
     padding: 6px 30px;
 }
 
-
-.close{
-    opacity: 1 !important;
-    float: right !important;
-    margin-top: -30px !important;
-    margin-right: -30px !important;
-    cursor: pointer !important;
-    color: #fff !important;
-    background: #605F61 !important;
-    font-size: 31px !important;
-    font-weight: bold !important;
-    display: inline-block !important;
-    line-height: 0px !important;
-    padding: 11px 3px !important;
-    
-    border: 2px solid #ccc !important;
-    -moz-border-radius: 20px !important;
-    -webkit-border-radius: 20px !important;
-    -khtml-border-radius: 20px !important;
-    -moz-box-shadow: 0 1px 5px #333 !important;
-    -webkit-box-shadow: 0 1px 5px #333 !important;
-    z-index: 101 !important;
-}
-
 .navbar-nav>li>.dropdown-menu {
     margin-top: 0;
     border-top-left-radius: 0;

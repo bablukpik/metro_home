@@ -174,7 +174,6 @@
   text-align: right;
 }
 
-
 </style>
 
 <!-- Modal -->
@@ -187,7 +186,7 @@
 
         <div class="adsLoginRegForm">
           <div class="form" id="ads_signupORlogin_form">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <button type="button" class="close" data-dismiss="modal" style="margin-top: -30px; margin-right: -30px; color: #fff;">&times;</button>
             <ul class="tab-group">
               <li class="tab active"><a href="#signup">Sign Up</a></li>
               <li class="tab"><a href="#login">Log In</a></li>
