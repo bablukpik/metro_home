@@ -12,13 +12,15 @@
     .login-form {
         left: 0px;
     }
+
+    .col-xs-12 {
+        margin-bottom: 5px !important;
+    }
     
 }
 
 /* End Responsive style for mobile */
-.col-xs-12 {
-    margin-bottom: 5px !important;
-}
+
 
 .homepage_search_btn{
     padding: 6px 30px;

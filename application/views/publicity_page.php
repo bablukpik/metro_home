@@ -152,7 +152,7 @@
                         <!--Search and Nubmer of records-->
                         <div class="row">
                             <div class="col-md-6">
-                                <div id="example_length" class="dataTables_length">
+                                <div id="example_length" class="dataTables_length hidden-xs">
                                     <?php 
                                         echo form_open('publicity/index');
                                         $options = array(
