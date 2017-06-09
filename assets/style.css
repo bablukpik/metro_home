@@ -10,18 +10,20 @@
 /* Responsive style for mobile */
 @media (max-width: 767px) {
     .login-form {
-        width: 360px;
         left: 0px;
-        background-color: #fff;
-        border-top: 2px solid #2f64a3;
-        box-shadow: 0 1px 6px rgba(0,0,0,.35);
-        border-radius: 0 0 4px 4px;
-        z-index: 99999;
-        position: absolute;
-        padding: 20px;
-        margin-right: 105px;
     }
+    
 }
+
+/* End Responsive style for mobile */
+.col-xs-12 {
+    margin-bottom: 5px !important;
+}
+
+.homepage_search_btn{
+    padding: 6px 30px;
+}
+
 
 .close{
     opacity: 1 !important;
@@ -87,7 +89,6 @@
     border-radius: 4px;
 }
 .search-panel {
-    padding:10px;
     margin-top:20px;
 }
 .search-form{
