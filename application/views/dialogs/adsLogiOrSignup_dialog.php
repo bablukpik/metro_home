@@ -201,14 +201,14 @@
                   <div class="top-row">
                     <div class="field-wrap">
                       <label>
-                        First Name<span class="req">*</span>
+                        First Name<span class="req">*</span> <?php echo form_error('ad_lnd_first_name'); ?>
                       </label>
                       <input type="text" name="ad_lnd_first_name" required autocomplete="off" />
                     </div>
                 
                     <div class="field-wrap">
                       <label>
-                        Last Name<span class="req">*</span>
+                        Last Name<span class="req">*</span> <?php echo form_error('ad_lnd_last_name'); ?>
                       </label>
                       <input type="text" name="ad_lnd_last_name" required autocomplete="off"/>
                     </div>
@@ -216,14 +216,14 @@
                 
                   <div class="field-wrap">
                     <label>
-                      Username<span class="req">*</span>
+                      Username<span class="req">*</span> <?php echo form_error('ad_lnd_username'); ?>
                     </label>
                     <input type="text" name="ad_lnd_username" required autocomplete="off"/>
                   </div>
 
                   <div class="field-wrap">
                     <label>
-                      Password<span class="req">*</span>
+                      Password<span class="req">*</span><?php echo form_error('ad_lnd_password'); ?>
                     </label>
                     <input type="password" name="ad_lnd_password" required autocomplete="off"/>
                   </div>
@@ -265,7 +265,7 @@
 
                   <div class="field-wrap">
                     <label>
-                      Cell No.<span class="req">*</span>
+                      Cell No.<span class="req">*</span> <?php echo form_error('ad_lnd_mobile'); ?>
                     </label>
                     <input type="text" name="ad_lnd_mobile" required autocomplete="off"/>
                   </div>

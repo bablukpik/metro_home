@@ -19,38 +19,58 @@ class AdsManager extends CI_Controller {
 
         $reterData = array();
 
-        //Start upload picture
-        if(!empty($_FILES['ad_user_photo']['name'])){ //if($_FILES['image']['error'] == 0){
-            $config['upload_path'] = 'uploads/ads/';
-            $config['allowed_types'] = 'jpg|jpeg|png|gif';
-            $config['file_name'] = date("Y-m-d-H-i-s")."_".str_replace(' ', '-', $_FILES['ad_user_photo']['name']);
+        //form validation
+        $this->load->helper(array('form', 'url'));
+        $this->load->library('form_validation');
+             
+        $this->form_validation->set_error_delimiters('<span class="error">', '</span>'); /*<?php echo form_error('lnd_police_station'); ?>*/
 
-            //Load upload library and initialize configuration
-            $this->load->library('upload',$config);
-            $this->upload->initialize($config);
+        $this->form_validation->set_rules('ad_lnd_first_name', 'First Name', 'trim|required', array('required' => 'You must provide a %s.')); 
 
-            if($this->upload->do_upload('ad_user_photo')){
-                $finfo=$this->upload->data();
-                $check = $this->_createThumbnaill($finfo['file_name']);
-                //$renter_photo = $finfo['file_name'];
+        $this->form_validation->set_rules('ad_lnd_last_name', 'Last Name', 'trim|required', array('required' => 'You must provide a %s.')); 
 
-                //check thumb is uploaded to the directory
-                if ($check) {
-                   $ad_user_photo = $finfo['raw_name'].'_thumb'.$finfo['file_ext'];
+        $this->form_validation->set_rules('ad_lnd_username', 'Username', 'trim|required|is_unique[ads_account_general.ad_lnd_username]', array('required' => 'You must provide a %s.')); 
+
+        $this->form_validation->set_rules('ad_lnd_password', 'Password', 'trim|required', array('required' => 'You must provide a %s.')); 
+
+        $this->form_validation->set_rules('ad_lnd_mobile', 'Mobile No.', 'trim|required', array('required' => 'You must provide a %s.')); 
+
+        if ($this->form_validation->run() == FALSE)
+        {
+            $sdata["failureMsg"] = "Try again";
+            $this->session->set_userdata($sdata);
+            redirect("adsManager/");            
+        }else{
+            //Start upload picture
+            if(!empty($_FILES['ad_user_photo']['name'])){ //if($_FILES['image']['error'] == 0){
+                $config['upload_path'] = 'uploads/general_user/';
+                $config['allowed_types'] = 'jpg|jpeg|png|gif';
+                $config['file_name'] = date("Y-m-d-H-i-s")."_".str_replace(' ', '-', $_FILES['ad_user_photo']['name']);
+
+                //Load upload library and initialize configuration
+                $this->load->library('upload',$config);
+                $this->upload->initialize($config);
+
+                if($this->upload->do_upload('ad_user_photo')){
+                    $finfo=$this->upload->data();
+                    $check = $this->_createThumbnaill($finfo['file_name']);
+                    //$renter_photo = $finfo['file_name'];
+
+                    //check thumb is uploaded to the directory
+                    if ($check) {
+                       $ad_user_photo = $finfo['raw_name'].'_thumb'.$finfo['file_ext'];
+                    }else{
+                        $ad_user_photo = '';
+                    }
+                    
                 }else{
                     $ad_user_photo = '';
                 }
-                
             }else{
                 $ad_user_photo = '';
             }
-        }else{
-            $ad_user_photo = '';
-        }
-        //End upload picture
+            //End upload picture
 
-        //Data upload
-        if (!empty($_POST['ad_lnd_username']) and !empty($_POST['ad_lnd_password'])) {
             $data['ad_lnd_first_name'] = $this->input->post('ad_lnd_first_name');
             $data['ad_lnd_last_name'] = $this->input->post('ad_lnd_last_name');
             $data['ad_lnd_username'] = $this->input->post('ad_lnd_username');
@@ -72,29 +92,15 @@ class AdsManager extends CI_Controller {
             $result = $this->MyModel->adsRegistration('ads_account_general',$data);
 
             if ($result) {
-
-                echo "User created successfully";
                 $sdata["successMsg"] = "User created successfully";
-
                 $this->session->set_userdata($sdata);
-                redirect("adsManager");
-
+                redirect("adsManager/");
             }else{
-
                 echo "Try again";
                 $sdata["failureMsg"] = "Try again";
-
                 $this->session->set_userdata($sdata);
-                redirect("adsManager");
+                redirect("adsManager/");
             }
-
-        }else{
-
-            echo "Try again";
-            $sdata["failureMsg"] = "Try again";
-
-            $this->session->set_userdata($sdata);
-            redirect("adsManager");
         }
         //End Data upload
 
@@ -104,7 +110,7 @@ class AdsManager extends CI_Controller {
     public function _createThumbnaill($filename)
     {
         $config['image_library']    = "gd2";
-        $config['source_image']     = "uploads/ads/" .$filename;
+        $config['source_image']     = "uploads/general_user/" .$filename;
         $config['create_thumb']     = TRUE;
         $config['maintain_ratio']   = TRUE;
         $config['width']            = "160";

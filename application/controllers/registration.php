@@ -56,7 +56,7 @@ class Registration extends CI_Controller
             $this->load->helper(array('form', 'url'));
             $this->load->library('form_validation');
                  
-            $this->form_validation->set_error_delimiters('<label class="error">', '</label>');
+            $this->form_validation->set_error_delimiters('<label class="error">', '</label>'); /*<?php echo form_error('lnd_police_station'); ?>*/
 
             $this->form_validation->set_rules('lnd_name', 'Fullname', 'trim|required', array('required' => 'You must provide a %s.')); 
 

@@ -129,7 +129,7 @@
                                     <?php 
                                     $user_type = $this->session->userdata('user_type');
                                     if($user_type=='general'):?>
-                                    <img src="<?php echo base_url('uploads/ads/'.$photo); ?>" alt="General User" />
+                                    <img src="<?php echo base_url('uploads/general_user/'.$photo); ?>" alt="General User" />
                                    <?php else:?>
                                     <img src="<?php echo base_url('uploads/'.$photo); ?>" alt="Admin" />
                                     <?php endif;?>
