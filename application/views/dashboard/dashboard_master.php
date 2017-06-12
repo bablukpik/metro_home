@@ -154,20 +154,8 @@
                     </li>
 
                     <div class="clearfix"></div>
-                    <li class="sidebar-search">
-                        <!-- search section-->
-                        <div class="input-group custom-search-form">
-                            <input type="text" class="form-control" placeholder="Search...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                        </div>
-                        <!--end search section-->
-                    </li>
-                    <li class="selected">
-                        <a href="<?php echo base_url(); ?>super_admin"><i class="fa fa-dashboard fa-fw"></i>Dashboard</a>
+                    <li class="selected" style="margin-top: 20px; padding: 10px 0; color: #EC008B; font-size: 18px; font-weight: bold; box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2); text-shadow: 1px 2px 2px #424242;">
+                        <i class="fa fa-dashboard fa-fw"></i>Dashboard
                     </li>
                     <li>
                         <ul class="nav nav-second-level">
@@ -175,34 +163,34 @@
                             <?php if($this->session->userdata("user_type") == 'admin') : ?>
   
                             <li>
-                                <i class="fa fa-arrow-right" aria-hidden="true"></i><a href="<?php echo base_url(); ?>super_admin/renterRegisterForm">Register a renter</a>
+                                <a href="<?php echo base_url(); ?>super_admin/renterRegisterForm">Register a renter</a>
                             </li>
                             <?php endif; ?>
 
                             <!-- For Landlord Menu -->   
                             <?php if($this->session->userdata("user_type") == 'landlord') : ?>
                             <li>
-                                <i class="fa fa-arrow-right" aria-hidden="true"></i><a href="<?php echo base_url('super_admin/addNewRenter'); ?>">Add a Renter to Your House </a>
+                                <a href="<?php echo base_url('super_admin/addNewRenter'); ?>">Add a Renter to Your House </a>
                             </li>
                             <li>
-                                <i class="fa fa-arrow-right" aria-hidden="true"></i><a href="<?php echo base_url(); ?>super_admin/renterRegisterForm">Register a renter</a>
+                                <a href="<?php echo base_url(); ?>super_admin/renterRegisterForm">Register a renter</a>
                             </li>
                             <?php endif; ?>
 
                             <!-- For Landlord Menu -->   
                             <?php if($this->session->userdata("user_type") == 'metro_police') : ?>
                             <li>
-                                <i class="fa fa-arrow-right" aria-hidden="true"></i><a href="<?php echo base_url('super_admin/findRenterLocation'); ?>">Find Renter Location</a>
+                                <a href="<?php echo base_url('super_admin/findRenterLocation'); ?>">Find Renter Location</a>
                             </li>
                             <?php endif; ?>
 
                             <!-- For Creating Publicity Menu item -->   
                             <?php if($this->session->userdata("user_type")) : ?>
                             <li>
-                                <i class="fa fa-arrow-right" aria-hidden="true"></i><a href="<?php echo base_url('publicity/create_publicity'); ?>">Publish an Ad for Rent</a>
+                                <a href="<?php echo base_url('publicity/create_publicity'); ?>">Publish an Ad for Rent</a>
                             </li>
                             <li>
-                                <i class="fa fa-arrow-right" aria-hidden="true"></i><a href="<?php echo base_url('publicity/update_publicity'); ?>">Update your Ads</a>
+                                <a href="<?php echo base_url('publicity/publicity_action'); ?>">Manage Ads</a>
                             </li>
                             <?php endif; ?>
 
@@ -318,6 +306,10 @@
                 <?php echo isset($publicity_create_page)?$publicity_create_page:''; ?>
             </div>
            <!-- End Publicity create page -->
+
+            <!-- Publicity Action page -->
+            <?php echo isset($publicity_actions_page)?$publicity_actions_page:''; ?>
+           <!-- End Publicity Action page -->
 
             <!--End Document Body-->
 

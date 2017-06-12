@@ -249,5 +249,5 @@ CREATE TABLE publicity(
 	publicity_photo varchar(255),
 	
 	publicity_created_date datetime,
-	publicity_modified_date datetime
+	publicity_expired_date datetime
 );

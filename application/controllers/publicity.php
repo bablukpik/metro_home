@@ -11,6 +11,14 @@ class Publicity extends CI_Controller{
         parent::__construct();
         $this->load->model(self::$model);
         $this->load->helper('form');
+
+        //Check loged in or not
+        $user_name = $this->session->userdata('user_name');
+        $lnd_nid= $this->session->userdata('lnd_nid');
+        $user_type = $this->session->userdata('user_type');
+        if( ($user_name == NULL or $lnd_nid==NULL) and $user_type==NULL ){
+           redirect('login');
+        }
         
     }
 
@@ -128,7 +136,7 @@ class Publicity extends CI_Controller{
 
     public function create_publicity($value='')
     {
-        $data['publicity_create_page'] = $this->load->view('publicity_create_page', '', TRUE);
+        $data['publicity_create_page'] = $this->load->view('publicity/publicity_create_page', '', TRUE);
         $this->load->view('dashboard/dashboard_master', $data);
     }
 
@@ -164,7 +172,7 @@ class Publicity extends CI_Controller{
         $data['publicity_userid']           = $this->session->userdata('user_name');
         $data['publicity_usertype']         = $this->session->userdata('user_type');
         $data['publicity_created_date']     = $todayDate;
-        $data['publicity_modified_date']    = $todayDate;
+        $data['publicity_expired_date']    = $todayDate;
         $data['publicity_photo']    = $publicity_photo;
 
         $response = $this->MyModel->publish_publicity($data);
@@ -201,9 +209,41 @@ class Publicity extends CI_Controller{
     } 
     //End Thumbnail image creation for landloard
 
-    public function update_publicity($value='')
+    //Publicity Actions
+    public function publicity_action()
+    {   
+        $userId = $this->session->userdata('user_name');
+        $userType = $this->session->userdata('user_type');
+        $all_publicity['all_publicity'] = $this->MyModel->getAllPublicityByID($userId, $userType);
+        
+        $data['publicity_actions_page'] = $this->load->view('publicity/publicity_actions_page', $all_publicity, TRUE);
+        $this->load->view('dashboard/dashboard_master', $data);
+    }
+
+    //delete 
+    public function delete()
     {
-        $data['publicity_actions_page'] = $this->load->view('publicity/publicity_actions_page', '', TRUE);
+        $id = $this->input->post('publicity_id');
+        $response = $this->MyModel->deletePublicity($id);
+        if ($response) {
+            echo "yes";
+        }else{
+            echo "no";
+        }
+    }
+
+    //Update 
+    public function update()
+    {
+        $data=array();
+        $id = $this->input->post('publicity_id');
+
+        $response = $this->MyModel->updatePublicity($id, $data);
+        if ($response) {
+            echo "Updated successfully";
+        }else{
+            echo "Error!! Did not Update";
+        }
     }
 
 }

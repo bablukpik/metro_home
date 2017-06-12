@@ -249,7 +249,26 @@ class MyModel extends CI_Model {
         return $this->db->insert_id();
     }
 
+    public function getAllPublicityByID($userId, $userType)
+    {
+        $this->db->from('publicity');
+        $this->db->where('publicity_userid', $userId);
+        $this->db->where('publicity_usertype', $userType);
+        return $this->db->get()->result();
 
+        //return $this->db->get_compiled_select();
+    }
+
+    public function deletePublicity($id)
+    {
+        return $this->db->delete('publicity', array('publicity_id' => $id));
+    }
+
+    public function updatePublicity($id, $data)
+    {
+        return $this->db->update('publicity', $data, array('id' => $id));
+
+    }
 
 
 

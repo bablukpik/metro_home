@@ -65,10 +65,14 @@ padding: 20px 15px;
 }
 
  #side-menu a {
-    color: #fff;
-    height: 55px;
+    color: #ffffff;
     display: inline-block;
     padding: 15px 5px;
+    font-size: 13px;
+    line-height: 22px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 0px 2px 1px #212121;
 }
 
 #side-menu a:hover {
