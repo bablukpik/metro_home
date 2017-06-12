@@ -255,19 +255,24 @@ class MyModel extends CI_Model {
         $this->db->where('publicity_userid', $userId);
         $this->db->where('publicity_usertype', $userType);
         return $this->db->get()->result();
-
-        //return $this->db->get_compiled_select();
     }
 
+    //publicity delete
     public function deletePublicity($id)
     {
         return $this->db->delete('publicity', array('publicity_id' => $id));
     }
 
+    //publicity update
+    public function updatePublicityForm($id)
+    {
+        return $this->db->get_where('publicity', array('publicity_id' => $id))->row();
+        //echo $this->db->last_query();
+    }
+
     public function updatePublicity($id, $data)
     {
-        return $this->db->update('publicity', $data, array('id' => $id));
-
+        $this->db->update('publicity', $data, array('publicity_id' => $id));
     }
 
 

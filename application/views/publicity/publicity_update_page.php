@@ -1,48 +1,46 @@
 <div class="panel panel-default">
 	<div class="panel-body">
-		<form action="<?php echo base_url('publicity/publish_publicity'); ?>" method="post" enctype="multipart/form-data" class="form-horizontal" style="margin-top:50px;">
-			<fieldset>
-			<legend>Publish an Ad for Rent</legend>
-
+		<form id="publicityUpdateForm" action="<?php echo base_url('publicity/update'); ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
+			<input type="hidden" name="publicity_id" value="<?php echo $updatePublicityFormData->publicity_id; ?>">
 			<div class="form-group">
-			  <label for="publicity_title" class="col-lg-2 control-label">Title</label>
+			  <label for="publicity_title" class="col-lg-2 col-lg-offset-1 control-label">Title</label>
 			  <div class="col-lg-6">
-			    <input type="text" name="publicity_title" required="required" class="form-control" id="publicity_title" placeholder="Title">
+			    <input type="text" name="publicity_title" value="<?php echo $updatePublicityFormData->publicity_title; ?>" required="required" class="form-control" id="publicity_title" placeholder="Title">
 			  </div>
-			  <div class="col-lg-4"></div>
+			  <!-- <div class="col-lg-4"></div> -->
 			</div>
 
 			<div class="form-group">
-			  <label for="publicity_description" class="col-lg-2 control-label">Description</label>
+			  <label for="publicity_description" class="col-lg-2 col-lg-offset-1 control-label">Description</label>
 			  <div class="col-lg-6">
-			    <textarea name="publicity_description" required="required" class="form-control" rows="3" id="publicity_description"></textarea>
+			    <textarea name="publicity_description" required="required" class="form-control" rows="3" id="publicity_description"><?php echo $updatePublicityFormData->publicity_description; ?></textarea>
 			  </div>
-			  <div class="col-lg-4"></div>
+			  <!-- <div class="col-lg-4"></div> -->
 			</div>
 
 			<div class="form-group">
-			  <label for="publicity_address" class="col-lg-2 control-label">Address</label>
+			  <label for="publicity_address" class="col-lg-2 col-lg-offset-1 control-label">Address</label>
 			  <div class="col-lg-6">
-			    <textarea name="publicity_address" required="required" class="form-control" rows="3" id="publicity_address"></textarea>
+			    <textarea name="publicity_address" required="required" class="form-control" rows="3" id="publicity_address"><?php echo $updatePublicityFormData->publicity_address; ?></textarea>
 			  </div>
-			  <div class="col-lg-4"></div>
+			  <!-- <div class="col-lg-4"></div> -->
 			</div>
 
 			<div class="form-group">
-				<label for="publicity_charge_permonth" class="control-label col-lg-2">Per Month Rent</label>
+				<label for="publicity_charge_permonth" class="control-label col-lg-2 col-lg-offset-1">Per Month Rent</label>
 				<div class="col-lg-6">
-					<input type="text" name="publicity_charge_permonth" required="required" id="publicity_charge_permonth" class="form-control" placeholder="Per Month Rent">
+					<input type="text" name="publicity_charge_permonth" value="<?php echo $updatePublicityFormData->publicity_charge_permonth; ?>" required="required" id="publicity_charge_permonth" class="form-control" placeholder="Per Month Rent">
 				</div>
-				<div class="col-lg-4"></div>
+				<!-- <div class="col-lg-4"></div> -->
 			</div>
 
 
 			<div class="form-group">
-			  	<label for="publicity_city" class="col-lg-2 control-label">Select your City</label>
+			  	<label for="publicity_city" class="col-lg-2 col-lg-offset-1 control-label">Select your City</label>
 			  	<div class="col-lg-6">
 					<select name="publicity_city" required="required" class="form-control selectpicker" id="publicity_city" data-live-search="true">
 
-			            <option disabled selected>Please select your City</option>
+			            <option data-tokens="<?php echo $updatePublicityFormData->publicity_city; ?>" selected><?php echo $updatePublicityFormData->publicity_city; ?> </option>
 			            <option data-tokens="Adabor">Adabor</option>
 			            <option data-tokens="Badda">Badda</option>
 			            <option data-tokens="Bangsal">Bangsal</option>
@@ -93,34 +91,35 @@
 			     
 			        </select>
 			  	</div>
-			  	<div class="col-lg-4"></div>
+			  	<!-- <div class="col-lg-4"></div> -->
 			</div>
 
 			<div class="form-group">
-				<label for="publicity_mobile" class="control-label col-lg-2">Mobile No.</label>
+				<label for="publicity_mobile" class="control-label col-lg-2 col-lg-offset-1">Mobile No.</label>
 				<div class="col-lg-6">
-					<input type="text" name="publicity_mobile" required="required" id="publicity_mobile" class="form-control" placeholder="Mobile No.">
+					<input type="text" name="publicity_mobile" value="<?php echo $updatePublicityFormData->publicity_mobile; ?>" required="required" id="publicity_mobile" class="form-control" placeholder="Mobile No.">
 				</div>
-				<div class="col-lg-4"></div>
+				<!-- <div class="col-lg-4"></div> -->
 			</div>
 
 			<div class="form-group">
-				<label for="publicity_photo" class="control-label col-lg-2">Upload Image</label>
+				<label for="publicity_photo" class="control-label col-lg-2 col-lg-offset-1">Upload Image</label>
 				<div class="col-lg-6">
 					<?php echo form_error('publicity_photo'); ?>
-					<input type="file" name="publicity_photo" id="publicity_photo" class="form-control">
+					<input type="file" name="publicity_photo" value="<?php echo $updatePublicityFormData->publicity_photo; ?>" id="publicity_photo" class="form-control">
+					<?php if ($updatePublicityFormData->publicity_photo):?>
+					<div><p>Preview</p><img src="<?php echo base_url('publicity/images/publicity_img').$updatePublicityFormData->publicity_photo; ?>" alt="Publicity Image" width="50" /></div>
+					<?php endif; ?>
 				</div>
-				<div class="col-lg-4"></div>
+				<!-- <div class="col-lg-4"></div> -->
 			</div>
 
 			<div class="form-group" style="margin-top: 30px;">
-			  <div class="col-lg-10 col-lg-offset-2">
-			    <button type="reset" class="btn btn-default">Cancel</button>
-			    <button type="submit" class="btn btn-primary">Submit</button>
+			  <div class="col-lg-6 col-lg-offset-6">
+			    <button type="reset" data-dismiss="modal" class="btn btn-default">Cancel</button>
+			    <button type="submit" id="publicity_update_form_submit" class="btn btn-primary">Submit</button>
 			  </div>
 			</div>
-
-			</fieldset>
 		</form>
 	</div>
 </div>

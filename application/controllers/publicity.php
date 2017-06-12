@@ -232,18 +232,35 @@ class Publicity extends CI_Controller{
         }
     }
 
-    //Update 
-    public function update()
+    //Update
+    public function update_form()
     {
         $data=array();
         $id = $this->input->post('publicity_id');
 
+        $response = $this->MyModel->updatePublicityForm($id);
+        if ($response) {
+            $dataUpdate['updatePublicityFormData'] = $response;
+            $updatePublicityForm = $this->load->view('publicity/publicity_update_page', $dataUpdate, TRUE);
+            echo $updatePublicityForm;
+            exit;
+        }
+    } 
+
+    public function update()
+    {
+        $data=array();
+        $id = $this->input->post('publicity_id');
+        $data = $this->input->post();
+
         $response = $this->MyModel->updatePublicity($id, $data);
         if ($response) {
-            echo "Updated successfully";
+            echo "yes";
         }else{
-            echo "Error!! Did not Update";
+            echo "no";
         }
     }
+
+
 
 }

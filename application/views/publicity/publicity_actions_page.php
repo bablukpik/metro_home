@@ -1,5 +1,8 @@
  <style>
-     table th{text-align:center;}
+    table th{text-align:center;}
+    .modal-content {border: none !important;}
+    /* .modal-header {border-bottom: none !important; } */
+    .panel-default {border-color: transparent !important;}
  </style>
  <div class="row" style="margin-top:40px;">
     <div class="col-lg-12">
@@ -45,6 +48,13 @@
         </div>
     </div>
 </div>
+<!-- Update dialog -->
+<div class="row">
+    <button style="visibility: hidden;" type="button" id="publicity_update_dialog_btn" class="btn btn-default btn-create" data-toggle="modal" data-target="#publicity_update_dialog">Update Publicity</button>
+    <?php $this->load->view('dialogs/publicity_update_dialog'); ?>
+</div>
+
+<script src='<?php echo base_url('assets/js/jquery.min.js'); ?>'></script>
 <script src='https:code.jquery.com/jquery.min.js'></script>
 <script>
     jQuery(function(){
@@ -71,5 +81,49 @@
                 });
             }
         });
+
+        //Update Form
+        $('#publicity_edit').on('click',function(){
+            var id = $(this).data('id');
+            var url = '<?php echo base_url("publicity/update_form"); ?>';
+
+            $.ajax({
+                type:'post',
+                url:url,
+                data:{publicity_id:id},
+                success:function(data){
+                    if (data) {
+                        $('#publicity_update_dialog_btn').trigger('click');
+                        $('#publicity_update_data').html(data);
+                    }
+                },
+                error:function(){
+                    alert('Error updating');
+                }
+            });
+        });
+
+        //Update
+        $('#publicity_update_form_submit').on('click',function(){
+            var publicityUpdateSubmitData = $("#publicityUpdateForm").serializeArray();
+            var url = '<?php echo base_url("publicity/update"); ?>';
+
+            $.ajax({
+                type:'post',
+                url:url,
+                data:publicityUpdateSubmitData,
+                success:function(data){
+                    if (data=='yes') {
+                        alert("Updated successfully"); 
+                    }
+                },
+                error:function(){
+                    alert('Error updating');
+                }
+            });
+
+        });
+
+
     });
 </script>

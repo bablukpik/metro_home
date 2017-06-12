@@ -154,8 +154,8 @@
                     </li>
 
                     <div class="clearfix"></div>
-                    <li class="selected" style="margin-top: 20px; padding: 10px 0; color: #EC008B; font-size: 18px; font-weight: bold; box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2); text-shadow: 1px 2px 2px #424242;">
-                        <i class="fa fa-dashboard fa-fw"></i>Dashboard
+                    <li class="selected" style="margin-top: 20px; box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);">
+                        <a href="<?php echo base_url('super_admin'); ?>" style="padding: 10px 0; color: #EC008B; font-size: 16px; font-weight: bold; text-shadow: 1px 2px 1px rgba(0,0,0,.2);"><i class="fa fa-home fa-fw"></i>Dashboard</a>
                     </li>
                     <li>
                         <ul class="nav nav-second-level">
