@@ -31,11 +31,11 @@
                             <?php echo '<td>'.date('d/m/Y', strtotime($object->publicity_created_date)).'</td>'; ?>
                             <?php echo '<td><img src="'.base_url('publicity/images/publicity_img/').$object->publicity_photo.'" width="70" alt="Ads Photo"></td>'; ?>
                             <td class="actions">
-                                <button id="publicity_edit" data-id="<?php echo $object->publicity_id; ?>" class="btn btn-sm btn-primary">
+                                <button id="publicity_edit" data-id="<?php echo $object->publicity_id; ?>" class="btn btn-sm btn-primary publicity_edit">
                                     <i class="glyphicon glyphicon-pencil"></i>
                                     Edit
                                 </button>
-                                <button id="publicity_delete" data-id="<?php echo $object->publicity_id; ?>" class="btn btn-sm btn-danger">
+                                <button id="publicity_delete" data-id="<?php echo $object->publicity_id; ?>" class="btn btn-sm btn-danger publicity_delete">
                                     <i class="glyphicon glyphicon-trash"></i>
                                     Delete
                                 </button>
@@ -55,11 +55,11 @@
 </div>
 
 <script src='<?php echo base_url('assets/js/jquery.min.js'); ?>'></script>
-<script src='https:code.jquery.com/jquery.min.js'></script>
+<script src='https://code.jquery.com/jquery.min.js'></script>
 <script>
     jQuery(function(){
         //delete
-        $('#publicity_delete').on('click',function(){
+        $('.publicity_delete').on('click',function(){
             var deleted_row = $(this).parent().parent();
             var id = $(this).data('id');
             var url = '<?php echo base_url("publicity/delete"); ?>';
@@ -68,6 +68,7 @@
                 $.ajax({
                     type:'post',
                     url:url,
+                    cache: false,
                     data:{publicity_id:id},
                     success:function(data){
                         if (data=='yes') {
@@ -83,7 +84,7 @@
         });
 
         //Update Form
-        $('#publicity_edit').on('click',function(){
+        $('.publicity_edit').on('click',function(){
             var id = $(this).data('id');
             var url = '<?php echo base_url("publicity/update_form"); ?>';
 
@@ -104,17 +105,20 @@
         });
 
         //Update
-        $('#publicity_update_form_submit').on('click',function(){
-            var publicityUpdateSubmitData = $("#publicityUpdateForm").serializeArray();
+        $(document).on('submit', '#publicityUpdateForm', function(event){
+            event.preventDefault();
+            var publicityUpdateSubmitData = $('#publicityUpdateForm').serializeArray();
             var url = '<?php echo base_url("publicity/update"); ?>';
-
+            console.log(publicityUpdateSubmitData);
             $.ajax({
                 type:'post',
                 url:url,
                 data:publicityUpdateSubmitData,
                 success:function(data){
                     if (data=='yes') {
-                        alert("Updated successfully"); 
+                        alert("Updated successfully");
+                        $('.modal').modal('hide');
+                        window.location = "<?php echo base_url('publicity/publicity_action'); ?>";
                     }
                 },
                 error:function(){

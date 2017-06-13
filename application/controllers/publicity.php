@@ -252,7 +252,6 @@ class Publicity extends CI_Controller{
         $data=array();
         $id = $this->input->post('publicity_id');
         $data = $this->input->post();
-
         $response = $this->MyModel->updatePublicity($id, $data);
         if ($response) {
             echo "yes";

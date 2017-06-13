@@ -272,7 +272,7 @@ class MyModel extends CI_Model {
 
     public function updatePublicity($id, $data)
     {
-        $this->db->update('publicity', $data, array('publicity_id' => $id));
+       return $this->db->update('publicity', $data, array('publicity_id' => $id));
     }
 
 
