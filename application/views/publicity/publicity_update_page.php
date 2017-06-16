@@ -108,7 +108,7 @@
 					<?php echo form_error('publicity_photo'); ?>
 					<input type="file" name="publicity_photo" value="<?php echo $updatePublicityFormData->publicity_photo; ?>" id="publicity_photo" class="form-control">
 					<?php if ($updatePublicityFormData->publicity_photo):?>
-					<div><p>Preview</p><img src="<?php echo base_url('publicity/images/publicity_img').$updatePublicityFormData->publicity_photo; ?>" alt="Publicity Image" width="50" /></div>
+					<div><p>Preview</p><img src="<?php echo base_url('publicity/images/publicity_img/').$updatePublicityFormData->publicity_photo; ?>" alt="Publicity Image" width="50" /></div>
 					<?php endif; ?>
 				</div>
 				<!-- <div class="col-lg-4"></div> -->

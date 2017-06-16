@@ -229,7 +229,6 @@
 .navbar-default {
     background-color: transparent !important;
     border-color: transparent !important;
-    margin-bottom: 10px;
 }
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
     border-color: #e7e7e7;
@@ -260,7 +259,7 @@
 .nav>li {
     position: relative;
     display: block;
-    margin-right: 15px !important;
+    margin-right: 20px !important;
 }
 
 .nav>li>a{

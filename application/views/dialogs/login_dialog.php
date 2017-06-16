@@ -10,7 +10,7 @@
                     <option value="landlord">Landlord</option>
                     <option value="metro_police">Metro Police</option>
                     <option value="admin">Admin</option>
-                    <option value="renter">Renter</option>
+                    <!-- <option value="renter">Renter</option> -->
                 </select>
             </div>
 

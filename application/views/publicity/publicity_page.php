@@ -52,7 +52,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </button>
-                  <a class="navbar-brand" href="#">
+                  <a class="navbar-brand" href="<?php echo base_url(); ?>">
                     <div class="logo">
                         <img src="<?php echo base_url();?>assets/images/logo.png" alt="logo" />
                     </div>
@@ -61,27 +61,17 @@
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                 
-                  <ul class="nav navbar-nav navbar-right">
-                    <li><a href="<?php echo base_url();?>">Home</a></li>
-                    <li><a href="#">Info</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Press</a></li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Rent Services <span class="caret"></span></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="#" data-toggle="modal" data-target="#adsLogiOrSignup_dialog">Create Ads for Rent</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="<?php echo base_url('publicity');?>">Find House for Rent</a></li>
-                        <li role="separator" class="divider"></li>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="<?php echo base_url();?>">Home</a></li>
+                        <li><a href="#">Info</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#" data-toggle="modal" data-target="#adsLogiOrSignup_dialog">Post Ads</a></li>
+                        <li><a href="<?php echo base_url('publicity');?>">All Ads</a></li>
+                        <li>
+                            <button type="button" id="loginBtn" style="color:#fff; text-transform: capitalize;" class="btn btn-success" data-toggle="modal"  data-placement="bottom" data-target="#login_dialog" data-title="Login">Sign in <span class="caret"></button>
+                        </li>
                       </ul>
-                    </li>
-
-                    <li>
-                        <button type="button" id="loginBtn" style="color:#fff; text-transform: capitalize;" class="btn btn-success" data-toggle="modal"  data-placement="bottom" data-target="#login_dialog" data-title="Login">Sign in <span class="caret"></button>
-                    </li>
-                  </ul>
                 </div><!-- /.navbar-collapse -->
               </div><!-- /.container-fluid -->
             </nav>

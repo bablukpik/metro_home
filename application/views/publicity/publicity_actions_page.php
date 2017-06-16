@@ -109,7 +109,6 @@
             event.preventDefault();
             var publicityUpdateSubmitData = $('#publicityUpdateForm').serializeArray();
             var url = '<?php echo base_url("publicity/update"); ?>';
-            console.log(publicityUpdateSubmitData);
             $.ajax({
                 type:'post',
                 url:url,

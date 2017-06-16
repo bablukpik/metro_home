@@ -13,12 +13,12 @@ class Publicity extends CI_Controller{
         $this->load->helper('form');
 
         //Check loged in or not
-        $user_name = $this->session->userdata('user_name');
+        /*$user_name = $this->session->userdata('user_name');
         $lnd_nid= $this->session->userdata('lnd_nid');
         $user_type = $this->session->userdata('user_type');
         if( ($user_name == NULL or $lnd_nid==NULL) and $user_type==NULL ){
            redirect('login');
-        }
+        }*/
         
     }
 
@@ -172,8 +172,8 @@ class Publicity extends CI_Controller{
         $data['publicity_userid']           = $this->session->userdata('user_name');
         $data['publicity_usertype']         = $this->session->userdata('user_type');
         $data['publicity_created_date']     = $todayDate;
-        $data['publicity_expired_date']    = $todayDate;
-        $data['publicity_photo']    = $publicity_photo;
+        $data['publicity_expired_date']     = $todayDate;
+        $data['publicity_photo']            = $publicity_photo;
 
         $response = $this->MyModel->publish_publicity($data);
 

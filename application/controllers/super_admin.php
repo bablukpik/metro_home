@@ -458,7 +458,7 @@ class Super_admin extends CI_Controller {
     //Temp
     public function save_category()
     {
-        if (!empty($this->input->post("categategory_name"))) {
+        if ($this->input->post("categategory_name")) {
             $data["categategory_name"]  = $this->input->post("categategory_name");
         }else{
             $sdata["message"] = "<span style='color:red;'>Please give categategory name</span>";
