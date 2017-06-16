@@ -72,8 +72,44 @@ Create table landloard(
 	
     lnd_photo varchar(255)
     );
+
+CREATE TABLE lnd_familymember(
+	family_member_id int auto_increment primary key,
+	lnd_id int, /* foreifgn key*/ 
+	family_member_name varchar(30),
+	family_member_age varchar(10),
+	family_member_job varchar(30),
+	family_member_phone varchar(20),
+	family_created_date datetime,
+	family_modified_date datetime,
+	foreign key(lnd_id) references landloard(lnd_id)
+	);
+	
+CREATE TABLE lnd_homeworker(	
+	homeworker_id int auto_increment primary key, 
+	lnd_id int, /* foreign key*/
+	homeworker_name varchar(30),
+	homeworker_nid varchar(30),
+	homeworker_phone varchar(15),
+	homeworker_permanent_add varchar(30),
+	homeworker_created_date datetime,
+	homeworker_modified_date datetime,
+	foreign key(lnd_id) references landloard(lnd_id)
+	);
 	
 	
+CREATE TABLE lnd_driver(
+	driver_id int auto_increment primary key,
+	lnd_id int, /* foreign key*/
+	driver_name varchar(30),
+	driver_nid varchar(30),
+	driver_phone varchar(15),
+	driver_permanent_add varchar(30),
+	driver_created_date datetime,
+	driver_modified_date datetime,
+	foreign key(lnd_id) references landloard(lnd_id)
+	);	
+
 Create table renter(
     renter_id int auto_increment primary key,
 	renter_fullname varchar(30), /*required*/
@@ -118,18 +154,6 @@ Create table renter(
     renter_photo varchar(255)
     );
 
-CREATE TABLE lnd_familymember(
-	family_member_id int auto_increment primary key,
-	lnd_id int, /* foreifgn key*/ 
-	family_member_name varchar(30),
-	family_member_age varchar(10),
-	family_member_job varchar(30),
-	family_member_phone varchar(20),
-	family_created_date datetime,
-	family_modified_date datetime,
-	foreign key(lnd_id) references landloard(lnd_id)
-	);
-
 CREATE TABLE renter_familymember(
 	family_member_id int auto_increment primary key,
 	renter_id int, /* foreign key*/ 
@@ -140,21 +164,8 @@ CREATE TABLE renter_familymember(
 	family_member_created_date datetime,
 	family_member_modified_date datetime,
 	foreign key(renter_id) references renter(renter_id)
-	);	
-	
-
-CREATE TABLE lnd_homeworker(	
-	homeworker_id int auto_increment primary key, 
-	lnd_id int, /* foreign key*/
-	homeworker_name varchar(30),
-	homeworker_nid varchar(30),
-	homeworker_phone varchar(15),
-	homeworker_permanent_add varchar(30),
-	homeworker_created_date datetime,
-	homeworker_modified_date datetime,
-	foreign key(lnd_id) references landloard(lnd_id)
 	);
-	
+
 CREATE TABLE renter_homeworker(	
 	homeworker_id int auto_increment primary key, 
 	renter_id int, /* foreign key*/
@@ -166,19 +177,7 @@ CREATE TABLE renter_homeworker(
 	homeworker_modified_date datetime,
 	foreign key(renter_id) references renter(renter_id)
 	);
-	
-CREATE TABLE lnd_driver(
-	driver_id int auto_increment primary key,
-	lnd_id int, /* foreign key*/
-	driver_name varchar(30),
-	driver_nid varchar(30),
-	driver_phone varchar(15),
-	driver_permanent_add varchar(30),
-	driver_created_date datetime,
-	driver_modified_date datetime,
-	foreign key(lnd_id) references landloard(lnd_id)
-	);
-	
+
 CREATE TABLE renter_driver(
 	driver_id int auto_increment primary key,
 	renter_id int, /* foreign key*/

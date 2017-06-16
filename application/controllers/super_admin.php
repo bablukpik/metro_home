@@ -95,7 +95,7 @@ class Super_admin extends CI_Controller {
         if (!empty($_POST['renter_name']) && !empty($_POST['renter_birth_date']) && !empty($_POST['renter_nid'])) {
 
             //Renter Table (1)
-            $reterData['user_fullname'] = $this->input->post('renter_name');
+            $reterData['renter_fullname'] = $this->input->post('renter_name');
             $reterData['user_type'] = "renter";
             $reterData['renter_father_name'] = $this->input->post('renter_father_name');
 
