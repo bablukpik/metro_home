@@ -98,8 +98,30 @@ jQuery(function ($) {
       $(target).fadeIn(600);
       
     });
-    /*End ads Script*/
+  /*End ads Script*/
 
+  //Add Member/dynamically form field add
+  var count = 1;
+  $('#addMember').click(function(){
+      //alert('hi');
+      count = count + 1;
+      var html_code = "<tr id='row"+count+"'>";
+      html_code +="<td>"+count+"</td>";
+      html_code +='<td><input type="text" name="family_member_name[]"></td>';
+      html_code +='<td><input type="text" name="family_member_age[]"></td>';
+      html_code +='<td><input type="text" name="family_member_job[]"></td>';
+      html_code +='<td><input type="text" name="family_member_phone[]"></td>';
+      html_code +='<td><button type="button" data-row="row'+count+'" class="btn btn-danger btn-xs remove"><i class="fa fa-trash-o" aria-hidden="true"></i></button></td>';
+      html_code +='</tr>';
+      $('#member-add-table').append(html_code);
+  });
+
+  $(document).on('click', '.remove', function(){
+      var delete_row = $(this).data("row");
+      $('#' + delete_row).remove();
+  });
+
+  //
 
 
 }); //End Jquery Block
