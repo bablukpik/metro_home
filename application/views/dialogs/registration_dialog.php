@@ -173,7 +173,7 @@
                                                     </div>
                                                     <div class="panel-body">
                                                         <div class="table-responsive">
-                                                            <table id="member-add-table" class="table table-striped table-bordered table-hover table-responsive">
+                                                            <table id="member-add-table" class="table table-striped table-bordered table-hover">
                                                                 <thead>
                                                                 <tr>
                                                                     <th>ক্রঃ নং</th>

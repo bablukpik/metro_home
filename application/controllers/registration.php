@@ -137,7 +137,6 @@ class Registration extends CI_Controller
                     //lnd_familymember Table (02)
                     $lndFMData['lnd_id'] = $lndInsertId; /* foreign key*/
                     $lndFMData['family_member_name'] = $this->input->post('family_member_name');
-                    //die(var_dump($lndFMData['family_member_name']));
                     $lndFMData['family_member_age'] = $this->input->post('family_member_age');
                     $lndFMData['family_member_job'] = $this->input->post('family_member_job');
                     $lndFMData['family_member_phone'] = $this->input->post('family_member_phone');

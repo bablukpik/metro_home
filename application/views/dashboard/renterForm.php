@@ -9,13 +9,6 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <img style="margin-right: 10px" src="<?php echo base_url();?>backend_assets/img/dmp-logo.png" alt="DMP" class="img-responsive pull-left" width="100"/>
-            <img src="<?php echo base_url();?>backend_assets/img/intro_title.png" alt="ঢাকা মেট্রোপলিটন পুলিশ" class="img-responsive pull-left" width="450"/>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-12">
             <!-- Form Elements -->
             <div class="panel panel-default">
                 <div class="panel-heading text-center" style="color:red;">
@@ -156,28 +149,27 @@
                                     </div>
                                     <div class="panel-body">
                                         <div class="table-responsive">
-                                            <table class="table table-striped table-bordered table-hover table-responsive">
+                                            <table id="member-add-table" class="table table-striped table-bordered table-hover">
                                                 <thead>
                                                 <tr>
                                                     <th>ক্রঃ নং</th>
                                                     <th>নাম</th>
                                                     <th>বয়স</th>
                                                     <th>পেশা</th>
-                                                    <th>মোবাইল নম্বর</th>
-
+                                                    <th colspan="2">মোবাইল নম্বর</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
                                                 <tr>
                                                     <td>1</td>
-                                                    <td><input type="text" name="family_member_name"></td>
-                                                    <td><input type="text" name="family_member_age"></td>
-                                                    <td><input type="text" name="family_member_job"></td>
-                                                    <td><input type="text" name="family_member_phone"></td>
+                                                    <td><input type="text" name="family_member_name[]" required="required"></td>
+                                                    <td><input type="text" name="family_member_age[]" required="required"></td>
+                                                    <td><input type="text" name="family_member_job[]" required="required"></td>
+                                                    <td colspan="2"><input type="text" name="family_member_phone[]" required="required"></td>
                                                 </tr>
                                                 </tbody>
                                             </table>
-                                            <button class="btn btn-primary pull-right">সদস্য যুক্ত করুন</button>
+                                            <button type="button" id="addMember" class="btn btn-primary pull-right">সদস্য যুক্ত করুন</button>
                                         </div>
                                     </div>
                                 </div>

@@ -88,8 +88,15 @@ class MyModel extends CI_Model {
     }
 
     public function save_renterFM_data($renterFMData){
-        $this->db->insert(self::$renter_familymember, $renterFMData);
-        return $this->db->insert_id();
+        for($i = 0; $i < count($renterFMData['family_member_name']); $i++)
+            $batch[] = array(   "renter_id" =>$renterFMData['renter_id'],
+                                "family_member_name" => $renterFMData['family_member_name'][$i],
+                                "family_member_age" => $renterFMData['family_member_age'][$i],
+                                "family_member_job" => $renterFMData['family_member_job'][$i],
+                                "family_member_phone" => $renterFMData['family_member_phone'][$i]
+                            );
+
+        return $this->db->insert_batch(self::$renter_familymember, $batch);
     }
 
     public function save_renterHW_data($renterHWData){
