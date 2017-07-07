@@ -157,51 +157,41 @@
                     <li class="selected" style="margin-top: 20px; box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);">
                         <a href="<?php echo base_url('super_admin'); ?>" style="padding: 10px 10px; color: #EC008B; font-size: 16px; font-weight: bold; text-shadow: 1px 2px 1px rgba(0,0,0,.2);"><i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</a>
                     </li>
+                    
+                    <!-- For Admin Menu -->               
+                    <?php if($this->session->userdata("user_type") == 'admin') : ?>
+
                     <li>
-                        <ul class="nav nav-second-level">
-                             <!-- For Admin Menu -->               
-                            <?php if($this->session->userdata("user_type") == 'admin') : ?>
-  
-                            <li>
-                                <a href="<?php echo base_url(); ?>super_admin/renterRegisterForm">Register a renter</a>
-                            </li>
-                            <?php endif; ?>
-
-                            <!-- For Landlord Menu -->   
-                            <?php if($this->session->userdata("user_type") == 'landlord') : ?>
-                            <li>
-                                <a href="<?php echo base_url('super_admin/addNewRenter'); ?>">Add a Renter to Your House </a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url(); ?>super_admin/renterRegisterForm">Register a renter</a>
-                            </li>
-                            <?php endif; ?>
-
-                            <!-- For Landlord Menu -->   
-                            <?php if($this->session->userdata("user_type") == 'metro_police') : ?>
-                            <li>
-                                <a href="<?php echo base_url('super_admin/findRenterLocation'); ?>">Find Renter Location</a>
-                            </li>
-                            <?php endif; ?>
-
-                            <!-- For Creating Publicity Menu item -->   
-                            <?php if($this->session->userdata("user_type")) : ?>
-                            <li>
-                                <a href="<?php echo base_url('publicity/create_publicity'); ?>">Publish an Ad for Rent</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('publicity/publicity_action'); ?>">Manage Ads</a>
-                            </li>
-                            <?php endif; ?>
-
-                        </ul>
-                        <!-- second-level-items -->
+                        <a href="<?php echo base_url(); ?>super_admin/renterRegisterForm">Register a renter</a>
                     </li>
+                    <?php endif; ?>
 
-                    <!--  <li>
-                       <a href="#"><i class="fa fa-flask fa-fw"></i>Sample1</a>
-                     </li> -->
+                    <!-- For Landlord Menu -->   
+                    <?php if($this->session->userdata("user_type") == 'landlord') : ?>
+                    <li>
+                        <a href="<?php echo base_url('super_admin/addNewRenter'); ?>">Add a Renter to Your House </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo base_url(); ?>super_admin/renterRegisterForm">Register a renter</a>
+                    </li>
+                    <?php endif; ?>
 
+                    <!-- For Landlord Menu -->   
+                    <?php if($this->session->userdata("user_type") == 'metro_police') : ?>
+                    <li>
+                        <a href="<?php echo base_url('super_admin/findRenterLocation'); ?>">Find Renter Location</a>
+                    </li>
+                    <?php endif; ?>
+
+                    <!-- For Creating Publicity Menu item -->   
+                    <?php if($this->session->userdata("user_type")) : ?>
+                    <li>
+                        <a href="<?php echo base_url('publicity/create_publicity'); ?>">Publish an Ad for Rent</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo base_url('publicity/publicity_action'); ?>">Manage Ads</a>
+                    </li>
+                    <?php endif; ?>
                 </ul>
                 <!-- end side-menu -->
             </div>
