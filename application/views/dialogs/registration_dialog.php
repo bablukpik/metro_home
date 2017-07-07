@@ -18,7 +18,7 @@
                         <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i></button>
                         <h4 class="modal-title">বাড়িওয়ালা নিবন্ধন</h4>
                     </div>
-                    
+
                     <!--  wrapper -->
                     <div class="row">
                         <div class="col-lg-12">
@@ -187,10 +187,10 @@
                                                                 <tbody>
                                                                 <tr>
                                                                     <td>1</td>
-                                                                    <td><input type="text" name="family_member_name[]"></td>
-                                                                    <td><input type="text" name="family_member_age[]"></td>
-                                                                    <td><input type="text" name="family_member_job[]"></td>
-                                                                    <td colspan="2"><input type="text" name="family_member_phone[]"></td>
+                                                                    <td><input type="text" name="family_member_name[]" required="required"></td>
+                                                                    <td><input type="text" name="family_member_age[]" required="required"></td>
+                                                                    <td><input type="text" name="family_member_job[]" required="required"></td>
+                                                                    <td colspan="2"><input type="text" name="family_member_phone[]" required="required"></td>
                                                                 </tr>
                                                                 </tbody>
                                                             </table>

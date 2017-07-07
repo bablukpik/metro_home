@@ -107,10 +107,10 @@ jQuery(function ($) {
       count = count + 1;
       var html_code = "<tr id='row"+count+"'>";
       html_code +="<td>"+count+"</td>";
-      html_code +='<td><input type="text" name="family_member_name[]"></td>';
-      html_code +='<td><input type="text" name="family_member_age[]"></td>';
-      html_code +='<td><input type="text" name="family_member_job[]"></td>';
-      html_code +='<td><input type="text" name="family_member_phone[]"></td>';
+      html_code +='<td><input type="text" name="family_member_name[]" required="required"></td>';
+      html_code +='<td><input type="text" name="family_member_age[]" required="required"></td>';
+      html_code +='<td><input type="text" name="family_member_job[]" required="required"></td>';
+      html_code +='<td><input type="text" name="family_member_phone[]" required="required"></td>';
       html_code +='<td><button type="button" data-row="row'+count+'" class="btn btn-danger btn-xs remove"><i class="fa fa-trash-o" aria-hidden="true"></i></button></td>';
       html_code +='</tr>';
       $('#member-add-table').append(html_code);

@@ -50,7 +50,7 @@ class Registration extends CI_Controller
         //Data Check
         //if ( !empty($_POST['user_pass']) && !empty($_POST['lnd_name']) && !empty($_POST['lnd_birth_date']) && !empty($_POST['lnd_nid']) ) {
 
-//        if ( !empty($_POST['lnd_nid']) ) {
+        //if ( !empty($_POST['lnd_nid']) ) {
             
             //form validation
             $this->load->helper(array('form', 'url'));
@@ -137,6 +137,7 @@ class Registration extends CI_Controller
                     //lnd_familymember Table (02)
                     $lndFMData['lnd_id'] = $lndInsertId; /* foreign key*/
                     $lndFMData['family_member_name'] = $this->input->post('family_member_name');
+                    //die(var_dump($lndFMData['family_member_name']));
                     $lndFMData['family_member_age'] = $this->input->post('family_member_age');
                     $lndFMData['family_member_job'] = $this->input->post('family_member_job');
                     $lndFMData['family_member_phone'] = $this->input->post('family_member_phone');
