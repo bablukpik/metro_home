@@ -241,7 +241,7 @@
                                                     </div>
                                                 </div> <hr/>
 
-                                                <div class="form-group">
+                                                <!-- <div class="form-group">
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="form-group">
@@ -253,7 +253,7 @@
                                                                 <input type="text" name="lnd_previous_landlord_phone" class="form-control" placeholder="মোবাইল নম্বরঃ">
                                                             </div>
                                                         </div>
-
+                                                
                                                         <div class="col-md-12">
                                                             <div class="form-group">
                                                                 <textarea name="lnd_previous_landlord_permanent_add" class="form-control" placeholder="ঠিকানাঃ" rows="1"></textarea>
@@ -261,11 +261,11 @@
                                                         </div>
                                                     </div>
                                                 </div> <hr/>
-
+                                                
                                                 <div class="form-group">
                                                     <textarea name="lnd_prvious_leave_reason" class="form-control" placeholder="পূর্ববর্তী বাসা ছাড়ার কারণঃ" rows="1"></textarea>
                                                 </div>
-
+                                                
                                                 <div class="form-group">
                                                     <div class="row">
                                                         <div class="col-md-6">
@@ -279,11 +279,13 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> 
 
                                                 <div class="form-group">
                                                     <input type="text" name="lnd_present_start_date" class="form-control" placeholder="বর্তমান বাড়িতে কোন তারিখ থেকে বসবাসরতঃ" />
                                                 </div>
+                                                -->
+                                                
                                                 <button type="submit" class="btn btn-success submit">Submit</button>
                                             </form>
                                         </div>
