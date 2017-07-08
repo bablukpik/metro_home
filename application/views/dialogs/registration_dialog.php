@@ -1,15 +1,4 @@
-    <style>
-        .panel {
-            margin-bottom: 0; 
-            background-color: #fff; 
-            border: none; 
-            border-radius: 0;
-            -webkit-box-shadow: none; 
-            box-shadow: none; 
-        }
-    </style>
-
-    <!--<div class="container">-->
+     <!--<div class="container">-->
         <!-- Modal -->
         <div class="modal fade display_none" id="registrationOnline" role="dialog" data-backdrop="static" data-keyboard="false">
             <div class="modal-dialog modal-lg">

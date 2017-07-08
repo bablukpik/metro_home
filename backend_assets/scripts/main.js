@@ -142,6 +142,7 @@ jQuery(function ($) {
       var delete_row = $(this).data("row");
       $('#' + delete_row).remove();
     });
+    
     //
 
 

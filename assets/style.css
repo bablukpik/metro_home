@@ -44,22 +44,14 @@
     text-align: justify;
 }
 
-/* bdmap */
-#container {
-    height: 500px; 
-    min-width: 310px; 
-    max-width: 800px; 
-    margin: 0 auto; 
+#registrationOnline .panel {
+    margin-bottom: 0; 
+    background-color: #fff; 
+    border: none; 
+    border-radius: 0;
+    -webkit-box-shadow: none; 
+    box-shadow: none; 
 }
-.loading {
-    margin-top: 10em;
-    text-align: center;
-    color: gray;
-}
-
-/*https://jsfiddle.net/gh/get/library/pure/highslide-software/highcharts.com/tree/master/samples/mapdata/countries/bd/bd-all*/
-
-/* end bdmap */
 
 /* Bootstrap search box */
 .search-form {
