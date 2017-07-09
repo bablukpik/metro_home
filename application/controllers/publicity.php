@@ -248,17 +248,73 @@ class Publicity extends CI_Controller{
     } 
 
     public function update()
-    {
-        $data=array();
+    {   
+        //First of all unlink the image
         $id = $this->input->post('publicity_id');
+        if(!empty($_FILES['publicity_photo']['name'])){
+            $result = $this->MyModel->findById('publicity', $id);
+            if($result){
+                unlink('publicity/images/publicity_img/'.$result->publicity_photo);
+                unlink('publicity/images/publicity_img/'.str_replace("_thumb","", $result->publicity_photo));
+            }
+        }
+
+        //Start upload picture
+        if(!empty($_FILES['publicity_photo']['name'])){ //if($_FILES['image']['error'] == 0){
+            $config['upload_path'] = 'publicity/images/publicity_img/';
+            $config['allowed_types'] = 'jpg|jpeg|png|gif';
+            $config['file_name'] = date("Y-m-d-H-i-s")."_".str_replace(' ', '-', $_FILES['publicity_photo']['name']);
+
+            //Load upload library and initialize configuration
+            $this->load->library('upload',$config);
+            $this->upload->initialize($config);
+
+            if($this->upload->do_upload('publicity_photo')){
+                $finfo=$this->upload->data();
+                $this->_createThumbnail($finfo['file_name']);
+                $publicity_photo = $finfo['raw_name'].'_thumb'.$finfo['file_ext'];
+                //$publicity_photo = $finfo['file_name'];
+            }else{
+                $publicity_photo = '';
+            }
+        }else{
+            $publicity_photo = '';
+        }
+        //End upload picture
+
         $data = $this->input->post();
+        $dt = new DateTime("now", new DateTimeZone('Asia/Dhaka'));
+        $todayDate = $dt->format('Y-m-d h:i:s');
+
+        $data['publicity_userid']           = $this->session->userdata('user_name');
+        $data['publicity_usertype']         = $this->session->userdata('user_type');
+        $data['publicity_created_date']     = $todayDate;
+        $data['publicity_expired_date']     = $todayDate;
+
+        if (!empty($publicity_photo)) {
+            $data['publicity_photo']        = $publicity_photo;
+        }
+
         $response = $this->MyModel->updatePublicity($id, $data);
         if ($response) {
             echo "yes";
         }else{
             echo "no";
         }
+
+        /*$data=array();
+        $id = $this->input->post('publicity_id');
+        $data = $this->input->post();
+        $photo = $this->input->post('publicity_photo');
+        die(var_dump($data));
+        $response = $this->MyModel->updatePublicity($id, $data);
+        if ($response) {
+            echo "yes";
+        }else{
+            echo "no";
+        }*/
     }
+    //End Update
 
 
 

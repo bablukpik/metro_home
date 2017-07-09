@@ -106,9 +106,15 @@
 				<label for="publicity_photo" class="control-label col-lg-2 col-lg-offset-1">Upload Image</label>
 				<div class="col-lg-6">
 					<?php echo form_error('publicity_photo'); ?>
-					<input type="file" name="publicity_photo" value="<?php echo $updatePublicityFormData->publicity_photo; ?>" id="publicity_photo" class="form-control">
+					<input type="file" name="publicity_photo" id="publicity_photo" class="form-control publicity_photo">
+					<br>
+
+					<?php if (!$updatePublicityFormData->publicity_photo):?>
+					<div><p>Preview</p><img id="publicity_update_photo_preview" src="<?php echo base_url('assets/images/no_image.jpeg');?>" alt="Publicity Image" width="100" /></div>
+					<?php endif; ?>
+
 					<?php if ($updatePublicityFormData->publicity_photo):?>
-					<div><p>Preview</p><img src="<?php echo base_url('publicity/images/publicity_img/').$updatePublicityFormData->publicity_photo; ?>" alt="Publicity Image" width="50" /></div>
+					<div><p>Preview</p><img id="publicity_update_photo_preview" src="<?php echo base_url('publicity/images/publicity_img/').$updatePublicityFormData->publicity_photo; ?>" alt="Publicity Image" width="100" /></div>
 					<?php endif; ?>
 				</div>
 				<!-- <div class="col-lg-4"></div> -->

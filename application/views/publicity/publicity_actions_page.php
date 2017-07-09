@@ -107,26 +107,63 @@
         //Update
         $(document).on('submit', '#publicityUpdateForm', function(event){
             event.preventDefault();
-            var publicityUpdateSubmitData = $('#publicityUpdateForm').serializeArray();
+            event.stopPropagation();
+            var publicityUpdateSubmitData = new FormData(this);
+            //var publicityUpdateSubmitData = $('#publicityUpdateForm').serialize();
+            console.log(publicityUpdateSubmitData);
             var url = '<?php echo base_url("publicity/update"); ?>';
+
             $.ajax({
-                type:'post',
-                url:url,
+                type:'POST',
+                url: url,
                 data:publicityUpdateSubmitData,
+                cache:false,
+                contentType: false,
+                processData: false,
                 success:function(data){
+                    //$("#publicityUpdateForm")[0].reset();
                     if (data=='yes') {
-                        alert("Updated successfully");
+                        alert("Success! Updated successfully");
                         $('.modal').modal('hide');
                         window.location = "<?php echo base_url('publicity/publicity_action'); ?>";
                     }
                 },
-                error:function(){
-                    alert('Error updating');
+                error: function(data){
+                    console.log("Error: "+data);
+                    if (data=='no') {
+                        alert("Failure! Not Updated successfully");
+                        $('.modal').modal('hide');
+                        window.location = "<?php echo base_url('publicity/publicity_action'); ?>";
+                    }
                 }
             });
 
         });
-
+        
+        $(document).on("change","#publicity_photo",function() {
+            $("#publicityUpdateForm").submit();
+        });
+        //End Update
 
     });
+
+    //update image preview
+    function publicity_update_image(input) {
+        if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#publicity_update_photo_preview').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $(document).on("change","#publicity_photo",function(){
+        publicity_update_image(this);
+        console.log('File selected');
+    });
+    //End update image preview
+
 </script>

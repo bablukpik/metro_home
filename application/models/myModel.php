@@ -289,6 +289,15 @@ class MyModel extends CI_Model {
        return $this->db->update('publicity', $data, array('publicity_id' => $id));
     }
 
+    //Find By ID
+    public function findById($table, $id)
+    {
+        $this->db->select('*');
+        $this->db->from($table);
+        $this->db->where('publicity_id', $id);
+        $query = $this->db->get();
+        return $query->row();
+    }
 
 
 
