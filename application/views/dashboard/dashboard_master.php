@@ -179,7 +179,7 @@
                     <!-- For Landlord Menu -->   
                     <?php if($this->session->userdata("user_type") == 'metro_police') : ?>
                     <li>
-                        <a href="<?php echo base_url('super_admin/findRenterLocation'); ?>">Find Renter Location</a>
+                        <a href="<?php echo base_url('super_admin/findRenterLocation'); ?>">Find Renter Details</a>
                     </li>
                     <?php endif; ?>
 

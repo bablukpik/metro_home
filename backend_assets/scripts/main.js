@@ -55,10 +55,40 @@ jQuery(function ($) {
         });
     });
 
-    //Find Renter Location with details
-    $('#search_renter').bind("enterKey",function(e){
+    //Find Renter Location with details on Enter
+    $('#search_renter').on("enterKey",function(e){
        
         var data = $(this).val(); //$("#newRenterAddform").serializeArray();
+        var url = $("#search_renter_form").attr("action");
+      
+        if (data) {
+            $.ajax({
+                url:url,
+                data:{search_renter:data},
+                type:"post",
+                success: function(result){
+                    console.log('Ok');
+                    $("#search_renter_msg").html(result);
+                    $("#print_download_area").css({'min-height': '400px', 'background': '#fff', 'padding' : '5px', 'border-radius': '8px'});
+                    $("#search_renter").val('');
+                },
+
+                error: function(error){
+                    $("#search_renter_msg").html("<p style='color:red'>"+error+"</p>")
+                }
+
+            });
+               
+        }else{
+            $("#search_renter_msg").html('<p style="color:red; border:1px solid red; padding:10px;">Please Enter Renter NID</p>');
+        }
+         
+    });
+
+    //Find Renter Location with details on click
+    $('.search_renter_btn').on("click",function(e){
+       
+        var data = $("#search_renter").val(); //$("#newRenterAddform").serializeArray();
         var url = $("#search_renter_form").attr("action");
       
         if (data) {
@@ -92,7 +122,7 @@ jQuery(function ($) {
 
     //Custom Enter key Event
     $('#search_renter').keyup(function(e){
-        if(e.keyCode == 13)
+        if((e.keyCode == 13))
         {
             $(this).trigger("enterKey");
         }
@@ -100,13 +130,16 @@ jQuery(function ($) {
 
     //End Find Renter Location with details
 
-    //Data send to url for Download
-    $('#search_renter').bind("enterKey",function(e){
-        console.log('Hiiiiiiiiiiii');
+    //Data send to url for renter details on Enter
+    $('#search_renter').on("enterKey",function(e){
         var data = $(this).val();
+        $('#download__print_search_result').html('<a href="'+baseUrl+'/super_admin/findRenterLocationFromDB/'+data+'" class="btn btn-primary" style="float: right; margin-right: 5px;" target="_blank">Download</a>  <a href="#" id="url_metro_result_print" class="btn btn-primary" style="float: right; margin-right: 5px;" target="_blank">print</a>');
+    });
 
-            $('#download__print_search_result').html('<a href="'+baseUrl+'/super_admin/findRenterLocationFromDB/'+data+'" class="btn btn-primary" style="float: right; margin-right: 5px;" target="_blank">Download</a>  <a href="#" id="url_metro_result_print" class="btn btn-primary" style="float: right; margin-right: 5px;" target="_blank">print</a>');
-
+    //Data send to url for renter details on Click
+    $('.search_renter_btn').on("click",function(e){
+        var data = $("#search_renter").val();
+        $('#download__print_search_result').html('<a href="'+baseUrl+'/super_admin/findRenterLocationFromDB/'+data+'" class="btn btn-primary" style="float: right; margin-right: 5px;" target="_blank">Download</a>  <a href="#" id="url_metro_result_print" class="btn btn-primary" style="float: right; margin-right: 5px;" target="_blank">print</a>');
     });
 
     //Print for Renter search result

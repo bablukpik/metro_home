@@ -13,17 +13,17 @@
         
         <div style="font-size: 12px;">
             <h3 style="text-decoration: underline; text-align:center;">Renter Information</h3>
-            <div class="renter_info_area clearfix" style="margin-bottom: 40px;">
-                <div class="renter_info pull-left" align="left" style="font-size: 16px; line-height: 18px;">
+            <div class="renter_info_area clearfix" style="margin-bottom: 40px; position: relative;">
+                <div class="renter_info pull-left" align="left" style="font-size: 14px; line-height: 16px; position: relative;">
                     <?php 
-                        echo "<p><span>Renter Name : </span>".$results[0]['renter_fullname']."</p>";
-                        echo "<p><span>Mobile      : </span>".$results[0]['renter_phone']."</p>";
-                        echo "<p><span>National ID : </span>".$results[0]['renter_nid']."</p>";
-                        echo "<address><span>Permanent Address : </span>".$results[0]['renter_permanent_add']."</address>"; 
+                        echo "<p><b>Renter Name : </b>".$results[0]['renter_fullname']."</p>";
+                        echo "<p><b>Mobile      : </b>".$results[0]['renter_phone']."</p>";
+                        echo "<p><b>National ID : </b>".$results[0]['renter_nid']."</p>";
+                        echo "<address><b>Permanent Address : </b>".$results[0]['renter_permanent_add']."</address>"; 
                     ?>
                 </div>
 
-                <div class="renter_pic" style="float: right;" align="right"><img width="130" src="<?php echo base_url('uploads/'); echo isset($results[0]['renter_photo'])?($results[0]['renter_photo']):''; ?>" alt=""></div>
+                <div class="renter_pic" style="float: right; position: absolute; right: 30px;" align="right"><img width="100" src="<?php echo base_url('uploads/'); echo isset($results[0]['renter_photo'])?($results[0]['renter_photo']):''; ?>" alt=""></div>
             </div>
 
             <h4>Renter Tracking Info:</h4>
