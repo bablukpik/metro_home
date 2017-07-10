@@ -162,17 +162,17 @@
                     <?php if($this->session->userdata("user_type") == 'admin') : ?>
 
                     <li>
-                        <a href="<?php echo base_url(); ?>super_admin/renterRegisterForm">Register a renter</a>
+                        <a href="<?php echo base_url(); ?>super_admin/renterRegisterForm">Renter Registration</a>
                     </li>
                     <?php endif; ?>
 
                     <!-- For Landlord Menu -->   
                     <?php if($this->session->userdata("user_type") == 'landlord') : ?>
                     <li>
-                        <a href="<?php echo base_url('super_admin/addNewRenter'); ?>">Add a Renter to Your House </a>
+                        <a href="<?php echo base_url('super_admin/addNewRenter'); ?>">Add Renter</a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url(); ?>super_admin/renterRegisterForm">Register a renter</a>
+                        <a href="<?php echo base_url(); ?>super_admin/renterRegisterForm">Renter Registration</a>
                     </li>
                     <?php endif; ?>
 
@@ -184,9 +184,9 @@
                     <?php endif; ?>
 
                     <!-- For Creating Publicity Menu item -->   
-                    <?php if($this->session->userdata("user_type")) : ?>
+                    <?php if($this->session->userdata("user_type") !='metro_police') : ?>
                     <li>
-                        <a href="<?php echo base_url('publicity/create_publicity'); ?>">Publish an Ad for Rent</a>
+                        <a href="<?php echo base_url('publicity/create_publicity'); ?>">Ad for Rent</a>
                     </li>
                     <li>
                         <a href="<?php echo base_url('publicity/publicity_action'); ?>">Manage Ads</a>

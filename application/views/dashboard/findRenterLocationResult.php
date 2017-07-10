@@ -9,12 +9,12 @@
 </style>
 
 	<!-- Result Table -->
-    <div class="container well" style="max-width: 1060px; ">
+    <div class="container" style="max-width: 1060px; ">
         
         <div style="font-size: 12px;">
             <h3 style="text-decoration: underline; text-align:center;">Renter Information</h3>
             <div class="renter_info_area clearfix" style="margin-bottom: 40px;">
-                <div class="renter_info pull-left" style="font-size: 16px; line-height: 18px;">
+                <div class="renter_info pull-left" align="left" style="font-size: 16px; line-height: 18px;">
                     <?php 
                         echo "<p><span>Renter Name : </span>".$results[0]['renter_fullname']."</p>";
                         echo "<p><span>Mobile      : </span>".$results[0]['renter_phone']."</p>";
@@ -22,7 +22,8 @@
                         echo "<address><span>Permanent Address : </span>".$results[0]['renter_permanent_add']."</address>"; 
                     ?>
                 </div>
-                <div class="renter_pic" style="float: right;"><img width="130" src="<?php echo base_url('uploads/'); echo isset($results[0]['renter_photo'])?($results[0]['renter_photo']):''; ?>" alt=""></div>
+
+                <div class="renter_pic" style="float: right;" align="right"><img width="130" src="<?php echo base_url('uploads/'); echo isset($results[0]['renter_photo'])?($results[0]['renter_photo']):''; ?>" alt=""></div>
             </div>
 
             <h4>Renter Tracking Info:</h4>
