@@ -12,7 +12,9 @@
         <!-- Bootstrap Admin Theme -->
         <link rel="stylesheet" media="screen" href="<?php echo base_url(); ?>publicity/css/bootstrap-admin-theme.css">
         <link rel="stylesheet" media="screen" href="<?php echo base_url(); ?>publicity/css/bootstrap-admin-theme-change-size.css">
-
+        
+        <!-- Fontawesome -->
+        <link rel="stylesheet" href="<?php echo base_url();?>assets/css/font-awesome.min.css" />
         <!-- Datatables -->
         <link rel="stylesheet" media="screen" href="<?php echo base_url(); ?>publicity/css/DT_bootstrap.css">
 
@@ -28,7 +30,10 @@
     <section class="top_head_sec">
         <div class="container">
             <div class="top_menu_left float_left">
-            
+                <i class="fa fa-phone-square" aria-hidden="true"></i>
+                <span>01730910539</span>
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>metrohomebd@gmail.com</span>
             </div>
             <div class="top_menu_right float_right">
                 <ul>
@@ -129,12 +134,12 @@
     </section>
 
     <!--Publicity Start-->
-    <section class="publicity_area" style="margin-top: 40px">
+    <section class="publicity_area" style="margin-top: 10px">
         <div class="container">
 
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <div class="text-muted bootstrap-admin-box-title">Rent a House Online</div>
+                    <div class="bootstrap-admin-box-title">Rent a House Online</div>
                 </div>
                 <div class="bootstrap-admin-panel-content">
                     <div id="example_wrapper" class="form-inline" role="grid">
