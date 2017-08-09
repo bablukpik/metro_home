@@ -199,61 +199,6 @@
         </nav>
         <!-- end navbar side -->
 
-        <!--Renter creation error message of Photo-->
-        <?php if($this->session->userdata('error_msg_photo_renter') || $this->session->userdata("successMsg") || $this->session->userdata("success") || $this->session->userdata("failure")): ?>
-            <div style="max-width: 400px; margin: 0 auto; position: relative; z-index:999999;">
-                
-                <!-- success Message-->
-                <?php if($success = $this->session->userdata("success")): ?>
-                <div class="welcome_msg alert alert-success alert-dismissible">
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                    <?php
-                    echo "<h4>".$success."</h4>";
-                    $this->session->unset_userdata("success");
-                    ?>
-                </div>
-                <?php endif; ?>
-                <!-- End success Message -->
-
-                <!-- Failure Message-->
-                <?php if($failure = $this->session->userdata("failure")): ?>
-                <div class="welcome_msg alert alert-success alert-dismissible">
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                    <?php
-                    echo "<h4>".$failure."</h4>";
-                    $this->session->unset_userdata("failure");
-                    ?>
-                </div>
-                <?php endif; ?>
-                <!-- End Failure Message -->
-
-                <!-- Welcome and Data added success -->
-                <?php if($successMsg = $this->session->userdata("successMsg")): ?>
-                <div class="welcome_msg alert alert-success alert-dismissible">
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                    <?php
-                    echo "<h4>".$successMsg."</h4>";
-                    $this->session->unset_userdata("successMsg");
-                    ?>
-                </div>
-                <?php endif; ?>
-                <!-- End Welcome and Data added success -->
-
-                <!--For image-->
-                <?php if($error_msg_photo_renter =  $this->session->userdata('error_msg_photo_renter')): ?>
-                <div class="welcome_msg alert alert-danger alert-dismissable" style="">
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                    <?php
-                    echo "<h4>".(isset($error_msg_photo_renter)?$error_msg_photo_renter:'')."</h4>";
-                    $this->session->unset_userdata('error_msg_photo_renter');
-                    ?>
-                </div>
-                <?php endif;?>
-
-            </div>
-        <?php endif;?>
-        <!--End Renter creation error message of Photo-->
-
         <!--  page-wrapper -->
         <div id="page-wrapper">
 
@@ -272,7 +217,62 @@
             <!--End Sidebar Menu-->
 
             <!--Start Document Body-->
+            <div class="row">
+                <!--Renter creation error message of Photo-->
+                <?php if($this->session->userdata('error_msg_photo_renter') || $this->session->userdata("successMsg") || $this->session->userdata("success") || $this->session->userdata("failure")): ?>
+                    <div style="max-width: 500px; margin: 0 auto; position: relative; z-index:999999; top: -35px;">
+                        <div>
+                            <!-- success Message-->
+                            <?php if($success = $this->session->userdata("success")): ?>
+                            <div class="welcome_msg alert alert-success alert-dismissible">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <?php
+                                echo "<h4>".$success."</h4>";
+                                $this->session->unset_userdata("success");
+                                ?>
+                            </div>
+                            <?php endif; ?>
+                            <!-- End success Message -->
 
+                            <!-- Failure Message-->
+                            <?php if($failure = $this->session->userdata("failure")): ?>
+                            <div class="welcome_msg alert alert-success alert-dismissible">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <?php
+                                echo "<h4>".$failure."</h4>";
+                                $this->session->unset_userdata("failure");
+                                ?>
+                            </div>
+                            <?php endif; ?>
+                            <!-- End Failure Message -->
+
+                            <!-- Welcome and Data added success -->
+                            <?php if($successMsg = $this->session->userdata("successMsg")): ?>
+                            <div class="welcome_msg alert alert-success alert-dismissible">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <?php
+                                echo "<h4>".$successMsg."</h4>";
+                                $this->session->unset_userdata("successMsg");
+                                ?>
+                            </div>
+                            <?php endif; ?>
+                            <!-- End Welcome and Data added success -->
+
+                            <!--For image-->
+                            <?php if($error_msg_photo_renter =  $this->session->userdata('error_msg_photo_renter')): ?>
+                            <div class="welcome_msg alert alert-danger alert-dismissable" style="">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <?php
+                                echo "<h4>".(isset($error_msg_photo_renter)?$error_msg_photo_renter:'')."</h4>";
+                                $this->session->unset_userdata('error_msg_photo_renter');
+                                ?>
+                            </div>
+                            <?php endif;?>
+                        </div>
+                    </div>
+                <?php endif;?>
+                <!--End Renter creation error message of Photo-->
+            </div>
             <!-- renterForm -->
             <div class="row">
                 <?php echo isset($renterForm)?$renterForm:''; ?>

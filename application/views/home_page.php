@@ -88,7 +88,19 @@
 			</div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
 		</nav>
+	</div>
+</header>
 
+<section class="dilogs_area">
+    <div class="container">
+        <?php $this->load->view('dialogs/adsLogiOrSignup_dialog');?>
+        <?php $this->load->view('dialogs/login_dialog'); ?>
+        <?php $this->load->view('dialogs/registration_dialog'); ?>
+    </div>
+</section>
+
+<section class="alert_area" style="position: relative;">
+    <div class="container" style="position: absolute;">
         <!--Landlord creation message-->
             <!--For image-->
         <?php if($this->session->userdata('error_msg_photo_lnd') || $this->session->userdata('successMsg') ||  $this->session->userdata('failureMsg')): ?>
@@ -125,15 +137,6 @@
         </div>
         <?php endif;?>
         <!--End Landlord creation message-->
-
-	</div>
-</header>
-
-<section class="dilogs_area">
-    <div class="container">
-        <?php $this->load->view('dialogs/adsLogiOrSignup_dialog');?>
-        <?php $this->load->view('dialogs/login_dialog'); ?>
-        <?php $this->load->view('dialogs/registration_dialog'); ?>
     </div>
 </section>
 
@@ -294,6 +297,12 @@
 <footer class="foot_sec">
 	<div class="container">
 		<p>Copyright &copy; 2017, Metro Home. All rights reserved</p>
+        <div class="dev_by">
+            <span style="color: #F1F1F2;">Md. Bablu Mia, </span>
+            <span style="color: #EC008B;">Biswanath Sarker, </span>
+            <span>Sagor Sur</span>
+        </div>
+        <div class="clearfix"></div>
 	</div>
 </footer>
 

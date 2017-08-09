@@ -137,7 +137,7 @@
     <section class="publicity_area" style="margin-top: 10px">
         <div class="container">
 
-            <div class="panel panel-default">
+            <div class="panel panel-primary">
                 <div class="panel-heading">
                     <div class="bootstrap-admin-box-title">Rent a House Online</div>
                 </div>
@@ -250,6 +250,12 @@
     <footer class="foot_sec">
         <div class="container">
             <p>Copyright &copy; 2017, Metro Home. All rights reserved</p>
+            <div class="dev_by">
+                <span style="color: #F1F1F2;">Md. Bablu Mia, </span>
+                <span style="color: #EC008B;">Biswanath Sarker, </span>
+                <span>Sagor Sur</span>
+            </div>
+            <div class="clearfix"></div>
         </div>
     </footer>
     <!-- End Footer-->

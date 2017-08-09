@@ -130,35 +130,7 @@ class AdsManager extends CI_Controller {
     }
     //End Ads Account Registration
 
-
-
-
-
-
     //Temp
-    public function save_category()
-    {
-        if (!empty($this->input->post("categategory_name"))) {
-            $data["categategory_name"]  = $this->input->post("categategory_name");
-        }else{
-            $sdata["message"] = "<span style='color:red;'>Please give categategory name</span>";
-            $this->session->set_userdata($sdata);
-            redirect("super_admin/add_category");
-        }
-        $data["category_description"] = $this->input->post("category_description");
-        $data["category_status"] = $this->input->post("category_status");
-        $result = $this->myModel->save_category_info($data);
-        if ($result) {
-            $sdata["message"] = "Category added successfully";
-            $this->session->set_userdata($sdata);
-            redirect("super_admin/add_category");
-        }else{
-            $sdata["message"] = "Category not added";
-            $this->session->set_userdata($sdata);
-            redirect("super_admin/add_category");
-        }
-    }
-
     //Update
     public function interestJobUpdate()
     {
