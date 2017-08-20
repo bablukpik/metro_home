@@ -31,11 +31,11 @@
                             <?php echo '<td>'.$row1->renter_phone.'</td>'; ?>
                             <?php echo '<td><img src="'.base_url('uploads/').$row1->renter_photo.'" width="70" alt="Renter Photo"></td>'; ?>
                             <td class="actions">
-                                <button id="renter_edit" data-id="<?php echo $row1->renter_id; ?>" class="btn btn-sm btn-primary publicity_edit">
+                                <button id="renter_edit" data-id="<?php echo $row1->renter_id; ?>" class="btn btn-sm btn-primary renter_edit">
                                     <i class="glyphicon glyphicon-pencil"></i>
                                     Edit
                                 </button>
-                                <button id="renter_delete" data-id="<?php echo $row1->renter_id; ?>" class="btn btn-sm btn-danger publicity_delete">
+                                <button id="renter_delete" data-id="<?php echo $row1->renter_id; ?>" class="btn btn-sm btn-danger renter_delete">
                                     <i class="glyphicon glyphicon-trash"></i>
                                     Delete
                                 </button>
@@ -50,8 +50,8 @@
 </div>
 <!-- Update dialog -->
 <div class="row">
-    <button style="visibility: hidden;" type="button" id="publicity_update_dialog_btn" class="btn btn-default btn-create" data-toggle="modal" data-target="#publicity_update_dialog">Update Publicity</button>
-    <?php $this->load->view('dialogs/publicity_update_dialog'); ?>
+    <button style="visibility: hidden;" type="button" id="renter_update_dialog_btn" class="btn btn-default btn-create" data-toggle="modal" data-target="#renter_update_dialog">Update Renter</button>
+    <?php $this->load->view('dialogs/renter_update_dialog'); ?>
 </div>
 
 <script src='<?php echo base_url('assets/js/jquery.min.js'); ?>'></script>
@@ -59,17 +59,17 @@
 <script>
     jQuery(function(){
         //delete
-        $('.publicity_delete').on('click',function(){
+        $('.renter_delete').on('click',function(){
             var deleted_row = $(this).parent().parent();
             var id = $(this).data('id');
-            var url = '<?php echo base_url("publicity/delete"); ?>';
+            var url = '<?php echo base_url("renter/delete"); ?>';
 
             if (confirm('Are you sure to delete?')) {
                 $.ajax({
                     type:'post',
                     url:url,
                     cache: false,
-                    data:{publicity_id:id},
+                    data:{renter_id:id},
                     success:function(data){
                         if (data=='yes') {
                             deleted_row.fadeOut().remove();
@@ -84,18 +84,19 @@
         });
 
         //Update Form
-        $('.publicity_edit').on('click',function(){
+        $('.renter_edit').on('click',function(){
+
             var id = $(this).data('id');
-            var url = '<?php echo base_url("publicity/update_form"); ?>';
+            var url = '<?php echo base_url("super_admin/update_form"); ?>';
 
             $.ajax({
                 type:'post',
                 url:url,
-                data:{publicity_id:id},
+                data:{renter_id:id},
                 success:function(data){
                     if (data) {
-                        $('#publicity_update_dialog_btn').trigger('click');
-                        $('#publicity_update_data').html(data);
+                        $('#renter_update_dialog_btn').trigger('click');
+                        $('#renter_update_data').html(data);
                     }
                 },
                 error:function(){
@@ -105,27 +106,27 @@
         });
 
         //Update
-        $(document).on('submit', '#publicityUpdateForm', function(event){
+        $(document).on('submit', '#renterUpdateForm', function(event){
             event.preventDefault();
             event.stopPropagation();
-            var publicityUpdateSubmitData = new FormData(this);
-            //var publicityUpdateSubmitData = $('#publicityUpdateForm').serialize();
-            console.log(publicityUpdateSubmitData);
-            var url = '<?php echo base_url("publicity/update"); ?>';
+            var renterUpdateSubmitData = new FormData(this);
+            //var renterUpdateSubmitData = $('#renterUpdateForm').serialize();
+            console.log(renterUpdateSubmitData);
+            var url = '<?php echo base_url("renter/update"); ?>';
 
             $.ajax({
                 type:'POST',
                 url: url,
-                data:publicityUpdateSubmitData,
+                data:renterUpdateSubmitData,
                 cache:false,
                 contentType: false,
                 processData: false,
                 success:function(data){
-                    //$("#publicityUpdateForm")[0].reset();
+                    //$("#renterUpdateForm")[0].reset();
                     if (data=='yes') {
                         alert("Success! Updated successfully");
                         $('.modal').modal('hide');
-                        window.location = "<?php echo base_url('publicity/publicity_action'); ?>";
+                        window.location = "<?php echo base_url('renter/renter_action'); ?>";
                     }
                 },
                 error: function(data){
@@ -133,35 +134,35 @@
                     if (data=='no') {
                         alert("Failure! Not Updated successfully");
                         $('.modal').modal('hide');
-                        window.location = "<?php echo base_url('publicity/publicity_action'); ?>";
+                        window.location = "<?php echo base_url('renter/renter_action'); ?>";
                     }
                 }
             });
 
         });
         
-        $(document).on("change","#publicity_photo",function() {
-            $("#publicityUpdateForm").submit();
+        $(document).on("change","#renter_photo",function() {
+            $("#renterUpdateForm").submit();
         });
         //End Update
 
     });
 
     //update image preview
-    function publicity_update_image(input) {
+    function renter_update_image(input) {
         if (input.files && input.files[0]) {
         var reader = new FileReader();
 
             reader.onload = function (e) {
-                $('#publicity_update_photo_preview').attr('src', e.target.result);
+                $('#renter_update_photo_preview').attr('src', e.target.result);
             }
 
             reader.readAsDataURL(input.files[0]);
         }
     }
 
-    $(document).on("change","#publicity_photo",function(){
-        publicity_update_image(this);
+    $(document).on("change","#renter_photo",function(){
+        renter_update_image(this);
         console.log('File selected');
     });
     //End update image preview
