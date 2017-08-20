@@ -252,7 +252,7 @@ class Publicity extends CI_Controller{
         //First of all unlink the image
         $id = $this->input->post('publicity_id');
         if(!empty($_FILES['publicity_photo']['name'])){
-            $result = $this->MyModel->findById('publicity', $id);
+            $result = $this->MyModel->findByPublicityId('publicity', $id);
             if($result){
                 unlink('publicity/images/publicity_img/'.$result->publicity_photo);
                 unlink('publicity/images/publicity_img/'.str_replace("_thumb","", $result->publicity_photo));
@@ -302,17 +302,6 @@ class Publicity extends CI_Controller{
             echo "no";
         }
 
-        /*$data=array();
-        $id = $this->input->post('publicity_id');
-        $data = $this->input->post();
-        $photo = $this->input->post('publicity_photo');
-        die(var_dump($data));
-        $response = $this->MyModel->updatePublicity($id, $data);
-        if ($response) {
-            echo "yes";
-        }else{
-            echo "no";
-        }*/
     }
     //End Update
 

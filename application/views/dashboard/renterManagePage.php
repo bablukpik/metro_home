@@ -1,0 +1,169 @@
+ <style>
+    table th{text-align:center;}
+    .modal-content {border: none !important;}
+    /* .modal-header {border-bottom: none !important; } */
+    .panel-default {border-color: transparent !important;}
+ </style>
+ <div class="row" style="margin-top:40px;">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="text-muted bootstrap-admin-box-title">Manage Renter</div>
+            </div>
+            <div class="bootstrap-admin-panel-content">
+                <table class="text-center table table-striped table-bordered" style="table-layout:fixed; width:100%; word-wrap:break-word">
+                    <thead>
+                        <tr>
+                            <th style="width:5%">SL.</th>
+                            <th>Name</th>
+                            <th>NID</th>
+                            <th>Phone No.</th>
+                            <th>Photo</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php $i=0; foreach ($renter_all as $key1=>$row1): $i++ ?>
+                        <tr>
+                            <?php echo '<td style="width:5%">'.$i.'</td>'; ?>
+                            <?php echo '<td>'.$row1->renter_fullname.'</td>'; ?>
+                            <?php echo '<td>'.$row1->renter_nid.'</td>'; ?>
+                            <?php echo '<td>'.$row1->renter_phone.'</td>'; ?>
+                            <?php echo '<td><img src="'.base_url('uploads/').$row1->renter_photo.'" width="70" alt="Renter Photo"></td>'; ?>
+                            <td class="actions">
+                                <button id="renter_edit" data-id="<?php echo $row1->renter_id; ?>" class="btn btn-sm btn-primary publicity_edit">
+                                    <i class="glyphicon glyphicon-pencil"></i>
+                                    Edit
+                                </button>
+                                <button id="renter_delete" data-id="<?php echo $row1->renter_id; ?>" class="btn btn-sm btn-danger publicity_delete">
+                                    <i class="glyphicon glyphicon-trash"></i>
+                                    Delete
+                                </button>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Update dialog -->
+<div class="row">
+    <button style="visibility: hidden;" type="button" id="publicity_update_dialog_btn" class="btn btn-default btn-create" data-toggle="modal" data-target="#publicity_update_dialog">Update Publicity</button>
+    <?php $this->load->view('dialogs/publicity_update_dialog'); ?>
+</div>
+
+<script src='<?php echo base_url('assets/js/jquery.min.js'); ?>'></script>
+<script src='https://code.jquery.com/jquery.min.js'></script>
+<script>
+    jQuery(function(){
+        //delete
+        $('.publicity_delete').on('click',function(){
+            var deleted_row = $(this).parent().parent();
+            var id = $(this).data('id');
+            var url = '<?php echo base_url("publicity/delete"); ?>';
+
+            if (confirm('Are you sure to delete?')) {
+                $.ajax({
+                    type:'post',
+                    url:url,
+                    cache: false,
+                    data:{publicity_id:id},
+                    success:function(data){
+                        if (data=='yes') {
+                            deleted_row.fadeOut().remove();
+                            alert("Deleted successfully"); 
+                        }
+                    },
+                    error:function(){
+                        alert('Error deleting');
+                    }
+                });
+            }
+        });
+
+        //Update Form
+        $('.publicity_edit').on('click',function(){
+            var id = $(this).data('id');
+            var url = '<?php echo base_url("publicity/update_form"); ?>';
+
+            $.ajax({
+                type:'post',
+                url:url,
+                data:{publicity_id:id},
+                success:function(data){
+                    if (data) {
+                        $('#publicity_update_dialog_btn').trigger('click');
+                        $('#publicity_update_data').html(data);
+                    }
+                },
+                error:function(){
+                    alert('Error updating');
+                }
+            });
+        });
+
+        //Update
+        $(document).on('submit', '#publicityUpdateForm', function(event){
+            event.preventDefault();
+            event.stopPropagation();
+            var publicityUpdateSubmitData = new FormData(this);
+            //var publicityUpdateSubmitData = $('#publicityUpdateForm').serialize();
+            console.log(publicityUpdateSubmitData);
+            var url = '<?php echo base_url("publicity/update"); ?>';
+
+            $.ajax({
+                type:'POST',
+                url: url,
+                data:publicityUpdateSubmitData,
+                cache:false,
+                contentType: false,
+                processData: false,
+                success:function(data){
+                    //$("#publicityUpdateForm")[0].reset();
+                    if (data=='yes') {
+                        alert("Success! Updated successfully");
+                        $('.modal').modal('hide');
+                        window.location = "<?php echo base_url('publicity/publicity_action'); ?>";
+                    }
+                },
+                error: function(data){
+                    console.log("Error: "+data);
+                    if (data=='no') {
+                        alert("Failure! Not Updated successfully");
+                        $('.modal').modal('hide');
+                        window.location = "<?php echo base_url('publicity/publicity_action'); ?>";
+                    }
+                }
+            });
+
+        });
+        
+        $(document).on("change","#publicity_photo",function() {
+            $("#publicityUpdateForm").submit();
+        });
+        //End Update
+
+    });
+
+    //update image preview
+    function publicity_update_image(input) {
+        if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#publicity_update_photo_preview').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $(document).on("change","#publicity_photo",function(){
+        publicity_update_image(this);
+        console.log('File selected');
+    });
+    //End update image preview
+
+</script>

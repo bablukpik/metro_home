@@ -164,6 +164,9 @@
                     <li>
                         <a href="<?php echo base_url(); ?>super_admin/renterRegisterForm">Renter Registration</a>
                     </li>
+                    <li>
+                        <a href="<?php echo base_url(); ?>super_admin/renterManage">Manage Renter</a>
+                    </li>
                     <?php endif; ?>
 
                     <!-- For Landlord Menu -->   
@@ -273,6 +276,12 @@
                 <?php endif;?>
                 <!--End Renter creation error message of Photo-->
             </div>
+            <!-- Renter Manage Page -->
+            <div class="row">
+                <?php echo isset($renterManagePage)?$renterManagePage:''; ?>
+            </div>
+            <!-- End Renter Manage Page -->
+
             <!-- renterForm -->
             <div class="row">
                 <?php echo isset($renterForm)?$renterForm:''; ?>

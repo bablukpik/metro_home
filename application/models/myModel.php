@@ -290,7 +290,7 @@ class MyModel extends CI_Model {
     }
 
     //Find By ID
-    public function findById($table, $id)
+    public function findByPublicityId($table, $id)
     {
         $this->db->select('*');
         $this->db->from($table);
@@ -301,43 +301,86 @@ class MyModel extends CI_Model {
 
 
 
-
-    //Temp
-
-   /* public function save($data)
-    {
-        $this->db->insert(self::TABLE, $data);
+    //CRUD Operation
+    //Insert
+    public function save($table, $data){
+        $this->db->insert($table, $data);
+        return $this->db->insert_id();
     }
 
-
-
-    public function findAll()
+    //update
+    public function update($table, $tid, $id, $data)
     {
-        $this->db->select('*');
-        $this->db->from(self::TABLE);
-        $this->db->order_by("id", "desc");
+        $updated_status = $this->db->update($table, $data, array($tid => $id));
+        if($updated_status):
+            return $id;
+        else:
+            return false;
+        endif;
+    }
+    //delete
+    public function delete($table, $tid, $id)
+    {
+        return $this->db->delete($table, array($tid => $id));
+    }
+    //Find all
+    public function findAll($table, $tid)
+    {
+        $this->db->select('*', $tid);
+        $this->db->from($table);
+        $this->db->order_by($tid, "desc");
         $query = $this->db->get();
         return $query->result();
     }
-
-    public function findById($id)
+    //Find all by asc
+    public function findAllByAsc($table, $field)
     {
         $this->db->select('*');
-        $this->db->from(self::TABLE);
-        $this->db->where('id', $id);
+        $this->db->from($table);
+        $this->db->order_by($field, "asc");
+        $query = $this->db->get();
+        return $query->result();
+    }
+    //Find all by desc
+    public function findAllByDesc($table, $field)
+    {
+        $this->db->select('*');
+        $this->db->from($table);
+        $this->db->order_by($field, "desc");
+        $query = $this->db->get();
+        return $query->result();
+    }
+    //Find by id
+    public function findById($table, $tid, $id)
+    {
+        $this->db->select('*');
+        $this->db->from($table);
+        $this->db->where($tid, $id);
         $query = $this->db->get();
         return $query->row();
     }
-
-    public function updateOrg1($data, $id)
-    {
-        $this->db->update(self::TABLE, $data, array('id' => $id));
+    // Find All by Limit
+    public function findAllByLimit($table, $tid, $limit='', $offset='') {
+        $this->db->select('*');
+        $this->db->order_by($tid, 'DESC');
+        $this->db->from($table);
+        $this->db->limit($limit, $offset);
+        $query = $this->db->get();
+        return $query->result();
     }
+    // Find by ID & Limit
+    public function findByIdAndLimit($table, $tid, $id='', $limit='', $offset='') {
+        $this->db->select('*');
+        $this->db->order_by($tid, 'DESC');
+        $this->db->from($table);
+        $this->db->limit($limit, $offset);
+        $this->db->where(array($tid => $id));
+        $query = $this->db->get();
+        return $query->result();
+    }
+    //End CRUD Operation
 
-    public function destroy($id)
-    {
-        $this->db->delete(self::TABLE, array('id' => $id));
-    }*/
+
 
 }
 ?>
