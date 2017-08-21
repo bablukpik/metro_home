@@ -467,10 +467,13 @@ class Super_admin extends CI_Controller {
     {
         $data=array();
         $id = $this->input->post('renter_id');
-        $response = $this->MyModel->findById('renter','renter_id', $id);
-        if ($response) {
-            $dataUpdate['updateData'] = $response;
-            $updateForm = $this->load->view('dashboard/renter_update_page', $dataUpdate, TRUE);
+        $data['renterData'] = $this->MyModel->findById('renter','renter_id', $id);
+        $data['renterDriverData'] = $this->MyModel->findById('renter_driver','renter_id', $id);
+        $data['renterFamilyMData'] = $this->MyModel->findById('renter_familymember','renter_id', $id);
+        $data['renterHomeWrkData'] = $this->MyModel->findById('renter_homeworker','renter_id', $id);
+        
+        if ($data) {
+            $updateForm = $this->load->view('dashboard/renter_update_page', $data, TRUE);
             echo $updateForm;
             exit;
         }
