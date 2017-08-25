@@ -54,10 +54,9 @@
     <?php $this->load->view('dialogs/renter_update_dialog'); ?>
 </div>
 
-<script src='<?php echo base_url('assets/js/jquery.min.js'); ?>'></script>
-<script src='https://code.jquery.com/jquery.min.js'></script>
 <script>
-    jQuery(function(){
+
+    window.onload = function(){
         //delete
         $('.renter_delete').on('click',function(){
             var deleted_row = $(this).parent().parent();
@@ -97,6 +96,9 @@
                     if (data) {
                         $('#renter_update_dialog_btn').trigger('click');
                         $('#renter_update_data').html(data);
+                        $('.datetimepicker').datetimepicker({
+                            format: 'DD/MM/YYYY'
+                        });
                     }
                 },
                 error:function(){
@@ -106,7 +108,7 @@
         });
 
         //Update
-        $(document).on('submit', '#renterUpdateForm', function(event){
+        /*$(document).on('submit', '#renterUpdateForm', function(event){
             event.preventDefault();
             event.stopPropagation();
             var renterUpdateSubmitData = new FormData(this);
@@ -143,28 +145,30 @@
         
         $(document).on("change","#renter_photo",function() {
             $("#renterUpdateForm").submit();
-        });
+        });*/
         //End Update
 
-    });
 
-    //update image preview
-    function renter_update_image(input) {
-        if (input.files && input.files[0]) {
-        var reader = new FileReader();
+        //update image preview
+        function renter_update_image(input) {
+            if (input.files && input.files[0]) {
+            var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#renter_photo_preview').attr('src', e.target.result);
+                }
 
-            reader.onload = function (e) {
-                $('#renter_update_photo_preview').attr('src', e.target.result);
+                reader.readAsDataURL(input.files[0]);
             }
-
-            reader.readAsDataURL(input.files[0]);
         }
-    }
 
-    $(document).on("change","#renter_photo",function(){
-        renter_update_image(this);
-        console.log('File selected');
-    });
-    //End update image preview
+        $(document).on("change","#renter_photo",function(){
+            renter_update_image(this);
+            console.log('File selected');
+        });
+        //End update image preview
+
+
+    } //End document ready
+
 
 </script>

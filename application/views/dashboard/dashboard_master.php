@@ -15,6 +15,9 @@
     <!--Datepicker-->
     <link href="<?php echo base_url(); ?>assets/datepicker/css/jquery.datepick.css" rel="stylesheet">
     <!--/Datepicker-->
+    <!--Date picker new-->
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-datetimepicker.min.css'); ?>">
+    <!--End Date picker-->
     
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
@@ -316,9 +319,26 @@
         <!-- end page-wrapper -->
     </div>
     <!-- end wrapper -->
+
+
+    <!--Script Start-->
+       
     <!-- Core Scripts - Include with every page -->
     <script src="<?php echo base_url(); ?>backend_assets/plugins/jquery-1.10.2.js"></script>
     <script src="https://code.jquery.com/jquery.min.js"></script>
+    <!--Datepicker-->
+    <script src="<?php echo base_url(); ?>assets/datepicker/js/jquery.plugin.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/datepicker/js/jquery.datepick.js"></script>
+    <script>
+       
+        document.onready = function() {
+            // body...
+            $('.popupDatepickerBackEnd').datepick({dateFormat: 'dd/mm/yyyy'});
+        }
+        
+    </script>
+    <!--Datepicker-->
+
     <script src="<?php echo base_url(); ?>backend_assets/plugins/bootstrap/bootstrap.min.js"></script>
     <script src="<?php echo base_url(); ?>backend_assets/plugins/metisMenu/jquery.metisMenu.js"></script>
     <!-- <script src="<?php echo base_url(); ?>backend_assets/plugins/pace/pace.js"></script> -->
@@ -347,13 +367,6 @@
         setInterval('autoRefresh_div()', 2000); // refresh div after 2 secs
     </script>
 
-    <!--Datepicker-->
-    <script src="<?php echo base_url(); ?>assets/datepicker/js/jquery.plugin.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/datepicker/js/jquery.datepick.js"></script>
-    <script>
-        $('.popupDatepickerBackEnd').datepick({dateFormat: 'dd/mm/yyyy'});
-    </script>
-    <!--Datepicker-->
     <script src="<?php echo base_url('backend_assets/scripts/FormValidation.js');?>"></script>
     <!--Main Js For backend-->
     <script src="<?php echo base_url('backend_assets/scripts/main.js');?>"></script>
@@ -367,6 +380,20 @@
           size: 4
         });
     </script>
-<!--End Select Option-->
+    <!--End Select Option-->
+
+    <!--Date picker new-->
+    <script src="<?php echo base_url('assets/js/moment.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/bootstrap-datetimepicker.min.js'); ?>"></script>
+    <script>
+        $(function () {
+            $('.datetimepicker').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
+        });
+    </script>
+    <!--End Date picker -->
+    
+   <!--End Script -->
 </body>
 </html>

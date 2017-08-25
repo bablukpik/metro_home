@@ -26,7 +26,7 @@
 
             <div class="col-md-8">
                 <div class="form-group">
-                	<label for="renter_division">Division</label>
+                	<label for="renter_division">বিভাগঃ</label>
                     <select name="renter_division" id="renter_division" class="form-control">
                         <option>আপনার বিভাগ নির্বাচন করুন</option>
                         <option value="<?php echo $renterData->renter_division; ?>" selected="selected"><?php echo $renterData->renter_division; ?></option>
@@ -41,64 +41,72 @@
                     </select>
                 </div>
                 <div class="form-group">
-                	<label for="renter_district">District</label>
+                	<label for="renter_district">জেলাঃ</label>
                     <input value="<?php echo $renterData->renter_district; ?>" id="renter_district" type="text" name="renter_district" class="form-control" placeholder="জেলা">
                 </div>
                 <div class="form-group">
-                	<label for="renter_police_station">Police Station</label>
+                	<label for="renter_police_station">থানাঃ</label>
                     <input value="<?php echo $renterData->renter_police_station; ?>" type="text" name="renter_police_station" id="renter_police_station" class="form-control" placeholder="থানাঃ">
                 </div>
                 <div class="form-group">
-                	<label for="renter_flat_floor_no">Floor No.</label>
+                	<label for="renter_flat_floor_no">ফ্ল্যাটঃ</label>
                     <input value="<?php echo $renterData->renter_flat_floor_no; ?>" type="text" name="renter_flat_floor_no" id="renter_flat_floor_no" class="form-control" placeholder="ফ্ল্যাট / তলাঃ">
                 </div>
                 <div class="form-group">
-                	<label for="renter_holding_no">Holding No.</label>
+                	<label for="renter_holding_no">বাড়ী / হোল্ডিং নম্বরঃ</label>
                     <input value="<?php echo $renterData->renter_holding_no; ?>" type="text" name="renter_holding_no" id="renter_holding_no" class="form-control" placeholder="বাড়ী / হোল্ডিং নম্বরঃ">
                 </div>
                 <div class="form-group">
-                	<label for="renter_road_no">Road No.</label>
+                	<label for="renter_road_no">রাস্তাঃ</label>
                     <input value="<?php echo $renterData->renter_road_no; ?>" type="text" name="renter_road_no" class="form-control" id="renter_road_no" placeholder="রাস্তাঃ">
                 </div>
                 <div class="form-group">
-                	<label for="renter_road_no">Test</label>
+                	<label for="renter_road_no">এলাকাঃ</label>
                     <input value="<?php echo $renterData->renter_locality; ?>" type="text" name="renter_locality" class="form-control" placeholder="এলাকাঃ">
                 </div>
                 <div class="form-group">
-                	<label for="renter_road_no">Test</label>
+                	<label for="renter_road_no">পোস্ট কোডঃ</label>
                     <input value="<?php echo $renterData->renter_postcode; ?>" type="text" name="renter_postcode" class="form-control" placeholder="পোস্ট কোডঃ">
                 </div>
             </div> <hr/>
 
         	<div class="col-md-12">
         		<div class="form-group">
-	        		<label for="renter_name">test</label>
+	        		<label for="renter_name">ভাড়াটিয়া নামঃ</label>
 	                <input value="<?php echo $renterData->renter_fullname; ?>" type="text" name="renter_name" id="renter_name" class="form-control" placeholder="ভাড়াটিয়া নামঃ" required="required">
 	                <p class="help-block">i.e Md. Masudul Islam</p>
 	            </div>
 	            <div class="form-group">
-                	<label for="renter_road_no">Test</label>
+                	<label for="renter_road_no">পিতার নামঃ</label>
 	                <input value="<?php echo $renterData->renter_father_name; ?>" type="text" name="renter_father_name" class="form-control" placeholder="পিতার নামঃ">
 	            </div>
 	            <div class="form-group">
-                	<label for="renter_road_no">Test</label>
-	                <input value="<?php echo $renterData->renter_birth_date; ?>" type="text" name="renter_birth_date" class="form-control popupDatepickerBackEnd" placeholder="জন্ম তারিখঃ">
+                	<label for="renter_road_no">জন্ম তারিখঃ</label>
+	                
+
+	                <div class='input-group date datetimepicker' id='datetimepicker'>
+					    <input value="<?php echo date("d/m/Y", strtotime($renterData->renter_birth_date)); ?>" type="text" name="renter_birth_date" class="form-control datetimepicker" placeholder="জন্ম তারিখঃ">
+
+					    <span class="input-group-addon">
+					        <span class="glyphicon glyphicon-calendar"></span>
+					    </span>
+					</div>
 	            </div>
 	            <div class="form-group">
-                	<label for="renter_road_no">Test</label>
+                	<label for="renter_road_no">বৈবাহিক অবস্থাঃ</label>
 	                <input value="<?php echo $renterData->renter_maritial_status; ?>" type="text" name="renter_maritial_status" class="form-control" placeholder="বৈবাহিক অবস্থাঃ">
 	            </div>
 	            <div class="form-group">
-                	<label for="renter_road_no">Test</label>
+                	<label for="renter_road_no">স্থায়ী ঠিকানাঃ</label>
 	                <textarea name="renter_permanent_add" class="form-control" placeholder="স্থায়ী ঠিকানাঃ" rows="1" required="required"><?php echo $renterData->renter_permanent_add; ?> </textarea>
 	            </div>
 	            <div class="form-group">
-                	<label for="renter_road_no">Test</label>
+                	<label for="renter_road_no">পেশা ও প্রতিষ্ঠান / কর্মস্থলের ঠিকানাঃ</label>
 	                <textarea name="renter_profession_institute" class="form-control" placeholder="পেশা ও প্রতিষ্ঠান / কর্মস্থলের ঠিকানাঃ" rows="1"><?php echo $renterData->renter_profession_institute; ?></textarea>
 	            </div>
 
 	            <div class="form-group">
-                	<label for="renter_road_no">Test</label>
+                	<label for="renter_road_no">ধর্মঃ</label>
 	                <select name="renter_religion" class="form-control">
 	                    <option disabled>আপনার ধর্ম নির্বাচন করুনঃ</option> 
 	                    <option selected="selected"><?php echo $renterData->renter_religion; ?></option>
@@ -111,25 +119,25 @@
 	            </div>
 
 	            <div class="form-group">
-                	<label for="renter_road_no">Test</label>
+                	<label for="renter_road_no">বর্তমান শিক্ষাগত যোগ্যতাঃ</label>
 	                <input value="<?php echo $renterData->renter_educational_status; ?>" type="text" name="renter_educational_status" class="form-control" placeholder="বর্তমান শিক্ষাগত যোগ্যতাঃ">
 	            </div>
 	            <div class="form-group">
-                	<label for="renter_road_no">Test</label>
+                	<label for="renter_road_no">মোবাইল নম্বরঃ</label>
 	                <input value="<?php echo $renterData->renter_phone; ?>" type="text" name="renter_phone" class="form-control" placeholder="মোবাইল নম্বরঃ" required="required">
 	            </div>
 	            <div class="form-group">
-                	<label for="renter_road_no">Test</label>
+                	<label for="renter_road_no">ই-মেইল আইডিঃ</label>
 	                <p id="renter_emailMsg" class="help-block"></p>
 	                <input value="<?php echo $renterData->renter_email; ?>" type="text" id="renter_email" name="renter_email" class="form-control" placeholder="ই-মেইল আইডিঃ">
 	            </div>
 	            <div class="form-group">
-                	<label for="renter_road_no">Test</label>
+                	<label for="renter_road_no">জাতীয় পরিচয়পত্র নম্বরঃ</label>
 	                <p id="renter_nidMsg" class="help-block"></p>
 	                <input value="<?php echo $renterData->renter_nid; ?>" type="text" id="renter_nid" name="renter_nid" class="form-control" placeholder="জাতীয় পরিচয়পত্র নম্বরঃ " required="required">
 	            </div>
 	            <div class="form-group">
-                	<label for="renter_road_no">Test</label>
+                	<label for="renter_road_no">পাসপোর্ট নম্বর (যদি থাকে)</label>
 	                <p id="renter_passportMsg" class="help-block"></p>
 	                <input value="<?php echo $renterData->renter_passport; ?>" type="text" id="renter_passport" name="renter_passport" class="form-control" placeholder="পাসপোর্ট নম্বর (যদি থাকে)">
 	            </div>
@@ -138,21 +146,21 @@
 	                <div>জরুরী যোগাযোগঃ</div>
 	                <div class="col-md-6">
 	                    <div class="form-group">
-                	<label for="renter_road_no">Test</label>
+                	<label for="renter_road_no">(ক) নামঃ</label>
 	                        <input value="<?php echo $renterData->renter_emergency_name; ?>" type="text" name="renter_emergency_name" class="form-control" placeholder="(ক) নামঃ">
 	                    </div>
 	                    <div class="form-group">
-                	<label for="renter_road_no">Test</label>
+                	<label for="renter_road_no">(খ) সম্পর্কঃ</label>
 	                        <input value="<?php echo $renterData->renter_emergency_relation; ?>" type="text" name="renter_emergency_relation" class="form-control" placeholder="(খ) সম্পর্কঃ">
 	                    </div>
 	                </div>
 	                <div class="col-md-6">
 	                    <div class="form-group">
-                	<label for="renter_road_no">Test</label>
+                	<label for="renter_road_no">(গ) ঠিকানাঃ</label>
 	                        <textarea name="renter_emergency_address" class="form-control" placeholder="(গ) ঠিকানাঃ" rows="1"><?php echo $renterData->renter_emergency_address; ?></textarea>
 	                    </div>
 	                    <div class="form-group">
-                	<label for="renter_road_no">Test</label>
+                	<label for="renter_road_no">(ঘ) মোবাইল নম্বরঃ</label>
 	                        <input value="<?php echo $renterData->renter_emergency_phone; ?>" type="text" name="renter_emergency_phone" class="form-control" placeholder="(ঘ) মোবাইল নম্বরঃ">
 	                    </div>
 	                </div>
@@ -192,21 +200,21 @@
 	            <div class="form-group">
 	                <div class="col-md-6">
 	                    <div class="form-group">
-                	<label for="renter_road_no">Test</label>
+                	<label for="renter_road_no">গৃহকর্মীর নামঃ</label>
 	                        <input value="<?php echo $renterHomeWrkData->homeworker_name; ?>" type="text" name="homeworker_name" class="form-control" placeholder="গৃহকর্মীর নামঃ">
 	                    </div>
 	                    <div class="form-group">
-                	<label for="renter_road_no">Test</label>
+                	<label for="renter_road_no">মোবাইল নম্বরঃ</label>
 	                        <input value="<?php echo $renterHomeWrkData->homeworker_phone; ?>" type="text" name="homeworker_phone" class="form-control" placeholder="মোবাইল নম্বরঃ">
 	                    </div>
 	                </div>
 	                <div class="col-md-6">
 	                    <div class="form-group">
-                	<label for="renter_road_no">Test</label>
+                	<label for="renter_road_no">জাতীয় পরিচয়পত্র নম্বরঃ</label>
 	                        <input value="<?php echo $renterHomeWrkData->homeworker_nid; ?>" type="text" name="homeworker_nid" class="form-control" placeholder="জাতীয় পরিচয়পত্র নম্বরঃ">
 	                    </div>
 	                    <div class="form-group">
-                	<label for="renter_road_no">Test</label>
+                	<label for="renter_road_no">স্থায়ী ঠিকানাঃ</label>
 	                        <textarea name="homeworker_permanent_add" class="form-control" placeholder="স্থায়ী ঠিকানাঃ" rows="1"><?php echo $renterHomeWrkData->homeworker_permanent_add; ?></textarea>
 	                    </div>
 	                </div>
@@ -215,21 +223,21 @@
 	            <div class="form-group">
 	                <div class="col-md-6">
 	                    <div class="form-group">
-                	<label for="renter_road_no">Test</label>
+                	<label for="renter_road_no">ড্রাইভারের নামঃ</label>
 	                        <input value="<?php echo $renterDriverData->driver_name; ?>" type="text" name="driver_name" class="form-control" placeholder="ড্রাইভারের নামঃ">
 	                    </div>
 	                    <div class="form-group">
-                	<label for="renter_road_no">Test</label>
+                	<label for="renter_road_no">মোবাইল নম্বরঃ</label>
 	                        <input value="<?php echo $renterDriverData->driver_phone; ?>" type="text" name="driver_phone" class="form-control" placeholder="মোবাইল নম্বরঃ">
 	                    </div>
 	                </div>
 	                <div class="col-md-6">
 	                    <div class="form-group">
-                	<label for="renter_road_no">Test</label>
+                	<label for="renter_road_no">জাতীয় পরিচয়পত্র নম্বরঃ</label>
 	                        <input value="<?php echo $renterDriverData->driver_nid; ?>" type="text" name="driver_nid" class="form-control" placeholder="জাতীয় পরিচয়পত্র নম্বরঃ">
 	                    </div>
 	                    <div class="form-group">
-                	<label for="renter_road_no">Test</label>
+                	<label for="renter_road_no">স্থায়ী ঠিকানাঃ</label>
 	                        <textarea name="driver_permanent_add" class="form-control" placeholder="স্থায়ী ঠিকানাঃ" rows="1"><?php echo $renterDriverData->driver_permanent_add; ?> </textarea>
 	                    </div>
 	                </div>
@@ -238,48 +246,48 @@
 	            <div class="form-group">
 	                <div class="col-md-6">
 	                    <div class="form-group">
-                	<label for="renter_road_no">Test</label>
+                	<label for="renter_road_no">পূর্ববর্তী বাড়িওয়ালার নামঃ</label>
 	                        <input value="<?php echo $renterData->renter_previous_landlord_name; ?>" type="text" name="renter_previous_landlord_name" class="form-control" placeholder="পূর্ববর্তী বাড়িওয়ালার নামঃ">
 	                    </div>
 	                </div>
 	                <div class="col-md-6">
 	                    <div class="form-group">
-                	<label for="renter_road_no">Test</label>
+                	<label for="renter_road_no">মোবাইল নম্বরঃ</label>
 	                        <input value="<?php echo $renterData->renter_previous_landlord_phone; ?>" type="text" name="renter_previous_landlord_phone" class="form-control" placeholder="মোবাইল নম্বরঃ">
 	                    </div>
 	                </div>
 
 	                <div class="col-md-12">
 	                    <div class="form-group">
-                	<label for="renter_road_no">Test</label>
+                	<label for="renter_road_no">ঠিকানাঃ</label>
 	                        <textarea name="renter_previous_landlord_permanent_add" class="form-control" placeholder="ঠিকানাঃ" rows="1"><?php echo $renterData->renter_previous_landlord_permanent_add; ?> </textarea>
 	                    </div>
 	                </div>
 	            </div> <hr/>
 
 	            <div class="form-group">
-                	<label for="renter_road_no">Test</label>
+                	<label for="renter_road_no">পূর্ববর্তী বাসা ছাড়ার কারণঃ</label>
 	                <textarea name="renter_prvious_leave_reason" class="form-control" placeholder="পূর্ববর্তী বাসা ছাড়ার কারণঃ" rows="1"><?php echo $renterData->renter_prvious_leave_reason; ?> </textarea>
 	            </div>
 
 	            <div class="form-group">
 	                <div class="col-md-6">
 	                    <div class="form-group">
-                	<label for="renter_road_no">Test</label>
+                	<label for="renter_road_no">বর্তমান বাড়িওয়ালার নামঃ</label>
 	                        <input value="<?php echo $renterData->renter_present_landlord_name; ?>" type="text" name="renter_present_landlord_name" class="form-control" placeholder="বর্তমান বাড়িওয়ালার নামঃ" />
 	                    </div>
 	                </div>
 	                <div class="col-md-6">
 	                    <div class="form-group">
-                			<label for="renter_road_no">Test</label>
+                			<label for="renter_road_no">মোবাইল নম্বরঃ</label>
 	                        <input value="<?php echo $renterData->renter_present_landlord_phone; ?>" type="text" name="renter_present_landlord_phone" class="form-control" placeholder="মোবাইল নম্বরঃ" />
 	                    </div>
 	                </div>
 	            </div>
 
 	            <div class="form-group">
-                	<label for="renter_road_no">Test</label>
-	                <input value="<?php echo $renterData->renter_present_start_date; ?>" type="text" name="renter_present_start_date" class="form-control" placeholder="বর্তমান বাড়িতে কোন তারিখ থেকে বসবাসরতঃ" />
+                	<label for="renter_road_no">বর্তমান বাড়িতে কোন তারিখ থেকে বসবাসরতঃ</label>
+	                <input value="<?php echo date("d/m/Y", strtotime($renterData->renter_present_start_date)); ?>" type="text" name="renter_present_start_date" class="form-control datetimepicker" placeholder="বর্তমান বাড়িতে কোন তারিখ থেকে বসবাসরতঃ" />
 	            </div>
 
 				<div class="form-group" style="margin-top: 30px;">
