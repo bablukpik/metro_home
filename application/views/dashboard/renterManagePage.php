@@ -114,7 +114,7 @@
             var renterUpdateSubmitData = new FormData(this);
             //var renterUpdateSubmitData = $('#renterUpdateForm').serialize();
             console.log(renterUpdateSubmitData);
-            var url = '<?php echo base_url("renter/update"); ?>';
+            var url = '<php echo base_url("renter/update"); ?>';
 
             $.ajax({
                 type:'POST',
@@ -128,7 +128,7 @@
                     if (data=='yes') {
                         alert("Success! Updated successfully");
                         $('.modal').modal('hide');
-                        window.location = "<?php echo base_url('renter/renter_action'); ?>";
+                        window.location = "<php echo base_url('renter/renter_action'); ?>";
                     }
                 },
                 error: function(data){
@@ -136,7 +136,7 @@
                     if (data=='no') {
                         alert("Failure! Not Updated successfully");
                         $('.modal').modal('hide');
-                        window.location = "<?php echo base_url('renter/renter_action'); ?>";
+                        window.location = "<php echo base_url('renter/renter_action'); ?>";
                     }
                 }
             });

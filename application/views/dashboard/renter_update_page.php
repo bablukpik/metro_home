@@ -6,8 +6,8 @@
 </style>
 <div class="panel panel-default">
 	<div class="panel-body">
-		<form id="renterUpdateForm" action="<?php echo base_url('super_admin/update_renter'); ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
-			
+		<form id="renterUpdateForm" action="<?php echo base_url('super_admin/updateRenter'); ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
+            <input type="hidden" name="renter_id" value="<?php echo isset($renterData->renter_id)?$renterData->renter_id:''; ?>">
 			<!-- Image Upload -->
 			<div class="col-md-4">
                 <div class="row">
@@ -198,6 +198,7 @@
 	            </div>
 
 	            <div class="form-group">
+                    <input type="hidden" name="homeworker_id" value="<?php echo isset($renterHomeWrkData->homeworker_id)?$renterHomeWrkData->homeworker_id:''; ?>">
 	                <div class="col-md-6">
 	                    <div class="form-group">
                 	<label for="renter_road_no">গৃহকর্মীর নামঃ</label>
@@ -221,6 +222,7 @@
 	            </div> <hr/>
 
 	            <div class="form-group">
+                    <input type="hidden" name="driver_id" value="<?php echo isset($renterDriverData->driver_id)?$renterDriverData->driver_id:''; ?>">
 	                <div class="col-md-6">
 	                    <div class="form-group">
                 	<label for="renter_road_no">ড্রাইভারের নামঃ</label>
