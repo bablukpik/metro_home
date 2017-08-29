@@ -357,7 +357,7 @@ class MyModel extends CI_Model {
         $this->db->from($table);
         $this->db->where($tid, $id);
         $query = $this->db->get();
-        return $query->row();
+        return $query->result();
     }
     // Find All by Limit
     public function findAllByLimit($table, $tid, $limit='', $offset='') {

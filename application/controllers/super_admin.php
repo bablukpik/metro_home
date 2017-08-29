@@ -639,7 +639,6 @@ class Super_admin extends CI_Controller {
         $data['renterDriverData'] = $this->MyModel->findById('renter_driver','renter_id', $id);
         $data['renterFamilyMData'] = $this->MyModel->findById('renter_familymember','renter_id', $id);
         $data['renterHomeWrkData'] = $this->MyModel->findById('renter_homeworker','renter_id', $id);
-        
         if ($data) {
             $updateForm = $this->load->view('dashboard/renter_update_page', $data, TRUE);
             echo $updateForm;

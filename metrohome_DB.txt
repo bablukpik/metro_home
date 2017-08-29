@@ -116,7 +116,7 @@ Create table renter(
 	user_type varchar(30) default 'renter', /*type*/
 	renter_father_name varchar(30),
 	renter_birth_date date, /* password*/
-	renter_maritial_status int(2),
+	renter_maritial_status varchar(15),
 	renter_permanent_add text, /*required*/
 	renter_profession_institute varchar(30),
 	renter_religion varchar(30),
