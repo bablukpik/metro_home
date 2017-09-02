@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac65e9e2-0f79-41ca-ad13-1718b875aa82" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Use Case for our Project White.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/metrohome.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/metrohome_DB.txt" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/super_admin.php" afterPath="$PROJECT_DIR$/application/controllers/super_admin.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/myModel.php" afterPath="$PROJECT_DIR$/application/models/myModel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dashboard/renterManagePage.php" afterPath="$PROJECT_DIR$/application/views/dashboard/renterManagePage.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dashboard/renter_update_page.php" afterPath="$PROJECT_DIR$/application/views/dashboard/renter_update_page.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/metrohome_DB.txt" afterPath="$PROJECT_DIR$/metrohome_DB.txt" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,8 +23,8 @@
       <file leaf-file-name="myModel.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/myModel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="524">
-              <caret line="380" column="24" lean-forward="true" selection-start-line="380" selection-start-column="24" selection-end-line="380" selection-end-column="24" />
+            <state relative-caret-position="167">
+              <caret line="324" column="12" lean-forward="false" selection-start-line="324" selection-start-column="6" selection-end-line="324" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -30,29 +33,26 @@
       <file leaf-file-name="super_admin.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/super_admin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="641" column="20" lean-forward="true" selection-start-line="641" selection-start-column="20" selection-end-line="641" selection-end-column="20" />
+            <state relative-caret-position="422">
+              <caret line="608" column="58" lean-forward="false" selection-start-line="608" selection-start-column="58" selection-end-line="608" selection-end-column="58" />
               <folding>
-                <element signature="n#registerRenter#0;n#Super_admin#0;n#!!top" expanded="false" />
-                <marker date="1504040937326" expanded="true" signature="24301:24312" ph="..." />
-                <marker date="1504040937326" expanded="true" signature="24426:24435" ph="..." />
-                <marker date="1504040937326" expanded="true" signature="24553:24562" ph="..." />
-                <marker date="1504040937326" expanded="true" signature="24699:24709" ph="..." />
-                <marker date="1504040937326" expanded="true" signature="27323:27369" ph="..." />
-                <marker date="1504040937326" expanded="true" signature="27451:27497" ph="..." />
+                <marker date="1504390549662" expanded="true" signature="15265:15276" ph="..." />
+                <marker date="1504390549662" expanded="true" signature="15390:15399" ph="..." />
+                <marker date="1504390549662" expanded="true" signature="15517:15526" ph="..." />
+                <marker date="1504390549662" expanded="true" signature="15663:15673" ph="..." />
+                <marker date="1504390549662" expanded="true" signature="18287:18333" ph="..." />
+                <marker date="1504390549662" expanded="true" signature="18415:18461" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="renter_update_page.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="renter_update_page.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/dashboard/renter_update_page.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="47" lean-forward="true" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
-              <folding>
-                <marker date="1504041218061" expanded="false" signature="19502:19519" ph="..." />
-              </folding>
+            <state relative-caret-position="17">
+              <caret line="198" column="36" lean-forward="false" selection-start-line="198" selection-start-column="36" selection-end-line="198" selection-end-column="36" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -61,19 +61,19 @@
         <entry file="file://$PROJECT_DIR$/application/views/dialogs/renter_update_dialog.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
-              <caret line="6" column="33" lean-forward="true" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+              <caret line="6" column="33" lean-forward="false" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="renterManagePage.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="renterManagePage.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/dashboard/renterManagePage.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="104" column="44" lean-forward="false" selection-start-line="104" selection-start-column="44" selection-end-line="104" selection-end-column="44" />
+            <state relative-caret-position="261">
+              <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="189" selection-end-column="9" />
               <folding>
-                <marker date="1503767951489" expanded="true" signature="1254:1262" ph="..." />
+                <marker date="1504391973056" expanded="true" signature="1254:1262" ph="..." />
               </folding>
             </state>
           </provider>
@@ -90,9 +90,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>mirpu</find>
-      <find>mirpur</find>
-      <find>renter_nid</find>
       <find>display_none</find>
       <find>http://bdjobs.com</find>
       <find>renter_emailMsg</find>
@@ -115,11 +112,14 @@
       <find>renterManage</find>
       <find>$renter_photo</find>
       <find>renter_present_start_date</find>
-      <find>family</find>
       <find>findById</find>
       <find>$renterData</find>
       <find>renter_up</find>
       <find>$renterDriverData</find>
+      <find>update_form</find>
+      <find>updateRenter</find>
+      <find>family</find>
+      <find>$renterFMData</find>
     </findStrings>
     <replaceStrings>
       <replace>lnd_</replace>
@@ -166,10 +166,10 @@
         <option value="$PROJECT_DIR$/application/controllers/registration.php" />
         <option value="$PROJECT_DIR$/application/views/dialogs/registration_dialog.php" />
         <option value="$PROJECT_DIR$/application/views/dashboard/dashboard_master.php" />
-        <option value="$PROJECT_DIR$/application/views/dashboard/renterManagePage.php" />
+        <option value="$PROJECT_DIR$/application/views/dashboard/renter_update_page.php" />
         <option value="$PROJECT_DIR$/application/models/myModel.php" />
         <option value="$PROJECT_DIR$/application/controllers/super_admin.php" />
-        <option value="$PROJECT_DIR$/application/views/dashboard/renter_update_page.php" />
+        <option value="$PROJECT_DIR$/application/views/dashboard/renterManagePage.php" />
       </list>
     </option>
   </component>
@@ -197,7 +197,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -210,50 +210,12 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="metro_home" type="b2602c69:ProjectViewProjectNode" />
-              <item name="metro_home" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="metro_home" type="b2602c69:ProjectViewProjectNode" />
-              <item name="metro_home" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="metro_home" type="b2602c69:ProjectViewProjectNode" />
-              <item name="metro_home" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="metro_home" type="b2602c69:ProjectViewProjectNode" />
-              <item name="metro_home" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="metro_home" type="b2602c69:ProjectViewProjectNode" />
-              <item name="metro_home" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="dashboard" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
@@ -404,14 +366,18 @@
       <workItem from="1503339433341" duration="161000" />
       <workItem from="1503767024365" duration="9181000" />
       <workItem from="1504027740391" duration="8268000" />
+      <workItem from="1504113686344" duration="2066000" />
+      <workItem from="1504199825990" duration="6759000" />
+      <workItem from="1504380696250" duration="5687000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="229614000" />
+    <option name="totallyTimeSpent" value="244126000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26061493" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -695,7 +661,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -717,7 +682,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4046">
           <caret line="5" column="32" lean-forward="false" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -732,7 +696,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="214" column="21" lean-forward="false" selection-start-line="214" selection-start-column="21" selection-end-line="214" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -743,54 +706,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/dialogs/renter_update_dialog.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="33" lean-forward="true" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/dashboard/renterManagePage.php">
+    <entry file="file://$PROJECT_DIR$/application/views/dashboard/renter_update_page.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
-          <caret line="104" column="44" lean-forward="false" selection-start-line="104" selection-start-column="44" selection-end-line="104" selection-end-column="44" />
-          <folding>
-            <marker date="1503767951489" expanded="true" signature="1254:1262" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/myModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="380" column="24" lean-forward="true" selection-start-line="380" selection-start-column="24" selection-end-line="380" selection-end-column="24" />
+          <caret line="198" column="36" lean-forward="false" selection-start-line="198" selection-start-column="36" selection-end-line="198" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/super_admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="641" column="20" lean-forward="true" selection-start-line="641" selection-start-column="20" selection-end-line="641" selection-end-column="20" />
+        <state relative-caret-position="422">
+          <caret line="608" column="58" lean-forward="false" selection-start-line="608" selection-start-column="58" selection-end-line="608" selection-end-column="58" />
           <folding>
-            <element signature="n#registerRenter#0;n#Super_admin#0;n#!!top" expanded="false" />
-            <marker date="1504040937326" expanded="true" signature="24301:24312" ph="..." />
-            <marker date="1504040937326" expanded="true" signature="24426:24435" ph="..." />
-            <marker date="1504040937326" expanded="true" signature="24553:24562" ph="..." />
-            <marker date="1504040937326" expanded="true" signature="24699:24709" ph="..." />
-            <marker date="1504040937326" expanded="true" signature="27323:27369" ph="..." />
-            <marker date="1504040937326" expanded="true" signature="27451:27497" ph="..." />
+            <marker date="1504390549662" expanded="true" signature="15265:15276" ph="..." />
+            <marker date="1504390549662" expanded="true" signature="15390:15399" ph="..." />
+            <marker date="1504390549662" expanded="true" signature="15517:15526" ph="..." />
+            <marker date="1504390549662" expanded="true" signature="15663:15673" ph="..." />
+            <marker date="1504390549662" expanded="true" signature="18287:18333" ph="..." />
+            <marker date="1504390549662" expanded="true" signature="18415:18461" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/dashboard/renter_update_page.php">
+    <entry file="file://$PROJECT_DIR$/application/models/myModel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="47" lean-forward="true" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
+        <state relative-caret-position="167">
+          <caret line="324" column="12" lean-forward="false" selection-start-line="324" selection-start-column="6" selection-end-line="324" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/dialogs/renter_update_dialog.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="33" lean-forward="false" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/dashboard/renterManagePage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="189" selection-end-column="9" />
           <folding>
-            <marker date="1504041218061" expanded="false" signature="19502:19519" ph="..." />
+            <marker date="1504391973056" expanded="true" signature="1254:1262" ph="..." />
           </folding>
         </state>
       </provider>

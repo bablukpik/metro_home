@@ -195,14 +195,17 @@
 	                            </tr>
 	                            </thead>
 	                            <tbody>
+                                <?php $i=0; foreach ($renterFamilyMData as $key1 => $renterFamilyMDataRow) : ?>
 	                            <tr>
-	                                <td>1</td>
-	                                <td><input value="" type="text" name="family_member_name[]" required="required"></td>
-	                                <td><input  value="" type="text" name="family_member_age[]" required="required"></td>
-	                                <td><input  value="" type="text" name="family_member_job[]" required="required"></td>
-	                                <td colspan="2"><input  value="" type="text" name="family_member_phone[]" required="required"></td>
+	                                <td><?php echo ++$i;?></td>
+	                                <td><input value="<?php echo $renterFamilyMDataRow->family_member_name;?>" type="text" name="family_member_name[]" required="required"></td>
+	                                <td><input  value="<?php echo $renterFamilyMDataRow->family_member_age;?>" type="text" name="family_member_age[]" required="required"></td>
+	                                <td><input  value="<?php echo $renterFamilyMDataRow->family_member_job;?>" type="text" name="family_member_job[]" required="required"></td>
+	                                <td colspan="2"><input  value="<?php echo $renterFamilyMDataRow->family_member_phone;?>" type="text" name="family_member_phone[]"></td>
 	                            </tr>
-	                            </tbody>
+                                <?php endforeach;?>
+
+                                </tbody>
 	                        </table>
 	                        <button type="button" id="addMember" class="btn btn-primary pull-right">সদস্য যুক্ত করুন</button>
 	                    </div>
