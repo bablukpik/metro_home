@@ -170,6 +170,9 @@
                     <li>
                         <a href="<?php echo base_url(); ?>super_admin/renterManage">Manage Renter</a>
                     </li>
+                    <li>
+                        <a href="<?php echo base_url(); ?>super_admin/landlordManage">Manage Landlord</a>
+                    </li>
                     <?php endif; ?>
 
                     <!-- For Landlord Menu -->   

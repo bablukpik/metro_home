@@ -453,6 +453,10 @@ class Super_admin extends CI_Controller {
 
     }
 
+    /*
+     * Renter CRUD
+     */
+
     //Renter View
     public function renterManage()
     {
@@ -461,7 +465,7 @@ class Super_admin extends CI_Controller {
         $this->load->view("dashboard/dashboard_master", $page);
     }
 
-    //Renter Update
+    //Renter Update Form
     public function renter_update_form()
     {
         $data=array();
@@ -658,63 +662,216 @@ class Super_admin extends CI_Controller {
     }
     //End Renter Update
 
-   /* public function update_renter()
-    {   
-        //First of all unlink the image
-        $id = $this->input->post('publicity_id');
-        if(!empty($_FILES['publicity_photo']['name'])){
-            $result = $this->MyModel->findByPublicityId('publicity', $id);
-            if($result){
-                unlink('publicity/images/publicity_img/'.$result->publicity_photo);
-                unlink('publicity/images/publicity_img/'.str_replace("_thumb","", $result->publicity_photo));
-            }
+    /*
+     * Landlord CRUD
+     */
+
+    //Renter View
+    public function landlordManage()
+    {
+        $data["landlord_all"] = $this->MyModel->findAll('landloard', 'lnd_id');
+        $page['renterManagePage'] = $this->load->view('dashboard/landlordManagePage', $data, TRUE);
+        $this->load->view("dashboard/dashboard_master", $page);
+    }
+
+    //Renter Update Form
+    public function landlord_update_form()
+    {
+        $data=array();
+        $id = $this->input->post('lnd_id');
+        //die($id);
+        $data['lndData'] = $this->MyModel->findById('landloard','lnd_id', $id);
+        $data['lndDriverData'] = $this->MyModel->findById('lnd_driver','lnd_id', $id);
+        $data['lndFamilyMData'] = $this->MyModel->findById('lnd_familymember','lnd_id', $id);
+        $data['lndHomeWrkData'] = $this->MyModel->findById('lnd_homeworker','lnd_id', $id);
+        //die(print_r($data));
+        if ($data) {
+            $updateForm = $this->load->view('dashboard/landlord_update_page', $data, TRUE);
+            echo $updateForm;
+            exit;
         }
+    }
+
+    //Renter Update
+    public function updateLandlord()
+    {
+        //die(print_r($_POST));
+        $reterData = array();
 
         //Start upload picture
-        if(!empty($_FILES['publicity_photo']['name'])){ //if($_FILES['image']['error'] == 0){
-            $config['upload_path'] = 'publicity/images/publicity_img/';
+        if(!empty($_FILES['renter_photo']['name'])){ //if($_FILES['image']['error'] == 0){
+            $config['upload_path'] = 'uploads/';
             $config['allowed_types'] = 'jpg|jpeg|png|gif';
-            $config['file_name'] = date("Y-m-d-H-i-s")."_".str_replace(' ', '-', $_FILES['publicity_photo']['name']);
+            $config['file_name'] = date("Y-m-d-H-i-s")."_".str_replace(' ', '-', $_FILES['renter_photo']['name']);
 
             //Load upload library and initialize configuration
             $this->load->library('upload',$config);
-            $this->upload->initialize($config);
+            //$this->upload->initialize($config);
 
-            if($this->upload->do_upload('publicity_photo')){
+            if($this->upload->do_upload('renter_photo')){
                 $finfo=$this->upload->data();
-                $this->_createThumbnail($finfo['file_name']);
-                $publicity_photo = $finfo['raw_name'].'_thumb'.$finfo['file_ext'];
-                //$publicity_photo = $finfo['file_name'];
+
+                //Image Manipulation
+                $config['image_library']    = "gd2";
+                $config['source_image']     = "uploads/" .$finfo['file_name']; //$finfo['full_path']
+                $config['maintain_ratio']   = TRUE;
+                $config['width']            = "160";
+                $config['height']           = "200";
+
+                $this->load->library('image_lib',$config);
+
+                if(!$this->image_lib->resize())
+                {
+                    echo $this->image_lib->display_errors();
+                }
+                //End Image Manipulation
+
+                //$renter_photo = $finfo['raw_name'].'_thumb'.$finfo['file_ext'];
+                $renter_photo = $finfo['file_name'];
             }else{
-                $publicity_photo = '';
+                $renter_photo = '';
             }
         }else{
-            $publicity_photo = '';
+            $renter_photo = '';
         }
         //End upload picture
 
-        $data = $this->input->post();
-        $dt = new DateTime("now", new DateTimeZone('Asia/Dhaka'));
-        $todayDate = $dt->format('Y-m-d h:i:s');
+        //Data check
+        if (!empty($_POST['renter_name']) && !empty($_POST['renter_nid'])) {
+            $renter_id = $this->input->post('renter_id');
+            //Renter Table (1)
+            $reterData['renter_fullname'] = $this->input->post('renter_name');
+            $reterData['user_type'] = "renter";
+            $reterData['renter_father_name'] = $this->input->post('renter_father_name');
 
-        $data['publicity_userid']           = $this->session->userdata('user_name');
-        $data['publicity_usertype']         = $this->session->userdata('user_type');
-        $data['publicity_created_date']     = $todayDate;
-        $data['publicity_expired_date']     = $todayDate;
+            $renter_birth_date = strtotime($_POST['renter_birth_date']);
+            $reterData['renter_birth_date']=date("Y-m-d", strtotime(str_replace('/', '-', $this->input->post('renter_birth_date'))));
 
-        if (!empty($publicity_photo)) {
-            $data['publicity_photo']        = $publicity_photo;
-        }
+            $reterData['renter_maritial_status'] = $this->input->post('renter_maritial_status');
+            $reterData['renter_permanent_add'] = $this->input->post('renter_permanent_add');
+            $reterData['renter_profession_institute'] = $this->input->post('renter_profession_institute');
+            $reterData['renter_religion'] = $this->input->post('renter_religion');
+            $reterData['renter_educational_status'] = $this->input->post('renter_educational_status');
+            $reterData['renter_phone'] = $this->input->post('renter_phone');
+            $reterData['renter_email'] = $this->input->post('renter_email');
+            $reterData['renter_nid'] = $this->input->post('renter_nid'); /* user_name*/
+            $reterData['renter_passport'] = $this->input->post('renter_passport');
+            $reterData['renter_emergency_name'] = $this->input->post('renter_emergency_name');
+            $reterData['renter_emergency_relation'] = $this->input->post('renter_emergency_relation');
+            $reterData['renter_emergency_address'] = $this->input->post('renter_emergency_address');
+            $reterData['renter_emergency_phone'] = $this->input->post('renter_emergency_phone');
 
-        $response = $this->MyModel->updatePublicity($id, $data);
-        if ($response) {
-            echo "yes";
+            $reterData['renter_previous_landlord_name'] = $this->input->post('renter_previous_landlord_name');
+            $reterData['renter_previous_landlord_phone'] = $this->input->post('renter_previous_landlord_phone');
+            $reterData['renter_previous_landlord_permanent_add'] = $this->input->post('renter_previous_landlord_permanent_add');
+
+            $reterData['renter_prvious_leave_reason'] = $this->input->post('renter_prvious_leave_reason');
+
+            $reterData['renter_present_landlord_name'] = $this->input->post('renter_present_landlord_name');
+            $reterData['renter_present_landlord_phone'] = $this->input->post('renter_present_landlord_phone');
+            $reterData['renter_present_start_date'] = date("Y-m-d", strtotime(str_replace('/', '-', $this->input->post('renter_present_start_date'))));
+
+            $reterData['renter_division'] = $this->input->post('renter_division');
+            $reterData['renter_district'] = $this->input->post('renter_district');
+            $reterData['renter_police_station'] = $this->input->post('renter_police_station');
+            $reterData['renter_flat_floor_no'] = $this->input->post('renter_flat_floor_no');
+            $reterData['renter_holding_no'] = $this->input->post('renter_holding_no');
+            $reterData['renter_road_no'] = $this->input->post('renter_road_no');
+            $reterData['renter_locality'] = $this->input->post('renter_locality');
+            $reterData['renter_postcode'] = $this->input->post('renter_postcode');
+
+            if(!empty($renter_photo)){
+                $reterData['renter_photo'] = $renter_photo;
+
+                //unlink the file
+                $result = $this->MyModel->FindById('renter','renter_id', $renter_id);
+                if($result){
+                    unlink('uploads/'.$result->renter_photo);
+                    //unlink('publicity/images/publicity_img/'.str_replace("_thumb","", $result->publicity_photo));
+                }
+            }
+
+
+            $renterInsertId = $this->MyModel->update('renter','renter_id',$renter_id, $reterData);
+
+            if ($renterInsertId){
+                $sdata['message'] = 'Renter updated successfully';
+                $sdata['RenterAddedSussess'] = 'Renter updated successfully';
+
+                //renter_familymember Table (02)
+                $renterFMData['renter_id'] = $renterInsertId; /* foreign key*/
+                $renterFMData['family_member_name'] = $this->input->post('family_member_name');
+                $renterFMData['family_member_age'] = $this->input->post('family_member_age');
+                $renterFMData['family_member_job'] = $this->input->post('family_member_job');
+                $renterFMData['family_member_phone'] = $this->input->post('family_member_phone');
+
+                //Form array type data fetch
+                for($i = 0; $i < count($renterFMData['family_member_name']); $i++) {
+                    $batch[] = array("renter_id" => $renterFMData['renter_id'],
+                        "family_member_name" => $renterFMData['family_member_name'][$i],
+                        "family_member_age" => $renterFMData['family_member_age'][$i],
+                        "family_member_job" => $renterFMData['family_member_job'][$i],
+                        "family_member_phone" => $renterFMData['family_member_phone'][$i]
+                    );
+                }
+
+                $renterFMInsertId = $this->MyModel->updateByBatch('renter','renter_id',$renter_id,$batch);
+
+                if($renterFMInsertId){
+                    $sdata['renterFMSuccess'] = 'Renter family member updated successfully';
+                }else{
+                    $sdata['renterFMFailure'] = 'Renter family member updated failure';
+                }
+
+                //renter_homeworker Table (03)
+                $homeworker_id = $this->input->post('homeworker_id');
+                $renterHWData['homeworker_name'] = $this->input->post('homeworker_name');
+                $renterHWData['homeworker_nid'] = $this->input->post('homeworker_nid');
+                $renterHWData['homeworker_phone'] = $this->input->post('homeworker_phone');
+                $renterHWData['homeworker_permanent_add'] = $this->input->post('homeworker_permanent_add');
+
+                $renterHWInsertId = $this->MyModel->update('renter_homeworker','homeworker_id',$homeworker_id,$renterHWData);
+
+                if($renterHWInsertId){
+                    $sdata['renterHWSuccess'] = 'Renter home worker updated successfully';
+                }else{
+                    $sdata['renterHWFailure'] = 'Renter home worker updated failure!';
+                }
+
+                //renter_driver Table (04)
+                $driver_id = $this->input->post('driver_id');
+                $renter_driverData['driver_name'] = $this->input->post('driver_name');
+                $renter_driverData['driver_nid'] = $this->input->post('driver_nid');
+                $renter_driverData['driver_phone'] = $this->input->post('driver_phone');
+                $renter_driverData['driver_permanent_add'] = $this->input->post('driver_permanent_add');
+
+                $renterDriverInsertId = $this->MyModel->update('renter_driver','driver_id',$driver_id,$renter_driverData);
+
+                if($renterDriverInsertId){
+                    $sdata['renterDriverSuccess'] = 'Renter driver updated successfully';
+                }else{
+                    $sdata['renterDriverFailure'] = 'Renter driver updated failure!';
+                }
+
+                $this->session->set_userdata($sdata);
+                //Error msg for picture upload
+                if($renter_photo == ''){
+                    $this->session->set_flashdata('error_msg_photo_renter', 'Photo has not been updated');
+                }
+                redirect('super_admin/renterManage');
+            }else{
+                $sdata['message'] = 'Try again! Renter updated failure';
+                $sdata['renterAddedFailure'] = 'Try again! Renter updated failure';
+                $this->session->set_userdata($sdata);
+                redirect('super_admin/renterManage');
+            }
+
         }else{
-            echo "no";
+            redirect('super_admin/renterManage');
         }
+    }
+    //End Landlord Update
 
-    }*/
-    //End Renter Update
 
 
 }
