@@ -204,7 +204,6 @@
 	                                <td colspan="2"><input  value="<?php echo $renterFamilyMDataRow->family_member_phone;?>" type="text" name="family_member_phone[]"></td>
 	                            </tr>
                                 <?php endforeach;?>
-
                                 </tbody>
 	                        </table>
 	                        <button type="button" id="addMember" class="btn btn-primary pull-right">সদস্য যুক্ত করুন</button>

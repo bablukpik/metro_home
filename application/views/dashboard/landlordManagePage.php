@@ -94,7 +94,6 @@
                 data:{lnd_id:id},
                 success:function(data){
                     $('#lnd_update_dialog_btn').trigger('click');
-                    console.log(data);
                     $("#lnd_update_dialogasdf").html(data);
                    /* $('.datetimepicker').datetimepicker({
                         format: 'DD/MM/YYYY'
@@ -149,11 +148,11 @@
 
 
         //update image preview
-        function renter_update_image(input) {
+        function lnd_update_image(input) {
             if (input.files && input.files[0]) {
             var reader = new FileReader();
                 reader.onload = function (e) {
-                    $('#renter_photo_preview').attr('src', e.target.result);
+                    $('#lnd_photo_preview').attr('src', e.target.result);
                 }
 
                 reader.readAsDataURL(input.files[0]);
@@ -161,7 +160,7 @@
         }
 
         $(document).on("change","#lnd_photo",function(){
-            renter_update_image(this);
+            lnd_update_image(this);
             console.log('File selected');
         });
         //End update image preview
