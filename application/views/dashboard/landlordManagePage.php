@@ -166,16 +166,15 @@
         //End update image preview
 
         //Add Member dynamically to form field add
-        var count = 1;
         $(document).on("click","#addMember", function(){
-            //alert('hi');
+            var count = $('#member-add-table tbody tr').length;
             count = count + 1;
             var html_code = "<tr id='row"+count+"'>";
             html_code +="<td>"+count+"</td>";
-            html_code +='<td><input type="text" name="family_member_name[]" required="required"></td>';
-            html_code +='<td><input type="text" name="family_member_age[]" required="required"></td>';
-            html_code +='<td><input type="text" name="family_member_job[]" required="required"></td>';
-            html_code +='<td><input type="text" name="family_member_phone[]" required="required"></td>';
+            html_code +='<td><input type="text" name="new_family_member_name[]" required="required"></td>';
+            html_code +='<td><input type="text" name="new_family_member_age[]" required="required"></td>';
+            html_code +='<td><input type="text" name="new_family_member_job[]" required="required"></td>';
+            html_code +='<td><input type="text" name="new_family_member_phone[]" required="required"></td>';
             html_code +='<td><button type="button" data-row="row'+count+'" class="btn btn-danger btn-xs remove"><i class="fa fa-trash-o" aria-hidden="true"></i></button></td>';
             html_code +='</tr>';
             $('#member-add-table').append(html_code);

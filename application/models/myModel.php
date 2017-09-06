@@ -318,6 +318,10 @@ class MyModel extends CI_Model {
             return false;
         endif;
     }
+    //Batch Insert
+    public function saveByBatch($table, $batch){
+        return $this->db->insert_batch($table, $batch);
+    }
     //Batch Update
     public function updateByBatch($table, $where, $batch){
         return $this->db->update_batch($table, $batch, $where);

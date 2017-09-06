@@ -198,6 +198,7 @@
                                             <tbody>
                                             <?php $i=0; foreach ($lndFamilyMData as $key1 => $renterFamilyMDataRow) : ?>
                                                 <tr>
+                                                    <input value="<?php echo $renterFamilyMDataRow->family_member_id;?>" type="hidden" name="family_member_id[]">
                                                     <td><?php echo ++$i;?></td>
                                                     <td><input value="<?php echo $renterFamilyMDataRow->family_member_name;?>" type="text" name="family_member_name[]" required="required"></td>
                                                     <td><input value="<?php echo $renterFamilyMDataRow->family_member_age;?>" type="text" name="family_member_age[]" required="required"></td>
@@ -213,7 +214,7 @@
                             </div>
 
                             <div class="form-group">
-                                <input value="<?php echo $lndHomeWrkData[0]->homeworker_id;?>" type="hidden">
+                                <input value="<?php echo $lndHomeWrkData[0]->homeworker_id;?>" name="homeworker_id" type="hidden">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -240,6 +241,7 @@
 
                             <div class="form-group">
                                 <div class="row">
+                                    <input value="<?php echo $lndDriverData[0]->driver_id;?>" type="hidden" name="driver_id" id="driver_id">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="driver_name">ড্রাইভারের নামঃ</label>
