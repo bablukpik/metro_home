@@ -589,7 +589,7 @@ class Super_admin extends CI_Controller {
                 $sdata['RenterAddedSussess'] = 'Renter updated successfully';
 
                 //renter_familymember Table (02)
-                $renterFMData['renter_id'] = $renterInsertId; /* foreign key*/
+                $renterFMData['family_member_id'] = $this->input->post('family_member_id');
                 $renterFMData['family_member_name'] = $this->input->post('family_member_name');
                 $renterFMData['family_member_age'] = $this->input->post('family_member_age');
                 $renterFMData['family_member_job'] = $this->input->post('family_member_job');
@@ -597,15 +597,16 @@ class Super_admin extends CI_Controller {
 
                 //Form array type data fetch
                 for($i = 0; $i < count($renterFMData['family_member_name']); $i++) {
-                    $batch[] = array("renter_id" => $renterFMData['renter_id'],
+                    $batch[] = array(
+                        "family_member_id" => $renterFMData['family_member_id'][$i],
                         "family_member_name" => $renterFMData['family_member_name'][$i],
                         "family_member_age" => $renterFMData['family_member_age'][$i],
                         "family_member_job" => $renterFMData['family_member_job'][$i],
                         "family_member_phone" => $renterFMData['family_member_phone'][$i]
                     );
                 }
-
-                $renterFMInsertId = $this->MyModel->updateByBatch('renter_familymember','renter_id',$renter_id,$batch);
+                //die(var_dump($batch));
+                $renterFMInsertId = $this->MyModel->updateByBatch('renter_familymember','family_member_id',$batch);
 
                 if($renterFMInsertId){
                     $sdata['renterFMSuccess'] = 'Renter family member updated successfully';
@@ -801,15 +802,15 @@ class Super_admin extends CI_Controller {
                 $sdata['lndAddedSussess'] = 'Landlord updated successfully';
 
                 //lnd_familymember Table (02)
-                $lndFMData['lnd_id'] = $lndInsertId; /* foreign key*/
                 $lndFMData['family_member_name'] = $this->input->post('family_member_name');
                 $lndFMData['family_member_age'] = $this->input->post('family_member_age');
                 $lndFMData['family_member_job'] = $this->input->post('family_member_job');
                 $lndFMData['family_member_phone'] = $this->input->post('family_member_phone');
 
                 //Form array type data fetch
+                $batch = array();
                 for($i = 0; $i < count($lndFMData['family_member_name']); $i++) {
-                    $batch[] = array("renter_id" => $lndFMData['renter_id'],
+                    $batch[] = array("lnd_id" => $this->input->post('lnd_id'),
                         "family_member_name" => $lndFMData['family_member_name'][$i],
                         "family_member_age" => $lndFMData['family_member_age'][$i],
                         "family_member_job" => $lndFMData['family_member_job'][$i],
@@ -817,7 +818,7 @@ class Super_admin extends CI_Controller {
                     );
                 }
 
-                $lndFMInsertId = $this->MyModel->updateByBatch('lnd_familymember','lnd_id',$lnd_id,$batch);
+                $lndFMInsertId = $this->MyModel->updateByBatch('lnd_familymember', 'lnd_id', $batch);
 
 
                 if($lndFMInsertId){
@@ -834,7 +835,7 @@ class Super_admin extends CI_Controller {
                 $lndHWData['homeworker_phone'] = $this->input->post('homeworker_phone');
                 $lndHWData['homeworker_permanent_add'] = $this->input->post('homeworker_permanent_add');
 
-                $lndHWInsertId = $this->MyModel->update('renter_homeworker','homeworker_id',$homeworker_id, $lndHWData);
+                $lndHWInsertId = $this->MyModel->update('lnd_homeworker','homeworker_id',$homeworker_id, $lndHWData);
 
 
                 if($lndHWInsertId){

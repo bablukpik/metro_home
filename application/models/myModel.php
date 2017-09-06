@@ -319,8 +319,8 @@ class MyModel extends CI_Model {
         endif;
     }
     //Batch Update
-    public function updateByBatch($table, $tid, $id, $batch){
-        return $this->db->insert_batch(self::$renter_familymember, $batch);
+    public function updateByBatch($table, $where, $batch){
+        return $this->db->update_batch($table, $batch, $where);
     }
     //delete
     public function delete($table, $tid, $id)

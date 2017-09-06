@@ -13,7 +13,7 @@
 
                         <form action="<?php echo base_url('super_admin/updateLandlord');?>" method="post" role="form" enctype="multipart/form-data">
 
-                            <input type="hidden" name="renter_id" value="<?php echo isset($lndData[0]->lnd_id)?$lndData[0]->lnd_id:''; ?>">
+                            <input type="hidden" name="lnd_id" value="<?php echo isset($lndData[0]->lnd_id)?$lndData[0]->lnd_id:''; ?>">
 
                             <div class="col-md-4">
                                 <div class="row">
