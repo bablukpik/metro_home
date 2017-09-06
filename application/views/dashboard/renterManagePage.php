@@ -168,9 +168,8 @@
         //End update image preview
 
         //Add Member dynamically to form field add
-        var count = 1;
         $(document).on("click","#addMember", function(){
-            //alert('hi');
+            var count = $('#member-add-table tbody tr').length;
             count = count + 1;
             var html_code = "<tr id='row"+count+"'>";
             html_code +="<td>"+count+"</td>";
