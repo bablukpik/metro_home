@@ -115,7 +115,7 @@
             </div>
             <?php endif; ?>
 
-                <!--For Data-->
+            <!--For Data-->
             <?php if($successMsg =  $this->session->userdata('successMsg')):?>
             <div class="welcome_msg alert alert-success alert-dismissable">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>

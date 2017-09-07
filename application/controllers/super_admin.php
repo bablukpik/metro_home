@@ -586,7 +586,7 @@ class Super_admin extends CI_Controller {
 
             if ($renterInsertId){
                 $sdata['message'] = 'Renter updated successfully';
-                $sdata['RenterAddedSussess'] = 'Renter updated successfully';
+                $sdata['success'] = 'Renter updated successfully';
 
                 //renter_familymember Table (02)
                 $renterFMData['family_member_id'] = $this->input->post('family_member_id');
@@ -609,9 +609,9 @@ class Super_admin extends CI_Controller {
                 $renterFMInsertId = $this->MyModel->updateByBatch('renter_familymember','family_member_id',$batch);
 
                 if($renterFMInsertId){
-                    $sdata['renterFMSuccess'] = 'Renter family member updated successfully';
+                    $sdata['success'] = 'Renter family member updated successfully';
                 }else{
-                    $sdata['renterFMFailure'] = 'Renter family member updated failure';
+                    $sdata['failure'] = 'Renter family member updated failure';
                 }
 
                 //If new family member added in form then insert instead of update
@@ -817,7 +817,7 @@ class Super_admin extends CI_Controller {
             $lndInsertId = $this->MyModel->update('landloard','lnd_id',$lnd_id, $lndData);
 
             if ($lndInsertId){
-                $sdata['message'] = 'Landlord updated successfully';
+                $sdata['success'] = 'Landlord updated successfully';
                 $sdata['lndAddedSussess'] = 'Landlord updated successfully';
 
                 //lnd_familymember Table (02)
@@ -842,9 +842,9 @@ class Super_admin extends CI_Controller {
                 $lndFMInsertId = $this->MyModel->updateByBatch('lnd_familymember','family_member_id',$batch);
 
                 if($lndFMInsertId){
-                    $sdata['lndFMSuccess'] = 'Landlord family member updated successfully';
+                    $sdata['success'] = 'Landlord family member updated successfully';
                 }else{
-                    $sdata['lndFMFailure'] = 'Landlord family member updated failure';
+                    $sdata['failure'] = 'Landlord family member updated failure';
                 }
 
                 //If new family member added in form then insert instead of update
@@ -877,9 +877,9 @@ class Super_admin extends CI_Controller {
 
 
                 if($lndHWInsertId){
-                    $sdata['lndHWSuccess'] = 'Landlord home worker updated successfully';
+                    $sdata['success'] = 'Landlord home worker updated successfully';
                 }else{
-                    $sdata['lndHWFailure'] = 'Landlord home worker updated failure!';
+                    $sdata['failure'] = 'Landlord home worker updated failure!';
                 }
 
                 //lnd_driver Table (04)
@@ -893,26 +893,26 @@ class Super_admin extends CI_Controller {
                 $lndDriverInsertId = $this->MyModel->update('lnd_driver','driver_id',$driver_id,$lnd_driverData);
 
                 if($lndDriverInsertId){
-                    $sdata['lndDriverSuccess'] = 'Landlord driver updated successfully';
+                    $sdata['success'] = 'Landlord driver updated successfully';
                 }else{
-                    $sdata['lndDriverFailure'] = 'Landlord driver updated failure!';
+                    $sdata['failure'] = 'Landlord driver updated failure!';
                 }
                 //Error msg for picture upload
                 if($lnd_photo == ''){
-                    $sdata['error_msg_photo_lnd'] = 'Photo has not been updated!!';
+                    $sdata['error_msg_photo_renter'] = 'Photo has not been updated!!';
                 }
                 $this->session->set_userdata($sdata);
 
                 redirect('super_admin/landlordManage');
             }else{
                 $sdata['message'] = 'Try again! Landlord updated failure';
-                $sdata['lndAddedFailure'] = 'Try again! Landlord updated failure';
+                $sdata['failure'] = 'Try again! Landlord updated failure';
                 $this->session->set_userdata($sdata);
                 redirect('super_admin/landlordManage');
             }
         }else{
             $sdata['message'] = 'Try again! Landlord updated failure';
-            $sdata['lndAddedFailure'] = 'Try again! Landlord updated failure';
+            $sdata['failure'] = 'Try again! Landlord updated failure';
             $this->session->set_userdata($sdata);
             redirect('super_admin/landlordManage');
         }
