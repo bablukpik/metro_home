@@ -173,6 +173,9 @@
                     <li>
                         <a href="<?php echo base_url(); ?>super_admin/landlordManage">Manage Landlord</a>
                     </li>
+                    <li>
+                        <a href="<?php echo base_url(); ?>super_admin/generalUserManage">Manage General User</a>
+                    </li>
                     <?php endif; ?>
 
                     <!-- For Landlord Menu -->   
@@ -245,7 +248,7 @@
 
                             <!-- Failure Message-->
                             <?php if($failure = $this->session->userdata("failure")): ?>
-                            <div class="welcome_msg alert alert-success alert-dismissible">
+                            <div class="welcome_msg alert alert-danger alert-dismissible">
                                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                                 <?php
                                 echo "<h4>".$failure."</h4>";

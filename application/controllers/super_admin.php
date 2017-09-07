@@ -920,6 +920,106 @@ class Super_admin extends CI_Controller {
     }
     //End Landlord Update
 
+    /*
+     * General CRUD
+     */
+
+    //General User View
+    public function generalUserManage()
+    {
+        $data["generalUserAll"] = $this->MyModel->findAll('ads_account_general', 'ad_id');
+        $page['renterManagePage'] = $this->load->view('dashboard/generalUserManagePage', $data, TRUE);
+        $this->load->view("dashboard/dashboard_master", $page);
+    }
+
+    //Renter Update Form
+    public function general_user_update_form()
+    {
+        $data=array();
+        $id = $this->input->post('ad_id');
+        $data['generalUserData'] = $this->MyModel->findById('ads_account_general','ad_id', $id);
+        //die(print_r($data));
+        if ($data) {
+            $updateForm = $this->load->view('dashboard/general_user_update_page', $data, TRUE);
+            echo $updateForm;
+            exit;
+        }
+    }
+
+    //General User Update
+    public function generalUserUpdate(){
+        $id = $this->input->post('ad_id');
+        //die($id);
+
+        //Start upload picture
+        if(!empty($_FILES['ad_user_photo']['name'])){ //if($_FILES['image']['error'] == 0){
+            $config['upload_path'] = 'uploads/general_user/';
+            $config['allowed_types'] = 'jpg|jpeg|png|gif';
+            $config['file_name'] = date("Y-m-d-H-i-s")."_".str_replace(' ', '-', $_FILES['ad_user_photo']['name']);
+
+            //Load upload library and initialize configuration
+            $this->load->library('upload',$config);
+            $this->upload->initialize($config);
+
+            if($this->upload->do_upload('ad_user_photo')){
+                $finfo=$this->upload->data();
+                //Image Manipulation
+                $config['image_library']    = "gd2";
+                $config['source_image']     = "uploads/general_user/" .$finfo['file_name']; //$finfo['full_path']
+                $config['maintain_ratio']   = TRUE;
+                $config['width']            = "160";
+                $config['height']           = "200";
+
+                $this->load->library('image_lib',$config);
+
+                if(!$this->image_lib->resize())
+                {
+                    echo $this->image_lib->display_errors();
+                }
+                //End Image Manipulation
+
+                //$renter_photo = $finfo['raw_name'].'_thumb'.$finfo['file_ext'];
+                $ad_user_photo = $finfo['file_name'];
+            }else{
+                $ad_user_photo = '';
+            }
+        }else{
+            $ad_user_photo = '';
+        }
+        //End upload picture
+
+        $data['ad_lnd_first_name'] = $this->input->post('ad_lnd_first_name');
+        $data['ad_lnd_last_name'] = $this->input->post('ad_lnd_last_name');
+        $data['ad_lnd_username'] = $this->input->post('ad_lnd_username');
+        $data['ad_lnd_password'] = $this->input->post('ad_lnd_password');
+        $data['ad_lnd_police_station'] = $this->input->post('ad_lnd_police_station');
+        $data['ad_lnd_holding_no'] = $this->input->post('ad_lnd_holding_no');
+        $data['ad_lnd_road_no'] = $this->input->post('ad_lnd_road_no');
+        $data['ad_lnd_locality'] = $this->input->post('ad_lnd_locality');
+        $data['ad_lnd_postcode'] = $this->input->post('ad_lnd_postcode');
+        $data['ad_lnd_mobile'] = $this->input->post('ad_lnd_mobile');
+
+        if(!empty($ad_user_photo)){
+            $data['ad_user_photo'] = $ad_user_photo;
+        }
+
+
+        $dt = new DateTime("now", new DateTimeZone('Asia/Dhaka'));
+        $todayDate = $dt->format('Y-m-d h:i:s');
+        $data['ad_modified_date']   = $todayDate;
+        $result = $this->MyModel->update('ads_account_general','ad_id',$id, $data);
+
+        if ($result) {
+            $sdata["successMsg"] = "User Updated successfully";
+            $this->session->set_userdata($sdata);
+            redirect("super_admin/generalUserManage");
+        }else{
+            $sdata["failure"] = "Try again";
+            $this->session->set_userdata($sdata);
+            redirect("super_admin/generalUserManage");
+        }
+    }
+    //End General User Update
 
 
 }
