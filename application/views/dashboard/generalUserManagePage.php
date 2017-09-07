@@ -22,6 +22,7 @@
                             <th>Actions</th>
                         </tr>
                     </thead>
+                    
                     <tbody>
                         <?php $i=0; foreach ($generalUserAll as $key1=>$row1): $i++ ?>
                         <tr>
