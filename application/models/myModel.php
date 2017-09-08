@@ -332,7 +332,7 @@ class MyModel extends CI_Model {
         return $this->db->delete($table, array($tid => $id));
     }
     //Find all
-    public function findAll($table, $tid)
+    public function findAll($table, $tid='')
     {
         $this->db->select('*', $tid);
         $this->db->from($table);
