@@ -11,7 +11,7 @@ class Super_admin extends CI_Controller {
         $user_name = $this->session->userdata('user_name');
         $lnd_nid= $this->session->userdata('lnd_nid');
         $user_type = $this->session->userdata('user_type');
-        if( ($user_name == NULL or $lnd_nid==NULL) and $user_type==NULL ){
+        if( ($user_name == NULL or $lnd_nid == NULL) and $user_type == NULL ){
            redirect('login');
         }
 
@@ -1020,6 +1020,17 @@ class Super_admin extends CI_Controller {
         }
     }
     //End General User Update
+
+    //Renter Status
+    public function renterStatus()
+    {
+        $id = $this->session->userdata('user_name');
+        $data['results'] = $this->MyModel->findById('renter_tracking_tbl','lnd_nid', $id);
+        //die(var_dump($data));
+        $page['renterForm'] = $this->load->view("dashboard/renterStatusForLnd", $data, true);
+        $this->load->view("dashboard/dashboard_master", $page);
+    }
+
 
 
 }

@@ -186,6 +186,9 @@
                     <li>
                         <a href="<?php echo base_url(); ?>super_admin/renterRegisterForm">Renter Registration</a>
                     </li>
+                    <li>
+                        <a href="<?php echo base_url(); ?>super_admin/renterStatus">Renter Status</a>
+                    </li>
                     <?php endif; ?>
 
                     <!-- For Landlord Menu -->   

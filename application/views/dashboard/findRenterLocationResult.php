@@ -55,7 +55,7 @@
                             echo "<td>".date('d/m/y',strtotime($obj['renter_started_date']))."</td>";
 
                             if (date('d/m/y',strtotime($obj['renter_started_date'])) == date('d/m/y',strtotime($obj['renter_ending_date'])) ) {
-                            	echo "<td>"."Till now"."</td>";
+                            	echo "<td>"."Till Now"."</td>";
                             }else{
                             	echo "<td>".date('d/m/y',strtotime($obj['renter_ending_date']))."</td>";
                             }
