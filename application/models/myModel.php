@@ -307,7 +307,10 @@ class MyModel extends CI_Model {
         $this->db->insert($table, $data);
         return $this->db->insert_id();
     }
-
+    //Batch Insert
+    public function saveByBatch($table, $batch){
+        return $this->db->insert_batch($table, $batch);
+    }
     //update
     public function update($table, $tid, $id, $data)
     {
@@ -318,13 +321,17 @@ class MyModel extends CI_Model {
             return false;
         endif;
     }
-    //Batch Insert
-    public function saveByBatch($table, $batch){
-        return $this->db->insert_batch($table, $batch);
-    }
     //Batch Update
-    public function updateByBatch($table, $where, $batch){
-        return $this->db->update_batch($table, $batch, $where);
+    public function updateByBatch($table, $tid, $batch){
+        return $this->db->update_batch($table, $batch, $tid);
+    }
+    //Update Previous or Last Row
+    public function updateLastRow($table, $tid, $where, $data){
+        $this->db->order_by($tid, "desc");
+        $this->db->limit(1);
+        $this->db->where($where);
+        $this->db->update($table, $data);
+
     }
     //delete
     public function delete($table, $tid, $id)
@@ -334,7 +341,7 @@ class MyModel extends CI_Model {
     //Find all
     public function findAll($table, $tid='')
     {
-        $this->db->select('*', $tid);
+        $this->db->select('*');
         $this->db->from($table);
         $this->db->order_by($tid, "desc");
         $query = $this->db->get();
@@ -346,15 +353,6 @@ class MyModel extends CI_Model {
         $this->db->select('*');
         $this->db->from($table);
         $this->db->order_by($field, "asc");
-        $query = $this->db->get();
-        return $query->result();
-    }
-    //Find all by desc
-    public function findAllByDesc($table, $field)
-    {
-        $this->db->select('*');
-        $this->db->from($table);
-        $this->db->order_by($field, "desc");
         $query = $this->db->get();
         return $query->result();
     }

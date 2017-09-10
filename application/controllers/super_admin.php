@@ -41,7 +41,6 @@ class Super_admin extends CI_Controller {
 
 	public function index()
 	{
-        
 		$this->load->view("dashboard/dashboard_master");
 	}
 
@@ -280,17 +279,18 @@ class Super_admin extends CI_Controller {
 
         if (!empty($_POST['renter_nid'])) {
            $data["renter_nid"]   = $_POST['renter_nid'];
-        
+
             $where = $data;
             $renter_check_r = $this->MyModel->renter_check('renter', $where);
-            
+
             $where2['lnd_nid'] = $this->session->userdata('user_name');
             $where2['user_type'] = "landlord";
 
             $lnd_check_r = $this->MyModel->landlord_check('landloard', $where2);
 
             if ($renter_check_r and $lnd_check_r) {
-                //Renter info
+
+                //Renter info for renter_tracking_tbl Table
                 $trackingData["renter_id"]          = $renter_check_r->renter_id;
                 $trackingData["renter_fullname"]    = $renter_check_r->renter_fullname;
                 $trackingData["renter_phone"]       = $renter_check_r->renter_phone;
@@ -298,7 +298,21 @@ class Super_admin extends CI_Controller {
                 $trackingData["renter_permanent_add"] = $renter_check_r->renter_permanent_add;
                 $trackingData["renter_photo"]       = $renter_check_r->renter_photo;
 
-                //Landlord info
+                //First Find Renter
+                //$found = $this->MyModel->findById('renter_tracking_tbl','renter_nid',$trackingDataRen["renter_nid"]);
+                /*if ($found){
+                    $trackingData["tracking_id"] = $found[0]->tracking_id;
+                }else{
+                    return false;
+                }*/
+
+                //If not found then insert
+                /*$res = $this->MyModel->save('renter_tracking_tbl', $trackingDataRen);
+                if ($res){
+
+                }*/
+
+                //Landlord info for renter_tracking_tbl_details Table
                 $trackingData["lnd_id"]             = $lnd_check_r->lnd_id;
                 $trackingData["lnd_fullname"]       = $lnd_check_r->lnd_fullname;
                 $trackingData["lnd_phone"]          = $lnd_check_r->lnd_phone;
@@ -314,24 +328,30 @@ class Super_admin extends CI_Controller {
                 $dt = new DateTime("now", new DateTimeZone('Asia/Dhaka'));
                 $todayDate = $dt->format('Y-m-d h:i:s');
 
-                //update today's date to previous landloard last date field
-                $renter_ending_date_previousL['renter_ending_date'] = $todayDate;
-                $this->MyModel->updatePreviousLastDate($renter_ending_date_previousL, $renter_check_r->renter_nid);
+                //update last row's date field using today's date
+                //First Find Renter
+                $found = $this->MyModel->findById('renter_tracking_tbl','renter_nid',$trackingData["renter_nid"]);
+                if ($found){
+                    $renter_ending_date_previous_data['renter_ending_date'] = $todayDate;
+                    $where= array();
+                    $where['renter_nid'] = $renter_check_r->renter_nid;
+                    $this->MyModel->updateLastRow("renter_tracking_tbl","tracking_id", $where, $renter_ending_date_previous_data);
+                }
 
+                //Insert new date for new row
                 $trackingData["renter_started_date"] = $todayDate;
                 $trackingData["renter_ending_date"]   = $todayDate;
-            
+
                 $result = $this->MyModel->addNewRenterToLetM('renter_tracking_tbl', $trackingData);
 
                 if($result){
                     echo "<p style='color:green'>Renter inserted Successfull!!</p>";
-                }
-                else{
+                }else{
                     echo "<p style='color:red'>Try again!! Ranter has not been inserted</p>";
                 }
             }else{
                 echo "<p style='color:red'>Failure!! The Renter hasn't been registered yet. Please register first</p>";
-            } 
+            }
         }else{
             echo "<p style='color:red;'>Please enter Renter National ID</p>";
             redirect('super_admin/addNewRenter');
