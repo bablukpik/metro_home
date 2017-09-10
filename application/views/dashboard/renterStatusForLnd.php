@@ -38,13 +38,13 @@
                             echo "<td>".date('d/m/y',strtotime($obj1->renter_started_date))."</td>";
 
                             //Start date and End Date
-                            if (date('d/m/y',strtotime($obj1->renter_started_date)) == date('d/m/y',strtotime($obj1->renter_ending_date)) ) {
+                            if (date($obj1->renter_started_date) == date($obj1->renter_ending_date)) {
                             	echo "<td>"."Till Now"."</td>";
                             }else{
-                            	echo "<td>".date('d/m/y',strtotime($obj->renter_ending_date))."</td>";
+                            	echo "<td>".date('d/m/y',strtotime($obj1->renter_ending_date))."</td>";
                             }
                             //Status
-                            if (date('d/m/y',strtotime($obj1->renter_started_date)) == date('d/m/y',strtotime($obj1->renter_ending_date)) ) {
+                            if (date($obj1->renter_started_date) == date($obj1->renter_ending_date) ) {
                             	echo "<td style='color:green;'>"."Active"."</td>";
                             }else{
                             	echo "<td style='color:red;'>"."Inactive"."</td>";

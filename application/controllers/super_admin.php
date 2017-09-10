@@ -40,8 +40,14 @@ class Super_admin extends CI_Controller {
 	}
 
 	public function index()
-	{
-		$this->load->view("dashboard/dashboard_master");
+    {
+        if ($this->session->userdata('user_type') == "landlord"){
+            $id = $this->session->userdata('user_name');
+            $data['renter_tracking_tbl'] = $this->MyModel->findById('renter_tracking_tbl', 'lnd_nid', $id);
+            $this->load->view("dashboard/dashboard_master", $data);
+        }else{
+            $this->load->view("dashboard/dashboard_master");
+        }
 	}
 
 
@@ -333,6 +339,7 @@ class Super_admin extends CI_Controller {
                 $found = $this->MyModel->findById('renter_tracking_tbl','renter_nid',$trackingData["renter_nid"]);
                 if ($found){
                     $renter_ending_date_previous_data['renter_ending_date'] = $todayDate;
+                    $renter_ending_date_previous_data['renter_status'] = "inactive";
                     $where= array();
                     $where['renter_nid'] = $renter_check_r->renter_nid;
                     $this->MyModel->updateLastRow("renter_tracking_tbl","tracking_id", $where, $renter_ending_date_previous_data);
@@ -340,7 +347,8 @@ class Super_admin extends CI_Controller {
 
                 //Insert new date for new row
                 $trackingData["renter_started_date"] = $todayDate;
-                $trackingData["renter_ending_date"]   = $todayDate;
+                $trackingData["renter_ending_date"] = $todayDate;
+                $trackingData['renter_status'] = "active";
 
                 $result = $this->MyModel->addNewRenterToLetM('renter_tracking_tbl', $trackingData);
 
@@ -1041,7 +1049,7 @@ class Super_admin extends CI_Controller {
     }
     //End General User Update
 
-    //Renter Status
+    //Renter Status by date
     public function renterStatus()
     {
         $id = $this->session->userdata('user_name');

@@ -47,10 +47,13 @@
             <!-- end navbar-header -->
             <!-- navbar-top-links -->
             <ul class="nav navbar-top-links navbar-right topRightMenu">
-
+                <li style="padding: 10px 10px; margin-right:5px;"><i style="color: #fff; font-size: 50px;" class="fa fa-clock-o" aria-hidden="true"></i><span class="top-label label label-warning"><?php  date_default_timezone_set('Asia/Dhaka'); echo date("l, d F Y"); ?></span></li>
+                <?php if($this->session->userdata("user_type") == 'landlord') : ?>
+                <li style="padding: 10px 10px; margin-right:5px;"><i style="color: #fff; font-size: 50px;" class="fa fa-home" aria-hidden="true"></i><span class="top-label label label-warning"> <?php if (isset($renter_tracking_tbl)) { $i=0; foreach ($renter_tracking_tbl as $key => $obj) { if (date($obj->renter_started_date) == date($obj->renter_ending_date)) { echo ++$i;}}} ?></span></li>
+                <?php endif;?>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <span class="top-label label label-warning"><?php $allNotification = $this->session->userdata('notification_data'); echo count(array_filter($allNotification));?></php></span>  <i class="fa fa-bell fa-3x"></i>
+                        <span style="right: 45px;" class="top-label label label-warning"><?php $allNotification = $this->session->userdata('notification_data'); echo count(array_filter($allNotification));?></php></span>  <i class="fa fa-bell fa-3x"></i>
                     </a>
                     <!-- dropdown alerts-->
                     <ul class="dropdown-menu dropdown-alerts">
@@ -96,7 +99,7 @@
 
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-3x"></i>
+                        <i class="fa fa-user fa-3x"></i> <span class="top-label label label-warning"> <?php if($this->session->userdata("user_type") == 'landlord') echo "Landlord";?> <?php if($this->session->userdata("user_type") == 'admin') echo "Admin";?> <?php if($this->session->userdata("user_type") == 'metro_police') echo "Police";?> <?php if($this->session->userdata("user_type") == 'general') echo "General";?></span>
                     </a>
                     <!-- dropdown user-->
                     <ul class="dropdown-menu dropdown-user">
@@ -158,7 +161,7 @@
 
                     <div class="clearfix"></div>
                     <li class="selected" style="margin-top: 20px; box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);">
-                        <a href="<?php echo base_url('super_admin'); ?>" style="padding: 10px 10px; color: #EC008B; font-size: 16px; font-weight: bold;"><i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</a>
+                        <a href="<?php echo base_url('super_admin'); ?>" style="padding: 10px 10px; color: #bf0572; font-size: 15px; px; font-weight: bold;"><i style="margin-left:10px; font-size: 25px;" class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</a>
                     </li>
                     
                     <!-- For Admin Menu -->               
