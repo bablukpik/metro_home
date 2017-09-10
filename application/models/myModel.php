@@ -384,6 +384,18 @@ class MyModel extends CI_Model {
         $query = $this->db->get();
         return $query->result();
     }
+    //Find By Left Join using tow Tables
+    function findByLeftJoinT2($table1, $table2, $t1id, $t2id, $where_id, $group_by_id='')
+    {
+        $this->db->select("t1.*,t2.*");
+        $this->db->from($table1." t1");
+        $this->db->join($table2." t2", "t2.".$t2id." = t1.".$t1id,'left');
+        $this->db->where("t1.".$t1id,$where_id);
+        $this->db->group_by('t1.'.$group_by_id);
+        $this->db->order_by('t1.'.$t1id, "DESC");
+        $query = $this->db->get();
+        return $query->result();
+    }
     //End CRUD Operation
 
 
