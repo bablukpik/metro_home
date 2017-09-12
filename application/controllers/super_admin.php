@@ -43,6 +43,11 @@ class Super_admin extends CI_Controller {
             $data['renter_tracking_tbl'] = $this->MyModel->findById('renter_tracking_tbl', 'lnd_nid', $id);
             $this->load->vars($data);
         }
+        if ($this->session->userdata('user_type') == "admin"){
+            $data['toNoOfhouse'] = $this->MyModel->findAll('landloard', 'lnd_id');
+            $this->load->vars($data);
+        }
+
 
 	}
 

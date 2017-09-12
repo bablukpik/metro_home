@@ -16,7 +16,10 @@
     <ul class="nav navbar-top-links navbar-right topRightMenu">
         <li style="padding: 10px 10px; margin-right:5px;"><i style="color: #fff; font-size: 50px;" class="fa fa-clock-o" aria-hidden="true"></i><span class="top-label label label-warning"><?php  date_default_timezone_set('Asia/Dhaka'); echo date("l, d F Y"); ?></span></li>
         <?php if($this->session->userdata("user_type") == 'landlord') : ?>
-            <li style="padding: 10px 10px; margin-right:5px;"><i style="color: #fff; font-size: 50px;" class="fa fa-home" aria-hidden="true"></i><span class="top-label label label-warning"> <?php $i=0; if (isset($renter_tracking_tbl)) { foreach ($renter_tracking_tbl as $key => $obj) { if (date($obj->renter_started_date) == date($obj->renter_ending_date)) {++$i;}}} echo $i; ?></span></li>
+            <li style="padding: 10px 10px; margin-right:5px;"><i style="color: #fff; font-size: 50px;" class="fa fa-users" aria-hidden="true"></i><span class="top-label label label-warning"> <?php $i=0; if (isset($renter_tracking_tbl)) { foreach ($renter_tracking_tbl as $key => $obj) { if (date($obj->renter_started_date) == date($obj->renter_ending_date)) {++$i;}}} echo $i; ?></span></li>
+        <?php endif;?>
+        <?php if($this->session->userdata("user_type") == 'admin') : ?>
+            <li style="padding: 10px 10px; margin-right:5px;"><i style="color: #fff; font-size: 50px;" class="fa fa-home" aria-hidden="true"></i><span class="top-label label label-warning"> <?php $i=0; if (isset($toNoOfhouse)) {echo count($toNoOfhouse);} ?>
         <?php endif;?>
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
