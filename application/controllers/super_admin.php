@@ -37,17 +37,18 @@ class Super_admin extends CI_Controller {
 
         $this->session->set_userdata('notification_data',$notification_data);
 
+        //Header
+        if ($this->session->userdata('user_type') == "landlord"){
+            $id = $this->session->userdata('user_name');
+            $data['renter_tracking_tbl'] = $this->MyModel->findById('renter_tracking_tbl', 'lnd_nid', $id);
+            $this->load->vars($data);
+        }
+
 	}
 
 	public function index()
     {
-        if ($this->session->userdata('user_type') == "landlord"){
-            $id = $this->session->userdata('user_name');
-            $data['renter_tracking_tbl'] = $this->MyModel->findById('renter_tracking_tbl', 'lnd_nid', $id);
-            $this->load->view("dashboard/dashboard_master", $data);
-        }else{
-            $this->load->view("dashboard/dashboard_master");
-        }
+        $this->load->view("dashboard/dashboard_master");
 	}
 
 
