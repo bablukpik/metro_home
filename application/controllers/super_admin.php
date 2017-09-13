@@ -843,7 +843,7 @@ class Super_admin extends CI_Controller {
                 //unlink the file
                 $result = $this->MyModel->FindById('landloard','lnd_id', $lnd_id);
                 if($result){
-                    unlink('uploads/'.$result->lnd_photo);
+                    //unlink('uploads/'.$result->lnd_photo);
                     //unlink('publicity/images/publicity_img/'.str_replace("_thumb","", $result->publicity_photo));
                 }
             }
