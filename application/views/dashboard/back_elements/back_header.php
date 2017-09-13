@@ -14,16 +14,16 @@
     <!-- end navbar-header -->
     <!-- navbar-top-links -->
     <ul class="nav navbar-top-links navbar-right topRightMenu">
-        <li style="padding: 10px 10px; margin-right:5px;"><i style="color: #fff; font-size: 50px;" class="fa fa-clock-o" aria-hidden="true"></i><span class="top-label label label-warning"><?php  date_default_timezone_set('Asia/Dhaka'); echo date("l, d F Y"); ?></span></li>
+        <li style="padding: 10px 10px; margin-right:5px;"><i style="color: #fff; font-size: 40px;" class="fa fa-clock-o" aria-hidden="true"></i><span class="top-label label label-warning"><?php  date_default_timezone_set('Asia/Dhaka'); echo date("l, d F Y"); ?></span></li>
         <?php if($this->session->userdata("user_type") == 'landlord') : ?>
-            <li style="padding: 10px 10px; margin-right:5px;"><i style="color: #fff; font-size: 50px;" class="fa fa-users" aria-hidden="true"></i><span class="top-label label label-warning"> <?php $i=0; if (isset($renter_tracking_tbl)) { foreach ($renter_tracking_tbl as $key => $obj) { if (date($obj->renter_started_date) == date($obj->renter_ending_date)) {++$i;}}} echo $i; ?></span></li>
+            <li style="padding: 10px 10px; margin-right:5px;"><i style="color: #fff; font-size: 40px;" class="fa fa-users" aria-hidden="true"></i><span class="top-label label label-warning"> <?php $i=0; if (isset($renter_tracking_tbl)) { foreach ($renter_tracking_tbl as $key => $obj) { if (date($obj->renter_started_date) == date($obj->renter_ending_date)) {++$i;}}} echo $i; ?></span></li>
         <?php endif;?>
         <?php if($this->session->userdata("user_type") == 'admin') : ?>
-            <li style="padding: 10px 10px; margin-right:5px;"><i style="color: #fff; font-size: 50px;" class="fa fa-home" aria-hidden="true"></i><span class="top-label label label-warning"> <?php $i=0; if (isset($toNoOfhouse)) {echo count($toNoOfhouse);} ?>
+            <li style="padding: 10px 10px; margin-right:5px;"><i style="color: #fff; font-size: 40px;" class="fa fa-home" aria-hidden="true"></i><span class="top-label label label-warning"> <?php $i=0; echo isset($toNoOfhouse)?count($toNoOfhouse):$i;  ?>
         <?php endif;?>
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <span style="right: 45px;" class="top-label label label-warning"><?php $allNotification = $this->session->userdata('notification_data'); echo count(array_filter($allNotification));?></php></span>  <i class="fa fa-bell fa-3x"></i>
+                <i style="color: #fff; font-size: 40px;" class="fa fa-bell fa-3x"></i><span style="right: 45px;" class="top-label label label-warning"><?php $allNotification = $this->session->userdata('notification_data'); echo count(array_filter($allNotification));?></php></span>
             </a>
             <!-- dropdown alerts-->
             <ul class="dropdown-menu dropdown-alerts">
@@ -69,11 +69,11 @@
 
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <i class="fa fa-user fa-3x"></i> <span class="top-label label label-warning"> <?php if($this->session->userdata("user_type") == 'landlord') echo "Landlord";?> <?php if($this->session->userdata("user_type") == 'admin') echo "Admin";?> <?php if($this->session->userdata("user_type") == 'metro_police') echo "Police";?> <?php if($this->session->userdata("user_type") == 'general') echo "General";?></span>
+                <i style="color: #fff; font-size: 40px;" class="fa fa-user fa-3x"></i> <span class="top-label label label-warning"> <?php if($this->session->userdata("user_type") == 'landlord') echo "Landlord";?> <?php if($this->session->userdata("user_type") == 'admin') echo "Admin";?> <?php if($this->session->userdata("user_type") == 'metro_police') echo "Police";?> <?php if($this->session->userdata("user_type") == 'general') echo "General";?></span>
             </a>
             <!-- dropdown user-->
             <ul class="dropdown-menu dropdown-user">
-                <li><a href="#"><i class="fa fa-user fa-fw"></i>User Profile</a>
+                <li><a href="#"><i style="color: #fff; font-size: 40px;" class="fa fa-user fa-fw"></i>User Profile</a>
                 </li>
 
                 <li class="divider"></li>

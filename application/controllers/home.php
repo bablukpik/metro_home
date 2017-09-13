@@ -10,13 +10,16 @@ class Home extends CI_Controller {
         parent::__construct();
         $this->load->model(self::$model);
 
+        //Total Empty house
+        $data['totalNoOfHouse'] = $this->MyModel->findAll('publicity');
+        $this->load->vars($data);
     }
 
 	public function index()
 	{
-	    $data['totalNoOfHouse'] = $this->MyModel->findAll('publicity');
+
 	    //die(var_dump($data));
-		$this->load->view('home_page', $data);
+		$this->load->view('home_page');
 	}
 
 }
