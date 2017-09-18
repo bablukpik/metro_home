@@ -61,14 +61,14 @@
         $('.lnd_delete').on('click',function(){
             var deleted_row = $(this).parent().parent();
             var id = $(this).data('id');
-            var url = '<?php echo base_url("renter/delete"); ?>';
+            var url = '<?php echo base_url("super_admin/lndDelete"); ?>';
 
             if (confirm('Are you sure to delete?')) {
                 $.ajax({
                     type:'post',
                     url:url,
                     cache: false,
-                    data:{renter_id:id},
+                    data:{id:id},
                     success:function(data){
                         if (data=='yes') {
                             deleted_row.fadeOut().remove();

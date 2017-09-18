@@ -26,7 +26,7 @@
            <script type="text/javascript" src="js/respond.min.js"></script>
         <![endif]-->
     </head>
-<body style="padding-top: 0px;">
+<body style="padding-top: 0px; background-image: url('../assets/images/home_background.png'); background-repeat: repeat;">
     <section class="top_head_sec">
         <div class="container">
             <div class="top_menu_left float_left">
@@ -68,11 +68,10 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="<?php echo base_url();?>">Home</a></li>
-                        <li><a href="#">Info</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">About</a></li>
+                        <li><a href="<?php echo base_url('home/contact');?>">Contact</a></li>
+                        <li><a href="<?php echo base_url('home/about');?>">About</a></li>
                         <li><a href="#" data-toggle="modal" data-target="#adsLogiOrSignup_dialog">Post Ads</a></li>
-                        <li><a href="<?php echo base_url('publicity');?>">All Ads</a></li>
+                        <li class="active"><a href="<?php echo base_url('publicity');?>">All Ads</a></li>
                         <li>
                             <button type="button" id="loginBtn" style="color:#fff; text-transform: capitalize;" class="btn btn-success" data-toggle="modal"  data-placement="bottom" data-target="#login_dialog" data-title="Login">Sign in <span class="caret"></button>
                         </li>
@@ -266,6 +265,14 @@
     <script type="text/javascript" src="<?php echo base_url(); ?>publicity/js/bootstrap-admin-theme-change-size.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/main.js" type="text/javascript"></script>
 
+    <!--AddClass and Remove Class-->
+    <script type="text/javascript">
+        /*$(document).on("click","#bs-example-navbar-collapse-1 > ul > li > a", function(){
+           $("#bs-example-navbar-collapse-1 > ul > li").removeClass("active");
+           $(this).parent().addClass("active");
+        });*/
 
+
+    </script>
 </body>
 </html>

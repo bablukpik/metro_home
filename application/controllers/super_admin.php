@@ -1064,7 +1064,37 @@ class Super_admin extends CI_Controller {
         $page['renterForm'] = $this->load->view("dashboard/renterStatusForLnd", $data, true);
         $this->load->view("dashboard/dashboard_master", $page);
     }
+    //Delete Renter Using Ajax
+    public function renterDelete()
+    {
+        $id = $this->input->post("id");
+        $res1 = $this->MyModel->delete("renter_homeworker", "renter_id", $id);
+        $res2 = $this->MyModel->delete("renter_familymember", "renter_id", $id);
+        $res3 = $this->MyModel->delete("renter_driver", "renter_id", $id);
+        $res4 = $this->MyModel->delete("renter", "renter_id", $id);
 
+        if (($res1||$res2||$res3) and $res4){
+            echo "yes";
+        }else{
+            echo "no";
+        }
+    }
+
+    //Delete Landlord Using Ajax
+    public function lndDelete()
+    {
+        $id = $this->input->post("id");
+        $res1 = $this->MyModel->delete("lnd_homeworker", "lnd_id", $id);
+        $res2 = $this->MyModel->delete("lnd_familymember", "lnd_id", $id);
+        $res3 = $this->MyModel->delete("lnd_driver", "lnd_id", $id);
+        $res4 = $this->MyModel->delete("landloard", "lnd_id", $id);
+
+        if (($res1||$res2||$res3) and $res4){
+            echo "yes";
+        }else{
+            echo "no";
+        }
+    }
 
 
 }

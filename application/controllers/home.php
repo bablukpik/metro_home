@@ -17,9 +17,23 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-
-	    //die(var_dump($data));
-		$this->load->view('home_page');
+        $data =array();
+        $data['content'] = $this->load->view('index_page', '', true);
+		$this->load->view('home_page', $data);
 	}
+
+    public function contact()
+    {
+        $data =array();
+        $data['content'] = $this->load->view('contact_page', '', true);
+        $this->load->view('home_page', $data);
+    }
+
+    public function about()
+    {
+        $data =array();
+        $data['content'] = $this->load->view('about_page', '', true);
+        $this->load->view('home_page', $data);
+    }
 
 }

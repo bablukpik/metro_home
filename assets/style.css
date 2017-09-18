@@ -21,7 +21,7 @@
 
 /* End Responsive style for mobile */
 .publicity_area{
-    background: #FAFBFC;
+    /*background: #FAFBFC;*/
 }
 .dev_by{
     float: right;
@@ -253,7 +253,9 @@
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
     color: #555;
     background-color: transparent;
+    background-image: none;
     border-bottom: 3px solid #EC008B;
+    box-shadow: none;
 }
 
 .nav>li {

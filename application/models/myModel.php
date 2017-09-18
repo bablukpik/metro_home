@@ -336,7 +336,8 @@ class MyModel extends CI_Model {
     //delete
     public function delete($table, $tid, $id)
     {
-        return $this->db->delete($table, array($tid => $id));
+        $this->db->delete($table, array($tid => $id));
+        return $this->db->affected_rows();
     }
     //Find all
     public function findAll($table, $tid='')
