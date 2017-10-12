@@ -26,7 +26,7 @@
                         <?php $i=0; foreach ($renter_all as $key1=>$row1): $i++ ?>
                         <tr>
                             <?php echo '<td style="width:5%">'.$i.'</td>'; ?>
-                            <?php echo '<td>'.$row1->renter_fullname.'</td>'; ?>
+                            <td><a data-id="<?php echo $row1->renter_id; ?>" class="renter_profile" href="#"><?php echo $row1->renter_fullname; ?></a></td>
                             <?php echo '<td>'.$row1->renter_nid.'</td>'; ?>
                             <?php echo '<td>'.$row1->renter_phone.'</td>'; ?>
                             <?php echo '<td><img src="'.base_url('uploads/').$row1->renter_photo.'" width="70" alt="Renter Photo"></td>'; ?>
@@ -52,6 +52,8 @@
 <div class="row">
     <button style="visibility: hidden;" type="button" id="renter_update_dialog_btn" class="btn btn-default btn-create" data-toggle="modal" data-target="#renter_update_dialog">Update Renter</button>
     <?php $this->load->view('dialogs/renter_update_dialog'); ?>
+    <button style="visibility: hidden;" type="button" id="renter_profile_dialog_btn" class="btn btn-default btn-create" data-toggle="modal" data-target="#renter_profile_dialog">Update Renter</button>
+    <?php $this->load->view('dialogs/renter_profile_dialog'); ?>
 </div>
 
 <script>
@@ -96,6 +98,31 @@
                     if (data) {
                         $('#renter_update_dialog_btn').trigger('click');
                         $('#renter_update_data').html(data);
+                        $('.datetimepicker').datetimepicker({
+                            format: 'DD/MM/YYYY'
+                        });
+                    }
+                },
+                error:function(){
+                    alert('Error updating');
+                }
+            });
+        });
+
+        //Renter Profile View
+        $('.renter_profile').on('click',function(){
+
+            var id = $(this).data('id');
+            var url = '<?php echo base_url("super_admin/renter_profile_view"); ?>';
+
+            $.ajax({
+                type:'post',
+                url:url,
+                data:{renter_id:id},
+                success:function(data){
+                    if (data) {
+                        $('#renter_profile_dialog_btn').trigger('click');
+                        $('#renter_profile_data').html(data);
                         $('.datetimepicker').datetimepicker({
                             format: 'DD/MM/YYYY'
                         });
@@ -155,7 +182,7 @@
             var reader = new FileReader();
                 reader.onload = function (e) {
                     $('#renter_photo_preview').attr('src', e.target.result);
-                }
+                };
 
                 reader.readAsDataURL(input.files[0]);
             }

@@ -2,21 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac65e9e2-0f79-41ca-ad13-1718b875aa82" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/webServers.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/about_page.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/contact_page.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/index_page.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Instructions/~$gin-information.docx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/controllers.zip" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/dashboard/renter_profile_page.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/dialogs/renter_profile_dialog.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/home.php" afterPath="$PROJECT_DIR$/application/controllers/home.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/myModel.php" afterPath="$PROJECT_DIR$/application/models/myModel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dashboard/landlordManagePage.php" afterPath="$PROJECT_DIR$/application/views/dashboard/landlordManagePage.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/super_admin.php" afterPath="$PROJECT_DIR$/application/controllers/super_admin.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/dashboard/renterManagePage.php" afterPath="$PROJECT_DIR$/application/views/dashboard/renterManagePage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/home_page.php" afterPath="$PROJECT_DIR$/application/views/home_page.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/publicity/publicity_page.php" afterPath="$PROJECT_DIR$/application/views/publicity/publicity_page.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/style.css" afterPath="$PROJECT_DIR$/assets/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/ceaborgb_metrohome.sql" afterPath="$PROJECT_DIR$/db/ceaborgb_metrohome.sql" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,54 +18,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="myModel.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/models/myModel.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="336" column="14" lean-forward="true" selection-start-line="336" selection-start-column="14" selection-end-line="336" selection-end-column="14" />
-              <folding>
-                <marker date="1505765033212" expanded="true" signature="39:12752" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Super_admin.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Super_admin.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/Super_admin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="1091" column="37" lean-forward="false" selection-start-line="1091" selection-start-column="34" selection-end-line="1091" selection-end-column="37" />
+            <state relative-caret-position="269">
+              <caret line="517" column="0" lean-forward="true" selection-start-line="517" selection-start-column="0" selection-end-line="517" selection-end-column="0" />
               <folding>
-                <marker date="1505766293751" expanded="true" signature="16826:16837" ph="..." />
-                <marker date="1505766293751" expanded="true" signature="16934:16943" ph="..." />
-                <marker date="1505766293751" expanded="true" signature="17061:17070" ph="..." />
-                <marker date="1505766293751" expanded="true" signature="17206:17216" ph="..." />
-                <marker date="1505766293751" expanded="true" signature="19830:19876" ph="..." />
-                <marker date="1505766293751" expanded="true" signature="19958:20004" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="landlordManagePage.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/dashboard/landlordManagePage.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="68" column="28" lean-forward="true" selection-start-line="68" selection-start-column="28" selection-end-line="68" selection-end-column="28" />
-              <folding>
-                <marker date="1505766293686" expanded="true" signature="1256:1264" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="renterManagePage.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/dashboard/renterManagePage.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="70" column="33" lean-forward="true" selection-start-line="70" selection-start-column="33" selection-end-line="70" selection-end-column="33" />
-              <folding>
-                <marker date="1505765385659" expanded="true" signature="1254:1262" ph="..." />
+                <marker date="1507835568597" expanded="true" signature="16826:16837" ph="..." />
+                <marker date="1507835568597" expanded="true" signature="16934:16943" ph="..." />
+                <marker date="1507835568597" expanded="true" signature="17061:17070" ph="..." />
+                <marker date="1507835568597" expanded="true" signature="17206:17216" ph="..." />
+                <marker date="1507835568597" expanded="true" signature="19830:19876" ph="..." />
+                <marker date="1507835568597" expanded="true" signature="19958:20004" ph="..." />
               </folding>
             </state>
           </provider>
@@ -91,12 +46,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>MANAGE ADS</find>
-      <find>adsRegistration</find>
-      <find>update</find>
-      <find>failure</find>
-      <find>mirpur</find>
-      <find>$totalNoOfHouse</find>
       <find>findRenterLocationFromDBM</find>
       <find>updateByBatch</find>
       <find>updatePreviousLastDate</find>
@@ -117,10 +66,16 @@
       <find>active</find>
       <find>navbar-default</find>
       <find>publicity_area</find>
-      <find>renterManage</find>
       <find>delete</find>
       <find>renter_delete</find>
       <find>landlordManage</find>
+      <find>renterManage</find>
+      <find>Renter Update</find>
+      <find>বিভাগঃ</find>
+      <find>renter_edit</find>
+      <find>renter_update_data</find>
+      <find>renter_update_form</find>
+      <find>renter_passport</find>
     </findStrings>
     <replaceStrings>
       <replace>lnd_</replace>
@@ -137,8 +92,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/application/config/database.php" />
         <option value="$PROJECT_DIR$/application/controllers/admin_login.php" />
         <option value="$PROJECT_DIR$/application/views/forms.php" />
         <option value="$PROJECT_DIR$/application/controllers/Welcome.php" />
@@ -185,9 +138,11 @@
         <option value="$PROJECT_DIR$/assets/style.css" />
         <option value="$PROJECT_DIR$/application/views/dashboard/dashboard_master.php" />
         <option value="$PROJECT_DIR$/application/models/myModel.php" />
-        <option value="$PROJECT_DIR$/application/views/dashboard/renterManagePage.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Super_admin.php" />
         <option value="$PROJECT_DIR$/application/views/dashboard/landlordManagePage.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Super_admin.php" />
+        <option value="$PROJECT_DIR$/application/views/dashboard/renter_profile_page.php" />
+        <option value="$PROJECT_DIR$/application/views/dialogs/renter_profile_dialog.php" />
+        <option value="$PROJECT_DIR$/application/views/dashboard/renterManagePage.php" />
       </list>
     </option>
   </component>
@@ -279,6 +234,13 @@
               <item name="metro_home" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="dialogs" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="metro_home" type="b2602c69:ProjectViewProjectNode" />
+              <item name="metro_home" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="publicity" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
@@ -294,16 +256,16 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\Personal\htdocs\metro_home\application\views\dashboard" />
-      <recent name="F:\Personal\htdocs\metro_home\application\views\dialogs" />
-      <recent name="F:\personal\htdocs\metro_home\application\views" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\personal\htdocs\metro_home\backend_assets\scripts" />
       <recent name="F:\personal\htdocs\metro_home\backend_assets\" />
       <recent name="F:\personal\htdocs\metro_home\assets\js" />
       <recent name="F:\personal\htdocs\metro_home\assets" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Personal\htdocs\metro_home\application\views\dialogs" />
+      <recent name="F:\Personal\htdocs\metro_home\application\views\dashboard" />
+      <recent name="F:\personal\htdocs\metro_home\application\views" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -463,21 +425,22 @@
       <workItem from="1505494452778" duration="7010000" />
       <workItem from="1505666781959" duration="6547000" />
       <workItem from="1505749602872" duration="10154000" />
+      <workItem from="1507810267708" duration="7350000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="386536000" />
+    <option name="totallyTimeSpent" value="393886000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21888727" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21888727" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32755905" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32840723" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -527,20 +490,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/dashboard/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.htaccess">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Welcome.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
@@ -640,24 +589,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/dialogs/renter_update_dialog.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="42" lean-forward="true" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/dialogs/registration_dialog.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="38" lean-forward="false" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/dashboard/renter_update_page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3247">
-          <caret line="191" column="48" lean-forward="false" selection-start-line="191" selection-start-column="48" selection-end-line="191" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -743,9 +678,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="24" column="10" lean-forward="true" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
-          <folding>
-            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -761,10 +694,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="28" column="120" lean-forward="false" selection-start-line="28" selection-start-column="120" selection-end-line="28" selection-end-column="120" />
-          <folding>
-            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#section#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -824,47 +754,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/dashboard/renterManagePage.php">
+    <entry file="file://$PROJECT_DIR$/application/views/dashboard/renter_update_page.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="70" column="33" lean-forward="true" selection-start-line="70" selection-start-column="33" selection-end-line="70" selection-end-column="33" />
+        <state relative-caret-position="228">
+          <caret line="182" column="58" lean-forward="false" selection-start-line="182" selection-start-column="58" selection-end-line="182" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/myModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="358" column="5" lean-forward="true" selection-start-line="358" selection-start-column="5" selection-end-line="358" selection-end-column="5" />
           <folding>
-            <marker date="1505765385659" expanded="true" signature="1254:1262" ph="..." />
+            <marker date="1505765033212" expanded="true" signature="39:12752" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/dashboard/landlordManagePage.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="68" column="28" lean-forward="true" selection-start-line="68" selection-start-column="28" selection-end-line="68" selection-end-column="28" />
+        <state relative-caret-position="17">
+          <caret line="68" column="28" lean-forward="false" selection-start-line="68" selection-start-column="28" selection-end-line="68" selection-end-column="28" />
           <folding>
             <marker date="1505766293686" expanded="true" signature="1256:1264" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Super_admin.php">
+    <entry file="file://$PROJECT_DIR$/application/views/dialogs/renter_profile_dialog.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="1091" column="37" lean-forward="false" selection-start-line="1091" selection-start-column="34" selection-end-line="1091" selection-end-column="37" />
+        <state relative-caret-position="17">
+          <caret line="1" column="53" lean-forward="false" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/dialogs/renter_update_dialog.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="42" lean-forward="true" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/dashboard/renterManagePage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="54" column="175" lean-forward="false" selection-start-line="54" selection-start-column="154" selection-end-line="54" selection-end-column="175" />
           <folding>
-            <marker date="1505766293751" expanded="true" signature="16826:16837" ph="..." />
-            <marker date="1505766293751" expanded="true" signature="16934:16943" ph="..." />
-            <marker date="1505766293751" expanded="true" signature="17061:17070" ph="..." />
-            <marker date="1505766293751" expanded="true" signature="17206:17216" ph="..." />
-            <marker date="1505766293751" expanded="true" signature="19830:19876" ph="..." />
-            <marker date="1505766293751" expanded="true" signature="19958:20004" ph="..." />
+            <marker date="1507839823673" expanded="true" signature="1254:1262" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/myModel.php">
+    <entry file="file://$PROJECT_DIR$/application/views/dashboard/renter_profile_page.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="336" column="14" lean-forward="true" selection-start-line="336" selection-start-column="14" selection-end-line="336" selection-end-column="14" />
+        <state relative-caret-position="237">
+          <caret line="112" column="40" lean-forward="true" selection-start-line="112" selection-start-column="40" selection-end-line="112" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Super_admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="517" column="0" lean-forward="true" selection-start-line="517" selection-start-column="0" selection-end-line="517" selection-end-column="0" />
           <folding>
-            <marker date="1505765033212" expanded="true" signature="39:12752" ph="..." />
+            <marker date="1507835568597" expanded="true" signature="16826:16837" ph="..." />
+            <marker date="1507835568597" expanded="true" signature="16934:16943" ph="..." />
+            <marker date="1507835568597" expanded="true" signature="17061:17070" ph="..." />
+            <marker date="1507835568597" expanded="true" signature="17206:17216" ph="..." />
+            <marker date="1507835568597" expanded="true" signature="19830:19876" ph="..." />
+            <marker date="1507835568597" expanded="true" signature="19958:20004" ph="..." />
           </folding>
         </state>
       </provider>

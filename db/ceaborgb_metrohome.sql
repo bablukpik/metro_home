@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 02, 2017 at 03:37 PM
+-- Generation Time: Oct 12, 2017 at 01:34 PM
 -- Server version: 5.5.51-38.2
 -- PHP Version: 5.6.20
 
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `ads_account_general` (
   `ad_user_photo` varchar(255) DEFAULT NULL,
   `ad_created_date` datetime DEFAULT NULL,
   `ad_modified_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `ads_account_general`
@@ -82,7 +82,8 @@ INSERT INTO `ads_account_general` (`ad_id`, `ad_lnd_first_name`, `ad_lnd_last_na
 (5, 'Masudul', 'Islam', 'masudul', 'admin', 'general', 'Kafrul', '272', '72', 'Senpara', '1216', '66666666666', '2017-05-20-14-27-22_20170314_192547_thumb.jpg', '2017-05-20 06:27:22', '2017-05-20 06:27:22'),
 (8, 'Kibria', 'Ahmed', 'kibria', 'kibria', 'general', 'Kurigram', '21', '20', 'Jumma Para', '1216', '01730910539', '2017-07-14-08-58-13_Bangladesh_thumb.jpg', '2017-07-14 07:58:14', '2017-07-14 07:58:14'),
 (9, 'Bishwanath', 'Sarker', '19911913625000100000', 'general', 'general', 'kafrul', '7B', '234', 'senpara', '1216', '01745405276', '', '2017-08-10 05:27:25', '2017-08-10 05:27:25'),
-(10, 'Bishwanath', 'Sarker', '19911913625000100001', 'general', 'general', 'Kafrul', '272', '7B', 'Senpara', '1216', '01745405276', '2017-08-12-03-05-24_IMG_0031_thumb.JPG', '2017-08-12 02:05:25', '2017-08-12 02:05:25');
+(10, 'Bishwanath', 'Sarker', '19911913625000100001', 'general', 'general', 'Kafrul', '272', '7B', 'Senpara', '1216', '01745405276', '2017-09-08-00-51-21_Chrysanthemum.jpg', '2017-08-12 02:05:25', '2017-09-08 04:51:22'),
+(11, 'Bishwanath', 'Sarker', '19911913625000100192', 'general', 'general', 'kafrul ', '7D', '273', 'Senpara', '1216', '+8801745405276', '2017-10-12-05-27-45_bs_thumb.jpg', '2017-10-12 04:27:45', '2017-10-12 04:27:45');
 
 -- --------------------------------------------------------
 
@@ -97,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `landloard` (
   `lnd_fullname` varchar(30) DEFAULT NULL,
   `lnd_father_name` varchar(30) DEFAULT NULL,
   `lnd_birth_date` date DEFAULT NULL,
-  `lnd_maritial_status` int(2) DEFAULT NULL,
+  `lnd_maritial_status` varchar(15) DEFAULT NULL,
   `lnd_permanent_add` text,
   `lnd_profession_institute` varchar(30) DEFAULT NULL,
   `lnd_religion` varchar(30) DEFAULT NULL,
@@ -135,16 +136,15 @@ CREATE TABLE IF NOT EXISTS `landloard` (
 --
 
 INSERT INTO `landloard` (`lnd_id`, `lnd_pass`, `user_type`, `lnd_fullname`, `lnd_father_name`, `lnd_birth_date`, `lnd_maritial_status`, `lnd_permanent_add`, `lnd_profession_institute`, `lnd_religion`, `lnd_educational_status`, `lnd_phone`, `lnd_email`, `lnd_nid`, `lnd_passport`, `lnd_emergency_name`, `lnd_emergency_relation`, `lnd_emergency_address`, `lnd_emergency_phone`, `lnd_previous_landlord_name`, `lnd_previous_landlord_phone`, `lnd_previous_landlord_permanent_add`, `lnd_prvious_leave_reason`, `lnd_present_landlord_name`, `lnd_present_landlord_phone`, `lnd_present_start_date`, `lnd_created_date`, `lnd_modified_date`, `lnd_division`, `lnd_district`, `lnd_police_station`, `lnd_flat_floor_no`, `lnd_holding_no`, `lnd_road_no`, `lnd_locality`, `lnd_postcode`, `lnd_photo`) VALUES
-(14, 'landlord', 'landlord', 'Bishwanath Sarker', 'Shanti Sarker', '1969-12-31', 0, 'Vill:Barkota,Post.:Barkota, P.S:Daudkandi,Dist:Comilla.', 'Business', 'Hinduism', 'B.Sc Engineer', '+8801745405276', 'bishu.bubt.32@gmail.com', '19911913625000182', 'BB0264405', 'Shanti Sarker', 'Father', 'Vill:Barkota,Post.:Barkota, P.S:Daudkandi,Dist:Comilla.', '+8801746276746', '', '', '', '', '', '', '0000-00-00 00:00:00', NULL, NULL, 'Dhaka', 'Dhaka', 'Kafrul', '5th', '272', '7A', 'Senpara', '1216', ''),
-(15, 'landlord', 'landlord', 'asdf', 'asdf', '2017-10-07', 0, 'adsf', 'asdf', 'Islam', 'ffasdf', '01730910539', 'asdfff@gmail.com', '13141203051', '12345', 'asdf', 'asdf', 'asdf', 'asdf', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'asd', 'fasdf', 'asdf', 'asdf', 'asdf', 'asdf', 'asdf', ''),
-(16, 'landlord', 'landlord', 'Md. Bablu Ahmed', 'Md. Sulaiman mia', '1969-12-31', 0, 'Soptak Bhaban,130,Senpara, Parbata ,Mirpur-10. ', 'Own Business', 'Islam', 'B.Sc Engineer', '+8801730910539', 'bablukpik@gmail.com', '19911913625000100172', '', 'Lavlu Ahmed', 'Brother', 'Soptak Bhaban,130,Senpara, Parbata ,Mirpur-10. ', '+8801915446388', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Dhaka', 'Dhaka', 'kafrul', '2nd', '130', '2/A', 'Senpara', '1216', ''),
-(17, 'landlord', 'landlord', 'Sagor sur', 'Ashok Sur', '1969-12-31', 0, '211,Savar, Dhaka.', 'Computer Business', 'Hinduism', 'Engineer', '+8801612612589', 'surbook12@gmail.com', '19911913625000100162', '', 'Avik sur', 'Uncle', '211,Savar, Dhaka.', '+8801813223212', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Dhaka', 'Dhaka', 'Kafrul', '3nd', '175', '5A', 'Senpara', '1216', ''),
-(18, 'landlord', 'landlord', 'Tanveer Ahmed', 'Md. Azghor Ali ', '1986-10-02', 0, 'Shoptak Bhaban,75, kafrul, senpara parbota, mirpur-10.', 'Business', 'Islam', 'B.com', '+8801545405270', 'tanveer212.stu@gmail.com', '19911913625000100152', 'BB0566600', 'Md. Azghor Ali ', 'Father', 'Shoptak Bhaban,75, kafrul, senpara parbota, mirpur-10.', '+8801946276760', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Dhaka', 'Dhaka', 'Kafrul', '3rd ', '75', '1A', 'Senpara', '1216', '2017-07-10-00-39-54_IMG_0211_thumb.JPG'),
-(19, 'landlord', 'landlord', 'Faysal Ahmed', 'Md.Amir Hossain Gulgar', '1987-12-07', 0, 'Vill:Barkota,Post:Barkota,P.S: Daudkandi,Dist:Comilla', 'Doctor', 'Islam', 'MBBS,BCS,FCPS.', '+8801945405287', 'faysalgulgar35@gmail.com', '19871913625000162', 'BF0246401', 'Md.Amir Hossain Gulgar', 'Father', 'Vill:Barkota,Post:Barkota,P.S: Daudkandi,Dist:Comilla', '+8801646276846', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Dhaka', 'Dhaka', 'kafrul', '5th', '25', 'Adarsho Road', 'Senpara', '1216', '2017-07-10-00-55-50_19553919_1054992907964459_5973402843328405225_n_thumb.jpg'),
-(20, 'landlord', 'landlord', 'Uzzal Mia', 'Fazlul ahmed sarker', '1982-10-01', 0, 'Vill:Behanhata,Post:Mohammadpur,P.S:Daudkandi,Dist:Comilla.', 'Own Business', 'Islam', 'LLB', '+8801845405270', 'isbut21.uzzal@gmail.com', '19911913625000100132', 'BG0264403', 'Mrs.Afsara Haque', 'Wife', 'Nirob Bahban,75,senpara,kafrul,Mirpur-10.', '+8801946276786', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Dhaka', 'Dhaka', 'Kafrul', '4th', '75', 'Adarsho Road', 'senpara', '1216', '2017-07-10-01-04-52_13932873_292684897761871_5675923203249950282_n_thumb.jpg'),
-(21, 'landlord', 'landlord', 'Atik ashraf', 'Enamul Haque', '1988-09-04', 0, '48,senpar parbata,mirpur-10.', 'Business', 'Islam', 'HSC', '+8801795405298', 'atik.32.msn@gmail.com', '19911913625000100122', '', 'Enamul Haque', 'Father', '48,senpar parbata,mirpur-10.', '+8801746276789', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Dhaka', 'Dhaka', 'Kafrul', '7th', '48', '7/B', 'Senpara', '1216', '2017-07-10-01-17-11_19732204_811368092346271_1974903378734486844_n_thumb.jpg'),
-(22, 'landlord', 'landlord', 'Ramesh Patwary', 'Fazlul Patwary', '1982-11-09', 0, 'Alapon Villa,8A,senpara,mirpur-10.', 'Teaching', 'Islam', 'M.com', '+8801795405299', 'ramesh1212.mcom@yahoo.com', '19911913625000100112', 'BH0264408', 'Fazlul Patwary', 'Father', 'Alapon Villa,8A,senpara,mirpur-10.', '+8801846276740', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Dhaka', 'Dhaka', 'kafrul', '5A', '390', '8A', 'Senpara', '1216', '2017-07-10-07-23-39_14590448_1214720785241563_9022944112557431155_n_thumb.jpg'),
-(23, 'landlord', 'landlord', 'Souvendhu Bhowmik', 'Santu Bhowmik', '1988-03-04', 0, 'Vill:Barkota,Post: Gauri[ur,P.S:Daudkandi,Dist:Comilla', 'Business man ', 'Hinduism', 'M.com', '+8801745405271', 'idu21.bhowmik@yahoo.com', '19911913625000100102', 'BF0274401', 'Santu Bhowmik', 'Father', 'Vill:Barkota,Post: Gauri[ur,P.S:Daudkandi,Dist:Comilla', '+8801746276780', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Dhaka', 'Dhaka', 'Kafrul', '3C', '321', '5A', 'Senpara', '1216', '2017-07-10-08-05-45_76386_164119606958451_4800567_n_thumb.jpg');
+(14, 'landlord', 'landlord', 'Bishwanath Sarker', 'Shanti Sarker', '1969-12-31', 'Married', 'Vill:Barkota,Post.:Barkota, P.S:Daudkandi,Dist:Comilla.', 'Business', 'Hinduism', 'B.Sc Engineer', '+8801745405276', 'bishu.bubt.32@gmail.com', '19911913625000100182', 'BB0264405', 'Shanti Sarker', 'Father', 'Vill:Barkota,Post.:Barkota, P.S:Daudkandi,Dist:Comilla.', '+8801746276746', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Dhaka', 'Dhaka', 'Kafrul', '5th', '272', '7B', 'Senpara', '1216', '2017-09-13-12-55-22_Bishwanath.jpg'),
+(16, 'landlord', 'landlord', 'Md. Bablu Ahmed', 'Md. Sulaiman mia', '1969-12-31', 'Devorced', 'Soptak Bhaban,130,Senpara, Parbata ,Mirpur-10. ', 'Own Business', 'Islam', 'B.Sc Engineer', '+8801730910539', 'bablukpik@gmail.com', '19911913625000100172', '', 'Lavlu Ahmed', 'Brother', 'Soptak Bhaban,130,Senpara, Parbata ,Mirpur-10. ', '+8801915446388', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Dhaka', 'Dhaka', 'kafrul', '2nd', '130', '2/A', 'Senpara', '1216', ''),
+(17, 'landlord', 'landlord', 'Sagor sur', 'Ashok Sur', '1969-12-31', '0', '211,Savar, Dhaka.', 'Computer Business', 'Hinduism', 'Engineer', '+8801612612589', 'surbook12@gmail.com', '19911913625000100162', '', 'Avik sur', 'Uncle', '211,Savar, Dhaka.', '+8801813223212', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Dhaka', 'Dhaka', 'Kafrul', '3nd', '175', '5A', 'Senpara', '1216', '2017-10-12-13-10-48_13901437_10210404857022587_5442802115823110118_n.jpg'),
+(18, 'landlord', 'landlord', 'Tanver Ahmed', 'Md. Azghor Ali ', '1986-10-02', '0', 'Shoptak Bhaban,75, kafrul, senpara parbota, mirpur-10.', 'Business', 'Islam', 'B.com', '+8801545405270', 'tanveer212.stu@gmail.com', '19911913625000100152', 'BB0566600', 'Md. Azghor Ali ', 'Father', 'Shoptak Bhaban,75, kafrul, senpara parbota, mirpur-10.', '+8801946276760', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Dhaka', 'Dhaka', 'Kafrul', '3rd ', '75', '1A', 'Senpara', '1216', '2017-07-10-00-39-54_IMG_0211_thumb.JPG'),
+(19, 'landlord', 'landlord', 'Faysal Ahmed', 'Md.Amir Hossain Gulgar', '1987-12-07', '0', 'Vill:Barkota,Post:Barkota,P.S: Daudkandi,Dist:Comilla', 'Doctor', 'Islam', 'MBBS,BCS,FCPS.', '+8801945405287', 'faysalgulgar35@gmail.com', '19871913625000162', 'BF0246401', 'Md.Amir Hossain Gulgar', 'Father', 'Vill:Barkota,Post:Barkota,P.S: Daudkandi,Dist:Comilla', '+8801646276846', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Dhaka', 'Dhaka', 'kafrul', '5th', '25', 'Adarsho Road', 'Senpara', '1216', '2017-07-10-00-55-50_19553919_1054992907964459_5973402843328405225_n_thumb.jpg'),
+(20, 'landlord', 'landlord', 'Uzzal Mia', 'Fazlul ahmed sarker', '1982-10-01', '0', 'Vill:Behanhata,Post:Mohammadpur,P.S:Daudkandi,Dist:Comilla.', 'Own Business', 'Islam', 'LLB', '+8801845405270', 'isbut21.uzzal@gmail.com', '19911913625000100132', 'BG0264403', 'Mrs.Afsara Haque', 'Wife', 'Nirob Bahban,75,senpara,kafrul,Mirpur-10.', '+8801946276786', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Dhaka', 'Dhaka', 'Kafrul', '4th', '75', 'Adarsho Road', 'senpara', '1216', '2017-07-10-01-04-52_13932873_292684897761871_5675923203249950282_n_thumb.jpg'),
+(21, 'landlord', 'landlord', 'Atik ashraf', 'Enamul Haque', '1988-09-04', '0', '48,senpar parbata,mirpur-10.', 'Business', 'Islam', 'HSC', '+8801795405298', 'atik.32.msn@gmail.com', '19911913625000100122', '', 'Enamul Haque', 'Father', '48,senpar parbata,mirpur-10.', '+8801746276789', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Dhaka', 'Dhaka', 'Kafrul', '7th', '48', '7/B', 'Senpara', '1216', '2017-07-10-01-17-11_19732204_811368092346271_1974903378734486844_n_thumb.jpg'),
+(22, 'landlord', 'landlord', 'Ramesh Patwary', 'Fazlul Patwary', '1982-11-09', '0', 'Alapon Villa,8A,senpara,mirpur-10.', 'Teaching', 'Islam', 'M.com', '+8801795405299', 'ramesh1212.mcom@yahoo.com', '19911913625000100112', 'BH0264408', 'Fazlul Patwary', 'Father', 'Alapon Villa,8A,senpara,mirpur-10.', '+8801846276740', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Dhaka', 'Dhaka', 'kafrul', '5/A', '270', '8A', 'Senpara', '1216', '2017-09-13-13-10-27_18403304_1745943008766188_5782982952437134719_n.jpg'),
+(23, 'landlord', 'landlord', 'Souvendhu Bhowmik', 'Santu Bhowmik', '1988-03-04', '0', 'Vill:Barkota,Post: Gauri[ur,P.S:Daudkandi,Dist:Comilla', 'Business man ', 'Hinduism', 'M.com', '+8801745405271', 'idu21.bhowmik@yahoo.com', '19911913625000100102', 'BF0274401', 'Santu Bhowmik', 'Father', 'Vill:Barkota,Post: Gauri[ur,P.S:Daudkandi,Dist:Comilla', '+8801746276780', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Dhaka', 'Dhaka', 'Kafrul', '3C', '321', '5A', 'Senpara', '1216', '2017-09-13-13-08-39_14590448_1214720785241563_9022944112557431155_n.jpg');
 
 -- --------------------------------------------------------
 
@@ -169,7 +169,6 @@ CREATE TABLE IF NOT EXISTS `lnd_driver` (
 
 INSERT INTO `lnd_driver` (`driver_id`, `lnd_id`, `driver_name`, `driver_nid`, `driver_phone`, `driver_permanent_add`, `driver_created_date`, `driver_modified_date`) VALUES
 (1, 14, '', '', '', '', NULL, NULL),
-(2, 15, 'asdf', 'adsf', 'adsf', 'adsf', NULL, NULL),
 (3, 16, 'Azgar ali', '19871913625000231', '+8801871552371', 'Bakergong, Barisal', NULL, NULL),
 (4, 17, 'Md.Aslam Mia', '19871913625000231', '+8801761552391', 'veramara,Nilfamari', NULL, NULL),
 (5, 18, 'Md. Alamin Mia', '19891913625000323', '+8801671558821', 'Vill:Malay,Post: Mohammadpur,P', NULL, NULL),
@@ -194,7 +193,7 @@ CREATE TABLE IF NOT EXISTS `lnd_familymember` (
   `family_member_phone` varchar(20) DEFAULT NULL,
   `family_created_date` datetime DEFAULT NULL,
   `family_modified_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `lnd_familymember`
@@ -202,8 +201,6 @@ CREATE TABLE IF NOT EXISTS `lnd_familymember` (
 
 INSERT INTO `lnd_familymember` (`family_member_id`, `lnd_id`, `family_member_name`, `family_member_age`, `family_member_job`, `family_member_phone`, `family_created_date`, `family_modified_date`) VALUES
 (1, 14, 'Mrs. Prantika Sarker', '21yrs', 'Housewife', '+8801821839294', NULL, NULL),
-(2, 15, 'Md. Bablu Mia', '29', 'asdf', '000131313', NULL, NULL),
-(3, 15, 'asdf', 'asdf', 'asdf', 'asdf', NULL, NULL),
 (4, 16, 'Md fazul mia', '37yrs', 'Job', '+8801916554456', NULL, NULL),
 (5, 16, 'Md.faqural Islam', '27yrs', 'Student', '+8801916532123', NULL, NULL),
 (6, 17, 'Anjali roy', '38yrs', 'Housewife', '+8801816554421', NULL, NULL),
@@ -219,8 +216,10 @@ INSERT INTO `lnd_familymember` (`family_member_id`, `lnd_id`, `family_member_nam
 (16, 22, 'Fazlul Patwary', '67yrs', 'Business', '+8801716554430', NULL, NULL),
 (17, 22, 'Fatema begum', '60yrs', 'Hosewife', '+8801716554430', NULL, NULL),
 (18, 23, 'Santu Bhowmik', '68yrs', 'Business', '+8801916532120', NULL, NULL),
-(19, 23, 'Akhi Bhowmik', '61yrs', 'Hosewife', '+8801716554438', NULL, NULL),
-(20, 23, 'Alok Bhowmik', '30yrs', 'Job', '+8801616532127', NULL, NULL);
+(19, 23, 'Santu Bhowmik', '68yrs', 'Business', '+8801916532120', NULL, NULL),
+(20, 23, 'Santu Bhowmik', '68yrs', 'Business', '+8801916532120', NULL, NULL),
+(21, 23, 't', 't', 't', 't', NULL, NULL),
+(23, 14, 'shanti sarker', '64yrs', 'teacher', '+8801746276746', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -245,7 +244,6 @@ CREATE TABLE IF NOT EXISTS `lnd_homeworker` (
 
 INSERT INTO `lnd_homeworker` (`homeworker_id`, `lnd_id`, `homeworker_name`, `homeworker_nid`, `homeworker_phone`, `homeworker_permanent_add`, `homeworker_created_date`, `homeworker_modified_date`) VALUES
 (1, 14, '', '', '', '', NULL, NULL),
-(2, 15, 'asdf', 'asdf', 'adsf', 'asdf', NULL, NULL),
 (3, 16, 'Morzila Begum', '19811913625000163', '+8801671552133', 'Bhubon nagor,Rangpur.', NULL, NULL),
 (4, 17, 'piyali ', '19811913625000123', '+8801771552132', 'Bakergong, Barisal.', NULL, NULL),
 (5, 18, 'Fatema akhter', '198119136250001421', '+8801871552153', 'Vill:Malay,Post: Mohammadpur,P', NULL, NULL),
@@ -280,7 +278,7 @@ CREATE TABLE IF NOT EXISTS `metro_police` (
 --
 
 INSERT INTO `metro_police` (`metro_police_id`, `metro_police_username`, `metro_police_userpass`, `user_type`, `metro_police_fullname`, `metro_police_address`, `metro_police_phone`, `metro_police_email`, `metro_police_created_date`, `metro_police_modified_date`, `metro_police_photo`) VALUES
-(1, 'police', 'police', 'metro_police', 'Shumon', 'Kafrul Thana, Mirpur, Dhaka', '01730910530', 'metropolice@gmail.com', '2017-05-08 00:00:00', '2017-05-08 00:00:00', 'bdpolice.png');
+(1, 'police', 'police', 'metro_police', 'Metropolitan Police', 'Kafrul Thana, Mirpur, Dhaka', '01730910530', 'metropolice@gmail.com', '2017-05-08 00:00:00', '2017-05-08 00:00:00', 'bdpolice.png');
 
 -- --------------------------------------------------------
 
@@ -301,7 +299,7 @@ CREATE TABLE IF NOT EXISTS `publicity` (
   `publicity_photo` varchar(255) DEFAULT NULL,
   `publicity_created_date` datetime DEFAULT NULL,
   `publicity_expired_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `publicity`
@@ -328,7 +326,6 @@ INSERT INTO `publicity` (`publicity_id`, `publicity_userid`, `publicity_usertype
 (29, 'admin', 'admin', 'Luxury Flat available at Badda', '1Master Bed,2bedroom,1 Drawing room,kitchen room.\r\nlift, water and Gas and electricity are always available .', '112,Badda,Dhaka.', 26000, 'Badda', '+8801949821082', '2017-07-10-01-58-41_images-(3)_thumb.jpg', '2017-07-10 01:18:21', '2017-07-10 01:18:21'),
 (30, 'admin', 'admin', 'Flat for Rent at Bimanbandar.', '3 Beds,1 Daining & kitchen, \r\nLift and security facility .\r\nGenerator facility.', '30,Bimanbondor,Dhaka.', 20000, 'Bimanbandar', '+8801849221092', '2017-07-10-02-03-42_images-(4)_thumb.jpg', '2017-07-10 01:03:42', '2017-07-10 01:03:42'),
 (31, 'admin', 'admin', 'Flat at Bangsal for rent', '2 Bed,1 Master bed, 1 kitchen and drawing room.\r\nLift and Generator facility.\r\n', '33,Bnagsal,Dhaka.', 18000, 'Bangsal', '+8801949821079', '2017-07-10-02-22-10_rental-service-300x225_thumb.jpeg', '2017-07-10 01:22:10', '2017-07-10 01:22:10'),
-(32, 'admin', 'admin', 'Flat at Cantonment', '2 bed room,1 Drawing room & kitchen room.\r\nlift, water and Gas and electricity are always available .', '21/C ,Cantonment ,Dhaka.', 17000, 'Cantonment', '+8801849821070', '2017-07-10-02-25-14_1448797392_Dhaka-Bank_change_003_thumb.jpg', '2017-07-10 01:25:14', '2017-07-10 01:25:14'),
 (33, 'admin', 'admin', ' চকবাজারে কম টাকায় ফ্লাট ভাড়া  ', '2 bed room,1 Drawing room,\r\nkitchen room.\r\nlift, water and Gas and electricity are always available .', '77/A,Chank Bazar,Dhaka.', 15000, 'Chak Bazar', '+8801949821079', '2017-07-10-02-29-00_images-(5)_thumb.jpg', '2017-07-10 01:29:00', '2017-07-10 01:29:00'),
 (34, 'admin', 'admin', 'Flat at Dakshinkhan', '1 Master Bed,2 Bed room,1 Drawing room,kitchen room.\r\nlift, water and Gas and electricity are always available .', '85,Dakshinkhan,Dhaka.', 21000, 'Dakshinkhan', '+8801849821072', '2017-07-10-02-32-14_10824-2-large_thumb.jpg', '2017-07-10 01:32:14', '2017-07-10 01:32:14'),
 (35, 'admin', 'admin', 'Flat at Darus Salam on 2nd Floor', '2 Bed room,1 Drawing room & 1 kitchen room.\r\nwater and Gas and electricity are always available .', '20/c, Darussalam,2nd floor,Dhaka,', 20000, 'Darus Salam', '+8801649821078', '2017-07-10-02-34-51_quality-inn_thumb.jpg', '2017-07-10 01:34:51', '2017-07-10 01:34:51'),
@@ -338,7 +335,10 @@ INSERT INTO `publicity` (`publicity_id`, `publicity_userid`, `publicity_usertype
 (39, 'admin', 'admin', 'House rent at Dohar', '2 rooms + 1 kitchen+1 daining room.\r\nGas and other facility are available here. ', 'Sador, Dohar, Dhaka.', 12000, 'Dohar', '+8801949821070', '2017-07-10-07-09-57_house_in_dhaka_thumb.jpg', '2017-07-10 06:09:57', '2017-07-10 06:09:57'),
 (40, '19911913625000100112', 'landlord', 'Home rent at Mirpur', '2Bed,1 kitchen and daining room ,lift and securiy and generator facility.', '290,senpara parbota,mirpur-10.', 15000, 'Mirpur', '+8801849221092', '2017-07-11-04-48-46_10824-2-large_thumb.jpg', '2017-07-11 03:48:46', '2017-07-11 03:48:46'),
 (41, '19911913625000100152', 'landlord', 'Luxury Flat available at Mirpur-10', '3 Bed room,1 Drawing room with Barandha, Kitchen, lift and generator are available.', '272,Senpara parbota,Mirpur-10.', 16000, 'Mirpur', '+8801949821079', '2017-07-11-04-53-44_aeronautical-institute-of-bangladesh_thumb.jpg', '2017-07-11 03:53:44', '2017-07-11 03:53:44'),
-(42, '19911913625000100000', 'general', ' HOME RENT at SENPARA', '2BED,1DRAWING,KITCHN AND GENERATOR FACILITY.', '272,SENPARA,PARBATA,MIRPUR-10.', 15000, 'Mirpur', '+8801849221092', '2017-08-10-06-33-57_a0a74648a9ec3f136b7ad30d9a2156ae_thumb.jpg', '2017-08-10 05:33:57', '2017-08-10 05:33:57');
+(42, '19911913625000100000', 'general', ' HOME RENT at SENPARA', '2BED,1DRAWING,KITCHN AND GENERATOR FACILITY.', '272,SENPARA,PARBATA,MIRPUR-10.', 15000, 'Mirpur', '+8801849221092', '2017-08-10-06-33-57_a0a74648a9ec3f136b7ad30d9a2156ae_thumb.jpg', '2017-08-10 05:33:57', '2017-08-10 05:33:57'),
+(43, '19911913625000100182', 'landlord', 'Home rent at Mirpur 10', '3-Bed,1 Drawing & 1 dining, 24 hrs lift & generator facility.', '271, Senpara, Parbata, Mirpur-10.', 17000, 'Mirpur', '+8801821839294', '2017-09-13-13-28-30_10824-2-large_thumb.jpg', '2017-09-14 12:30:05', '2017-09-14 12:30:05'),
+(44, '19911913625000100192', 'general', 'Luxury Flat available at Mirpur', '2 bed(1 Master bed), 1 drawing,1 kitchen.\r\n24-hrs lift and generator facility.', '270,senpara, mirpur-10.', 17000, 'Mirpur', '+8801949821079', '2017-10-12-12-29-20_10824-2-large_thumb.jpg', '2017-10-12 11:29:20', '2017-10-12 11:29:20'),
+(45, '19911913625000100192', 'general', 'One Room mate wanted', 'From 1st November 2017 a roommate is needed (student or employee).', '272,senpara,parbata,mirpur-10.', 2850, 'Mirpur', '+8801949821079', '2017-10-12-13-29-58_rental-service-300x225_thumb.jpeg', '2017-10-13 12:30:43', '2017-10-13 12:30:43');
 
 -- --------------------------------------------------------
 
@@ -352,7 +352,7 @@ CREATE TABLE IF NOT EXISTS `renter` (
   `user_type` varchar(30) DEFAULT NULL,
   `renter_father_name` varchar(30) DEFAULT NULL,
   `renter_birth_date` date DEFAULT NULL,
-  `renter_maritial_status` int(2) DEFAULT NULL,
+  `renter_maritial_status` varchar(15) DEFAULT NULL,
   `renter_permanent_add` text,
   `renter_profession_institute` varchar(30) DEFAULT NULL,
   `renter_religion` varchar(30) DEFAULT NULL,
@@ -383,22 +383,23 @@ CREATE TABLE IF NOT EXISTS `renter` (
   `renter_locality` varchar(30) DEFAULT NULL,
   `renter_postcode` varchar(30) DEFAULT NULL,
   `renter_photo` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `renter`
 --
 
 INSERT INTO `renter` (`renter_id`, `renter_fullname`, `user_type`, `renter_father_name`, `renter_birth_date`, `renter_maritial_status`, `renter_permanent_add`, `renter_profession_institute`, `renter_religion`, `renter_educational_status`, `renter_phone`, `renter_email`, `renter_nid`, `renter_passport`, `renter_emergency_name`, `renter_emergency_relation`, `renter_emergency_address`, `renter_emergency_phone`, `renter_previous_landlord_name`, `renter_previous_landlord_phone`, `renter_previous_landlord_permanent_add`, `renter_prvious_leave_reason`, `renter_present_landlord_name`, `renter_present_landlord_phone`, `renter_present_start_date`, `renter_created_date`, `renter_modified_date`, `renter_division`, `renter_district`, `renter_police_station`, `renter_flat_floor_no`, `renter_holding_no`, `renter_road_no`, `renter_locality`, `renter_postcode`, `renter_photo`) VALUES
-(1, 'Anupam Das Anik', 'renter', 'Sunirmol Das', '1990-11-07', 0, 'Vill:Porakadba,Post+P.S:Barora,Dsit:Comilla.', 'Student', 'Hinduism', 'MBA', '+8801945405239', 'annik.32das@gmail.com', '19911913625000100119', 'BF445904', 'Sunirmol Das', 'Father', 'Vill:Porakadba,Post+P.S:Barora,Dsit:Comilla.', '+8801946276790', 'Md.Musaroof Ahmed', '+8801971552590', '271,Senpara Parbata,kafrul,Mir', 'Want to stay with friend in the same flat.', 'Md.Asharaful kabir', '+8801771771586', '0000-00-00 00:00:00', NULL, NULL, 'Chittagong', 'Comilla', 'Babora', '7th', '230', '7B', 'Senpara', '1216', '2017-07-10-08-38-59_IMG_0334_thumb.JPG'),
-(4, 'Bipul Sarker', 'renter', 'Mintu sarker', '1969-12-31', 0, 'Barkota,Daudknadi,Comilla', 'Student', 'Hinduism', 'BBA', '+8801845405219', 'bba12th.uiu@gamil.com', '19941913625011231', '', 'Mintu sarker', 'Uncle', 'Barkota,Daudknadi,Comilla', '+8801946276001', 'Halim chaowdhury', '+8801671552589', '7/B,Dhanmondhi,Dhaka', 'Want to stay with class friends', 'Afzal ahmed Bhuyain', '+8801571772059', '0000-00-00 00:00:00', NULL, NULL, 'Dhaka', 'Comilla', 'Daudkandi', '5b', '271', '7/B', 'Senpara', '1216', '2017-07-11-03-29-32_IMG_0353_thumb.JPG'),
-(5, 'Mrs. Jinnat Sultana', 'renter', 'Rayhin Mahamud', '1969-12-31', 0, 'Maligaon,Daudkandi,Comilla', 'Housewife', 'Islam', 'HSC', '+8801845405298', 'bsc2006hsc@gmail.com', '19941913625011232', '', 'Shohel Rana', 'husband', '272,7/A,senpara,mirpur-10', '+8801946256740', 'Yeasin ahmed', '+8801771552589', '8/A,Malibag,Dhaka.', 'Business Purpose', 'Ashraful alam', '+8801971771586', '0000-00-00 00:00:00', NULL, NULL, 'Chittagong', 'Comilla', 'Daudkandi', '4C', '272', '7/A', 'Senpara', '1216', '2017-07-11-03-47-01_14390951_1862857357271688_5359161819488259603_n_thumb.jpg'),
-(6, 'Nesar Uddin ', 'renter', 'Late abul hossain', '1969-12-31', 0, 'Satra,Chandina,Comilla', 'Dental Doctor', 'Islam', 'MBBS', '+8801545405298', 'cmcdental21@gmail.com', '19941913625011233', 'BC449550', 'Ayesha khushi', 'Wife', 'Satra,Chandina,Comilla', '+8801846276740', 'Md.Mamun Ahmen khan', '+8801971552580', '110,Segunbagica,Dhaka.', 'Official reason', 'Md.Asharaful Alam', '+8801971771554', '0000-00-00 00:00:00', NULL, NULL, 'Chittagong', 'Comilla', 'Chandina', '2A', '272', '7/A', 'Senpara', '1216', '2017-07-11-04-32-55_12112507_1083346121708731_3399486425098046040_n_thumb.jpg'),
-(7, 'Pabel Mahamud', 'renter', 'fazid uddin ahmed', '1969-12-31', 0, '26,pabel house,Rajshahi sador,Rajshahi.', 'Student', 'Islam', 'MBA', '+8801545405276', 'pabel32.uib@gmail.com', '19941913625011234', 'BC445906', 'Parves Mahamud', 'Brother', '272,7/A,senpara,parbota.', '+8801946276743', 'Yeasin hossain ', '+8801871552580', '21/c,Gulsan,Dhaka.', 'Family reason', 'Md.Asharaful Alam', '+8801971771554', '0000-00-00 00:00:00', NULL, NULL, 'Rajshahi', 'Rajshahi', 'Rajshahi sador', '5a', '272', '7/A', 'Senpara', '1216', '2017-07-11-04-43-14_18447282_901621866646283_7469173061451455262_n_thumb.jpg'),
-(8, 'Salauddin Mahamud', 'renter', 'Gazi Sultan Mahamud', '1969-12-31', 0, '550,Moddha para,Sador, B.Barai.', 'Student', 'Islam', 'MBA', '+8801545405289', 'raj34subctg@gmail.com', '19941913625011235', 'BB445908', 'Gazi Sultan Mahamud', 'Father', '550,Moddha para,Sador, B.Barai.', '+8801746276746', 'Yeasin ahmed chowdhury', '+8801671552582', '390,Moddha Badda,Dhaka.', 'Study reason', 'Ramesh Patwary', '+8801771771580', '0000-00-00 00:00:00', NULL, NULL, 'Dhaka', 'Dhaka', 'Kafrul', '3C', '220', '220', 'Senpara', '1216', '2017-07-12-00-40-33_15965886_1832382453712093_95696587140836448_n_thumb.jpg'),
-(9, 'Afzal Sarker', 'renter', 'Hasem ali sarker', '1969-12-31', 0, 'Old Chowdhurypara,Comilla sador,Comilla.', 'Business', 'Islam', 'B.Sc. In CSE', '+8801745405279', 'cse22ndeve.adu@gmail.com', '19941913625011236', '', 'Afsana Begum', 'Wife', 'Ramesh Bhaban,220,senpara parbata ,mirpur-10.', '+8801546276740', 'Babul ahmed ', '+8801971552583', '75/A,dhanmondi,Dhaka', 'Official Reason', 'Ramesh Patwary', '+8801971771580', '0000-00-00 00:00:00', NULL, NULL, 'Dhaka', 'Dhaka', 'Kafrul', '2C', '220', '7/A', 'Senpara', '1216', '2017-07-12-00-49-22_19732214_823124557855046_1336645411407781681_n_thumb.jpg'),
-(10, 'Dipa Rani Das', 'renter', 'Sadesh das', '1989-04-03', 0, 'Vill:Biteshor, Post:Barkota, P.S:Daudkandi, Dist:Comilla.', 'Hosewife', 'Hinduism', 'BBA', '+8801545405279', 'uiu232abik@gmail.com', '19941913625011237', '', 'Aditta Das', 'Husband', 'Seltech Villa,220,7/A,Senpara parbata,Mirpur-10.', '+8801946276778', 'Uzzal Mia 	', '+8801971552588', '220,senpara,Parbata.', 'Official reason', 'Ramesh Patwary', '+8801771771580', '0000-00-00 00:00:00', NULL, NULL, 'Dhaka', 'Dhaka', 'Kafrul', '1B', '220', '7/A', 'Senpara', '1216', '2017-07-12-01-03-18_18698417_171044503427914_159005404185295762_n_thumb.jpg'),
-(11, 'Subrota Sen', 'renter', 'Shonkar sen', '1969-12-31', 0, 'Feni sador,Feni,Chittagong.', 'Student', 'Hinduism', 'LLB', '+8801745405278', 'uiu990llbik@gmail.com', '19941913625011238', 'BF445903', 'Shonkar sen', 'Father', '220,senpara p[arbata,mirpur-10.', '+8801946276770', 'Bishwanath Sarker', '+8801745405276', '272,Senpara,Parbta,Mirpur-10.', 'Nathing', 'Ramesh Patwary', '+8801771771580', '0000-00-00 00:00:00', NULL, NULL, 'Dhaka', 'Dhaka', 'Kafrul', '1C', '220', '7/A', 'Senpara', '1216', '2017-07-12-01-16-04_18403304_1745943008766188_5782982952437134719_n_thumb.jpg');
+(1, 'Anupam Das Anik', 'renter', 'Sunirmol Das', '1990-11-07', '0', 'Vill:Porakadba,Post+P.S:Barora,Dsit:Comilla.', 'Student', 'Hinduism', 'MBA', '+8801945405239', 'annik.32das@gmail.com', '19911913625000100119', 'BF445904', 'Sunirmol Das', 'Father', 'Vill:Porakadba,Post+P.S:Barora,Dsit:Comilla.', '+8801946276790', 'Md.Musaroof Ahmed', '+8801971552590', '271,Senpara Parbata,kafrul,Mir', 'Want to stay with friend in the same flat.', 'Md.Asharaful kabir', '+8801771771586', '0000-00-00 00:00:00', NULL, NULL, 'Chittagong', 'Comilla', 'Babora', '7th', '230', '7B', 'Senpara', '1216', '2017-07-10-08-38-59_IMG_0334_thumb.JPG'),
+(4, 'Bipul Sarker', 'renter', 'Mintu sarker', '1969-12-31', '0', 'Barkota,Daudknadi,Comilla', 'Student', 'Hinduism', 'BBA', '+8801845405219', 'bba12th.uiu@gamil.com', '19941913625011231', '', 'Mintu sarker', 'Uncle', 'Barkota,Daudknadi,Comilla', '+8801946276001', 'Halim chaowdhury', '+8801671552589', '7/B,Dhanmondhi,Dhaka', 'Want to stay with class friends', 'Afzal ahmed Bhuyain', '+8801571772059', '0000-00-00 00:00:00', NULL, NULL, 'Dhaka', 'Comilla', 'Daudkandi', '5b', '271', '7/B', 'Senpara', '1216', '2017-07-11-03-29-32_IMG_0353_thumb.JPG'),
+(5, 'Mrs. Jinnat Sultana', 'renter', 'Rayhin Mahamud', '1969-12-31', '0', 'Maligaon,Daudkandi,Comilla', 'Housewife', 'Islam', 'HSC', '+8801845405298', 'bsc2006hsc@gmail.com', '19941913625011232', '', 'Shohel Rana', 'husband', '272,7/A,senpara,mirpur-10', '+8801946256740', 'Yeasin ahmed', '+8801771552589', '8/A,Malibag,Dhaka.', 'Business Purpose', 'Ashraful alam', '+8801971771586', '0000-00-00 00:00:00', NULL, NULL, 'Chittagong', 'Comilla', 'Daudkandi', '4C', '272', '7/A', 'Senpara', '1216', '2017-07-11-03-47-01_14390951_1862857357271688_5359161819488259603_n_thumb.jpg'),
+(6, 'Nesar Uddin ', 'renter', 'Late abul hossain', '1969-12-31', '0', 'Satra,Chandina,Comilla', 'Dental Doctor', 'Islam', 'MBBS', '+8801545405298', 'cmcdental21@gmail.com', '19941913625011233', 'BC449550', 'Ayesha khushi', 'Wife', 'Satra,Chandina,Comilla', '+8801846276740', 'Md.Mamun Ahmen khan', '+8801971552580', '110,Segunbagica,Dhaka.', 'Official reason', 'Md.Asharaful Alam', '+8801971771554', '0000-00-00 00:00:00', NULL, NULL, 'Chittagong', 'Comilla', 'Chandina', '2A', '272', '7/A', 'Senpara', '1216', '2017-07-11-04-32-55_12112507_1083346121708731_3399486425098046040_n_thumb.jpg'),
+(7, 'Pabel Mahamud', 'renter', 'fazid uddin ahmed', '1969-12-31', '0', '26,pabel house,Rajshahi sador,Rajshahi.', 'Student', 'Islam', 'MBA', '+8801545405276', 'pabel32.uib@gmail.com', '19941913625011234', 'BC445906', 'Parves Mahamud', 'Brother', '272,7/A,senpara,parbota.', '+8801946276743', 'Yeasin hossain ', '+8801871552580', '21/c,Gulsan,Dhaka.', 'Family reason', 'Md.Asharaful Alam', '+8801971771554', '0000-00-00 00:00:00', NULL, NULL, 'Rajshahi', 'Rajshahi', 'Rajshahi sador', '5a', '272', '7/A', 'Senpara', '1216', '2017-07-11-04-43-14_18447282_901621866646283_7469173061451455262_n_thumb.jpg'),
+(8, 'Salauddin Mahamud', 'renter', 'Gazi Sultan Mahamud', '1969-12-31', '0', '550,Moddha para,Sador, B.Barai.', 'Student', 'Islam', 'MBA', '+8801545405289', 'raj34subctg@gmail.com', '19941913625011235', 'BB445908', 'Gazi Sultan Mahamud', 'Father', '550,Moddha para,Sador, B.Barai.', '+8801746276746', 'Yeasin ahmed chowdhury', '+8801671552582', '390,Moddha Badda,Dhaka.', 'Study reason', 'Ramesh Patwary', '+8801771771580', '0000-00-00 00:00:00', NULL, NULL, 'Dhaka', 'Dhaka', 'Kafrul', '3C', '220', '220', 'Senpara', '1216', '2017-07-12-00-40-33_15965886_1832382453712093_95696587140836448_n_thumb.jpg'),
+(9, 'Afzal Sarker', 'renter', 'Hasem ali sarker', '1969-12-31', '0', 'Old Chowdhurypara,Comilla sador,Comilla.', 'Business', 'Islam', 'B.Sc. In CSE', '+8801745405279', 'cse22ndeve.adu@gmail.com', '19941913625011236', '', 'Afsana Begum', 'Wife', 'Ramesh Bhaban,220,senpara parbata ,mirpur-10.', '+8801546276740', 'Babul ahmed ', '+8801971552583', '75/A,dhanmondi,Dhaka', 'Official Reason', 'Ramesh Patwary', '+8801971771580', '0000-00-00 00:00:00', NULL, NULL, 'Dhaka', 'Dhaka', 'Kafrul', '2C', '220', '7/A', 'Senpara', '1216', '2017-07-12-00-49-22_19732214_823124557855046_1336645411407781681_n_thumb.jpg'),
+(10, 'Dipa Rani Das', 'renter', 'Sadesh das', '1989-04-03', 'Married', 'Vill:Biteshor, Post:Barkota, P.S:Daudkandi, Dist:Comilla.      ', 'Housewife', 'Hinduism', 'BBA', '+8801545405279', 'something@gmail.com', '19941913625011237', '', 'Aditta Das', 'Husband', 'Seltech Villa,220,7/A,Senpara parbata,Mirpur-10.', '+8801946276778', 'Uzzal Mia 	', '+8801971552588', '220,senpara,Parbata      ', 'Official reason      ', 'Ramesh Patwary', '+8801771771580', '1970-01-01 00:00:00', NULL, NULL, 'Dhaka', 'Dhaka', 'Kafrul', '1B', '220', '7/A', 'Shenpara', '1216', '2017-09-13-13-13-02_18698417_171044503427914_159005404185295762_n.jpg'),
+(11, 'Subrota Sen', 'renter', 'Shonkar sen', '1969-12-31', 'Married', 'Feni sador,Feni,Chittagong.                               ', 'Student', 'Hinduism', 'LLB', '+8801745405278', 'uiu990llbik@gmail.com', '19941913625011238', 'BF445903', 'Shonkar sen', 'Father', '220,senpara p[arbata,mirpur-10.', '+8801946276770', 'te', 'te', '  te                   ', '  te                   ', 'te', 'te', '1970-01-01 00:00:00', NULL, NULL, 'Dhaka', 'Dhaka', 'Kafrul', '1CC', '220', '7/A', 'Senpara', '1216', '2017-09-13-13-13-31_18447282_901621866646283_7469173061451455262_n.jpg'),
+(12, 'Md.Enamul Haque', 'renter', 'Mohiuddin', '1969-12-31', 'Single', 'asad ', 'BUBT', 'Islam', 'B.Sc.', '01567987', 'akjhsa@gams.com', '5646947912', '', 'sdu', 'wer34', 'werew', '1245674', 'adsafwe', '123213', 'asdfasf ', '234asddfqwe ', 'wqqweqw', '231243', '0001-11-30 00:00:00', NULL, NULL, 'Dhaka', 'Dhaka', 'Mirpur', '5', '415', '2', 'Shenpara', '1216', '2017-09-17-09-23-19_download.jpg');
 
 -- --------------------------------------------------------
 
@@ -415,7 +416,7 @@ CREATE TABLE IF NOT EXISTS `renter_driver` (
   `driver_permanent_add` varchar(30) DEFAULT NULL,
   `driver_created_date` datetime DEFAULT NULL,
   `driver_modified_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `renter_driver`
@@ -429,8 +430,9 @@ INSERT INTO `renter_driver` (`driver_id`, `renter_id`, `driver_name`, `driver_ni
 (5, 7, 'Asharaf ali', '19861912125010020', '+8801761552396', '24,Rajshahi sador,Rajshahi.', NULL, NULL),
 (6, 8, 'Md. Alamgir hossain', '19861912125010021', '+8801671552221', '45,Noton bazar ,Chandpur.', NULL, NULL),
 (7, 9, 'ajgor mia', '19861912125010022', '+8801761552390', 'Old Chowdhurypara,Comilla sado', NULL, NULL),
-(8, 10, 'Haliim mia', '19861912125010023', '+8801671552550', 'Barkota,Daudkandi,Comilla', NULL, NULL),
-(9, 11, 'Azgar ali', '19861912125010024', '+8801671558825', 'Feni sador,Feni,Chittagong.', NULL, NULL);
+(8, 10, 'Haliim mia', '19861912125010023', '+8801671552550', 'Barkota,Daudkandi,Comilla     ', NULL, NULL),
+(9, 11, 'Azgar ali', '19861912125010024', '+8801671558825', 'Feni sador,Feni,Chittagong.   ', NULL, NULL),
+(10, 12, 'dwert', '213214', '12423432', 'asdwasf ', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -447,7 +449,7 @@ CREATE TABLE IF NOT EXISTS `renter_familymember` (
   `family_member_phone` varchar(20) DEFAULT NULL,
   `family_member_created_date` datetime DEFAULT NULL,
   `family_member_modified_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=293 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `renter_familymember`
@@ -474,7 +476,13 @@ INSERT INTO `renter_familymember` (`family_member_id`, `renter_id`, `family_memb
 (18, 9, 'Apul  Sarker', '3yrs', 'None', '+8801546276740', NULL, NULL),
 (19, 10, 'Aditta Das', '35yrs', 'Banker', '+8801946276778', NULL, NULL),
 (20, 11, 'Shonkar sen', '60yrs', 'Bnaker', '+8801916554436', NULL, NULL),
-(21, 11, 'karona rani sen', '56yrs', 'Teacher', '+8801916554435', NULL, NULL);
+(21, 11, 'karona rani sen', '56yrs', 'Teacher', '+8801916554435', NULL, NULL),
+(287, 11, 'test', 'test', 'asdf', 'asdf', NULL, NULL),
+(288, 11, 'test', 'test', 'test', 'test', NULL, NULL),
+(289, 11, 'ads', 'fadss', 'asdf', 'fasdff', NULL, NULL),
+(290, 10, 'Bisu', '200yrs', 'Soft Engr.', '017333333', NULL, NULL),
+(291, 12, 'fdwre', '2', 'dsad', '5454', NULL, NULL),
+(292, 12, 'wedrfwe', '3', 'wsdfwe', '45564', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -491,7 +499,7 @@ CREATE TABLE IF NOT EXISTS `renter_homeworker` (
   `homeworker_permanent_add` varchar(30) DEFAULT NULL,
   `homeworker_created_date` datetime DEFAULT NULL,
   `homeworker_modified_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `renter_homeworker`
@@ -505,8 +513,9 @@ INSERT INTO `renter_homeworker` (`homeworker_id`, `renter_id`, `homeworker_name`
 (5, 7, 'Morzila akhtar', '19801912125011119', '+8801771552136', 'Rajshahi sador,Rajshahi.', NULL, NULL),
 (6, 8, 'Feroza Begum', '19801912125011120', '+8801671552133', 'satrasta more,moladi,Borisal.', NULL, NULL),
 (7, 9, 'Morzila Begum', '19801912125011121', '+8801971552130', 'Old Chowdhurypara,Comilla sado', NULL, NULL),
-(8, 10, 'Shilpi ', '19801912125011122', '+8801971552130', 'Barkota,Daudkandi,Comilla', NULL, NULL),
-(9, 11, 'piyali das', '19801912125011123', '+8801971552145', 'Feni sador,Feni,Chittagong.', NULL, NULL);
+(8, 10, 'Shilpy', '19801912125011122', '+8801971552130', 'Barkota,Daudkandi,Comilla', NULL, NULL),
+(9, 11, 'piyali das', '19801912125011123', '+8801971552145', 'Feni sador,Feni,Chittagong.', NULL, NULL),
+(10, 12, 'wwetrwe', '23214', '2313123', 'dsfdfe', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -533,27 +542,68 @@ CREATE TABLE IF NOT EXISTS `renter_tracking_tbl` (
   `renter_permanent_add` text,
   `renter_photo` varchar(255) DEFAULT NULL,
   `renter_started_date` datetime DEFAULT NULL,
-  `renter_ending_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+  `renter_ending_date` datetime DEFAULT NULL,
+  `renter_status` varchar(10) NOT NULL DEFAULT 'inactive'
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `renter_tracking_tbl`
 --
 
-INSERT INTO `renter_tracking_tbl` (`tracking_id`, `lnd_id`, `lnd_fullname`, `lnd_phone`, `lnd_nid`, `lnd_police_station`, `lnd_holding_no`, `lnd_road_no`, `lnd_locality`, `lnd_postcode`, `lnd_photo`, `renter_id`, `renter_fullname`, `renter_phone`, `renter_nid`, `renter_permanent_add`, `renter_photo`, `renter_started_date`, `renter_ending_date`) VALUES
-(1, 18, 'Tanveer Ahmed', '+8801545405270', '19911913625000100152', 'Kafrul', '75', '1A', 'Senpara', '1216', '2017-07-10-00-39-54_IMG_0211_thumb.JPG', 4, 'Bipul Sarker', '+8801845405219', '19941913625011231', 'Barkota,Daudknadi,Comilla', '2017-07-11-03-29-32_IMG_0353_thumb.JPG', '2017-07-11 02:29:47', '2017-07-11 03:57:20'),
-(2, 18, 'Tanveer Ahmed', '+8801545405270', '19911913625000100152', 'Kafrul', '75', '1A', 'Senpara', '1216', '2017-07-10-00-39-54_IMG_0211_thumb.JPG', 5, 'Mrs. Jinnat Sultana', '+8801845405298', '19941913625011232', 'Maligaon,Daudkandi,Comilla', '2017-07-11-03-47-01_14390951_1862857357271688_5359161819488259603_n_thumb.jpg', '2017-07-11 02:47:24', '2017-07-11 02:47:24'),
-(3, 18, 'Tanveer Ahmed', '+8801545405270', '19911913625000100152', 'Kafrul', '75', '1A', 'Senpara', '1216', '2017-07-10-00-39-54_IMG_0211_thumb.JPG', 6, 'Nesar Uddin ', '+8801545405298', '19941913625011233', 'Satra,Chandina,Comilla', '2017-07-11-04-32-55_12112507_1083346121708731_3399486425098046040_n_thumb.jpg', '2017-07-11 03:33:30', '2017-07-12 11:22:52'),
-(4, 18, 'Tanveer Ahmed', '+8801545405270', '19911913625000100152', 'Kafrul', '75', '1A', 'Senpara', '1216', '2017-07-10-00-39-54_IMG_0211_thumb.JPG', 7, 'Pabel Mahamud', '+8801545405276', '19941913625011234', '26,pabel house,Rajshahi sador,Rajshahi.', '2017-07-11-04-43-14_18447282_901621866646283_7469173061451455262_n_thumb.jpg', '2017-07-11 03:43:42', '2017-07-11 03:43:42'),
-(5, 22, 'Ramesh Patwary', '+8801795405299', '19911913625000100112', 'kafrul', '390', '8A', 'Senpara', '1216', '2017-07-10-07-23-39_14590448_1214720785241563_9022944112557431155_n_thumb.jpg', 4, 'Bipul Sarker', '+8801845405219', '19941913625011231', 'Barkota,Daudknadi,Comilla', '2017-07-11-03-29-32_IMG_0353_thumb.JPG', '2017-07-11 03:57:20', '2017-07-11 03:57:20'),
-(6, 22, 'Ramesh Patwary', '+8801795405299', '19911913625000100112', 'kafrul', '390', '8A', 'Senpara', '1216', '2017-07-10-07-23-39_14590448_1214720785241563_9022944112557431155_n_thumb.jpg', 6, 'Nesar Uddin ', '+8801545405298', '19941913625011233', 'Satra,Chandina,Comilla', '2017-07-11-04-32-55_12112507_1083346121708731_3399486425098046040_n_thumb.jpg', '2017-07-12 11:22:52', '2017-07-12 11:22:52'),
-(7, 22, 'Ramesh Patwary', '+8801795405299', '19911913625000100112', 'kafrul', '390', '8A', 'Senpara', '1216', '2017-07-10-07-23-39_14590448_1214720785241563_9022944112557431155_n_thumb.jpg', 8, 'Salauddin Mahamud', '+8801545405289', '19941913625011235', '550,Moddha para,Sador, B.Barai.', '2017-07-12-00-40-33_15965886_1832382453712093_95696587140836448_n_thumb.jpg', '2017-07-12 11:51:05', '2017-08-08 09:34:05'),
-(8, 22, 'Ramesh Patwary', '+8801795405299', '19911913625000100112', 'kafrul', '390', '8A', 'Senpara', '1216', '2017-07-10-07-23-39_14590448_1214720785241563_9022944112557431155_n_thumb.jpg', 9, 'Afzal Sarker', '+8801745405279', '19941913625011236', 'Old Chowdhurypara,Comilla sador,Comilla.', '2017-07-12-00-49-22_19732214_823124557855046_1336645411407781681_n_thumb.jpg', '2017-07-12 11:51:15', '2017-08-08 09:36:01'),
-(9, 22, 'Ramesh Patwary', '+8801795405299', '19911913625000100112', 'kafrul', '390', '8A', 'Senpara', '1216', '2017-07-10-07-23-39_14590448_1214720785241563_9022944112557431155_n_thumb.jpg', 10, 'Dipa Rani Das', '+8801545405279', '19941913625011237', 'Vill:Biteshor, Post:Barkota, P.S:Daudkandi, Dist:Comilla.', '2017-07-12-01-03-18_18698417_171044503427914_159005404185295762_n_thumb.jpg', '2017-07-12 12:03:43', '2017-08-08 09:38:39'),
-(10, 22, 'Ramesh Patwary', '+8801795405299', '19911913625000100112', 'kafrul', '390', '8A', 'Senpara', '1216', '2017-07-10-07-23-39_14590448_1214720785241563_9022944112557431155_n_thumb.jpg', 11, 'Subrota Sen', '+8801745405278', '19941913625011238', 'Feni sador,Feni,Chittagong.', '2017-07-12-01-16-04_18403304_1745943008766188_5782982952437134719_n_thumb.jpg', '2017-07-12 12:16:17', '2017-07-12 12:16:17'),
-(11, 18, 'Tanveer Ahmed', '+8801545405270', '19911913625000100152', 'Kafrul', '75', '1A', 'Senpara', '1216', '2017-07-10-00-39-54_IMG_0211_thumb.JPG', 8, 'Salauddin Mahamud', '+8801545405289', '19941913625011235', '550,Moddha para,Sador, B.Barai.', '2017-07-12-00-40-33_15965886_1832382453712093_95696587140836448_n_thumb.jpg', '2017-08-08 09:34:05', '2017-08-08 09:34:05'),
-(12, 22, 'Ramesh Patwary', '+8801795405299', '19911913625000100112', 'kafrul', '390', '8A', 'Senpara', '1216', '2017-07-10-07-23-39_14590448_1214720785241563_9022944112557431155_n_thumb.jpg', 9, 'Afzal Sarker', '+8801745405279', '19941913625011236', 'Old Chowdhurypara,Comilla sador,Comilla.', '2017-07-12-00-49-22_19732214_823124557855046_1336645411407781681_n_thumb.jpg', '2017-08-08 09:36:01', '2017-08-08 09:36:01'),
-(13, 18, 'Tanveer Ahmed', '+8801545405270', '19911913625000100152', 'Kafrul', '75', '1A', 'Senpara', '1216', '2017-07-10-00-39-54_IMG_0211_thumb.JPG', 10, 'Dipa Rani Das', '+8801545405279', '19941913625011237', 'Vill:Biteshor, Post:Barkota, P.S:Daudkandi, Dist:Comilla.', '2017-07-12-01-03-18_18698417_171044503427914_159005404185295762_n_thumb.jpg', '2017-08-08 09:38:39', '2017-08-08 09:38:39');
+INSERT INTO `renter_tracking_tbl` (`tracking_id`, `lnd_id`, `lnd_fullname`, `lnd_phone`, `lnd_nid`, `lnd_police_station`, `lnd_holding_no`, `lnd_road_no`, `lnd_locality`, `lnd_postcode`, `lnd_photo`, `renter_id`, `renter_fullname`, `renter_phone`, `renter_nid`, `renter_permanent_add`, `renter_photo`, `renter_started_date`, `renter_ending_date`, `renter_status`) VALUES
+(2, 18, 'Tanveer Ahmed', '+8801545405270', '19911913625000100152', 'Kafrul', '75', '1A', 'Senpara', '1216', '2017-07-10-00-39-54_IMG_0211_thumb.JPG', 5, 'Mrs. Jinnat Sultana', '+8801845405298', '19941913625011232', 'Maligaon,Daudkandi,Comilla', '2017-07-11-03-47-01_14390951_1862857357271688_5359161819488259603_n_thumb.jpg', '2017-07-11 02:47:24', '2017-09-09 02:36:13', 'inactive'),
+(3, 18, 'Tanveer Ahmed', '+8801545405270', '19911913625000100152', 'Kafrul', '75', '1A', 'Senpara', '1216', '2017-07-10-00-39-54_IMG_0211_thumb.JPG', 6, 'Nesar Uddin ', '+8801545405298', '19941913625011233', 'Satra,Chandina,Comilla', '2017-07-11-04-32-55_12112507_1083346121708731_3399486425098046040_n_thumb.jpg', '2017-07-11 03:33:30', '2017-07-12 11:22:52', 'inactive'),
+(4, 18, 'Tanveer Ahmed', '+8801545405270', '19911913625000100152', 'Kafrul', '75', '1A', 'Senpara', '1216', '2017-07-10-00-39-54_IMG_0211_thumb.JPG', 7, 'Pabel Mahamud', '+8801545405276', '19941913625011234', '26,pabel house,Rajshahi sador,Rajshahi.', '2017-07-11-04-43-14_18447282_901621866646283_7469173061451455262_n_thumb.jpg', '2017-07-11 03:43:42', '2017-09-13 02:17:27', 'inactive'),
+(6, 22, 'Ramesh Patwary', '+8801795405299', '19911913625000100112', 'kafrul', '390', '8A', 'Senpara', '1216', '2017-07-10-07-23-39_14590448_1214720785241563_9022944112557431155_n_thumb.jpg', 6, 'Nesar Uddin ', '+8801545405298', '19941913625011233', 'Satra,Chandina,Comilla', '2017-07-11-04-32-55_12112507_1083346121708731_3399486425098046040_n_thumb.jpg', '2017-07-12 11:22:52', '2017-09-13 10:42:26', 'inactive'),
+(7, 22, 'Ramesh Patwary', '+8801795405299', '19911913625000100112', 'kafrul', '390', '8A', 'Senpara', '1216', '2017-07-10-07-23-39_14590448_1214720785241563_9022944112557431155_n_thumb.jpg', 8, 'Salauddin Mahamud', '+8801545405289', '19941913625011235', '550,Moddha para,Sador, B.Barai.', '2017-07-12-00-40-33_15965886_1832382453712093_95696587140836448_n_thumb.jpg', '2017-07-12 11:51:05', '2017-08-08 09:34:05', 'inactive'),
+(8, 22, 'Ramesh Patwary', '+8801795405299', '19911913625000100112', 'kafrul', '390', '8A', 'Senpara', '1216', '2017-07-10-07-23-39_14590448_1214720785241563_9022944112557431155_n_thumb.jpg', 9, 'Afzal Sarker', '+8801745405279', '19941913625011236', 'Old Chowdhurypara,Comilla sador,Comilla.', '2017-07-12-00-49-22_19732214_823124557855046_1336645411407781681_n_thumb.jpg', '2017-07-12 11:51:15', '2017-08-08 09:36:01', 'inactive'),
+(9, 22, 'Ramesh Patwary', '+8801795405299', '19911913625000100112', 'kafrul', '390', '8A', 'Senpara', '1216', '2017-07-10-07-23-39_14590448_1214720785241563_9022944112557431155_n_thumb.jpg', 10, 'Dipa Rani Das', '+8801545405279', '19941913625011237', 'Vill:Biteshor, Post:Barkota, P.S:Daudkandi, Dist:Comilla.', '2017-07-12-01-03-18_18698417_171044503427914_159005404185295762_n_thumb.jpg', '2017-07-12 12:03:43', '2017-08-08 09:38:39', 'inactive'),
+(10, 22, 'Ramesh Patwary', '+8801795405299', '19911913625000100112', 'kafrul', '390', '8A', 'Senpara', '1216', '2017-07-10-07-23-39_14590448_1214720785241563_9022944112557431155_n_thumb.jpg', 11, 'Subrota Sen', '+8801745405278', '19941913625011238', 'Feni sador,Feni,Chittagong.', '2017-07-12-01-16-04_18403304_1745943008766188_5782982952437134719_n_thumb.jpg', '2017-07-12 12:16:17', '2017-10-12 11:47:38', 'inactive'),
+(11, 18, 'Tanveer Ahmed', '+8801545405270', '19911913625000100152', 'Kafrul', '75', '1A', 'Senpara', '1216', '2017-07-10-00-39-54_IMG_0211_thumb.JPG', 8, 'Salauddin Mahamud', '+8801545405289', '19941913625011235', '550,Moddha para,Sador, B.Barai.', '2017-07-12-00-40-33_15965886_1832382453712093_95696587140836448_n_thumb.jpg', '2017-08-08 09:34:05', '2017-08-08 09:34:05', 'inactive'),
+(12, 22, 'Ramesh Patwary', '+8801795405299', '19911913625000100112', 'kafrul', '390', '8A', 'Senpara', '1216', '2017-07-10-07-23-39_14590448_1214720785241563_9022944112557431155_n_thumb.jpg', 9, 'Afzal Sarker', '+8801745405279', '19941913625011236', 'Old Chowdhurypara,Comilla sador,Comilla.', '2017-07-12-00-49-22_19732214_823124557855046_1336645411407781681_n_thumb.jpg', '2017-08-08 09:36:01', '2017-08-08 09:36:01', 'inactive'),
+(13, 18, 'Tanveer Ahmed', '+8801545405270', '19911913625000100152', 'Kafrul', '75', '1A', 'Senpara', '1216', '2017-07-10-00-39-54_IMG_0211_thumb.JPG', 10, 'Dipa Rani Das', '+8801545405279', '19941913625011237', 'Vill:Biteshor, Post:Barkota, P.S:Daudkandi, Dist:Comilla.', '2017-07-12-01-03-18_18698417_171044503427914_159005404185295762_n_thumb.jpg', '2017-08-08 09:38:39', '2017-09-14 12:39:15', 'inactive'),
+(15, 16, 'Md. Bablu Ahmed', '+8801730910539', '19911913625000100172', 'kafrul', '130', '2/A', 'Senpara', '1216', '', 5, 'Mrs. Jinnat Sultana', '+8801845405298', '19941913625011232', 'Maligaon,Daudkandi,Comilla', '2017-07-11-03-47-01_14390951_1862857357271688_5359161819488259603_n_thumb.jpg', '2017-09-09 02:36:13', '2017-09-10 10:15:17', 'inactive'),
+(16, 17, 'Sagor sur', '+8801612612589', '19911913625000100162', 'Kafrul', '175', '5A', 'Senpara', '1216', '', 4, 'Bipul Sarker', '+8801845405219', '19941913625011231', 'Barkota,Daudknadi,Comilla', '2017-07-11-03-29-32_IMG_0353_thumb.JPG', '2017-09-09 03:54:15', '2017-09-10 06:54:20', 'inactive'),
+(29, 16, 'Md. Bablu Ahmed', '+8801730910539', '19911913625000100172', 'kafrul', '130', '2/A', 'Senpara', '1216', '', 4, 'Bipul Sarker', '+8801845405219', '19941913625011231', 'Barkota,Daudknadi,Comilla', '2017-07-11-03-29-32_IMG_0353_thumb.JPG', '2017-09-10 06:54:20', '2017-09-10 06:55:02', 'inactive'),
+(30, 17, 'Sagor sur', '+8801612612589', '19911913625000100162', 'Kafrul', '175', '5A', 'Senpara', '1216', '', 4, 'Bipul Sarker', '+8801845405219', '19941913625011231', 'Barkota,Daudknadi,Comilla', '2017-07-11-03-29-32_IMG_0353_thumb.JPG', '2017-09-10 06:55:02', '2017-09-13 02:36:19', 'inactive'),
+(31, 17, 'Sagor sur', '+8801612612589', '19911913625000100162', 'Kafrul', '175', '5A', 'Senpara', '1216', '', 5, 'Mrs. Jinnat Sultana', '+8801845405298', '19941913625011232', 'Maligaon,Daudkandi,Comilla', '2017-07-11-03-47-01_14390951_1862857357271688_5359161819488259603_n_thumb.jpg', '2017-09-10 10:15:17', '2017-09-13 09:52:51', 'inactive'),
+(32, 17, 'Sagor sur', '+8801612612589', '19911913625000100162', 'Kafrul', '175', '5A', 'Senpara', '1216', '', 7, 'Pabel Mahamud', '+8801545405276', '19941913625011234', '26,pabel house,Rajshahi sador,Rajshahi.', '2017-07-11-04-43-14_18447282_901621866646283_7469173061451455262_n_thumb.jpg', '2017-09-13 02:17:27', '2017-09-14 12:38:31', 'inactive'),
+(33, 16, 'Md. Bablu Ahmed', '+8801730910539', '19911913625000100172', 'kafrul', '130', '2/A', 'Senpara', '1216', '', 4, 'Bipul Sarker', '+8801845405219', '19941913625011231', 'Barkota,Daudknadi,Comilla', '2017-07-11-03-29-32_IMG_0353_thumb.JPG', '2017-09-13 02:36:19', '2017-09-13 02:44:10', 'inactive'),
+(34, 17, 'Sagor sur', '+8801612612589', '19911913625000100162', 'Kafrul', '175', '5A', 'Senpara', '1216', '', 4, 'Bipul Sarker', '+8801845405219', '19941913625011231', 'Barkota,Daudknadi,Comilla', '2017-07-11-03-29-32_IMG_0353_thumb.JPG', '2017-09-13 02:44:10', '2017-09-13 09:50:48', 'inactive'),
+(35, 16, 'Md. Bablu Ahmed', '+8801730910539', '19911913625000100172', 'kafrul', '130', '2/A', 'Senpara', '1216', '', 4, 'Bipul Sarker', '+8801845405219', '19941913625011231', 'Barkota,Daudknadi,Comilla', '2017-07-11-03-29-32_IMG_0353_thumb.JPG', '2017-09-13 09:50:48', '2017-09-13 10:41:39', 'inactive'),
+(36, 16, 'Md. Bablu Ahmed', '+8801730910539', '19911913625000100172', 'kafrul', '130', '2/A', 'Senpara', '1216', '', 5, 'Mrs. Jinnat Sultana', '+8801845405298', '19941913625011232', 'Maligaon,Daudkandi,Comilla', '2017-07-11-03-47-01_14390951_1862857357271688_5359161819488259603_n_thumb.jpg', '2017-09-13 09:52:51', '2017-09-13 09:52:51', 'active'),
+(37, 14, 'Bishwanath Sarker', '+8801745405276', '19911913625000100182', 'Kafrul', '272', '7B', 'Senpara', '1216', '2017-09-13-18-04-40_Penguins.jpg', 4, 'Bipul Sarker', '+8801845405219', '19941913625011231', 'Barkota,Daudknadi,Comilla', '2017-07-11-03-29-32_IMG_0353_thumb.JPG', '2017-09-13 10:41:39', '2017-09-13 10:41:39', 'active'),
+(38, 14, 'Bishwanath Sarker', '+8801745405276', '19911913625000100182', 'Kafrul', '272', '7B', 'Senpara', '1216', '2017-09-13-18-04-40_Penguins.jpg', 6, 'Nesar Uddin ', '+8801545405298', '19941913625011233', 'Satra,Chandina,Comilla', '2017-07-11-04-32-55_12112507_1083346121708731_3399486425098046040_n_thumb.jpg', '2017-09-13 10:42:26', '2017-09-14 07:31:42', 'inactive'),
+(39, 14, 'Bishwanath Sarker', '+8801745405276', '19911913625000100182', 'Kafrul', '272', '7B', 'Senpara', '1216', '2017-09-13-12-55-22_Bishwanath.jpg', 7, 'Pabel Mahamud', '+8801545405276', '19941913625011234', '26,pabel house,Rajshahi sador,Rajshahi.', '2017-07-11-04-43-14_18447282_901621866646283_7469173061451455262_n_thumb.jpg', '2017-09-14 12:38:31', '2017-09-14 12:40:20', 'inactive'),
+(40, 14, 'Bishwanath Sarker', '+8801745405276', '19911913625000100182', 'Kafrul', '272', '7B', 'Senpara', '1216', '2017-09-13-12-55-22_Bishwanath.jpg', 10, 'Dipa Rani Das', '+8801545405279', '19941913625011237', 'Vill:Biteshor, Post:Barkota, P.S:Daudkandi, Dist:Comilla.    ', '2017-09-13-13-13-02_18698417_171044503427914_159005404185295762_n.jpg', '2017-09-14 12:39:15', '2017-09-14 12:39:15', 'active'),
+(41, 18, 'Tanveer Ahmed', '+8801545405270', '19911913625000100152', 'Kafrul', '75', '1A', 'Senpara', '1216', '2017-07-10-00-39-54_IMG_0211_thumb.JPG', 7, 'Pabel Mahamud', '+8801545405276', '19941913625011234', '26,pabel house,Rajshahi sador,Rajshahi.', '2017-07-11-04-43-14_18447282_901621866646283_7469173061451455262_n_thumb.jpg', '2017-09-14 12:40:20', '2017-09-14 12:40:20', 'active'),
+(42, 17, 'Sagor sur', '+8801612612589', '19911913625000100162', 'Kafrul', '175', '5A', 'Senpara', '1216', '2017-09-13-13-10-52_15965886_1832382453712093_95696587140836448_n.jpg', 6, 'Nesar Uddin ', '+8801545405298', '19941913625011233', 'Satra,Chandina,Comilla', '2017-07-11-04-32-55_12112507_1083346121708731_3399486425098046040_n_thumb.jpg', '2017-09-14 07:31:42', '2017-09-14 07:31:42', 'active'),
+(43, 14, 'Bishwanath Sarker', '+8801745405276', '19911913625000100182', 'Kafrul', '272', '7B', 'Senpara', '1216', '2017-09-13-12-55-22_Bishwanath.jpg', 11, 'Subrota Sen', '+8801745405278', '19941913625011238', 'Feni sador,Feni,Chittagong.                               ', '2017-09-13-13-13-31_18447282_901621866646283_7469173061451455262_n.jpg', '2017-10-12 11:47:38', '2017-10-12 11:47:54', 'inactive'),
+(44, 14, 'Bishwanath Sarker', '+8801745405276', '19911913625000100182', 'Kafrul', '272', '7B', 'Senpara', '1216', '2017-09-13-12-55-22_Bishwanath.jpg', 11, 'Subrota Sen', '+8801745405278', '19941913625011238', 'Feni sador,Feni,Chittagong.                               ', '2017-09-13-13-13-31_18447282_901621866646283_7469173061451455262_n.jpg', '2017-10-12 11:47:54', '2017-10-12 11:50:38', 'inactive'),
+(45, 18, 'Tanver Ahmed', '+8801545405270', '19911913625000100152', 'Kafrul', '75', '1A', 'Senpara', '1216', '2017-07-10-00-39-54_IMG_0211_thumb.JPG', 11, 'Subrota Sen', '+8801745405278', '19941913625011238', 'Feni sador,Feni,Chittagong.                               ', '2017-09-13-13-13-31_18447282_901621866646283_7469173061451455262_n.jpg', '2017-10-12 11:50:38', '2017-10-12 11:50:38', 'active');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `renter_tracking_tbl_details`
+--
+
+CREATE TABLE IF NOT EXISTS `renter_tracking_tbl_details` (
+  `id` int(11) NOT NULL,
+  `tracking_id` int(11) NOT NULL,
+  `lnd_id` varchar(30) NOT NULL,
+  `lnd_fullname` varchar(40) NOT NULL,
+  `lnd_phone` varchar(15) NOT NULL,
+  `lnd_nid` varchar(30) NOT NULL,
+  `lnd_police_station` varchar(30) NOT NULL,
+  `lnd_holding_no` varchar(10) NOT NULL,
+  `lnd_road_no` varchar(10) NOT NULL,
+  `lnd_locality` varchar(30) NOT NULL,
+  `lnd_postcode` varchar(10) NOT NULL,
+  `lnd_photo` varchar(100) NOT NULL,
+  `renter_started_date` datetime NOT NULL,
+  `renter_ending_date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Indexes for dumped tables
@@ -638,6 +688,12 @@ ALTER TABLE `renter_tracking_tbl`
   ADD PRIMARY KEY (`tracking_id`);
 
 --
+-- Indexes for table `renter_tracking_tbl_details`
+--
+ALTER TABLE `renter_tracking_tbl_details`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -650,7 +706,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `ads_account_general`
 --
 ALTER TABLE `ads_account_general`
-  MODIFY `ad_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+  MODIFY `ad_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `landloard`
 --
@@ -665,7 +721,7 @@ ALTER TABLE `lnd_driver`
 -- AUTO_INCREMENT for table `lnd_familymember`
 --
 ALTER TABLE `lnd_familymember`
-  MODIFY `family_member_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
+  MODIFY `family_member_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `lnd_homeworker`
 --
@@ -680,32 +736,37 @@ ALTER TABLE `metro_police`
 -- AUTO_INCREMENT for table `publicity`
 --
 ALTER TABLE `publicity`
-  MODIFY `publicity_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=43;
+  MODIFY `publicity_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=46;
 --
 -- AUTO_INCREMENT for table `renter`
 --
 ALTER TABLE `renter`
-  MODIFY `renter_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+  MODIFY `renter_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `renter_driver`
 --
 ALTER TABLE `renter_driver`
-  MODIFY `driver_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+  MODIFY `driver_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `renter_familymember`
 --
 ALTER TABLE `renter_familymember`
-  MODIFY `family_member_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
+  MODIFY `family_member_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=293;
 --
 -- AUTO_INCREMENT for table `renter_homeworker`
 --
 ALTER TABLE `renter_homeworker`
-  MODIFY `homeworker_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+  MODIFY `homeworker_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `renter_tracking_tbl`
 --
 ALTER TABLE `renter_tracking_tbl`
-  MODIFY `tracking_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+  MODIFY `tracking_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=46;
+--
+-- AUTO_INCREMENT for table `renter_tracking_tbl_details`
+--
+ALTER TABLE `renter_tracking_tbl_details`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --

@@ -516,6 +516,23 @@ class Super_admin extends CI_Controller {
         }
     }
 
+    //Renter Profile View
+    public function renter_profile_view()
+    {
+        $data=array();
+        $id = $this->input->post('renter_id');
+        $data['renterData'] = $this->MyModel->findById('renter','renter_id', $id);
+        $data['renterDriverData'] = $this->MyModel->findById('renter_driver','renter_id', $id);
+        $data['renterFamilyMData'] = $this->MyModel->findById('renter_familymember','renter_id', $id);
+        $data['renterHomeWrkData'] = $this->MyModel->findById('renter_homeworker','renter_id', $id);
+        //die(print_r($data));
+        if ($data) {
+            $updateForm = $this->load->view('dashboard/renter_profile_page', $data, TRUE);
+            echo $updateForm;
+            exit;
+        }
+    }
+
     //Renter Update
     public function updateRenter()
     {
