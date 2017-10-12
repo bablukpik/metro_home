@@ -638,96 +638,80 @@ class Super_admin extends CI_Controller {
             if ($renterInsertId){
                 $sdata['message'] = 'Renter updated successfully';
                 $sdata['success'] = 'Renter updated successfully';
+            }
+            //renter_familymember Table (02)
+            $renterFMData['family_member_id'] = $this->input->post('family_member_id');
+            $renterFMData['family_member_name'] = $this->input->post('family_member_name');
+            $renterFMData['family_member_age'] = $this->input->post('family_member_age');
+            $renterFMData['family_member_job'] = $this->input->post('family_member_job');
+            $renterFMData['family_member_phone'] = $this->input->post('family_member_phone');
 
-                //renter_familymember Table (02)
-                $renterFMData['family_member_id'] = $this->input->post('family_member_id');
-                $renterFMData['family_member_name'] = $this->input->post('family_member_name');
-                $renterFMData['family_member_age'] = $this->input->post('family_member_age');
-                $renterFMData['family_member_job'] = $this->input->post('family_member_job');
-                $renterFMData['family_member_phone'] = $this->input->post('family_member_phone');
+            //Form array type data fetch
+            for($i = 0; $i < count($renterFMData['family_member_name']); $i++) {
+                $batch[] = array(
+                    "family_member_id" => $renterFMData['family_member_id'][$i],
+                    "family_member_name" => $renterFMData['family_member_name'][$i],
+                    "family_member_age" => $renterFMData['family_member_age'][$i],
+                    "family_member_job" => $renterFMData['family_member_job'][$i],
+                    "family_member_phone" => $renterFMData['family_member_phone'][$i]
+                );
+            }
+            //die(var_dump($batch));
+            $renterFMInsertId = $this->MyModel->updateByBatch('renter_familymember','family_member_id',$batch);
 
-                //Form array type data fetch
-                for($i = 0; $i < count($renterFMData['family_member_name']); $i++) {
-                    $batch[] = array(
-                        "family_member_id" => $renterFMData['family_member_id'][$i],
-                        "family_member_name" => $renterFMData['family_member_name'][$i],
-                        "family_member_age" => $renterFMData['family_member_age'][$i],
-                        "family_member_job" => $renterFMData['family_member_job'][$i],
-                        "family_member_phone" => $renterFMData['family_member_phone'][$i]
-                    );
-                }
-                //die(var_dump($batch));
-                $renterFMInsertId = $this->MyModel->updateByBatch('renter_familymember','family_member_id',$batch);
-
-                if($renterFMInsertId){
-                    $sdata['success'] = 'Renter family member updated successfully';
-                }else{
-                    $sdata['failure'] = 'Renter family member updated failure';
-                }
-
-                //If new family member added in form then insert instead of update
-                $newRenterFMData['renter_id'] = $renter_id;
-                $newRenterFMData['family_member_name'] = $this->input->post('new_family_member_name');
-                $newRenterFMData['family_member_age'] = $this->input->post('new_family_member_age');
-                $newRenterFMData['family_member_job'] = $this->input->post('new_family_member_job');
-                $newRenterFMData['family_member_phone'] = $this->input->post('new_family_member_phone');
-
-                if ($newRenterFMData['family_member_name']){
-                    for($i = 0; $i < count($newRenterFMData['family_member_name']); $i++)
-                        $newBatch[] = array(
-                            "renter_id" => $renter_id,
-                            "family_member_name" => $newRenterFMData['family_member_name'][$i],
-                            "family_member_age" => $newRenterFMData['family_member_age'][$i],
-                            "family_member_job" => $newRenterFMData['family_member_job'][$i],
-                            "family_member_phone" => $newRenterFMData['family_member_phone'][$i]
-                        );
-                    $this->MyModel->saveByBatch('renter_familymember',$newBatch);
-                }
-
-                //renter_homeworker Table (03)
-                $homeworker_id = $this->input->post('homeworker_id');
-                $renterHWData['homeworker_name'] = $this->input->post('homeworker_name');
-                $renterHWData['homeworker_nid'] = $this->input->post('homeworker_nid');
-                $renterHWData['homeworker_phone'] = $this->input->post('homeworker_phone');
-                $renterHWData['homeworker_permanent_add'] = $this->input->post('homeworker_permanent_add');
-
-                $renterHWInsertId = $this->MyModel->update('renter_homeworker','homeworker_id',$homeworker_id,$renterHWData);
-
-                if($renterHWInsertId){
-                    $sdata['renterHWSuccess'] = 'Renter home worker updated successfully';
-                }else{
-                    $sdata['renterHWFailure'] = 'Renter home worker updated failure!';
-                }
-
-                //renter_driver Table (04)
-                $driver_id = $this->input->post('driver_id');
-                $renter_driverData['driver_name'] = $this->input->post('driver_name');
-                $renter_driverData['driver_nid'] = $this->input->post('driver_nid');
-                $renter_driverData['driver_phone'] = $this->input->post('driver_phone');
-                $renter_driverData['driver_permanent_add'] = $this->input->post('driver_permanent_add');
-
-                $renterDriverInsertId = $this->MyModel->update('renter_driver','driver_id',$driver_id,$renter_driverData);
-
-                if($renterDriverInsertId){
-                    $sdata['renterDriverSuccess'] = 'Renter driver updated successfully';
-                }else{
-                    $sdata['renterDriverFailure'] = 'Renter driver updated failure!';
-                }
-
-                $this->session->set_userdata($sdata);
-                //Error msg for picture upload
-                if($renter_photo == ''){
-                    $this->session->set_flashdata('error_msg_photo_renter', 'Photo has not been updated');
-                }
-                redirect('super_admin/renterManage');
-            }else{
-                $sdata['message'] = 'Try again! Renter updated failure';
-                $sdata['renterAddedFailure'] = 'Try again! Renter updated failure';
-                $this->session->set_userdata($sdata);
-                redirect('super_admin/renterManage');
+            if($renterFMInsertId){
+                $sdata['success'] = 'Renter updated successfully';
             }
 
+            //If new family member added in form then insert instead of update
+            $newRenterFMData['renter_id'] = $renter_id;
+            $newRenterFMData['family_member_name'] = $this->input->post('new_family_member_name');
+            $newRenterFMData['family_member_age'] = $this->input->post('new_family_member_age');
+            $newRenterFMData['family_member_job'] = $this->input->post('new_family_member_job');
+            $newRenterFMData['family_member_phone'] = $this->input->post('new_family_member_phone');
+
+            if ($newRenterFMData['family_member_name']){
+                for($i = 0; $i < count($newRenterFMData['family_member_name']); $i++)
+                    $newBatch[] = array(
+                        "renter_id" => $renter_id,
+                        "family_member_name" => $newRenterFMData['family_member_name'][$i],
+                        "family_member_age" => $newRenterFMData['family_member_age'][$i],
+                        "family_member_job" => $newRenterFMData['family_member_job'][$i],
+                        "family_member_phone" => $newRenterFMData['family_member_phone'][$i]
+                    );
+                $this->MyModel->saveByBatch('renter_familymember',$newBatch);
+            }
+
+            //renter_homeworker Table (03)
+            $homeworker_id = $this->input->post('homeworker_id');
+            $renterHWData['homeworker_name'] = $this->input->post('homeworker_name');
+            $renterHWData['homeworker_nid'] = $this->input->post('homeworker_nid');
+            $renterHWData['homeworker_phone'] = $this->input->post('homeworker_phone');
+            $renterHWData['homeworker_permanent_add'] = $this->input->post('homeworker_permanent_add');
+
+            $renterHWInsertId = $this->MyModel->update('renter_homeworker','homeworker_id',$homeworker_id,$renterHWData);
+
+            if($renterHWInsertId){
+                $sdata['success'] = 'Renter updated successfully';
+            }
+
+            //renter_driver Table (04)
+            $driver_id = $this->input->post('driver_id');
+            $renter_driverData['driver_name'] = $this->input->post('driver_name');
+            $renter_driverData['driver_nid'] = $this->input->post('driver_nid');
+            $renter_driverData['driver_phone'] = $this->input->post('driver_phone');
+            $renter_driverData['driver_permanent_add'] = $this->input->post('driver_permanent_add');
+
+            $renterDriverInsertId = $this->MyModel->update('renter_driver','driver_id',$driver_id,$renter_driverData);
+
+            if($renterDriverInsertId){
+                $sdata['success'] = 'Renter updated successfully';
+            }
+            $this->session->set_userdata($sdata);
+            redirect('super_admin/renterManage');
         }else{
+            $sdata['failure'] = "Try again";
+            $this->session->set_userdata($sdata);
             redirect('super_admin/renterManage');
         }
     }
