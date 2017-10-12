@@ -763,6 +763,24 @@ class Super_admin extends CI_Controller {
             exit;
         }
     }
+    //Landlord Profile View
+    public function landlord_profile_form()
+    {
+        $data=array();
+        $id = $this->input->post('lnd_id');
+        //die($id);
+        $data['lndData'] = $this->MyModel->findById('landloard','lnd_id', $id);
+        $data['lndDriverData'] = $this->MyModel->findById('lnd_driver','lnd_id', $id);
+        $data['lndFamilyMData'] = $this->MyModel->findById('lnd_familymember','lnd_id', $id);
+        $data['lndHomeWrkData'] = $this->MyModel->findById('lnd_homeworker','lnd_id', $id);
+        //die(var_dump($data));
+
+        if ($data) {
+            $updateForm = $this->load->view('dashboard/landlord_profile_page', $data, TRUE);
+            echo $updateForm;
+            exit;
+        }
+    }
 
     //Renter Update
     public function updateLandlord()

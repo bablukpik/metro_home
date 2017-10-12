@@ -26,7 +26,7 @@
                         <?php $i=0; foreach ($landlord_all as $key1=>$row1): $i++ ?>
                         <tr>
                             <?php echo '<td style="width:5%">'.$i.'</td>'; ?>
-                            <?php echo '<td>'.$row1->lnd_fullname.'</td>'; ?>
+                            <td><a class="lnd_profile" data-id="<?php echo $row1->lnd_id; ?>" href="#"><?php echo $row1->lnd_fullname;?></a></td>
                             <?php echo '<td>'.$row1->lnd_nid.'</td>'; ?>
                             <?php echo '<td>'.$row1->lnd_phone.'</td>'; ?>
                             <?php echo '<td><img src="'.base_url('uploads/').$row1->lnd_photo.'" width="70" alt="Landlord Photo"></td>'; ?>
@@ -52,6 +52,8 @@
 <div class="row">
     <button style="visibility: hidden;" type="button" id="lnd_update_dialog_btn" class="btn btn-default btn-create" data-toggle="modal" data-target="#lnd_update_dialog_target">Update Landlord</button>
     <?php $this->load->view('dialogs/landlord_update_dialog'); ?>
+    <button style="visibility: hidden;" type="button" id="lnd_profile_dialog_btn" class="btn btn-default btn-create" data-toggle="modal" data-target="#lnd_profile_dialog_target">Update Landlord</button>
+    <?php $this->load->view('dialogs/landlord_profile_dialog'); ?>
 </div>
 
 <script>
@@ -95,6 +97,29 @@
                 success:function(data){
                     $('#lnd_update_dialog_btn').trigger('click');
                     $("#lnd_update_dialogasdf").html(data);
+                   /* $('.datetimepicker').datetimepicker({
+                        format: 'DD/MM/YYYY'
+                    });*/
+                },
+                error:function(){
+                    alert('Error updating');
+                }
+            });
+        });
+
+        //Landlord Profile View
+        $('.lnd_profile').on('click',function(){
+
+            var id = $(this).data('id');
+            var url = '<?php echo base_url("super_admin/landlord_profile_form"); ?>';
+
+            $.ajax({
+                type:'post',
+                url:url,
+                data:{lnd_id:id},
+                success:function(data){
+                    $('#lnd_profile_dialog_btn').trigger('click');
+                    $("#lnd_profile_dialogasdf").html(data);
                    /* $('.datetimepicker').datetimepicker({
                         format: 'DD/MM/YYYY'
                     });*/
