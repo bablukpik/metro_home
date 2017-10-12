@@ -872,97 +872,82 @@ class Super_admin extends CI_Controller {
             if ($lndInsertId){
                 $sdata['success'] = 'Landlord updated successfully';
                 $sdata['lndAddedSussess'] = 'Landlord updated successfully';
-
-                //lnd_familymember Table (02)
-                $lndFMData['family_member_id'] = $this->input->post('family_member_id');
-                $lndFMData['family_member_name'] = $this->input->post('family_member_name');
-                $lndFMData['family_member_age'] = $this->input->post('family_member_age');
-                $lndFMData['family_member_job'] = $this->input->post('family_member_job');
-                $lndFMData['family_member_phone'] = $this->input->post('family_member_phone');
-
-                //Form array type data fetch
-                for($i = 0; $i < count($lndFMData['family_member_name']); $i++) {
-                    $batch[] = array(
-                        "family_member_id" => $lndFMData['family_member_id'][$i],
-                        "family_member_name" => $lndFMData['family_member_name'][$i],
-                        "family_member_age" => $lndFMData['family_member_age'][$i],
-                        "family_member_job" => $lndFMData['family_member_job'][$i],
-                        "family_member_phone" => $lndFMData['family_member_phone'][$i]
-                    );
-                }
-                //die(var_dump($batch));
-
-                $lndFMInsertId = $this->MyModel->updateByBatch('lnd_familymember','family_member_id',$batch);
-
-                if($lndFMInsertId){
-                    $sdata['success'] = 'Landlord family member updated successfully';
-                }else{
-                    $sdata['failure'] = 'Landlord family member updated failure';
-                }
-
-                //If new family member added in form then insert instead of update
-                $newLndFMData['family_member_name'] = $this->input->post('new_family_member_name');
-                $newLndFMData['family_member_age'] = $this->input->post('new_family_member_age');
-                $newLndFMData['family_member_job'] = $this->input->post('new_family_member_job');
-                $newLndFMData['family_member_phone'] = $this->input->post('new_family_member_phone');
-
-                if ($newLndFMData['family_member_name']){
-                    for($i = 0; $i < count($newLndFMData['family_member_name']); $i++)
-                        $newBatch[] = array(
-                            "lnd_id" => $lnd_id,
-                            "family_member_name" => $newLndFMData['family_member_name'][$i],
-                            "family_member_age" => $newLndFMData['family_member_age'][$i],
-                            "family_member_job" => $newLndFMData['family_member_job'][$i],
-                            "family_member_phone" => $newLndFMData['family_member_phone'][$i]
-                        );
-                    $this->MyModel->saveByBatch('lnd_familymember', $newBatch);
-                }
-
-                //lnd_homeworker Table (03)
-                $homeworker_id = $this->input->post('homeworker_id');
-                $lndHWData['lnd_id'] = $lndInsertId; /* foreign key*/
-                $lndHWData['homeworker_name'] = $this->input->post('homeworker_name');
-                $lndHWData['homeworker_nid'] = $this->input->post('homeworker_nid');
-                $lndHWData['homeworker_phone'] = $this->input->post('homeworker_phone');
-                $lndHWData['homeworker_permanent_add'] = $this->input->post('homeworker_permanent_add');
-
-                $lndHWInsertId = $this->MyModel->update('lnd_homeworker','homeworker_id',$homeworker_id, $lndHWData);
-
-
-                if($lndHWInsertId){
-                    $sdata['success'] = 'Landlord home worker updated successfully';
-                }else{
-                    $sdata['failure'] = 'Landlord home worker updated failure!';
-                }
-
-                //lnd_driver Table (04)
-                $driver_id = $this->input->post('driver_id'); /* foreign key*/
-                $lnd_driverData['lnd_id'] = $lndInsertId; /* foreign key*/
-                $lnd_driverData['driver_name'] = $this->input->post('driver_name');
-                $lnd_driverData['driver_nid'] = $this->input->post('driver_nid');
-                $lnd_driverData['driver_phone'] = $this->input->post('driver_phone');
-                $lnd_driverData['driver_permanent_add'] = $this->input->post('driver_permanent_add');
-
-                $lndDriverInsertId = $this->MyModel->update('lnd_driver','driver_id',$driver_id,$lnd_driverData);
-
-                if($lndDriverInsertId){
-                    $sdata['success'] = 'Landlord driver updated successfully';
-                }else{
-                    $sdata['failure'] = 'Landlord driver updated failure!';
-                }
-                //Error msg for picture upload
-                if($lnd_photo == ''){
-                    $sdata['error_msg_photo_renter'] = 'Photo has not been updated!!';
-                }
-                $this->session->set_userdata($sdata);
-
-                redirect('super_admin/landlordManage');
-            }else{
-                $sdata['message'] = 'Try again! Landlord updated failure';
-                $sdata['failure'] = 'Try again! Landlord updated failure';
-                $this->session->set_userdata($sdata);
-                redirect('super_admin/landlordManage');
             }
+
+            //lnd_familymember Table (02)
+            $lndFMData['family_member_id'] = $this->input->post('family_member_id');
+            $lndFMData['family_member_name'] = $this->input->post('family_member_name');
+            $lndFMData['family_member_age'] = $this->input->post('family_member_age');
+            $lndFMData['family_member_job'] = $this->input->post('family_member_job');
+            $lndFMData['family_member_phone'] = $this->input->post('family_member_phone');
+
+            //Form array type data fetch
+            for($i = 0; $i < count($lndFMData['family_member_name']); $i++) {
+                $batch[] = array(
+                    "family_member_id" => $lndFMData['family_member_id'][$i],
+                    "family_member_name" => $lndFMData['family_member_name'][$i],
+                    "family_member_age" => $lndFMData['family_member_age'][$i],
+                    "family_member_job" => $lndFMData['family_member_job'][$i],
+                    "family_member_phone" => $lndFMData['family_member_phone'][$i]
+                );
+            }
+            //die(var_dump($batch));
+
+            $lndFMInsertId = $this->MyModel->updateByBatch('lnd_familymember','family_member_id',$batch);
+
+            if($lndFMInsertId){
+                $sdata['success'] = 'Landlord updated successfully';
+            }
+
+            //If new family member added in form then insert instead of update
+            $newLndFMData['family_member_name'] = $this->input->post('new_family_member_name');
+            $newLndFMData['family_member_age'] = $this->input->post('new_family_member_age');
+            $newLndFMData['family_member_job'] = $this->input->post('new_family_member_job');
+            $newLndFMData['family_member_phone'] = $this->input->post('new_family_member_phone');
+
+            if ($newLndFMData['family_member_name']){
+                for($i = 0; $i < count($newLndFMData['family_member_name']); $i++)
+                    $newBatch[] = array(
+                        "lnd_id" => $lnd_id,
+                        "family_member_name" => $newLndFMData['family_member_name'][$i],
+                        "family_member_age" => $newLndFMData['family_member_age'][$i],
+                        "family_member_job" => $newLndFMData['family_member_job'][$i],
+                        "family_member_phone" => $newLndFMData['family_member_phone'][$i]
+                    );
+                $this->MyModel->saveByBatch('lnd_familymember', $newBatch);
+            }
+
+            //lnd_homeworker Table (03)
+            $homeworker_id = $this->input->post('homeworker_id');
+            $lndHWData['lnd_id'] = $lndInsertId; /* foreign key*/
+            $lndHWData['homeworker_name'] = $this->input->post('homeworker_name');
+            $lndHWData['homeworker_nid'] = $this->input->post('homeworker_nid');
+            $lndHWData['homeworker_phone'] = $this->input->post('homeworker_phone');
+            $lndHWData['homeworker_permanent_add'] = $this->input->post('homeworker_permanent_add');
+
+            $lndHWInsertId = $this->MyModel->update('lnd_homeworker','homeworker_id',$homeworker_id, $lndHWData);
+
+
+            if($lndHWInsertId){
+                $sdata['success'] = 'Landlord updated successfully';
+            }
+            //lnd_driver Table (04)
+            $driver_id = $this->input->post('driver_id'); /* foreign key*/
+            $lnd_driverData['lnd_id'] = $lndInsertId; /* foreign key*/
+            $lnd_driverData['driver_name'] = $this->input->post('driver_name');
+            $lnd_driverData['driver_nid'] = $this->input->post('driver_nid');
+            $lnd_driverData['driver_phone'] = $this->input->post('driver_phone');
+            $lnd_driverData['driver_permanent_add'] = $this->input->post('driver_permanent_add');
+
+            $lndDriverInsertId = $this->MyModel->update('lnd_driver','driver_id',$driver_id,$lnd_driverData);
+
+            if($lndDriverInsertId){
+                $sdata['success'] = 'Landlord updated successfully';
+            }
+
+            $this->session->set_userdata($sdata);
+            redirect('super_admin/landlordManage');
+
         }else{
             $sdata['message'] = 'Try again! Landlord updated failure';
             $sdata['failure'] = 'Try again! Landlord updated failure';

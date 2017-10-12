@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac65e9e2-0f79-41ca-ad13-1718b875aa82" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/super_admin.php" afterPath="$PROJECT_DIR$/application/controllers/super_admin.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,30 +13,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="super_admin.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="super_admin.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/super_admin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="717" column="23" lean-forward="true" selection-start-line="717" selection-start-column="23" selection-end-line="717" selection-end-column="23" />
+            <state relative-caret-position="33">
+              <caret line="931" column="46" lean-forward="false" selection-start-line="931" selection-start-column="46" selection-end-line="931" selection-end-column="46" />
               <folding>
-                <marker date="1507846318743" expanded="true" signature="16826:16837" ph="..." />
-                <marker date="1507846318743" expanded="true" signature="16934:16943" ph="..." />
-                <marker date="1507846318743" expanded="true" signature="17061:17070" ph="..." />
-                <marker date="1507846318743" expanded="true" signature="17206:17216" ph="..." />
-                <marker date="1507846318743" expanded="true" signature="19830:19876" ph="..." />
-                <marker date="1507846318743" expanded="true" signature="19958:20004" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="renterManagePage.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/dashboard/renterManagePage.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="16">
-              <caret line="54" column="175" lean-forward="false" selection-start-line="54" selection-start-column="154" selection-end-line="54" selection-end-column="175" />
-              <folding>
-                <element signature="n#style#0;n#button#1;n#div#1;n#!!top" expanded="true" />
+                <marker date="1507846882584" expanded="true" signature="16826:16837" ph="..." />
+                <marker date="1507846882584" expanded="true" signature="16934:16943" ph="..." />
+                <marker date="1507846882584" expanded="true" signature="17061:17070" ph="..." />
+                <marker date="1507846882584" expanded="true" signature="17206:17216" ph="..." />
+                <marker date="1507846882584" expanded="true" signature="19830:19876" ph="..." />
+                <marker date="1507846882584" expanded="true" signature="19958:20004" ph="..." />
               </folding>
             </state>
           </provider>
@@ -430,7 +417,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="399455000" />
+    <option name="totallyTimeSpent" value="400106000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -808,27 +795,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/super_admin.php">
+    <entry file="file://$PROJECT_DIR$/application/views/dashboard/renterManagePage.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="717" column="23" lean-forward="true" selection-start-line="717" selection-start-column="23" selection-end-line="717" selection-end-column="23" />
+        <state relative-caret-position="169">
+          <caret line="63" column="56" lean-forward="true" selection-start-line="63" selection-start-column="56" selection-end-line="63" selection-end-column="56" />
           <folding>
-            <marker date="1507846318743" expanded="true" signature="16826:16837" ph="..." />
-            <marker date="1507846318743" expanded="true" signature="16934:16943" ph="..." />
-            <marker date="1507846318743" expanded="true" signature="17061:17070" ph="..." />
-            <marker date="1507846318743" expanded="true" signature="17206:17216" ph="..." />
-            <marker date="1507846318743" expanded="true" signature="19830:19876" ph="..." />
-            <marker date="1507846318743" expanded="true" signature="19958:20004" ph="..." />
+            <element signature="n#style#0;n#button#1;n#div#1;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/dashboard/renterManagePage.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/super_admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="54" column="175" lean-forward="false" selection-start-line="54" selection-start-column="154" selection-end-line="54" selection-end-column="175" />
+        <state relative-caret-position="33">
+          <caret line="931" column="46" lean-forward="false" selection-start-line="931" selection-start-column="46" selection-end-line="931" selection-end-column="46" />
           <folding>
-            <element signature="n#style#0;n#button#1;n#div#1;n#!!top" expanded="true" />
+            <marker date="1507846882584" expanded="true" signature="16826:16837" ph="..." />
+            <marker date="1507846882584" expanded="true" signature="16934:16943" ph="..." />
+            <marker date="1507846882584" expanded="true" signature="17061:17070" ph="..." />
+            <marker date="1507846882584" expanded="true" signature="17206:17216" ph="..." />
+            <marker date="1507846882584" expanded="true" signature="19830:19876" ph="..." />
+            <marker date="1507846882584" expanded="true" signature="19958:20004" ph="..." />
           </folding>
         </state>
       </provider>
