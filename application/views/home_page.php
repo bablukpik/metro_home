@@ -246,7 +246,7 @@
         active_nav();
     });
     function active_nav() {
-        debugger
+        //debugger
         var path = window.location.pathname;
         path = path.replace(/\/$/,"");
         path = decodeURIComponent(path);

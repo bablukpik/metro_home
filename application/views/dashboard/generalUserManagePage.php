@@ -27,7 +27,7 @@
                         <?php $i=0; foreach ($generalUserAll as $key1=>$row1): $i++ ?>
                         <tr>
                             <?php echo '<td style="width:5%">'.$i.'</td>'; ?>
-                            <?php echo '<td>'.$row1->ad_lnd_first_name.'</td>'; ?>
+                            <td><a class="general_user_profile" data-id="<?php echo $row1->ad_id; ?>" href="#"><?php echo $row1->ad_lnd_first_name;?></a></td>
                             <?php echo '<td>'.$row1->ad_lnd_last_name.'</td>'; ?>
                             <?php echo '<td>'.$row1->ad_lnd_mobile.'</td>'; ?>
                             <?php echo '<td><img src="'.base_url('uploads/general_user/').$row1->ad_user_photo.'" width="70" alt="General User Photo"></td>'; ?>
@@ -53,23 +53,26 @@
 <div class="row">
     <button style="visibility: hidden;" type="button" id="general_user_update_dialog_btn" class="btn btn-default btn-create" data-toggle="modal" data-target="#general_user_update_dialog_target">Update General</button>
     <?php $this->load->view('dialogs/general_user_update_dialog'); ?>
+
+    <button style="visibility: hidden;" type="button" id="general_user_profile_dialog_btn" class="btn btn-default btn-create" data-toggle="modal" data-target="#general_user_profile_dialog_target">Profile General</button>
+    <?php $this->load->view('dialogs/general_user_profile_dialog'); ?>
 </div>
 
 <script>
 
     window.onload = function(){
         //delete
-        $('.lnd_delete').on('click',function(){
+        $('.general_user_delete').on('click',function(){
             var deleted_row = $(this).parent().parent();
             var id = $(this).data('id');
-            var url = '<?php echo base_url("renter/delete"); ?>';
+            var url = '<?php echo base_url("super_admin/generalDelete"); ?>';
 
             if (confirm('Are you sure to delete?')) {
                 $.ajax({
                     type:'post',
                     url:url,
                     cache: false,
-                    data:{renter_id:id},
+                    data:{general_user_id:id},
                     success:function(data){
                         if (data=='yes') {
                             deleted_row.fadeOut().remove();
@@ -96,6 +99,29 @@
                 success:function(data){
                     $('#general_user_update_dialog_btn').trigger('click');
                     $("#general_user_update_data").html(data);
+                    $('.datetimepicker').datetimepicker({
+                        format: 'DD/MM/YYYY'
+                    });
+                },
+                error:function(){
+                    alert('Error updating');
+                }
+            });
+        });
+
+        //General User Profile
+        $('.general_user_profile').on('click',function(){
+            var id = $(this).data('id');
+            //alert(id);
+            var url = '<?php echo base_url("super_admin/general_user_profile_form"); ?>';
+
+            $.ajax({
+                type:'post',
+                url:url,
+                data:{ad_id:id},
+                success:function(data){
+                    $('#general_user_profile_dialog_btn').trigger('click');
+                    $("#general_user_profile_data").html(data);
                     $('.datetimepicker').datetimepicker({
                         format: 'DD/MM/YYYY'
                     });
@@ -154,8 +180,7 @@
             var reader = new FileReader();
                 reader.onload = function (e) {
                     $('#general_user_photo_preview').attr('src', e.target.result);
-                }
-
+                };
                 reader.readAsDataURL(input.files[0]);
             }
         }

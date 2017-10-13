@@ -984,6 +984,20 @@ class Super_admin extends CI_Controller {
         }
     }
 
+    //Renter Update Form
+    public function general_user_profile_form()
+    {
+        $data=array();
+        $id = $this->input->post('ad_id');
+        $data['generalUserData'] = $this->MyModel->findById('ads_account_general','ad_id', $id);
+        //die(print_r($data));
+        if ($data) {
+            $updateForm = $this->load->view('dashboard/general_user_profile_page', $data, TRUE);
+            echo $updateForm;
+            exit;
+        }
+    }
+
     //General User Update
     public function generalUserUpdate(){
         $id = $this->input->post('ad_id');
@@ -1100,5 +1114,17 @@ class Super_admin extends CI_Controller {
         }
     }
 
+    //Delete General User Using Ajax
+    public function generalDelete()
+    {
+        $id = $this->input->post("general_user_id");
+        $res1 = $this->MyModel->delete("ads_account_general", "ad_id", $id);
+
+        if ($res1){
+            echo "yes";
+        }else{
+            echo "no";
+        }
+    }
 
 }

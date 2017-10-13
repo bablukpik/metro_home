@@ -15,7 +15,7 @@
 
                             <input type="hidden" name="ad_id" value="<?php echo isset($generalUserData[0]->ad_id)?$generalUserData[0]->ad_id:''; ?>">
 
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="row">
                                     <?php if ($generalUserData[0]->ad_user_photo): ?>
                                     <img id='general_user_photo_preview' src="<?php echo base_url('uploads/general_user/'.$generalUserData[0]->ad_user_photo);?>" alt="আপনার ছবি দিন" class="img-thumbnail" width="150">
@@ -28,7 +28,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-9">
                                 <div class="row">
                                     <div class="form-group">
                                         <label for="lnd_district">First Name</label>
