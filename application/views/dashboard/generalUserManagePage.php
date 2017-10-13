@@ -8,7 +8,7 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <div class="text-muted bootstrap-admin-box-title">Manage Renter</div>
+                <div class="text-muted bootstrap-admin-box-title">Manage General User</div>
             </div>
             <div class="bootstrap-admin-panel-content">
                 <table class="text-center table table-striped table-bordered" style="table-layout:fixed; width:100%; word-wrap:break-word">

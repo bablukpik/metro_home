@@ -1,3 +1,8 @@
+    <style>
+        .form-control{
+            border-radius: 0px;
+        }
+    </style>
     <!-- Modal -->
     <div class="modal fade" id="lnd_profile_dialog_target" role="dialog" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog modal-lg" style="padding: 15px !important">
