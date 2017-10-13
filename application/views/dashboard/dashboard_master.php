@@ -152,7 +152,7 @@
             <!--Start Document Body-->
             <div class="row">
                 <!--Renter creation error message of Photo-->
-                <?php if($this->session->userdata('error_msg_photo_renter') || $this->session->userdata("successMsg") || $this->session->userdata("success") || $this->session->userdata("failure")): ?>
+                <?php if(/*$this->session->userdata('error_msg_photo_renter') || */$this->session->userdata("successMsg") || $this->session->userdata("success") || $this->session->userdata("failure")): ?>
                     <div style="max-width: 500px; margin: 0 auto; position: relative; z-index:999999; top: -35px;">
                         <div>
                             <!-- success Message-->
@@ -192,15 +192,15 @@
                             <!-- End Welcome and Data added success -->
 
                             <!--For image-->
-                            <?php if($error_msg_photo_renter =  $this->session->userdata('error_msg_photo_renter')): ?>
+                            <?php /*if($error_msg_photo_renter =  $this->session->userdata('error_msg_photo_renter')): */?><!--
                             <div class="welcome_msg alert alert-danger alert-dismissable" style="">
                                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                                 <?php
-                                echo "<h4>".(isset($error_msg_photo_renter)?$error_msg_photo_renter:'')."</h4>";
+/*                                echo "<h4>".(isset($error_msg_photo_renter)?$error_msg_photo_renter:'')."</h4>";
                                 $this->session->unset_userdata('error_msg_photo_renter');
-                                ?>
+                                */?>
                             </div>
-                            <?php endif;?>
+                            --><?php /*endif;*/?>
                         </div>
                     </div>
                 <?php endif;?>
