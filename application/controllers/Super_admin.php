@@ -59,12 +59,15 @@ class Super_admin extends CI_Controller {
 
 	public function logout()
 	{
-        $this->session->sess_destroy();
+        //$this->session->sess_destroy();
 		/*$this->session->unset_userdata("user_name");
 		$this->session->unset_userdata("user_pass");
 		$this->session->unset_userdata("user_type");
 		$sdata["message"] = "You are successfully logout";
 		$this->session->set_userdata($sdata);*/
+
+        session_unset();
+        session_destroy();
 		redirect("home");
 	}
 
